@@ -9,11 +9,11 @@
 
 ## Generierung
 - **Content:** Geräte, Partner/Sponsoren
-    - **dynamisch:** Geräte, Warenkorbliste
+    - **dynamisch:** Geräte, Warenkorbliste, (zufälliges) Guthaben
 - **Umfang:** 
     - **Hauptseite** Homepage über Geräteshop mit Verlinkungen
     - **Unterseiten:** Vorstellung der Partner/Sponsoren, Einstellungen, verschiedene Geräte (Laptops, Handys, ...), Warenkorb, Guthaben, Accounts, abgeschlossene Transaktion
 
 ## Dynamisierung und Interaktion
-- **Interaktionsmöglichkeiten:** Suche, Filter, Sortieren, Markieren (Favoriten), Bezahlen
+- **Interaktionsmöglichkeiten:** Suche nach Geräten, Filtern durch Geräteeigenschaften und Preis, Sortieren nach Preis, Markieren von Favoriten, Bezahlen
 - **Veränderung/Customization:** Mit versteckter Tastatur Wörter hinterlassen, Dark Mode
