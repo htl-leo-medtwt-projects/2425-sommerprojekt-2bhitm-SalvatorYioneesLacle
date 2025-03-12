@@ -1,4 +1,12 @@
+@font-face {
+    font-family: orbitron-regular;
+    src: url(../fonts/Orbitron/static/Orbitron-Regular.ttf);
+}
+
+
 * {
     margin: 0;
     padding: 0;
+    font-family: orbitron-regular;
+    box-sizing: border-box;
 }
