@@ -3,6 +3,15 @@
     src: url(../fonts/Orbitron/static/Orbitron-Regular.ttf);
 }
 
+@font-face {
+    font-family: orbitron-bold;
+    src: url(../fonts/Orbitron/static/Orbitron-Bold.ttf);
+}
+
+@font-face {
+    font-family: orbitron-black;
+    src: url(../fonts/Orbitron/static/Orbitron-Black.ttf);
+}
 
 * {
     margin: 0;
@@ -18,8 +27,7 @@ img {
 nav {
     display: flex;
     height: 7em;
-    /* height: 114px; */
-    /* padding: 0px 60px; */
+    /* padding: 0px 3em; */
     justify-content: center;
     align-items: center;
     border-bottom: 3.8px solid #FF6123;
@@ -32,7 +40,6 @@ nav #nav-logo {
     align-items: center;
     height: 100%;
     width: 100%;
-    /* align-self: stretch; */
 }
 
 nav #nav-logo img {
@@ -44,17 +51,15 @@ nav #nav-btns {
     display: flex;
     align-items: flex-start;
     flex: 1 0 0;
-    align-self: stretch;
 }
 
 nav #nav-btns>div {
     display: flex;
-    padding: 0px 25px;
+    padding: 0 1.5em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3px;
-    align-self: stretch;
+    gap: .4em;
 }
 
 nav #nav-btns>div>img {
@@ -65,6 +70,10 @@ nav #nav-btns>div>img {
 nav #nav-btns>div:nth-of-type(2)>img {
     width: 2.6em;
     height: 2em;
+}
+
+nav #nav-btns p {
+    font-family: orbitron-black;
 }
 
 nav #nav-account {
