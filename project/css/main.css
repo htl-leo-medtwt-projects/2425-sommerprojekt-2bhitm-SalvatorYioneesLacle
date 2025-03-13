@@ -17,8 +17,9 @@ img {
 
 nav {
     display: flex;
-    height: 114px;
-    padding: 0px 60px;
+    height: 7em;
+    /* height: 114px; */
+    /* padding: 0px 60px; */
     justify-content: center;
     align-items: center;
     border-bottom: 3.8px solid #FF6123;
@@ -27,11 +28,11 @@ nav {
 
 nav #nav-logo {
     display: flex;
-    /* padding: 18px 23px; */
+    padding: 1em;
     align-items: center;
-    align-self: stretch;
-    height: 114px;
-    min-width: 114px;
+    height: 100%;
+    width: 100%;
+    /* align-self: stretch; */
 }
 
 nav #nav-logo img {
