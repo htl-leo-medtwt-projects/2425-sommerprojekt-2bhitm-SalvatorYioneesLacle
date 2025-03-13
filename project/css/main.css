@@ -27,16 +27,16 @@ nav {
 
 nav #nav-logo {
     display: flex;
-    padding: 18px 23px;
+    /* padding: 18px 23px; */
     align-items: center;
     align-self: stretch;
     height: 114px;
-    width: 114px;
+    min-width: 114px;
 }
 
 nav #nav-logo img {
-    height: 114px;
-    min-width: 114px;
+    height: 100%;
+    width: 100%;
 }
 
 nav #nav-btns {
