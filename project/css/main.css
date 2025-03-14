@@ -21,13 +21,12 @@
 }
 
 img {
-    /* width: 100%; */
+    width: 100%;
 }
 
 nav {
     display: flex;
     height: 5.5em;
-    /* justify-content: center; */
     align-items: center;
     border-bottom: 3.8px solid #FF6123;
     /* background: #ffffff; */
@@ -46,6 +45,7 @@ nav #nav-logo {
 
 nav #nav-logo img {
     height: 100%;
+    width: fit-content;
 }
 
 nav #nav-btns {
@@ -88,6 +88,7 @@ nav #nav-account {
 }
 
 nav #nav-items {
+    width: fit-content;
     /* width: 100%; */
     /* display: flex; */
     /* flex-direction: column; */
@@ -96,5 +97,5 @@ nav #nav-items {
 }
 
 nav #nav-items img {
-    width: 100%;
+    width: fit-content;
 }
