@@ -52,8 +52,12 @@ nav #nav-logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 5.5em; */
-    /* height: 100%; */
+    padding: 2em;
+    width: fit-content;
+}
+
+nav #nav-logo img {
+    width: 5em;
 }
 
 nav #nav-btns {
@@ -68,6 +72,7 @@ nav #nav-btns>div {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: .2em;
 }
 
 nav #nav-btns img {
@@ -79,6 +84,7 @@ nav #nav-account {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    gap: 1.5em;
 }
 
 nav #nav-account img {
@@ -87,7 +93,8 @@ nav #nav-account img {
 }
 
 nav #nav-items {
-    width: 10em;
+    width: 12em;
+    padding: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
