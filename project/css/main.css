@@ -81,21 +81,25 @@ nav #nav-btns>div:nth-of-type(2)>img {
 nav #nav-account {
     display: flex;
     width: 100%;
-    /* padding: 0px 5px; */
+    padding: 0px .5em;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
+    gap: 1em;
+}
+
+nav #nav-account img {
+    width: min-content;
 }
 
 nav #nav-items {
-    width: fit-content;
-    /* width: 100%; */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* align-items: center; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2%;
 }
 
 nav #nav-items img {
-    width: fit-content;
+    max-width: 5em;
+    max-height: 5em;
 }
