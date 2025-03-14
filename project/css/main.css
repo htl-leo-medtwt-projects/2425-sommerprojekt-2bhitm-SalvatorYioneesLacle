@@ -63,10 +63,32 @@ nav #nav-btns {
     gap: 2em;
 }
 
+nav #nav-btns>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+nav #nav-btns img {
+    width: 2em;
+}
+
 nav #nav-account {
     width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex-direction: row;
+}
+
+nav #nav-account img {
+    width: min-content;
+    height: 85%;
+}
+
+nav #nav-items {
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
