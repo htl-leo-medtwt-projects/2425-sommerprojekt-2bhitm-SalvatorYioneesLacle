@@ -106,3 +106,43 @@ nav #nav-items {
     justify-content: center;
     align-items: center;
 }
+
+nav #nav-items img {
+    flex-shrink: 0;
+    /* aspect-ratio: 55/43; */
+}
+
+#slideshow {
+    border-bottom: 3.8px solid var(--expert);
+    width: 100%;
+}
+
+#slideshow #imageCover {
+    backdrop-filter: blur(2.5px);
+}
+
+#imageCover div {
+    position: relative;
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    transform: rotate(25deg);
+    transform-origin: top left;
+    /* border-top: 1000px rgba(0, 0, 0, 0.35) solid; */
+}
+
+#content {
+    display: flex;
+    height: 900px;
+    padding-bottom: 55px;
+    justify-content: center;
+    align-items: center;
+}
+
+#deviceNav {
+    display: flex;
+    padding: 50px 150px;
+    flex-direction: column;
+    align-items: center;
+    gap: 55px;
+}
