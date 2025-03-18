@@ -146,3 +146,7 @@ nav #nav-items img {
     align-items: center;
     gap: 55px;
 }
+
+#imageShadow {
+    background-image: url(../img/Shadow.png);
+}
