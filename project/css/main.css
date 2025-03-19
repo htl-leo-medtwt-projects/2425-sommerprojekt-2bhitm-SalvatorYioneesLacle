@@ -26,6 +26,10 @@
     box-sizing: border-box;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 img {
     width: 100%;
 }
@@ -99,6 +103,16 @@ nav #nav-account img {
     height: 85%;
 }
 
+nav #nav-account p {
+    max-lines: 1;
+    line-break: strict;
+    display: -webkit-box;
+    /* max-width: 400px; */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+}
+
 nav #nav-items {
     width: 12em;
     padding: 2em;
@@ -109,7 +123,6 @@ nav #nav-items {
 
 nav #nav-items img {
     flex-shrink: 0;
-    /* aspect-ratio: 55/43; */
 }
 
 #slideshow {
@@ -138,7 +151,7 @@ nav #nav-items img {
     /* transform-origin: top left; */
     border-top: 1000px rgba(0, 0, 0, 0) solid;
     /* background-image: url(../img/ShadowMask.png); */
-    /* background-image: url(../img/Shadow.png); */
+    background-image: url(../img/Shadow.png);
 }
 
 #content {
@@ -168,8 +181,9 @@ nav #nav-items img {
 
 #btnDiv>div {
     display: flex;
-    width: 300px;
-    height: 347px;
+    width: 100%;
+    height: max-content;
+    background-color: #ff6123;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
