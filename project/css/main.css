@@ -17,6 +17,8 @@
 :root {
     --expert: #ff6123;
     --background: #ffffff;
+    --white: #ffffff;
+    --black: #000000;
 }
 
 * {
@@ -83,6 +85,7 @@ nav #nav-btns>div {
 
 nav #nav-btns>div:hover {
     background-color: var(--expert);
+    color: white;
 }
 
 nav #nav-btns img {
@@ -94,8 +97,10 @@ nav #nav-account {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    /* */
     text-align: right;
     gap: 1.5em;
+    max-lines: 1;
 }
 
 nav #nav-account img {
@@ -104,13 +109,13 @@ nav #nav-account img {
 }
 
 nav #nav-account p {
-    max-lines: 1;
-    line-break: strict;
     display: -webkit-box;
     /* max-width: 400px; */
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     line-clamp: 1;
+    overflow: hidden; 
+    text-overflow: clip;
 }
 
 nav #nav-items {
@@ -147,27 +152,26 @@ nav #nav-items img {
     /* position: absolute; */
     top: 0;
     left: 0;
-    transform: rotate(25deg);
-    /* transform-origin: top left; */
-    border-top: 1000px rgba(0, 0, 0, 0) solid;
-    /* background-image: url(../img/ShadowMask.png); */
+    transform-origin: top left;
+    border-top: 100px rgba(0, 0, 0, 0) solid;
     background-image: url(../img/Shadow.png);
 }
 
 #content {
     display: flex;
-    height: 900px;
-    padding-bottom: 55px;
+    height: 63em;
+    padding-bottom: 3em;
     justify-content: center;
     align-items: center;
 }
 
 #deviceNav {
     display: flex;
-    padding: 50px 150px;
+    /* padding: 50px 150px; */
+    padding: 2.5em 6.5em;
     flex-direction: column;
     align-items: center;
-    gap: 55px;
+    gap: 3em;
 }
 
 #btnDiv {
