@@ -13,6 +13,22 @@
     src: url(../fonts/Orbitron/static/Orbitron-Black.ttf);
 }
 
+@font-face {
+    font-family: orbitron-extrabold;
+    src: url(../fonts/Orbitron/static/Orbitron-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: orbitron-medium;
+    src: url(../fonts/Orbitron/static/Orbitron-Medium.ttf);
+}
+
+@font-face {
+    font-family: orbitron-semibold;
+    src: url(../fonts/Orbitron/static/Orbitron-SemiBold.ttf);
+}
+
+
 /* Colours */
 :root {
     --expert: #ff6123;
@@ -27,6 +43,34 @@
     font-family: orbitron-regular;
     box-sizing: border-box;
 }
+
+/* Genral classes */
+
+.bold {
+    font-family: orbitron-bold;
+}
+
+.extrabold {
+    font-family: orbitron-extrabold;
+}
+
+.semibold {
+    font-family: orbitron-semibold;
+}
+
+.medium {
+    font-family: orbitron-medium;
+}
+
+.regular {
+    font-family: orbitron-regular;
+}
+
+.black {
+    font-family: orbitron-black;
+}
+
+/* ######## */
 
 body {
     overflow-x: hidden;
@@ -181,7 +225,7 @@ nav #nav-items img {
 
 #content {
     display: flex;
-    height: 63em;
+    /* height: 63em; */
     padding-bottom: 3em;
     justify-content: center;
     align-items: center;
@@ -223,9 +267,13 @@ nav #nav-items img {
 #welcomeBoxText {
     padding: .2em;
     background-color: var(--white);
-    border: .02em solid black;
-    width: 55%;
+    border: .02em solid var(--black);
+    width: 65%;
     margin: 0 auto;
+}
+
+#welcomeBoxText div:last-of-type {
+    border-top: var(--white) .1em solid;
 }
 
 #welcomeBoxBackground {
