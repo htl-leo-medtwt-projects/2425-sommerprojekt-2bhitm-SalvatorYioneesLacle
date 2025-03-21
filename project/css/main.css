@@ -146,7 +146,7 @@ nav #nav-items img {
 }
 
 #slideshow #imageCover {
-    /* backdrop-filter: blur(2.5px); */
+    /* backdrop-filter: blur(.5px); */
 }
 
 #imageShadow {
@@ -155,8 +155,8 @@ nav #nav-items img {
     left: 0;
     transform-origin: top left;
     height: 14em;
-    background-image: url(../img/ShadowMask1.png);
-    background-size: 800%;
+    background-image: url(../img/ShadowMask2.png);
+    background-size: 80%;
     z-index: 9;
 }
 
@@ -195,3 +195,46 @@ nav #nav-items img {
     justify-content: center;
     align-items: flex-start;
 }
+
+#welcomeBox {
+    /* border: .02em solid black; */
+    padding: .2em;
+    width: 100%;
+}
+
+/* Dropdown Menu */
+/* .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s;
+    pointer-events: none;
+    border-radius: 0.5rem;
+  }
+
+  .dropdown:hover .dropdown-content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-content a {
+    color: #374151;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background: #f3f4f6;
+  } */
