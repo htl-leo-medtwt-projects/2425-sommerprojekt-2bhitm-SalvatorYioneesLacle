@@ -219,6 +219,10 @@ nav #nav-items img {
     margin: 0 auto;
 }
 
+#slideshowText>div {
+    padding: .45em;
+}
+
 #slideshowText div:last-of-type {
     border-top: var(--white) .1em solid;
 }
@@ -261,6 +265,9 @@ nav #nav-items img {
 #welcomeBox {
     position: relative;    
     width: 100%;
+    height: max-content;
+    padding: 3em 0;
+    overflow: hidden;
 }
 
 
@@ -270,6 +277,10 @@ nav #nav-items img {
     border: .02em solid var(--black);
     width: 65%;
     margin: 0 auto;
+}
+
+#welcomeBoxText>div {
+    padding: .45em;
 }
 
 #welcomeBoxText div:last-of-type {
