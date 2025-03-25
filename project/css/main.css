@@ -34,7 +34,7 @@
     --expert: #ff6123;
     --background: #ffffff;
     --white: #ffffff;
-    --black: #000000;
+    --black: #171717;
 }
 
 * {
@@ -42,9 +42,11 @@
     padding: 0;
     font-family: orbitron-regular;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding: 30%;
 }
 
-/* Genral classes */
+/* General classes */
 
 .bold {
     font-family: orbitron-bold;
@@ -186,33 +188,28 @@ nav #nav-items img {
     left: 0;
 }
 
-#slideshow #imageCover {
-    backdrop-filter: blur(3px);
+#imageCover img {
+    width: 100vw;
+    height: 4.4em;
 }
 
 #imageCover {
     position: absolute;
     bottom: 0;
-    left: 0;
-    transform-origin: top left;
-    /* height: 14em; */
     background-image: url(../img/ShadowMask.png);
-    background-size: 80%;
+    background-size: 85%;
     color: var(--white);
     z-index: 9;
+    backdrop-filter: blur(3px);
+    overflow: hidden;
 }
 
-#slideshowTextFlex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* position: relative; */
-    /* top: -5em; */
-    height: max-content;
+#slideshowBox {
+    padding-bottom: 4.4em;
 }
 
 #slideshowText {
-    background-color: hsla(0, 0%, 0%, 0.35);
+    background-color: var(--black);
     border: .1em var(--white) solid;
     padding: .9em;
     width: 65%;
@@ -227,9 +224,18 @@ nav #nav-items img {
     border-top: var(--white) .1em solid;
 }
 
+#slideshowText h2 {
+    font-family: orbitron-extrabold;
+    font-size: 2.6em;
+}
+
+#slideshowText p {
+    font-size: 1.2em;
+    letter-spacing: .06em;
+}
+
 #content {
     display: flex;
-    /* height: 63em; */
     padding-bottom: 3em;
     justify-content: center;
     align-items: center;
@@ -248,8 +254,6 @@ nav #nav-items img {
     padding: 3.5em 7.5em;
     justify-content: center;
     gap: 3em;
-    /* align-items: flex-start; */
-    /* align-self: stretch; */
 }
 
 #btnDiv>div {
@@ -263,7 +267,7 @@ nav #nav-items img {
 }
 
 #welcomeBox {
-    position: relative;    
+    position: relative;
     width: 100%;
     height: max-content;
     padding: 3em 0;
