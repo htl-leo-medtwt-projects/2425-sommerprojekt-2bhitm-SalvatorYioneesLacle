@@ -1,3 +1,8 @@
+function initPageIcon() {
+    document.getElementsByTagName('head').item(0).innerHTML+= `<link rel="icon" href="/img/logo.png" type="image/x-icon" />`
+}
+initPageIcon()
+
 function initNavigationbar() {
     let str = `
                 <div id="nav-logo">
@@ -35,6 +40,6 @@ function initAccountState() {
 
 }
 
-function name(params) {
+function name() {
     
 }
