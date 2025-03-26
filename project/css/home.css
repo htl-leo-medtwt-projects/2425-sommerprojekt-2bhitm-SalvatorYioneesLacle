@@ -1,0 +1,139 @@
+
+#slideshow {
+    position: relative;
+    border-bottom: 3.8px solid var(--expert);
+    width: 100%;
+    max-height: 47em;
+    overflow: hidden;
+}
+
+#slideshowImage {
+    height: max-content;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#imageCover img {
+    width: 100vw;
+    height: 4.4em;
+}
+
+#imageCover {
+    position: absolute;
+    bottom: 0;
+    background-image: url(../img/ShadowMask.png);
+    background-size: 85%;
+    color: var(--white);
+    z-index: 9;
+    backdrop-filter: blur(3px);
+    overflow: hidden;
+}
+
+#slideshowBox {
+    padding-bottom: 4.4em;
+}
+
+#slideshowText {
+    background-color: var(--black);
+    border: .1em var(--white) solid;
+    padding: .9em;
+    width: 65%;
+    margin: 0 auto;
+}
+
+#slideshowText>div {
+    padding: .45em;
+}
+
+#slideshowText div:last-of-type {
+    border-top: var(--white) .1em solid;
+}
+
+#slideshowText h2 {
+    font-family: orbitron-extrabold;
+    font-size: 2.6em;
+}
+
+#slideshowText p {
+    font-size: 1.2em;
+    letter-spacing: .06em;
+}
+
+#content {
+    display: flex;
+    padding-bottom: 3em;
+    justify-content: center;
+    align-items: center;
+}
+
+#deviceNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+}
+
+#btnDiv {
+    display: flex;
+    padding: 3.5em 7.5em;
+    justify-content: center;
+    gap: 3em;
+}
+
+#btnDiv>a {
+    display: flex;
+    width: 100%;
+    height: max-content;
+    background-color: var(--expert);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-decoration: none;
+    color: var(--black);
+}
+
+#welcomeBox {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    padding: 3em 0;
+    overflow: hidden;
+}
+
+
+#welcomeBoxText {
+    padding: .9em;
+    background-color: var(--white);
+    border: .02em solid var(--black);
+    width: 65%;
+    margin: 0 auto;
+}
+
+#welcomeBoxText>div {
+    padding: .45em;
+}
+
+#welcomeBoxText div:last-of-type {
+    border-top: var(--black) .1em solid;
+}
+
+
+#welcomeBoxText h2 {
+    font-family: orbitron-extrabold;
+    font-size: 2.2em;
+}
+
+#welcomeBoxText p {
+    font-size: 1.5em;
+    letter-spacing: .03em;
+}
+
+#welcomeBoxBackground {
+    background-image: url(../img/Shadow.png);
+    background-size: 75%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
