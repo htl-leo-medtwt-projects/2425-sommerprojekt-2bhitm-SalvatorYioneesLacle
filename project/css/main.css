@@ -133,6 +133,10 @@ nav #nav-btns>div:hover {
 }
 
 nav #nav-btns img {
+    width: 1.5em;
+}
+
+nav #nav-btns div:nth-of-type(2) img {
     width: 2em;
 }
 
@@ -147,8 +151,11 @@ nav #nav-account {
 }
 
 nav #nav-account img {
-    width: min-content;
+    width: fit-content;
     height: 85%;
+    border: .08em black solid;
+    border-radius: 3em;
+    box-shadow: 0px 0px 3px var(--black), inset 0px 0px 2px var(--black);
 }
 
 nav #nav-account p {
@@ -160,8 +167,8 @@ nav #nav-account p {
 }
 
 nav #nav-items {
-    min-width: 7em;
-    width: 7em;
+    min-width: 6.2em;
+    width: 6.2em;
     max-width: 7em;
     padding: 2em;
     display: flex;
