@@ -98,15 +98,16 @@
     position: relative;
     width: 100%;
     height: max-content;
+    margin-top: 5em;
     padding: 3em 0;
+    padding-bottom: 3em;
     overflow: hidden;
 }
 
-
 #welcomeBoxText {
-    padding: .9em;
     background-color: var(--white);
-    border: .02em solid var(--black);
+    border: .1em solid var(--black);
+    padding: .9em;
     width: 65%;
     margin: 0 auto;
 }
