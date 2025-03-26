@@ -92,7 +92,7 @@ nav {
 
 nav>div {
     width: 100%;
-    height: 6em;
+    height: 3.8em;
 }
 
 nav p {
@@ -108,7 +108,7 @@ nav #nav-logo {
 }
 
 nav #nav-logo img {
-    width: 5em;
+    width: 4em;
 }
 
 nav #nav-btns {
@@ -121,8 +121,8 @@ nav #nav-btns>div {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    gap: .2em;
+    /* flex-direction: column; */
+    gap: .4em;
     padding: 0 1.5em;
     height: 100%;
 }
@@ -256,7 +256,7 @@ nav #nav-items img {
     gap: 3em;
 }
 
-#btnDiv>div {
+#btnDiv>a {
     display: flex;
     width: 100%;
     height: max-content;
@@ -264,6 +264,8 @@ nav #nav-items img {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    text-decoration: none;
+    color: var(--black);
 }
 
 #welcomeBox {
@@ -289,6 +291,17 @@ nav #nav-items img {
 
 #welcomeBoxText div:last-of-type {
     border-top: var(--black) .1em solid;
+}
+
+
+#welcomeBoxText h2 {
+    font-family: orbitron-extrabold;
+    font-size: 2.2em;
+}
+
+#welcomeBoxText p {
+    font-size: 1.5em;
+    letter-spacing: .03em;
 }
 
 #welcomeBoxBackground {
