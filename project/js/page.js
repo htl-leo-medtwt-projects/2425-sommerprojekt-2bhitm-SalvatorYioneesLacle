@@ -1,3 +1,18 @@
+
+// Audio
+let longPop = new Audio('/audio/long-pop.wav');
+let longPopLeave = new Audio('/audio/long-pop-leave.wav');
+
+function playLongPop() {
+    longPop.currentTime = 0,
+    longPop.play()
+}
+
+function playLongPopLeave() {
+    longPopLeave.currentTime = 0,
+    longPopLeave.play()
+}
+
 function initPageIcon() {
     document.getElementsByTagName('head').item(0).innerHTML+= `<link rel="icon" href="/img/logo.png" type="image/x-icon" />`
 }

@@ -157,7 +157,6 @@ nav #nav-account {
     align-items: center;
     text-align: right;
     gap: 1.5em;
-    max-lines: 1;
 }
 
 nav #nav-account img {
