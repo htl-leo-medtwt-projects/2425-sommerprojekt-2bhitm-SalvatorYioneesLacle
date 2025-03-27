@@ -78,6 +78,7 @@
 #btnDiv {
     display: flex;
     padding: 3.5em 7.5em;
+    margin-top: 5em;
     justify-content: center;
     gap: 3em;
 }
@@ -86,12 +87,27 @@
     display: flex;
     width: 100%;
     height: max-content;
-    background-color: var(--expert);
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     align-items: flex-start;
     text-decoration: none;
     color: var(--black);
+}
+
+#btnDiv>a:hover {
+    height: 9em;
+}
+
+#btnDiv p {
+    font-family: orbitron-bold;
+    font-size: 1.4em;
+}
+
+.btnDivImg {
+    height: 1em;
+    background-image: url(/img/ShadowMask.png);
+    background-size: 85%;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
 #welcomeAbsBox {
@@ -111,6 +127,7 @@
 
 .welcomeBoxBackground:last-of-type {
     top: calc(100% - .35em);
+    /* 100% - .welcomeBoxBackground height */
     background-position: bottom;
 }
 
@@ -123,11 +140,7 @@
 
 /* animation: slide h2/p box in */
 #welcomeBoxText {
-    /* background-color: var(--white); */
-    /* border: .1em solid var(--black); */
     padding: .9em;
-    /* width: 65%; */
-    /* margin: 0 auto; */
 }
 
 #welcomeBoxText>div {

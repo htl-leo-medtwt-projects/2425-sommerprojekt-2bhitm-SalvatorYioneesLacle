@@ -186,6 +186,10 @@ nav #nav-items {
     align-items: center;
 }
 
+footer {
+    background-color: var(--black);
+}
+
 /* Dropdown Menu */
 /* .dropdown {
     position: relative;
