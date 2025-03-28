@@ -79,12 +79,12 @@
 
 #btnDiv {
     display: flex;
-    padding: 3.5em 7.5em;
     margin-top: 5em;
     height: 10em;
     justify-content: center;
+    width: 55%;
     /* gap: 3em; */
-    gap: .8em;
+    gap: 1.5em;
 }
 
 #btnDiv p {
@@ -100,6 +100,7 @@
     justify-content: end;
     align-items: flex-start;
     text-decoration: none;
+    overflow: hidden;
     color: var(--black);
     transition-duration: .4s;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
