@@ -120,6 +120,7 @@ nav #nav-btns {
     display: flex;
     justify-content: left;
     align-items: center;
+    width: max-content;
 }
 
 nav #nav-btns>div,
@@ -127,9 +128,8 @@ nav #nav-btns>a {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
     gap: .4em;
-    padding: 0 1.5%;
+    padding: 0 .5em;
     width: max-content;
     height: 100%;
     text-decoration: none;
@@ -177,7 +177,6 @@ nav #nav-account p {
 
 nav #nav-items {
     min-width: 6em;
-    /* width: 6.2em; */
     max-width: 6.85em;
     padding: 2em;
     display: flex;
@@ -186,8 +185,18 @@ nav #nav-items {
 }
 
 footer {
+   height: fit-content;
+}
+
+#footerContent {
     background-color: var(--black);
     height: 15em;
+}
+
+#footerBorder {
+    background-image: url(../img/ShadowBlack2.png);
+    background-size: 26%;
+    height: .43em;
 }
 
 /* Dropdown Menu */
