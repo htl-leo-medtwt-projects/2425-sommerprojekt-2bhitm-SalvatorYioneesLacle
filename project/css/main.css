@@ -186,6 +186,7 @@ nav #nav-items {
 
 footer {
    height: fit-content;
+   position: relative;
 }
 
 #footerContent {
@@ -194,8 +195,11 @@ footer {
 }
 
 #footerBorder {
-    background-image: url(../img/ShadowBlack2.png);
-    background-size: 26%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-image: url(../img/ShadowBlackTr.png);
+    /* background-size: 26%; */
     height: .43em;
 }
 

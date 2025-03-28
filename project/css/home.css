@@ -83,6 +83,7 @@
     display: flex;
     padding: 3.5em 7.5em;
     margin-top: 5em;
+    height: 10em;
     justify-content: center;
     gap: 3em;
 }
