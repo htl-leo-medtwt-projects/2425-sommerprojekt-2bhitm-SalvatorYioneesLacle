@@ -49,6 +49,17 @@ function initNavigationbar() {
 }
 initNavigationbar()
 
+function initFooter() {
+    let str = `
+        <div id="footerBorder">
+            <img src="/img/WhTrWh.png" alt="gradient">
+        </div>
+        <div id="footerContent"></div>
+    `;
+    document.getElementsByTagName('footer').item(0).innerHTML = str;
+}
+initFooter()
+
 function initAccountState() {
 
 }

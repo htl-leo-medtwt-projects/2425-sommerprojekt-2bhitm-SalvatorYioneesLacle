@@ -2,13 +2,16 @@
     position: relative;
     height: max-content;
     overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1em 1.6em;
 }
 
 #headerBox h2 {
     color: var(--black);
     font-size: 3em;
     font-family: orbitron-extrabold;
-    padding: 1em 1.6em;
 }
 
 #headerBoxImg {

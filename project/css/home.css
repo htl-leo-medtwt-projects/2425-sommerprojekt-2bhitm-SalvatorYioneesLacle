@@ -64,8 +64,6 @@
 }
 
 #content {
-    /* display: flex; */
-    padding-bottom: 3em;
     justify-content: center;
     align-items: center;
 }
@@ -85,7 +83,8 @@
     margin-top: 5em;
     height: 10em;
     justify-content: center;
-    gap: 3em;
+    /* gap: 3em; */
+    gap: .8em;
 }
 
 #btnDiv p {
@@ -102,11 +101,8 @@
     align-items: flex-start;
     text-decoration: none;
     color: var(--black);
-    /* overflow: hidden; */
-    /* padding: 1em; */
     transition-duration: .4s;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* background-color: red; */
 }
 
 #btnDiv h3 {
