@@ -187,6 +187,7 @@ nav #nav-items {
 
 footer {
     background-color: var(--black);
+    height: 15em;
 }
 
 /* Dropdown Menu */
