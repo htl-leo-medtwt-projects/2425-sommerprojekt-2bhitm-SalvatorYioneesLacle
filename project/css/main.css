@@ -196,17 +196,18 @@ footer {
 
 #footerBorder {
     position: absolute;
-    top: -.43em;
+    top: -.6em;
+    height: .6em;
     width: 100%;
     background-image: url(../img/ShadowBlackTr.png);
     background-size: 26%;
-    height: .43em;
 }
 
 #footerBorder img {
     position: absolute;
     top: 0;
-    height: .43em;
+    height: .6em;
+    opacity: .8;
 }
 
 /* Dropdown Menu */

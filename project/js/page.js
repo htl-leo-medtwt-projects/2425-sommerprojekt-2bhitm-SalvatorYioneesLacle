@@ -5,16 +5,16 @@ let longPopLeave = new Audio('/audio/long-pop-leave.wav');
 
 function playLongPop() {
     longPop.currentTime = 0,
-    longPop.play()
+        longPop.play()
 }
 
 function playLongPopLeave() {
     longPopLeave.currentTime = 0,
-    longPopLeave.play()
+        longPopLeave.play()
 }
 
 function initPageIcon() {
-    document.getElementsByTagName('head').item(0).innerHTML+= `<link rel="icon" href="/img/logo.png" type="image/x-icon" />`
+    document.getElementsByTagName('head').item(0).innerHTML += `<link rel="icon" href="/img/logo.png" type="image/x-icon" />`
 }
 initPageIcon()
 
@@ -24,16 +24,22 @@ function initNavigationbar() {
                 <img src="/img/logo.png" alt="ExpertShop logo">
             </a>
             <div id="nav-btns">
-                <a href="#btnDiv">
-                    <img src="/img/shopIcon.png" alt="shop icon">
+                <a href="#btnDiv" onmouseenter="swapToWhiteNavIcon('shopIcon')" onmouseleave="swapToNormalNavIcon('shopIcon')">
+                    <div id="shopIcon">
+                        <img src="/img/shopIcon.png" alt="shop icon">
+                    </div>
                     <p>Shop</p>
                 </a>
-                <div>
-                    <img src="/img/partners.png" alt="partners icon">
+                <div onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
+                    <div id="partners">
+                        <img src="/img/partners.png" alt="partners icon">
+                    </div>
                     <p>Partners</p>
                 </div>
-                <div>
-                    <img src="/img/check.png" alt="account icon">
+                <div onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
+                    <div id="check">
+                        <img src="/img/check.png" alt="account icon">
+                    </div>
                     <p>Account</p>
                 </div>
             </div>
@@ -60,10 +66,18 @@ function initFooter() {
 }
 initFooter()
 
+function swapToWhiteNavIcon(icon) {
+    document.getElementById(icon).innerHTML = `<img src="/img/${icon}_white.png" alt="${icon}">`
+}
+
+function swapToNormalNavIcon(icon) {
+    document.getElementById(icon).innerHTML = `<img src="/img/${icon}.png" alt="${icon}">`
+}
+
 function initAccountState() {
 
 }
 
 function name() {
-    
+
 }
