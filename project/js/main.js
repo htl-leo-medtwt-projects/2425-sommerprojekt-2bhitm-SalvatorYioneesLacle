@@ -4,19 +4,27 @@ let longPop = new Audio('/audio/long-pop.wav');
 let longPopLeave = new Audio('/audio/long-pop-leave.wav');
 
 function playLongPop() {
-    longPop.currentTime = 0,
-        longPop.play()
+    longPop.currentTime = 0
+    longPop.play()
 }
 
 function playLongPopLeave() {
-    longPopLeave.currentTime = 0,
-        longPopLeave.play()
+    longPopLeave.currentTime = 0
+    longPopLeave.play()
 }
 
 function initPageIcon() {
     document.getElementsByTagName('head').item(0).innerHTML += `<link rel="icon" href="/img/logo.png" type="image/x-icon" />`
 }
 initPageIcon()
+
+function swapToWhiteNavIcon(icon) {
+    document.getElementById(icon).innerHTML = `<img src="/img/${icon}_white.png" alt="${icon}">`
+}
+
+function swapToNormalNavIcon(icon) {
+    document.getElementById(icon).innerHTML = `<img src="/img/${icon}.png" alt="${icon}">`
+}
 
 function initNavigationbar() {
     let str = `
@@ -65,14 +73,6 @@ function initFooter() {
     document.getElementsByTagName('footer').item(0).innerHTML = str;
 }
 initFooter()
-
-function swapToWhiteNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img src="/img/${icon}_white.png" alt="${icon}">`
-}
-
-function swapToNormalNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img src="/img/${icon}.png" alt="${icon}">`
-}
 
 function initAccountState() {
 

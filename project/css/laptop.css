@@ -5,7 +5,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 1em 1.6em;
+    padding: 2em 3.6em;
 }
 
 #headerBox h2 {
@@ -31,4 +31,39 @@
 
 #wrapper>div:first-of-type {
     border-right:  .1em black solid;
+}
+
+#items-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3em;
+    column-gap: 1.6em;
+    padding: 2em 1em;
+    color: var(--black);
+}
+
+.itemBox {
+    height: 12.5em;
+    background-color: rgb(196, 196, 196);
+}
+
+#filterBox {
+    background-color: rgb(196, 196, 196);
+    color: var(--black);
+    height: 23em;
+    width: 85%;
+    margin: 0 auto;
+    position: sticky;
+    top: calc(50% - 11.5em);
+}
+
+#filterBox>div {
+    width: 80%;
+}
+
+.filterText {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: .93em;
 }
