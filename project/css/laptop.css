@@ -50,15 +50,17 @@
 #filterBox {
     background-color: rgb(196, 196, 196);
     color: var(--black);
-    height: 23em;
+    height: 24em;
     width: 85%;
     margin: 0 auto;
     position: sticky;
-    top: calc(50% - 11.5em);
+    top: calc(50% - 12em);
 }
 
-#filterBox>div {
-    width: 80%;
+#filterBox input {
+    width: 100%;
+    outline: none;
+    border: none;
 }
 
 .filterText {

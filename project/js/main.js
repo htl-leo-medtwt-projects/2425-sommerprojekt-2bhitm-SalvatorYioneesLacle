@@ -32,24 +32,7 @@ function initNavigationbar() {
                 <img src="/img/logo.png" alt="ExpertShop logo">
             </a>
             <div id="nav-btns">
-                <a href="#btnDiv" onmouseenter="swapToWhiteNavIcon('shopIcon')" onmouseleave="swapToNormalNavIcon('shopIcon')">
-                    <div id="shopIcon">
-                        <img src="/img/shopIcon.png" alt="shop icon">
-                    </div>
-                    <p>Shop</p>
-                </a>
-                <div onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
-                    <div id="partners">
-                        <img src="/img/partners.png" alt="partners icon">
-                    </div>
-                    <p>Partners</p>
-                </div>
-                <div onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
-                    <div id="check">
-                        <img src="/img/check.png" alt="account icon">
-                    </div>
-                    <p>Account</p>
-                </div>
+                
             </div>
             <div id="nav-account">
                 <p>Account Name 0123</p>
@@ -60,8 +43,32 @@ function initNavigationbar() {
             </div>
     `;
     document.getElementsByTagName('nav').item(0).innerHTML = str;
+    initNavBtnsHome();
 }
 initNavigationbar()
+
+
+function initNavBtnsHome() {
+    document.getElementById('nav-btns').innerHTML = `
+                <a href="#btnDiv" onmouseenter="swapToWhiteNavIcon('shopIcon')" onmouseleave="swapToNormalNavIcon('shopIcon')">
+                    <div id="shopIcon">
+                        <img src="/img/shopIcon.png" alt="shop icon">
+                    </div>
+                    <p>Shop</p>
+                </a>
+                <a href="/pages/partners.html" onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
+                    <div id="partners">
+                        <img src="/img/partners.png" alt="partners icon">
+                    </div>
+                    <p>Partners</p>
+                </a>
+                <a href="/pages/account-main.html" onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
+                    <div id="check">
+                        <img src="/img/check.png" alt="account icon">
+                    </div>
+                    <p>Account</p>
+                </a>`;
+}
 
 function initFooter() {
     let str = `
