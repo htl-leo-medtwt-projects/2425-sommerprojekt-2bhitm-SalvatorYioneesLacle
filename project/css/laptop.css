@@ -5,13 +5,14 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 2em 3.6em;
+    padding: 2em 0;
 }
 
 #headerBox h2 {
     color: var(--black);
     font-size: 3em;
     font-family: orbitron-extrabold;
+    padding: 0 1.6em;
 }
 
 #headerBoxImg {
@@ -30,7 +31,7 @@
 }
 
 #wrapper>div:first-of-type {
-    border-right:  .1em black solid;
+    border-right: .1em black solid;
 }
 
 #items-grid {
@@ -43,12 +44,25 @@
 }
 
 .itemBox {
+    max-height: 12.5em;
     height: 12.5em;
-    background-color: rgb(196, 196, 196);
+    /* min-height: 5em; */
+    background-color: var(--gray);
+    border: .1em var(--black) solid;
+
+    display: grid;
+    grid-template-columns: 30% 1fr;
 }
 
+.itemBox div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 #filterBox {
-    background-color: rgb(196, 196, 196);
+    background-color: var(--gray);
     color: var(--black);
     height: 24em;
     width: 85%;
