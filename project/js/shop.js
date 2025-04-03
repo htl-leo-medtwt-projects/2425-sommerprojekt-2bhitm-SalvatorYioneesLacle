@@ -4,11 +4,19 @@ function initLaptops() {
         str += `
         <div class="itemBox">
             <div class="itemImg">
-                <img src="/img/phone.jpg" alt="phone">
+                <img src="/img/phone.png" alt="phone">
             </div>
 
             <div class="itemStats">
                 <h2>Samsung</h2>
+            </div>
+
+            <div class="itemDetailsBtn">
+                <p>+</p>
+            </div>
+
+            <div class="itemFavouriteBtn">
+                <p>%</p>
             </div>
         </div>
         `;
@@ -28,6 +36,10 @@ function checkMinValue() {
 }
 
 function checkMaxValue() {
+    if (document.getElementById('max-price').value < 0) {
+        document.getElementById('max-price').value = 0;
+    }
+
     if (document.getElementById('max-price').value < document.getElementById('min-price').value) {
         document.getElementById('max-price').value = document.getElementById('min-price').value;
     }

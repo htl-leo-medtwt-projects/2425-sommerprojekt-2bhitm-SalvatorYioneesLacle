@@ -1,3 +1,4 @@
+/* Header with stripes background */
 #headerBox {
     position: relative;
     height: max-content;
@@ -8,6 +9,7 @@
     padding: 2em 0;
 }
 
+/* Header text */
 #headerBox h2 {
     color: var(--black);
     font-size: 3em;
@@ -15,6 +17,7 @@
     padding: 0 1.6em;
 }
 
+/* whTr.png image with stripes background image */
 #headerBoxImg {
     position: absolute;
     top: 0;
@@ -23,6 +26,7 @@
     z-index: -1;
 }
 
+/* "Content", filter + sold thing */
 #wrapper {
     display: grid;
     grid-template-columns: 30% 1fr;
@@ -30,10 +34,12 @@
     padding: 1.5em 0;
 }
 
+/* outer filter box (no id) */
 #wrapper>div:first-of-type {
     border-right: .1em black solid;
 }
 
+/* sold thing box */
 #items-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -43,24 +49,79 @@
     color: var(--black);
 }
 
+/* seperate sold thing boxes */
 .itemBox {
     max-height: 12.5em;
     height: 12.5em;
     /* min-height: 5em; */
-    background-color: var(--gray);
+    /* background-color: var(--gray); */
     border: .1em var(--black) solid;
 
     display: grid;
     grid-template-columns: 30% 1fr;
+    position: relative;
 }
 
+/* inner boxes of .itemBox --> centered positioning */
 .itemBox div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* plus btn for more details */
+.itemDetailsBtn {
+    width: 2em;
+    height: 2em;
+    /* border-radius: 4em; */
+    border: .03em var(--black) solid;
+    position: absolute;
+    bottom: .6em;
+    right: .6em;
+    cursor: pointer;
+}
 
+.itemDetailsBtn:hover {
+    background-color: var(--expert);
+    color: var(--white);
+    box-shadow: 0px 0px 5px var(--black);
+    transform: scale(1.23);
+}
+
+.itemDetailsBtn:hover p {
+    font-size: 200%;
+}
+
+/* star btn for favourites */
+.itemFavouriteBtn {
+    width: 3em;
+    height: 3em;
+    /* border: .03em var(--black) solid; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+.itemFavouriteBtn:hover {
+    background-color: var(--black);
+    color: var(--yellow);
+    box-shadow: 0px 0px 5px var(--black);
+    transform: scale(1.23);
+}
+
+.itemFavouriteBtn:hover p {
+    font-size: 140%;
+}
+
+/* box for min/max price grid */
+#priceFilter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* filter box */
 #filterBox {
     background-color: var(--gray);
     color: var(--black);
@@ -71,12 +132,14 @@
     top: calc(50% - 12em);
 }
 
+/* filter inputs */
 #filterBox input {
     width: 100%;
     outline: none;
     border: none;
 }
 
+/* filter descriptions */
 .filterText {
     display: flex;
     justify-content: space-between;
