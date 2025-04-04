@@ -16,7 +16,7 @@ function initLaptops() {
             </div>
 
             <div class="itemFavouriteBtn">
-                <p>%</p>
+                <p></p>
             </div>
         </div>
         `;
