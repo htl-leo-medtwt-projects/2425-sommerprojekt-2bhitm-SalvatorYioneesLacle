@@ -21,7 +21,7 @@
 #headerBoxImg {
     position: absolute;
     top: 0;
-    background-image: url(/img/Shadow.png);
+    background-image: url(/img/util/Shadow.png);
     background-size: 75%;
     z-index: -1;
 }
@@ -75,6 +75,7 @@
     height: 2em;
     /* border-radius: 4em; */
     border: .03em var(--gray) solid;
+    color: var(--gray);
     position: absolute;
     bottom: .6em;
     right: .6em;
@@ -90,7 +91,7 @@
 }
 
 .itemDetailsBtn:hover p {
-    font-size: 200%;
+    transform: scale(2.1) translateY(-.05em);
 }
 
 /* star btn for favourites */
@@ -111,7 +112,7 @@
     background-color: var(--black);
     color: var(--yellow);
     box-shadow: 0px 0px 5px var(--black);
-    transform: scale(1.23);
+    transform: scale(1.5);
 }
 
 .itemFavouriteBtn:hover p {

@@ -14,32 +14,32 @@ function playLongPopLeave() {
 }
 
 function initPageIcon() {
-    document.getElementsByTagName('head').item(0).innerHTML += `<link rel="icon" href="/img/logo.png" type="image/x-icon" />`
+    document.getElementsByTagName('head').item(0).innerHTML += `<link rel="icon" href="/img/logos/logo.png" type="image/x-icon" />`
 }
 initPageIcon()
 
 function swapToWhiteNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img src="/img/${icon}_white.png" alt="${icon}">`
+    document.getElementById(icon).innerHTML = `<img src="/img/icons/${icon}_white.png" alt="${icon}">`
 }
 
 function swapToNormalNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img src="/img/${icon}.png" alt="${icon}">`
+    document.getElementById(icon).innerHTML = `<img src="/img/icons/${icon}.png" alt="${icon}">`
 }
 
 function initNavigationbar() {
     let str = `
             <a id="nav-logo" href="/index.html">
-                <img src="/img/logo.png" alt="ExpertShop logo">
+                <img src="/img/logos/logo.png" alt="ExpertShop logo">
             </a>
             <div id="nav-btns">
                 
             </div>
             <div id="nav-account">
                 <p>Account Name 0123</p>
-                <img src="/img/anonymous.jpg" alt="account icon">
+                <img src="/img/icons/anonymous.jpg" alt="account icon">
             </div>
             <div id="nav-items">
-                <img src="/img/shopping-cart.png" alt="shopping cart">
+                <img src="/img/icons/shopping-cart.png" alt="shopping cart">
             </div>
     `;
     document.getElementsByTagName('nav').item(0).innerHTML = str;
@@ -52,19 +52,19 @@ function initNavBtnsHome() {
     document.getElementById('nav-btns').innerHTML = `
                 <a href="#btnDiv" onmouseenter="swapToWhiteNavIcon('shopIcon')" onmouseleave="swapToNormalNavIcon('shopIcon')">
                     <div id="shopIcon">
-                        <img src="/img/shopIcon.png" alt="shop icon">
+                        <img src="/img/icons/shopIcon.png" alt="shop icon">
                     </div>
                     <p>Shop</p>
                 </a>
                 <a href="/pages/partners.html" onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
                     <div id="partners">
-                        <img src="/img/partners.png" alt="partners icon">
+                        <img src="/img/icons/partners.png" alt="partners icon">
                     </div>
                     <p>Partners</p>
                 </a>
                 <a href="/pages/account-main.html" onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
                     <div id="check">
-                        <img src="/img/check.png" alt="account icon">
+                        <img src="/img/icons/check.png" alt="check icon">
                     </div>
                     <p>Account</p>
                 </a>`;
@@ -73,7 +73,7 @@ function initNavBtnsHome() {
 function initFooter() {
     let str = `
         <div id="footerBorder">
-            <img src="/img/WhTrWh.png" alt="gradient">
+            <img src="/img/util/WhTrWh.png" alt="gradient">
         </div>
         <div id="footerContent"></div>
     `;

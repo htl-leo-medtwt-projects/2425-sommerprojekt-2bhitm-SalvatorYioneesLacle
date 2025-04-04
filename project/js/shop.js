@@ -4,7 +4,7 @@ function initLaptops() {
         str += `
         <div class="itemBox">
             <div class="itemImg">
-                <img src="/img/phone.png" alt="phone">
+                <img src="/img/phones/phone.png" alt="phone">
             </div>
 
             <div class="itemStats">
