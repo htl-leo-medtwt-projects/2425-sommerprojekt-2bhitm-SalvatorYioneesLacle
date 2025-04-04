@@ -42,24 +42,24 @@
 /* sold thing box */
 #items-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 3em;
-    column-gap: 1.6em;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 4em;
+    column-gap: 3.6em;
     padding: 2em 1em;
     color: var(--black);
+    width: 87%;
+    margin: 0 auto;
 }
 
 /* seperate sold thing boxes */
 .itemBox {
-    max-height: 12.5em;
-    height: 12.5em;
+    /* max-height: 30em; */
+    height: 20em;
     /* min-height: 5em; */
     /* background-color: var(--gray); */
     border: .1em var(--black) solid;
-
-    display: grid;
-    grid-template-columns: 30% 1fr;
     position: relative;
+    padding-bottom: 5em;
 }
 
 /* inner boxes of .itemBox --> centered positioning */
@@ -67,6 +67,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.itemImg {
+    /* position: relative; */
+    /* top: .6em; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* background-color: var(--expert); */
+}
+
+.itemStats {
+    position: absolute;
+    padding: .6em 0;
+    bottom: 0;
+    background-image: url(/img/util/trWhTr.png);
+    background-size: 100%;
+    width: 100%;
 }
 
 /* plus btn for more details */
