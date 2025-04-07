@@ -41,8 +41,10 @@
 
 /* sold thing box */
 #items-grid {
+    width: 75%;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     row-gap: 3em;
     column-gap: 1.6em;
     padding: 2em 1em;
@@ -51,14 +53,14 @@
 
 /* seperate sold thing boxes */
 .itemBox {
-    max-height: 12.5em;
-    height: 12.5em;
+    max-height: 15em;
+    height: 15em;
     /* min-height: 5em; */
     /* background-color: var(--gray); */
     border: .1em var(--black) solid;
 
     display: grid;
-    grid-template-columns: 30% 1fr;
+    grid-template-columns: 1fr 3fr;
     position: relative;
 }
 
@@ -74,7 +76,7 @@
     width: 2em;
     height: 2em;
     /* border-radius: 4em; */
-    border: .03em var(--gray) solid;
+    border: .01em var(--gray) solid;
     color: var(--gray);
     position: absolute;
     bottom: .6em;
@@ -91,7 +93,7 @@
 }
 
 .itemDetailsBtn:hover p {
-    transform: scale(2.1) translateY(-.05em);
+    transform: scale(2.2) translateY(-.1em);
 }
 
 /* star btn for favourites */
