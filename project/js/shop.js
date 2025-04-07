@@ -25,6 +25,8 @@ function initLaptops() {
 }
 initLaptops();
 
+initNavBtnsHome()
+
 function checkMinValue() {
     if (document.getElementById('min-price').value < 0) {
         document.getElementById('min-price').value = 0;
