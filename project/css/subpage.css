@@ -1,0 +1,81 @@
+/* plus btn for more details */
+.itemDetailsBtn {
+    width: 2em;
+    height: 2em;
+    /* border-radius: 4em; */
+    border: .03em var(--gray) solid;
+    color: var(--gray);
+    position: absolute;
+    bottom: .6em;
+    right: .6em;
+    cursor: pointer;
+}
+
+.itemDetailsBtn:hover {
+    /* background-color: var(--expert); */
+    border-color: var(--expert);
+    color: var(--expert);
+    box-shadow: 0px 0px 2px var(--expert), inset 0px 0px 2px var(--expert);
+    transform: scale(1.2);
+}
+
+.itemDetailsBtn:hover p {
+    transform: scale(2.1) translateY(-.05em);
+}
+
+/* star btn for favourites */
+.itemFavouriteBtn {
+    width: 3em;
+    height: 3em;
+    /* border: .03em var(--black) solid; */
+    background-color: var(--gray);
+    transform-origin: right top;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+.itemFavouriteBtn:hover {
+    background-color: var(--black);
+    color: var(--yellow);
+    box-shadow: 0px 0px 5px var(--black);
+    transform: scale(1.5);
+}
+
+.itemFavouriteBtn:hover p {
+    font-size: 140%;
+}
+
+/* box for min/max price grid */
+#priceFilter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* filter box */
+#filterBox {
+    background-color: var(--gray);
+    color: var(--black);
+    height: 24em;
+    width: 85%;
+    margin: 0 auto;
+    position: sticky;
+    top: calc(50% - 12em);
+}
+
+/* filter inputs */
+#filterBox input {
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+/* filter descriptions */
+.filterText {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: .93em;
+}
