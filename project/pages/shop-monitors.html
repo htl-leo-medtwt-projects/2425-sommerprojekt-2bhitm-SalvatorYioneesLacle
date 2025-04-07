@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laptops</title>
+    <title>Monitors</title>
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/laptop.css">
+    <link rel="stylesheet" href="/css/monitor.css">
     <script src="/js/main.js" defer></script>
     <script src="/js/shop.js" defer></script>
 </head>
@@ -15,33 +15,33 @@
     <nav></nav>
     <div id="headerBox">
         <div id="headerBoxImg">
-            <img src="/img/whTr.png" alt="Transparent Go Around">
+            <img src="/img/util/whTr.png" alt="Transparent Go Around">
         </div>
-        <h2>Laptops</h2>
+        <h2>Monitors</h2>
     </div>
     <div id="wrapper">
         <div>
             <h2>Filter</h2>
             <div id="filterBox">
-                <div>
-                    <input type="number" name="min-price" id="min-price">
-                    <div class="filterText">
-                        <p>Minimum price</p>
-                        <p>2849 €</p>
+                <div id="priceFilter">
+                    <div>
+                        <input type="number" name="min-price" id="min-price" onchange="checkMinValue()">
+                        <div class="filterText">
+                            <p>Minimum price</p>
+                        </div>
                     </div>
-                </div>
-
-                <div>
-                    <input type="number" name="max-price" id="max-price">
-                    <div class="filterText">
-                        <p>Maximum price</p>
-                        <p>28349 €</p>
+    
+                    <div>
+                        <input type="number" name="max-price" id="max-price" onchange="checkMaxValue()">
+                        <div class="filterText">
+                            <p>Maximum price</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div>
-            <h2>Laptops</h2>
+            <h2>Monitors</h2>
             <div id="items-grid">
                 <div class="itemBox"></div>
             </div>
