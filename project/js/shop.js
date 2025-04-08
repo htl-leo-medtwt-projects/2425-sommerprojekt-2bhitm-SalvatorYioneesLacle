@@ -1,3 +1,5 @@
+let shopDropdown = 0;
+
 function initLaptops() {
     let str = '';
     for (let i = 0; i < 10; i++) {
@@ -28,10 +30,26 @@ initLaptops();
 function initNavBtnsShop() {
     document.getElementById('nav-btns').innerHTML = `
                 <a href="#btnDiv" onmouseenter="swapToWhiteNavIcon('shopIcon')" onmouseleave="swapToNormalNavIcon('shopIcon')">
-                    <div id="shopIcon">
-                        <img src="/img/icons/shopIcon.png" alt="shop icon">
+                    
+                <!--    <select name="shops-dropdown" id="shops-dropdown" class="dropdown" onchange="getShopDropdownValue()">
+                        <option class="dropdown-content" value="${'laptops'}"><a href="/pages/shop-laptops.html">Laptops</a></option>
+                        <option class="dropdown-content" value="${'monitors'}">Monitors</option>
+                        <option class="dropdown-content" value="${'phones'}">Phones</option>
+                    </select> -->
+
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <div id="shopIcon">
+                                <img src="/img/icons/shopIcon.png" alt="shop icon">
+                            </div>
+                            <p>Shop</p>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/pages/shop-laptops.html">Laptops</a>
+                            <a href="/pages/shop-phones.html">Phones</a>
+                            <a href="/pages/shop-monitors.html">Monitors</a>
+                        </div>
                     </div>
-                    <p>Shop</p>
                 </a>
                 <a href="/pages/partners.html" onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
                     <div id="partners">
@@ -46,7 +64,12 @@ function initNavBtnsShop() {
                     <p>Account</p>
                 </a>`;
 }
-initNavBtnsShop()
+initNavBtnsShop();
+
+function getShopDropdownValue() {
+    shopDropdown = document.getElementById('shops-dropdown').value;
+    window.location.href = `/pages/shop-${shopDropdown}.html`;
+}
 
 function checkMinValue() {
     if (document.getElementById('min-price').value < 0) {
