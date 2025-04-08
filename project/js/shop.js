@@ -29,28 +29,19 @@ initLaptops();
 
 function initNavBtnsShop() {
     document.getElementById('nav-btns').innerHTML = `
-                <a href="#btnDiv" onmouseenter="swapToWhiteNavIcon('shopIcon')" onmouseleave="swapToNormalNavIcon('shopIcon')">
-                    
-                <!--    <select name="shops-dropdown" id="shops-dropdown" class="dropdown" onchange="getShopDropdownValue()">
-                        <option class="dropdown-content" value="${'laptops'}"><a href="/pages/shop-laptops.html">Laptops</a></option>
-                        <option class="dropdown-content" value="${'monitors'}">Monitors</option>
-                        <option class="dropdown-content" value="${'phones'}">Phones</option>
-                    </select> -->
-
-                    <div class="dropdown">
-                        <button class="dropbtn">
-                            <div id="shopIcon">
-                                <img src="/img/icons/shopIcon.png" alt="shop icon">
-                            </div>
-                            <p>Shop</p>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="/pages/shop-laptops.html">Laptops</a>
-                            <a href="/pages/shop-phones.html">Phones</a>
-                            <a href="/pages/shop-monitors.html">Monitors</a>
+                <div class="dropdown" onmouseenter="swapToWhiteNavIcon('shopIcon')" onmouseleave="swapToNormalNavIcon('shopIcon')">
+                    <div class="dropbtn">
+                        <div id="shopIcon">
+                            <img src="/img/icons/shopIcon.png" alt="shop icon">
                         </div>
+                        <p>Shop</p>
                     </div>
-                </a>
+                    <div class="dropdown-content">
+                        <a href="/pages/shop-laptops.html">Laptops</a>
+                        <a href="/pages/shop-phones.html">Phones</a>
+                        <a href="/pages/shop-monitors.html">Monitors</a>
+                    </div>
+                </div>
                 <a href="/pages/partners.html" onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
                     <div id="partners">
                         <img src="/img/icons/partners.png" alt="partners icon">

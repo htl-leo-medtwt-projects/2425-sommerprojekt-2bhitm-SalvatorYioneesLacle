@@ -17,7 +17,7 @@
 #imageCover {
     position: absolute;
     bottom: 0;
-    /* background-image: url(/img/util/ShadowMask.png); */
+    background-image: url(/img/util/ShadowMask.png);
     background-size: 30%;
     color: var(--white);
     z-index: 9;
