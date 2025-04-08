@@ -51,6 +51,7 @@
     bottom: .6em;
     right: .6em;
     cursor: pointer;
+    user-select: none;
 }
 
 .itemDetailsBtn:hover {
@@ -61,8 +62,14 @@
     transform: scale(1.2);
 }
 
+.itemDetailsBtn p {
+    /* font-family: serif; */
+    font-weight: 300;
+}
+
 .itemDetailsBtn:hover p {
     transform: scale(2.1) translateY(-.05em);
+    /* transform: scale(1.6); */
 }
 
 /* star btn for favourites */
@@ -77,6 +84,7 @@
     right: 0;
     cursor: pointer;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+    user-select: none;
 }
 
 .itemFavouriteBtn:hover {
