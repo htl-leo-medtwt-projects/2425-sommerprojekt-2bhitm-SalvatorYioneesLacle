@@ -18,10 +18,14 @@
     z-index: -1;
 }
 
+#headerBoxImg img {
+    height: inherit;
+}
+
 /* "Content", filter + sold thing */
 #wrapper {
     display: grid;
-    grid-template-columns: 6em 60% 1fr;
+    grid-template-columns: 10em 60% 1fr;
     text-align: center;
     padding: 1.5em 0;
 }
@@ -31,6 +35,41 @@
     border-right: .1em var(--gray) solid;
 }
 
+/* seperate transaction box */
+.transactionBox {
+    position: relative;
+    /* background-image: url(/img/util/ShadowBlackTr.png);
+    background-size: 170%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 36em;
+    height: 3.9em;
+    border: .1em solid var(--black);
+    overflow: hidden;
+}
 
+.transactionBox div {
+    height: inherit;
+    display: flex;
+    align-items: center;
+}
 
+#backBtnBox {
+    padding: 4.3em;
+    padding-top: 0;
+}
 
+.transactionBoxImg {
+    position: absolute;
+    top: 0;
+    background-image: url(/img/util/ShadowBlackTr.png);
+    background-size: 170%;
+    width: 100%;
+    z-index: -1;
+}
+
+.transactionBoxImg img {
+    height: inherit;
+}
