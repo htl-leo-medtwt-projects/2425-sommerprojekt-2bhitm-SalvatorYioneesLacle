@@ -111,6 +111,7 @@
 
 #priceFilter>div>div:first-of-type {
    display: flex;
+   background-color: var(--white);
 }
 
 /* filter box */

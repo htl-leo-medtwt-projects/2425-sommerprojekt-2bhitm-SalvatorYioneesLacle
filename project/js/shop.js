@@ -28,6 +28,7 @@ function initItemBoxes() {
 initItemBoxes();
 
 function initNavBtnsShop() {
+    // Dropdown: https://www.w3schools.com/howto/howto_css_dropdown.asp
     document.getElementById('nav-btns').innerHTML = `
                 <div class="dropdown" onmouseenter="swapToWhiteNavIcon('shopIcon')" onmouseleave="swapToNormalNavIcon('shopIcon')">
                     <div class="dropbtn">
