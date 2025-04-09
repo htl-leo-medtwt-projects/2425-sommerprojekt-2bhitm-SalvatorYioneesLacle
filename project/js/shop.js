@@ -1,6 +1,6 @@
 let shopDropdown = 0;
 
-function initLaptops() {
+function initItemBoxes() {
     let str = '';
     for (let i = 0; i < 10; i++) {
         str += `
@@ -25,7 +25,7 @@ function initLaptops() {
     }
     document.getElementById('items-grid').innerHTML = str;
 }
-initLaptops();
+initItemBoxes();
 
 function initNavBtnsShop() {
     document.getElementById('nav-btns').innerHTML = `
@@ -68,7 +68,7 @@ function checkMinValue() {
     }
 
     if (document.getElementById('min-price').value > document.getElementById('max-price').value) {
-        document.getElementById('min-price').value = document.getElementById('max-price').value;
+        document.getElementById('max-price').value = document.getElementById('min-price').value;
     }
 }
 
@@ -78,6 +78,6 @@ function checkMaxValue() {
     }
 
     if (document.getElementById('max-price').value < document.getElementById('min-price').value) {
-        document.getElementById('max-price').value = document.getElementById('min-price').value;
+        document.getElementById('min-price').value = document.getElementById('max-price').value;
     }
 }

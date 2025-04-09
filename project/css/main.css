@@ -228,6 +228,10 @@ nav #nav-items {
     pointer-events: auto;
 }
 
+.dropdown:hover p {
+    color: var(--white);
+}
+
 .dropdown-content a {
     color: #374151;
     padding: 0.5rem 1rem;
