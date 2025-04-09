@@ -30,10 +30,22 @@
     padding: 1.5em 0;
 }
 
-/* Back button, size controlled by padding */
+/* Back button */
 #backBtnBox {
-    padding: 35%;
+    /* padding: 35%; */
     padding-top: 0;
+    height: min-content;
+    /* background-color: rgba(255, 0, 0, 0.355); */
+}
+
+
+#backBtnBox img {
+    width: 30%;
+   /* transform: scale(.3); */
+}
+
+#backBtnBox:hover img {
+    transform: scale(1.25);
 }
 
 /* outer filter box (no id) */
@@ -41,11 +53,24 @@
     border-right: .1em var(--gray) solid;
 }
 
+/* transactions box with h2 element */
+#transactionsWrapper {
+    padding: 0 1.2em;
+}
+
+#transactionsWrapper h2 {
+    font-size: 1.4em;
+    font-family: orbitron-bold;
+    margin-left: auto;
+    margin-bottom: .3em;
+    width: fit-content;
+}
+
 /* transaction box */
 #transactions {
-    padding: 0 1em;
     display: grid;
     gap: 4.3em;
+    /* height: 100em; */
 }
 
 /* date of transaction box */
@@ -54,7 +79,7 @@
 }
 
 /* Position the transactions: now float right */
-.transactionPosBox {}
+/* .transactionPosBox {} */
 
 /* seperate transaction box */
 .transactionBox {
@@ -97,16 +122,32 @@
 }
 
 #accountBox {
-    width: 95%;
-    margin: 0 auto;
+    height: min-content;
+    margin: 0 2.65em;
+    position: sticky;
+    top: 10em;
 }
+
+#accountBox h2 {
+    font-size: 1.8em;
+    font-family: orbitron-bold;
+    margin-left: auto;
+    margin-top: 1em;
+    margin-bottom: .5em;
+    width: fit-content;
+}
+
 
 #accountDetails {
     display: flex;
-    justify-content: space-around;
-    justify-content: center;
-    gap: 1.6em;
+    justify-content: right;
     align-items: center;
+    gap: 1.6em;
+}
+
+#accountDetails p {
+    font-size: 1.12em;
+    font-family: orbitron-medium;
 }
 
 #accountDetails img {
@@ -116,6 +157,43 @@
     box-shadow: var(--accountBoxShadow);
 }
 
+/* account balance + delete + log out grid box */
+#accountBtns {
+    display: grid;
+    gap: .7em;
+}
+
+/* account delete + log out styling */
+#accountBtns>div {
+    width: fit-content;
+    padding: .3em 1em;
+    margin-left: auto;
+}
+
+#accountBtns>div p {
+    font-family: orbitron-black;
+    font-size: 1.2em;
+}
+
 #accountBalance {
     color: var(--green);
+    width: fit-content;
+    margin: 2em 0;
+    margin-left: auto;
+}
+
+#accountBalance p {
+    font-size: 1.7em;
+    font-family: orbitron-semibold;
+}
+
+#accountDelete {
+    color: red;
+    border: .2em red solid;
+}
+
+#accountLogOut {
+    color: var(--white);
+    background-color: var(--expert);
+    border: .2em var(--expert) solid;
 }
