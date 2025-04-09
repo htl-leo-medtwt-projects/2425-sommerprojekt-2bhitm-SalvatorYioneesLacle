@@ -108,6 +108,7 @@ nav #nav-logo {
     justify-content: center;
     align-items: center;
     width: 12em;
+    margin: 0 auto;
 }
 
 nav #nav-logo img {

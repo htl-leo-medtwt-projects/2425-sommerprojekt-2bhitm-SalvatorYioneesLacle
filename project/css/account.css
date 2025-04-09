@@ -21,113 +21,16 @@
 /* "Content", filter + sold thing */
 #wrapper {
     display: grid;
-    grid-template-columns: 60% 1fr;
+    grid-template-columns: 6em 60% 1fr;
     text-align: center;
     padding: 1.5em 0;
 }
 
 /* outer filter box (no id) */
-#wrapper>div:first-of-type {
+#wrapper>div:nth-of-type(2) {
     border-right: .1em var(--gray) solid;
 }
 
-/* plus btn for more details */
-.itemDetailsBtn {
-    width: 2em;
-    height: 2em;
-    /* border-radius: 4em; */
-    border: .03em var(--gray) solid;
-    color: var(--gray);
-    position: absolute;
-    bottom: .6em;
-    right: .6em;
-    cursor: pointer;
-    user-select: none;
-}
 
-.itemDetailsBtn:hover {
-    /* background-color: var(--expert); */
-    border-color: var(--expert);
-    color: var(--expert);
-    box-shadow: 0px 0px 2px var(--expert), inset 0px 0px 2px var(--expert);
-    transform: scale(1.2);
-}
 
-.itemDetailsBtn p {
-    /* font-family: serif; */
-    font-weight: 300;
-}
 
-.itemDetailsBtn:hover p {
-    transform: scale(2.1) translateY(-.05em);
-    /* transform: scale(1.6); */
-}
-
-/* star btn for favourites */
-.itemFavouriteBtn {
-    width: 3em;
-    height: 3em;
-    /* border: .03em var(--black) solid; */
-    background-color: var(--gray);
-    transform-origin: right top;
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
-    user-select: none;
-}
-
-.itemFavouriteBtn:hover {
-    background-color: var(--yellow);
-    color: var(--yellow);
-    box-shadow: 0px 0px 5px var(--black);
-    transform: scale(1.5);
-}
-
-.itemFavouriteBtn:hover p {
-    font-size: 140%;
-}
-
-/* box for min/max price grid */
-#priceFilter {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-#priceFilter>div {
-    max-width: 10em;
-    width: 90%;
-}
-
-#priceFilter>div>div:first-of-type {
-   display: flex;
-   background-color: var(--white);
-}
-
-/* filter box */
-#filterBox {
-    background-color: var(--gray);
-    color: var(--black);
-    height: 24em;
-    width: 85%;
-    margin: 0 auto;
-    position: sticky;
-    top: calc(50% - 12em);
-}
-
-/* filter inputs */
-#filterBox input {
-    width: 100%;
-    outline: none;
-    border: none;
-}
-
-/* filter descriptions */
-.filterText {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    font-size: .93em;
-}
