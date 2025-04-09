@@ -25,9 +25,15 @@
 /* "Content", filter + sold thing */
 #wrapper {
     display: grid;
-    grid-template-columns: 10em 60% 1fr;
+    grid-template-columns: 5% 60% 1fr;
     text-align: center;
     padding: 1.5em 0;
+}
+
+/* Back button, size controlled by padding */
+#backBtnBox {
+    padding: 35%;
+    padding-top: 0;
 }
 
 /* outer filter box (no id) */
@@ -35,30 +41,46 @@
     border-right: .1em var(--gray) solid;
 }
 
+/* transaction box */
+#transactions {
+    padding: 0 1em;
+    display: grid;
+    gap: 4.3em;
+}
+
+/* date of transaction box */
+.transactionDateBox {
+    text-align: right;
+}
+
+/* Position the transactions: now float right */
+.transactionPosBox {}
+
 /* seperate transaction box */
 .transactionBox {
+    float: right;
     position: relative;
-    /* background-image: url(/img/util/ShadowBlackTr.png);
-    background-size: 170%; */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: .3em 0;
     width: 80%;
     max-width: 36em;
-    height: 3.9em;
+    height: 3em;
     border: .1em solid var(--black);
     overflow: hidden;
 }
 
+/* content of seperate transaction box */
 .transactionBox div {
     height: inherit;
     display: flex;
     align-items: center;
 }
 
-#backBtnBox {
-    padding: 4.3em;
-    padding-top: 0;
+/* Left and right padding for device and price */
+.transactionBox div:not(.transactionBoxImg) {
+    padding: 0 1em;
 }
 
 .transactionBoxImg {
@@ -72,4 +94,28 @@
 
 .transactionBoxImg img {
     height: inherit;
+}
+
+#accountBox {
+    width: 95%;
+    margin: 0 auto;
+}
+
+#accountDetails {
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+    gap: 1.6em;
+    align-items: center;
+}
+
+#accountDetails img {
+    width: 5em;
+    border: var(--accountBorder);
+    border-radius: 3em;
+    box-shadow: var(--accountBoxShadow);
+}
+
+#accountBalance {
+    color: var(--green);
 }

@@ -37,6 +37,9 @@
     --black: #171717;
     --gray: rgb(196, 196, 196);
     --yellow: rgb(255, 227, 18);
+    --green: #32A852;
+    --accountBorder: .08em black solid;
+    --accountBoxShadow: 0px 0px 3px var(--black), inset 0px 0px 2px var(--black);
 }
 
 * {
@@ -165,9 +168,9 @@ nav #nav-account {
 nav #nav-account img {
     width: fit-content;
     height: 85%;
-    border: .08em black solid;
+    border: var(--accountBorder);
     border-radius: 3em;
-    box-shadow: 0px 0px 3px var(--black), inset 0px 0px 2px var(--black);
+    box-shadow: var(--accountBoxShadow);
 }
 
 nav #nav-account p {
