@@ -49,7 +49,7 @@ function initNavBtnsShop() {
                     </div>
                     <p>Partners</p>
                 </a>
-                <a href="/pages/account-main.html" onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
+                <a href="/pages/account/account-profile.html" onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
                     <div id="check">
                         <img src="/img/icons/check.png" alt="check icon">
                     </div>
