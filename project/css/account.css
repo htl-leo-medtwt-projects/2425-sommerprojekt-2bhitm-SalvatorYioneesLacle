@@ -103,6 +103,15 @@
     align-items: center;
 }
 
+.transactionBox div p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    word-break:break-all;
+    overflow: hidden;
+}
+
 .transactionBox>div:first-of-type>p {
     font-family: orbitron-extrabold;
 }
@@ -160,6 +169,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     line-clamp: 1;
+    word-break:break-all;
     overflow: hidden;
 }
 

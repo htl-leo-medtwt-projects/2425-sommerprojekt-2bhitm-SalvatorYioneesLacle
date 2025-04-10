@@ -18,7 +18,8 @@ function initItemBoxes() {
             </div>
 
             <div class="itemFavouriteBtn">
-                <p></p>
+                <div></div>
+                <img src="/img/icons/star.png" alt="star">
             </div>
         </div>
         `;

@@ -76,29 +76,45 @@
 }
 
 /* star btn for favourites */
+
 .itemFavouriteBtn {
     width: 3em;
     height: 3em;
-    /* border: .03em var(--black) solid; */
-    background-color: var(--gray);
-    transform-origin: right top;
     position: absolute;
     top: 0;
     right: 0;
     cursor: pointer;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+    transform-origin: right top;
     user-select: none;
+}
+
+.itemFavouriteBtn div {
+    width: inherit;
+    height: inherit;
+    background-color: var(--gray);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
 }
 
 .itemFavouriteBtn:hover {
     background-color: var(--yellow);
     color: var(--yellow);
     box-shadow: 0px 0px 5px var(--black);
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
-.itemFavouriteBtn:hover p {
-    font-size: 140%;
+.itemFavouriteBtn div:hover {
+    background-color: var(--yellow);
+}
+
+.itemFavouriteBtn img {
+    transform-origin: top right;
+    position: absolute;
+    top: .1em;
+    right: .1em;
+}
+
+.itemFavouriteBtn:hover img {
+    /* transform: scale(.7); */
 }
 
 /* box for min/max price grid */
@@ -114,8 +130,8 @@
 }
 
 #priceFilter>div>div:first-of-type {
-   display: flex;
-   background-color: var(--white);
+    display: flex;
+    background-color: var(--white);
 }
 
 /* filter box */
