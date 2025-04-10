@@ -45,7 +45,7 @@ function initNavBtnsShop() {
                 </div>
                 <a href="/pages/partners.html" onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
                     <div id="partners">
-                        <img src="/img/icons/partners.png" alt="partners icon">
+                        <img id="nav-account-biggerImg" src="/img/icons/partners.png" alt="partners icon">
                     </div>
                     <p>Partners</p>
                 </a>

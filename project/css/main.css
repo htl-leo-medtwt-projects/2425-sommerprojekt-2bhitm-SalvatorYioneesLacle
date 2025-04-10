@@ -151,11 +151,11 @@ nav #nav-btns>a:hover {
     color: var(--white);
 }
 
-nav #nav-btns img {
+nav #nav-btns img:not(#nav-account-biggerImg) {
     width: 1.5em;
 }
 
-nav #nav-btns a:nth-of-type(2) img {
+nav #nav-account-biggerImg {
     width: 2em;
 }
 
@@ -172,7 +172,6 @@ nav #nav-account img {
     width: fit-content;
     height: 85%;
     border: var(--accountBorder);
-    border-radius: 3em;
     box-shadow: var(--accountBoxShadow);
 }
 

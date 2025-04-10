@@ -19,11 +19,11 @@ function initPageIcon() {
 initPageIcon()
 
 function swapToWhiteNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img src="/img/icons/${icon}_white.png" alt="${icon}">`
+    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-account-biggerImg"': ''} src="/img/icons/${icon}_white.png" alt="${icon}">`
 }
 
 function swapToNormalNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img src="/img/icons/${icon}.png" alt="${icon}">`
+    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-account-biggerImg"': ''} src="/img/icons/${icon}.png" alt="${icon}">`
 }
 
 function initNavigationbar() {
