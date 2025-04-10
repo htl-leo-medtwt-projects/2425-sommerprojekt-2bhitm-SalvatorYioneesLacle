@@ -58,10 +58,11 @@
 }
 
 .itemDetailsBtn:hover {
-    /* background-color: var(--expert); */
+    background-color: var(--expert);
     border-color: var(--expert);
-    color: var(--expert);
-    box-shadow: 0px 0px 2px var(--expert), inset 0px 0px 2px var(--expert);
+    color: var(--white);
+    text-shadow: 0px 0px 3px var(--white);
+    box-shadow: 0px 0px 5px var(--expert), inset 0px 0px 5px var(--expert);
     transform: scale(1.2);
 }
 
@@ -88,33 +89,39 @@
     user-select: none;
 }
 
-.itemFavouriteBtn div {
+.itemFavouriteBtnBackground {
     width: inherit;
     height: inherit;
+    transform-origin: right top;
     background-color: var(--gray);
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
 }
 
-.itemFavouriteBtn:hover {
+.itemFavouriteBtnBackground:hover {
     background-color: var(--yellow);
     color: var(--yellow);
     box-shadow: 0px 0px 5px var(--black);
-    transform: scale(1.2);
-}
-
-.itemFavouriteBtn div:hover {
-    background-color: var(--yellow);
+    /* transform: scale(1.5); */
 }
 
 .itemFavouriteBtn img {
-    transform-origin: top right;
+    transform-origin: 50% 50%;
     position: absolute;
-    top: .1em;
-    right: .1em;
+    top: 30%;
+    right: 30%;
+    width: 1.28em;
+    opacity: 0;
+    backdrop-filter: invert(0);
 }
 
 .itemFavouriteBtn:hover img {
-    /* transform: scale(.7); */
+    padding: .17em .17em 0 0;
+    transform: scale(2.3);
+    opacity: 1;
+}
+
+.itemFavouriteBtn:active img {
+    transform: scale(1.8);
 }
 
 /* box for min/max price grid */

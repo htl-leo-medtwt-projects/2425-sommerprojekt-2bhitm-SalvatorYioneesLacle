@@ -18,8 +18,8 @@ function initItemBoxes() {
             </div>
 
             <div class="itemFavouriteBtn">
-                <div></div>
-                <img src="/img/icons/star.png" alt="star">
+                <div class="itemFavouriteBtnBackground"></div>
+                <img src="/img/icons/star.png" alt="star" onmouseenter="changeFavBtnColourYellow(${i})" onmouseleave="changeFavBtnColourGray(${i})">
             </div>
         </div>
         `;
@@ -68,7 +68,6 @@ function checkMinValue() {
     if (document.getElementById('min-price').value < 0) {
         document.getElementById('min-price').value = 0;
     }
-
     if (document.getElementById('min-price').value > document.getElementById('max-price').value) {
         document.getElementById('max-price').value = document.getElementById('min-price').value;
     }
@@ -78,8 +77,14 @@ function checkMaxValue() {
     if (document.getElementById('max-price').value < 0) {
         document.getElementById('max-price').value = 0;
     }
-
     if (document.getElementById('max-price').value < document.getElementById('min-price').value) {
         document.getElementById('min-price').value = document.getElementById('max-price').value;
     }
+}
+
+function changeFavBtnColourYellow(index) {
+    document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.backgroundColor = 'var(--yellow)'
+}
+function changeFavBtnColourGray(index) {
+    document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.backgroundColor = 'var(--gray)'
 }
