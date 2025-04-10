@@ -36,6 +36,7 @@
     --white: #ffffff;
     --black: #171717;
     --gray: rgb(196, 196, 196);
+    --red: red;
     --yellow: rgb(255, 227, 18);
     --green: #32A852;
     --accountBorder: .08em black solid;
@@ -82,6 +83,7 @@
 
 body {
     overflow-x: hidden;
+    background-color: var(--background);
 }
 
 img {

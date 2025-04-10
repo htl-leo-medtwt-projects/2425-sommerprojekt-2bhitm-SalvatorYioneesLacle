@@ -41,7 +41,7 @@
 
 #backBtnBox img {
     width: 30%;
-   /* transform: scale(.3); */
+    /* transform: scale(.3); */
 }
 
 #backBtnBox:hover img {
@@ -150,11 +150,29 @@
     font-family: orbitron-medium;
 }
 
+/* account pfp div */
+#accountDetails div:last-of-type {
+    position: relative;
+    background-color: transparent;
+    min-height: 5em;
+    /* height: 5em; */
+    max-height: 100%;
+    border: var(--accountBorder);
+    box-shadow: var(--accountBoxShadow);
+}
+
+#accountDetails div:last-of-type:hover {
+    background-color: var(--gray);
+}
+
+/* account pfp image */
 #accountDetails img {
     width: 5em;
-    border: var(--accountBorder);
-    border-radius: 3em;
-    box-shadow: var(--accountBoxShadow);
+    height: inherit;
+}
+
+#accountDetails img:hover {
+    opacity: .2;
 }
 
 /* account balance + delete + log out grid box */
@@ -188,12 +206,28 @@
 }
 
 #accountDelete {
-    color: red;
-    border: .2em red solid;
+    color: var(--red);
+    border: .2em var(--red) solid;
+    user-select: none;
+    cursor: pointer;
+}
+
+#accountDelete:hover {
+    color: var(--white);
+    background-color: var(--red);
+    transform: scale(1.07);
 }
 
 #accountLogOut {
     color: var(--white);
     background-color: var(--expert);
     border: .2em var(--expert) solid;
+    user-select: none;
+    cursor: pointer;
+}
+
+#accountLogOut:hover {
+    transform: scale(1.07);
+    user-select: none;
+    cursor: pointer;
 }
