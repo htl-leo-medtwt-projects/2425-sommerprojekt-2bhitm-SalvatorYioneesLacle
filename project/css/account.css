@@ -89,8 +89,8 @@
     align-items: center;
     justify-content: space-between;
     margin: .3em 0;
-    width: 80%;
-    max-width: 36em;
+    width: 90%;
+    max-width: 47em;
     height: 3em;
     border: .1em solid var(--black);
     overflow: hidden;
@@ -101,6 +101,14 @@
     height: inherit;
     display: flex;
     align-items: center;
+}
+
+.transactionBox>div:first-of-type>p {
+    font-family: orbitron-extrabold;
+}
+
+.transactionBox>div:nth-of-type(2)>p {
+    font-family: Orbitron-medium;
 }
 
 /* Left and right padding for device and price */
@@ -230,4 +238,48 @@
     transform: scale(1.07);
     user-select: none;
     cursor: pointer;
+}
+
+.accountOptionBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 100vh - nav height */
+    height: calc(100vh - 4.5em);
+}
+
+.accountOptionBox>div {
+    width: 60%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+}
+
+.accountOptionText {
+    width: 100%;
+}
+
+.accountOptionText h1 {
+    font-family: Orbitron;
+    font-weight: 700;
+}
+
+.accountOptionText p {
+    font-size: .85em;
+    color: var(--darkgray);
+}
+
+.accountOptionBtn {
+    background-color: var(--expert);
+    width: max-content;
+    padding: .4em .8em;
+}
+
+.accountOptionBtn p {
+    color: var(--white);
+    font-family: orbitron-extrabold;
+    font-size: 1.2em;
 }
