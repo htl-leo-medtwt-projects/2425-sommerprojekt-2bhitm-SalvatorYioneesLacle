@@ -101,3 +101,6 @@ function changeFavBtnSaved(index) {
         document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
     }
 }
+
+// If displayRes == 1200: WUXGA
+// 1280 = WUXGA+
