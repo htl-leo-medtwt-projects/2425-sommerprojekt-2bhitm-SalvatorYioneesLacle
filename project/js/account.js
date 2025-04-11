@@ -10,6 +10,6 @@ function toLogOutScreen() {
     window.location.href = `/pages/account/account-signout.html`;
 }
 
-function toAccountOverview() {
-    window.location.href = `/pages/account/account-overview.html`;
+function toHomepage() {
+    window.location.href = `/index.html`;
 }

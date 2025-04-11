@@ -47,7 +47,6 @@
 .itemDetailsBtn {
     width: 2em;
     height: 2em;
-    /* border-radius: 4em; */
     border: .03em var(--gray) solid;
     color: var(--gray);
     position: absolute;
@@ -77,10 +76,9 @@
 }
 
 /* star btn for favourites */
-
 .itemFavouriteBtn {
-    width: 3em;
-    height: 3em;
+    width: 2.8em;
+    height: 2.8em;
     position: absolute;
     top: 0;
     right: 0;
@@ -93,7 +91,7 @@
     width: inherit;
     height: inherit;
     transform-origin: right top;
-    background-color: var(--gray);
+    /* background-color: var(--gray); */
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
 }
 
@@ -104,23 +102,24 @@
     /* transform: scale(1.5); */
 }
 
-.itemFavouriteBtn img {
+.itemFavouriteBtnImg {
     transform-origin: 50% 50%;
     position: absolute;
     top: 30%;
     right: 30%;
     width: 1.28em;
-    opacity: 0;
-    backdrop-filter: invert(0);
+    /* opacity: 0; */
+    filter: grayscale(1);
+    /* transform: scale(1.4); */
 }
 
-.itemFavouriteBtn:hover img {
+.itemFavouriteBtnImg:hover {
     padding: .17em .17em 0 0;
     transform: scale(2.3);
     opacity: 1;
 }
 
-.itemFavouriteBtn:active img {
+.itemFavouriteBtnImg:active {
     transform: scale(1.8);
 }
 
@@ -139,6 +138,10 @@
 #priceFilter>div>div:first-of-type {
     display: flex;
     background-color: var(--white);
+    text-align: center;
+    align-items: center;
+    font-size: 1.25em;
+    padding-right: .2em;
 }
 
 /* filter box */
@@ -148,6 +151,7 @@
     height: 24em;
     width: 85%;
     margin: 0 auto;
+    padding: 1em 0;
     position: sticky;
     top: calc(50% - 12em);
 }
@@ -155,6 +159,9 @@
 /* filter inputs */
 #filterBox input {
     width: 100%;
+    padding: .2em .5em;
+    font-size: 1em;
+    text-align: center;
     outline: none;
     border: none;
 }

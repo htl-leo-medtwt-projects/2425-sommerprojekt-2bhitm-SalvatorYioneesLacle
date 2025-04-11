@@ -1,8 +1,10 @@
 let shopDropdown = 0;
+let isFavourite = [false];
 
 function initItemBoxes() {
     let str = '';
     for (let i = 0; i < 10; i++) {
+        isFavourite[i] = false;
         str += `
         <div class="itemBox">
             <div class="itemImg">
@@ -19,7 +21,7 @@ function initItemBoxes() {
 
             <div class="itemFavouriteBtn">
                 <div class="itemFavouriteBtnBackground"></div>
-                <img src="/img/icons/star.png" alt="star" onmouseenter="changeFavBtnColourYellow(${i})" onmouseleave="changeFavBtnColourGray(${i})">
+                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${i})" onmouseenter="changeFavBtnColourYellow(${i})" onmouseleave="changeFavBtnColourGray(${i})">
             </div>
         </div>
         `;
@@ -84,7 +86,18 @@ function checkMaxValue() {
 
 function changeFavBtnColourYellow(index) {
     document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.backgroundColor = 'var(--yellow)'
+    document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.transform = `scale(1.35)`
 }
 function changeFavBtnColourGray(index) {
-    document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.backgroundColor = 'var(--gray)'
+    document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.backgroundColor = 'transparent'
+    document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.transform = `scale(1)`
+}
+
+function changeFavBtnSaved(index) {
+    isFavourite[index] = !isFavourite[index] 
+    if (isFavourite[index]) {
+        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
+    } else {
+        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
+    }
 }
