@@ -238,7 +238,7 @@
 #accountDelete:hover {
     color: var(--white);
     background-color: var(--red);
-    transform: scale(1.07);
+    transform: scale(1.085);
 }
 
 #accountLogOut {
@@ -250,7 +250,7 @@
 }
 
 #accountLogOut:hover {
-    transform: scale(1.07);
+    transform: scale(1.085);
     user-select: none;
     cursor: pointer;
 }
@@ -291,10 +291,31 @@
     background-color: var(--expert);
     width: max-content;
     padding: .4em .8em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.accountOptionBtn:hover {
+    transform: scale(1.07);
 }
 
 .accountOptionBtn p {
     color: var(--white);
     font-family: orbitron-extrabold;
     font-size: 1.2em;
+}
+
+/* Background for sign out, create account, ... */
+#background {
+    position: absolute;
+    background-image: url(/img/util/Shadow.png);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+}
+
+#background img {
+    width: inherit;
+    height: inherit;
 }
