@@ -96,9 +96,9 @@
 }
 
 .itemFavouriteBtnBackground:hover {
-    background-color: var(--yellow);
+    /* background-color: var(--yellow); */
     color: var(--yellow);
-    box-shadow: 0px 0px 5px var(--black);
+    /* box-shadow: 0px 0px 5px var(--black); */
     /* transform: scale(1.5); */
 }
 

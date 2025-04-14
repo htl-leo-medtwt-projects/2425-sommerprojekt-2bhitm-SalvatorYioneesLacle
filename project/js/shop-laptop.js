@@ -1,14 +1,24 @@
-let shopDropdown = 0;
-let isFavourite = {
-    laptop: [false],
-    phones: [false],
-    monitors: [false]
-};
+// / <reference path="../data/laptops.json"/>
+let laptops;
+
+async function readLaptops() {
+    try {
+        // read JSON file via promise (wait for answer)
+        const data = await fsp.readFile('../data/laptops.json', 'utf-8')
+        // split in lines array
+        laptops = JSON.parse(data);
+    } catch (err) {
+        console.log("Laptops can not be read: " + err);
+    }
+}
+readLaptops();
+
+console.log(laptops);
 
 function initItemBoxes() {
     let str = '';
     for (let i = 0; i < 10; i++) {
-        isFavourite.monitors[i] = false;
+        isFavourite.laptop[i] = false;
         str += `
         <div class="itemBox">
             <div class="itemImg">
@@ -32,7 +42,7 @@ function initItemBoxes() {
     }
     document.getElementById('items-grid').innerHTML = str;
 }
-initItemBoxes();
+initItemBoxes(); console.log(isFavourite);
 
 function initNavBtnsShop() {
     // Dropdown: https://www.w3schools.com/howto/howto_css_dropdown.asp
@@ -64,47 +74,3 @@ function initNavBtnsShop() {
                 </a>`;
 }
 initNavBtnsShop();
-
-function getShopDropdownValue() {
-    shopDropdown = document.getElementById('shops-dropdown').value;
-    window.location.href = `/pages/shop-${shopDropdown}.html`;
-}
-
-function checkMinValue() {
-    if (document.getElementById('min-price').value < 0) {
-        document.getElementById('min-price').value = 0;
-    }
-    if (document.getElementById('min-price').value > document.getElementById('max-price').value) {
-        document.getElementById('max-price').value = document.getElementById('min-price').value;
-    }
-}
-
-function checkMaxValue() {
-    if (document.getElementById('max-price').value < 0) {
-        document.getElementById('max-price').value = 0;
-    }
-    if (document.getElementById('max-price').value < document.getElementById('min-price').value) {
-        document.getElementById('min-price').value = document.getElementById('max-price').value;
-    }
-}
-
-function changeFavBtnColourYellow(index) {
-    document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.backgroundColor = 'var(--yellow)'
-    document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.transform = `scale(1.35)`
-}
-function changeFavBtnColourGray(index) {
-    document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.backgroundColor = 'transparent'
-    document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.transform = `scale(1)`
-}
-
-function changeFavBtnSaved(index) {
-    isFavourite.monitors[index] = !isFavourite.monitors[index] 
-    if (isFavourite.monitors[index]) {
-        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
-    } else {
-        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
-    }
-}
-
-// If displayRes == 1200: WUXGA
-// 1280 = WUXGA+
