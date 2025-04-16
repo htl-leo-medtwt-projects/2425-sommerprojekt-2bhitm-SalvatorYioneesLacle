@@ -1,8 +1,12 @@
 let shopDropdown = 0;
+
+let PRICE= {
+    min: document.getElementById('min-price').value,
+    max: document.getElementById('max-price').value
+}
+
 let isFavourite = {
-    laptop: [false],
-    phones: [false],
-    monitors: [false]
+    monitors: false
 };
 
 function initItemBoxes() {
@@ -71,20 +75,20 @@ function getShopDropdownValue() {
 }
 
 function checkMinValue() {
-    if (document.getElementById('min-price').value < 0) {
-        document.getElementById('min-price').value = 0;
+    if (PRICE.min < 0) {
+        PRICE.min = 0;
     }
-    if (document.getElementById('min-price').value > document.getElementById('max-price').value) {
-        document.getElementById('max-price').value = document.getElementById('min-price').value;
+    if (PRICE.min > PRICE.max) {
+        PRICE.max = PRICE.min;
     }
 }
 
 function checkMaxValue() {
-    if (document.getElementById('max-price').value < 0) {
-        document.getElementById('max-price').value = 0;
+    if (PRICE.max < 0) {
+        PRICE.max = 0;
     }
-    if (document.getElementById('max-price').value < document.getElementById('min-price').value) {
-        document.getElementById('min-price').value = document.getElementById('max-price').value;
+    if (PRICE.max < PRICE.min) {
+        PRICE.min = PRICE.max;
     }
 }
 
@@ -98,11 +102,17 @@ function changeFavBtnColourGray(index) {
 }
 
 function changeFavBtnSaved(index) {
-    isFavourite.monitors[index] = !isFavourite.monitors[index] 
+    isFavourite.monitors[index] = !isFavourite.monitors[index]
     if (isFavourite.monitors[index]) {
         document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
     } else {
         document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
+    }
+}
+
+function isInPriceArea(item) {
+    if (item.device.price >= PRICE.min && item.device.price <= PRICE.max) {
+
     }
 }
 

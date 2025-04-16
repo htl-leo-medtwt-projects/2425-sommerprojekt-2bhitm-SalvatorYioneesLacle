@@ -1,11 +1,17 @@
 /// <reference path="../data/laptops.js"/>
 
 console.log(laptops);
+let ITEMS = {
+    device: [null],
+    isFavourite: [false],
+    isFittingFilter: [false]
+}
 
 function initItemBoxes() {
     let str = '';
     for (let i = 0; i < laptops.length; i++) {
-        isFavourite.laptop[i] = false;
+        ITEMS.device[i] = laptops[i];
+        ITEMS.isFavourite[i] = false;
         str += `
         <div class="itemBox">
             <div class="itemImg">
@@ -29,7 +35,8 @@ function initItemBoxes() {
     }
     document.getElementById('items-grid').innerHTML = str;
 }
-initItemBoxes(); console.log(isFavourite);
+initItemBoxes();
+console.log(isFavourite);
 
 function initNavBtnsShop() {
     // Dropdown: https://www.w3schools.com/howto/howto_css_dropdown.asp
