@@ -1,4 +1,4 @@
-[
+let laptops = [
     {
         "name": "OMEN Gaming Laptop 17-db0575ng (A5SG7EA)",
         "img": "/img/laptops/OMEN-Gaming-Laptop-17-db0575ng.png",

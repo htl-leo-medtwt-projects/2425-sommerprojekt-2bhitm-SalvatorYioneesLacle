@@ -1,23 +1,10 @@
-// / <reference path="../data/laptops.json"/>
-let laptops;
-
-async function readLaptops() {
-    try {
-        // read JSON file via promise (wait for answer)
-        const data = await fsp.readFile('../data/laptops.json', 'utf-8')
-        // split in lines array
-        laptops = JSON.parse(data);
-    } catch (err) {
-        console.log("Laptops can not be read: " + err);
-    }
-}
-readLaptops();
+/// <reference path="../data/laptops.js"/>
 
 console.log(laptops);
 
 function initItemBoxes() {
     let str = '';
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < laptops.length; i++) {
         isFavourite.laptop[i] = false;
         str += `
         <div class="itemBox">
