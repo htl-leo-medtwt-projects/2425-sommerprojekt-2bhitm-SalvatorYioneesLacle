@@ -101,14 +101,7 @@ function changeFavBtnColourGray(index) {
     document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.transform = `scale(1)`
 }
 
-function changeFavBtnSaved(index) {
-    isFavourite.monitors[index] = !isFavourite.monitors[index]
-    if (isFavourite.monitors[index]) {
-        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
-    } else {
-        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
-    }
-}
+-
 
 function isInPriceArea(item) {
     if (item.device.price >= PRICE.min && item.device.price <= PRICE.max) {

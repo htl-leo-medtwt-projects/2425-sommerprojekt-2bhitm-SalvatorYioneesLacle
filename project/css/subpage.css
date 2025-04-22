@@ -65,6 +65,10 @@
     transform: scale(1.2);
 }
 
+.itemDetailsBtn:active {
+    transform: scale(1.06);
+}
+
 .itemDetailsBtn p {
     /* font-family: serif; */
     font-weight: 300;
@@ -121,6 +125,11 @@
 
 .itemFavouriteBtnImg:active {
     transform: scale(1.8);
+}
+
+/* Device names */
+.itemStats h2 {
+    font-size: 1.25em;
 }
 
 /* box for min/max price grid */

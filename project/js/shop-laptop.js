@@ -4,31 +4,36 @@ console.log(laptops);
 let ITEMS = {
     device: [null],
     isFavourite: [false],
-    isFittingFilter: [false]
+    isFittingFilter: [false],
+    id: 0
 }
 
+// Laptop name: If Split(" ") char[0] = ( & Split(" ") char[end] = ) --> Font size smaller
 function initItemBoxes() {
     let str = '';
     for (let i = 0; i < laptops.length; i++) {
         ITEMS.device[i] = laptops[i];
+        ITEMS.id = i;
+        console.log(ITEMS.id);
+        
         ITEMS.isFavourite[i] = false;
         str += `
         <div class="itemBox">
             <div class="itemImg">
-                <img src="/img/phones/phone.png" alt="phone">
+                <img src="${ITEMS.device[i].img}" alt="${ITEMS.device[i].name}">
             </div>
 
             <div class="itemStats">
-                <h2>Samsung</h2>
+                <h2>${ITEMS.device[i].name}</h2>
             </div>
 
-            <div class="itemDetailsBtn">
+            <div class="itemDetailsBtn" onclick="showDeviceDetails(${ITEMS.id})">
                 <p>+</p>
             </div>
 
             <div class="itemFavouriteBtn">
                 <div class="itemFavouriteBtnBackground"></div>
-                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${i})" onmouseenter="changeFavBtnColourYellow(${i})" onmouseleave="changeFavBtnColourGray(${i})">
+                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${ITEMS.id})" onmouseenter="changeFavBtnColourYellow(${ITEMS.id})" onmouseleave="changeFavBtnColourGray(${ITEMS.id})">
             </div>
         </div>
         `;
@@ -36,7 +41,19 @@ function initItemBoxes() {
     document.getElementById('items-grid').innerHTML = str;
 }
 initItemBoxes();
-console.log(isFavourite);
+
+function initItemName() {
+    let str = '';
+    for (let i = 0; i < ITEMS.device[0].name.split(' ').length; i++) {
+        if (ITEMS.device[0].name.split(' ')[i].at(0) == '('
+            && ITEMS.device[0].name.split(' ')[i].at(ITEMS.device[0].name.split(' ')[i].length - 1)) {
+            console.log('EEEEEEEEEEEEEee');
+        }
+        str += ITEMS.device[0].name.split(' ')[i] + ' '
+    }
+    console.log(str);
+}
+initItemName()
 
 function initNavBtnsShop() {
     // Dropdown: https://www.w3schools.com/howto/howto_css_dropdown.asp
@@ -68,3 +85,18 @@ function initNavBtnsShop() {
                 </a>`;
 }
 initNavBtnsShop();
+
+function changeFavBtnSaved(index) {
+    ITEMS.isFavourite[index] = !ITEMS.isFavourite[index]
+    console.log(ITEMS.isFavourite);
+    
+    if (ITEMS.isFavourite[index]) {
+        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
+    } else {
+        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
+    }
+}
+
+function showDeviceDetails(index) {
+    
+}
