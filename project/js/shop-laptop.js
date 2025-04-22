@@ -46,8 +46,10 @@ function initItemName() {
     let str = '';
     for (let i = 0; i < ITEMS.device[0].name.split(' ').length; i++) {
         if (ITEMS.device[0].name.split(' ')[i].at(0) == '('
-            && ITEMS.device[0].name.split(' ')[i].at(ITEMS.device[0].name.split(' ')[i].length - 1)) {
-            console.log('EEEEEEEEEEEEEee');
+            && ITEMS.device[0].name.split(' ')[i].at(ITEMS.device[0].name.split(' ')[i].length - 1) == ')') {
+            console.log('EEEEEEEE EEEEEEEE');
+
+            ITEMS.device[0].name.split(' ')[i].style.color = 'red'
         }
         str += ITEMS.device[0].name.split(' ')[i] + ' '
     }
@@ -89,7 +91,7 @@ initNavBtnsShop();
 function changeFavBtnSaved(index) {
     ITEMS.isFavourite[index] = !ITEMS.isFavourite[index]
     console.log(ITEMS.isFavourite);
-    
+
     if (ITEMS.isFavourite[index]) {
         document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
     } else {
