@@ -3,6 +3,12 @@
 let longPop = new Audio('/audio/long-pop.wav');
 let longPopLeave = new Audio('/audio/long-pop-leave.wav');
 
+let USER = {
+    username: 'E',
+    money: 154,
+    isSignedIn: false
+}
+
 function playLongPop() {
     longPop.currentTime = 0
     longPop.play()
@@ -19,11 +25,11 @@ function initPageIcon() {
 initPageIcon()
 
 function swapToWhiteNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-account-biggerImg"': ''} src="/img/icons/${icon}_white.png" alt="${icon}">`
+    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-account-biggerImg"' : ''} src="/img/icons/${icon}_white.png" alt="${icon}">`
 }
 
 function swapToNormalNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-account-biggerImg"': ''} src="/img/icons/${icon}.png" alt="${icon}">`
+    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-account-biggerImg"' : ''} src="/img/icons/${icon}.png" alt="${icon}">`
 }
 
 function initNavigationbar() {
@@ -35,12 +41,23 @@ function initNavigationbar() {
                 
             </div>
             <div id="nav-account">
-                <p>Account Name 0123</p>
-                <img src="/img/icons/anonymous.jpg" alt="account icon">
+                <div onclick="toSignUp()">
+                    <p>Sign Up</p>
+                </div>
+
+                <div onclick="toLogIn()">
+                    <p>Log in</p>
+                </div>
+
+               <!-- <p>Account Name 0123</p>
+                <img src="/img/icons/anonymous.jpg" alt="account icon"> -->
             </div>
-            <div id="nav-items">
-                <img src="/img/icons/shopping-cart.png" alt="shopping cart">
-            </div>
+            
+            ${USER.isSignedIn ? 
+                `<div id="nav-items">
+                    <img src="/img/icons/shopping-cart.png" alt="shopping cart">
+                </div>`
+            : ''}
     `;
     document.getElementsByTagName('nav').item(0).innerHTML = str;
 }
@@ -63,4 +80,8 @@ function initAccountState() {
 
 function name() {
 
+}
+
+function toLogIn() {
+    window.location.href = `/pages/account/account-login.html`
 }

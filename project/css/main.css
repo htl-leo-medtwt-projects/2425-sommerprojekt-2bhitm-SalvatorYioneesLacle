@@ -175,13 +175,34 @@ nav #nav-account img {
     box-shadow: var(--accountBoxShadow);
 }
 
-nav #nav-account p {
+nav #nav-account>p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     line-clamp: 1;
     word-break: break-all;
     overflow: hidden;
+}
+
+nav #nav-account>div {
+    width: 6em;
+    height: 60%;
+    background-color: var(--darkgray);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+nav #nav-account>div:last-of-type {
+    background-color: var(--expert);
+    margin-right: 2em;
+}
+
+
+nav #nav-account>div p {
+    user-select: none;
 }
 
 nav #nav-items {
