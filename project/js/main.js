@@ -46,7 +46,7 @@ function initNavigationbar() {
                 </div>
 
                 <div onclick="toLogIn()">
-                    <p>Log in</p>
+                    <p>Log In</p>
                 </div>
 
                <!-- <p>Account Name 0123</p>
@@ -54,7 +54,7 @@ function initNavigationbar() {
             </div>
             
             <div id="nav-items">
-        3        <img src="/img/icons/shopping-cart.png" alt="shopping cart">
+                <img src="/img/icons/shopping-cart.png" alt="shopping cart">
             </div>
     `;
     document.getElementsByTagName('nav').item(0).innerHTML = str;

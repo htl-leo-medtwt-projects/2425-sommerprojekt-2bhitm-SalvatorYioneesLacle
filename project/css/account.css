@@ -288,11 +288,18 @@
 }
 
 .accountOptionBtn {
-    background-color: var(--expert);
+    box-sizing: border-box;
     width: max-content;
     padding: .4em .8em;
+    background-color: var(--white);
+    border: .1em var(--gray) solid;
     cursor: pointer;
     user-select: none;
+}
+
+.accountOptionBtn:last-of-type {
+    background-color: var(--expert);
+    border-color: var(--expert);
 }
 
 .accountOptionBtn:hover {
@@ -300,9 +307,13 @@
 }
 
 .accountOptionBtn p {
-    color: var(--white);
+    color: var(--black);
     font-family: orbitron-extrabold;
     font-size: 1.2em;
+}
+
+.accountOptionBtn:last-of-type p {
+    color: var(--white);
 }
 
 /* Background for sign out, create account, ... */

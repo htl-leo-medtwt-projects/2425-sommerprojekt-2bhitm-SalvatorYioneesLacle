@@ -187,7 +187,8 @@ nav #nav-account>p {
 nav #nav-account>div {
     width: 6em;
     height: 60%;
-    background-color: var(--darkgray);
+    background-color: var(--white);
+    border: .1em var(--darkgray) solid;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -197,10 +198,20 @@ nav #nav-account>div {
 
 nav #nav-account>div:last-of-type {
     background-color: var(--expert);
+    border: none;
+    color: var(--white);
 }
 
 nav #nav-account>div p {
     user-select: none;
+}
+
+nav #nav-account>div:hover {
+    transform: scale(1.07);
+}
+
+nav #nav-account>div:active {
+    transform: scale(1.01);
 }
 
 nav #nav-items {
