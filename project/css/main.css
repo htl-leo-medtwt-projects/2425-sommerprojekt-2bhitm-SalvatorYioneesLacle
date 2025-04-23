@@ -197,9 +197,7 @@ nav #nav-account>div {
 
 nav #nav-account>div:last-of-type {
     background-color: var(--expert);
-    margin-right: 2em;
 }
-
 
 nav #nav-account>div p {
     user-select: none;

@@ -53,11 +53,9 @@ function initNavigationbar() {
                 <img src="/img/icons/anonymous.jpg" alt="account icon"> -->
             </div>
             
-            ${USER.isSignedIn ? 
-                `<div id="nav-items">
-                    <img src="/img/icons/shopping-cart.png" alt="shopping cart">
-                </div>`
-            : ''}
+            <div id="nav-items">
+        3        <img src="/img/icons/shopping-cart.png" alt="shopping cart">
+            </div>
     `;
     document.getElementsByTagName('nav').item(0).innerHTML = str;
 }
