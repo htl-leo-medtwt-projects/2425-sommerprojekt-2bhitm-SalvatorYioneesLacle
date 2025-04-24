@@ -49,13 +49,13 @@ function initItemName() {
             && ITEMS.device[0].name.split(' ')[i].at(ITEMS.device[0].name.split(' ')[i].length - 1) == ')') {
             console.log('EEEEEEEE EEEEEEEE');
 
-            ITEMS.device[0].name.split(' ')[i].style.color = 'red'
+            ITEMS.device[0].name.split(' ')[i].style.color = 'red';
         }
         str += ITEMS.device[0].name.split(' ')[i] + ' '
     }
     console.log(str);
 }
-initItemName()
+initItemName();
 
 function initNavBtnsShop() {
     // Dropdown: https://www.w3schools.com/howto/howto_css_dropdown.asp

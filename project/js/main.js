@@ -3,6 +3,8 @@
 let longPop = new Audio('/audio/long-pop.wav');
 let longPopLeave = new Audio('/audio/long-pop-leave.wav');
 
+// gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
 let USER = {
     username: 'E',
     money: 154,
@@ -87,8 +89,3 @@ function toLogIn() {
 function toSignUp() {
     window.location.href = `/pages/account/account-signup.html`;
 }
-
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
-gsap.to(window, {
-    scrub: 1
-})

@@ -375,6 +375,11 @@
     padding: .4em .55em;
 }
 
+.accountInputFields {
+    text-align: left;
+    color: var(--black);
+}
+
 /* Background for sign out, create account, ... */
 #background {
     position: absolute;
