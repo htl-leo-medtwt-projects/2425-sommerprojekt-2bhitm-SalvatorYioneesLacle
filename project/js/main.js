@@ -83,3 +83,12 @@ function name() {
 function toLogIn() {
     window.location.href = `/pages/account/account-login.html`
 }
+
+function toSignUp() {
+    window.location.href = `/pages/account/account-signup.html`;
+}
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+gsap.to(window, {
+    scrub: 1
+})

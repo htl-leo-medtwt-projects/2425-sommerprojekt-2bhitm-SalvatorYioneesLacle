@@ -316,6 +316,65 @@
     color: var(--white);
 }
 
+#accountCredentialsWrapper {
+    position: relative;
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#accountCredentialsBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 25em;
+    max-height: fit-content;
+    gap: 2.3em;
+}
+
+#accountCredentialsBox h2 {
+    font-family: orbitron-black;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!   NOT  !!!!!!!!!!!!!!!!!!!!!!!! input tag */
+#accountCredentialsInput {
+    width: 60%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6em;
+}
+
+#accountCredentialsBox h1 {
+    font-family: Orbitron;
+    font-weight: 700;
+}
+
+#accountCredentialsBox p {
+    font-size: .85em;
+    color: var(--darkgray);
+}
+
+/* Back button */
+#backBtnBoxCredential {
+    position: absolute;
+    width: 1.2em;
+    left: 1em;
+    top: 1em;
+}
+
+#accountCredentialsInput input {
+    border: none;
+    outline: none;
+    background-color: var(--gray);
+    font-size: 1.2em;
+    padding: .4em .55em;
+}
+
 /* Background for sign out, create account, ... */
 #background {
     position: absolute;
@@ -324,7 +383,7 @@
     height: 100%;
     width: 100%;
     top: 0;
-    z-index: -1;
+    z-index: -2;
 }
 
 #background img {

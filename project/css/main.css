@@ -40,7 +40,7 @@
     --red: red;
     --yellow: rgb(255, 227, 18);
     --green: #32A852;
-    --accountBorder: .08em black solid;
+    --accountBorder: .08em var(--black) solid;
     --accountBoxShadow: 0px 0px 3px var(--black), inset 0px 0px 2px var(--black);
 }
 
