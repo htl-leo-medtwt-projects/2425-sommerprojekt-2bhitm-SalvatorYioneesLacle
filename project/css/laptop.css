@@ -20,6 +20,7 @@
     display: grid;
     grid-template-columns: 30% 1fr;
     position: relative;
+    /* opacity: 0; */
 }
 
 /* inner boxes of .itemBox --> centered positioning */

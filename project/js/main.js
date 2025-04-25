@@ -90,51 +90,51 @@ function toSignUp() {
     window.location.href = `/pages/account/account-signup.html`;
 }
 
-// INIT GSAP SCROLL PLUGIN
-gsap.registerPlugin(ScrollTrigger);
+// // INIT GSAP SCROLL PLUGIN
+// gsap.registerPlugin(ScrollTrigger);
 
-// SHOW CONTENT
-window.onload = () => {
-    document.querySelector('body').style.opacity = 1;
-}
+// // SHOW CONTENT
+// window.onload = () => {
+//     document.querySelector('body').style.opacity = 1;
+// }
 
-// ITERATE ALL ELEMENTS
-let sections = document.querySelectorAll('.scrollReveal');
-for (let i = 0; i < sections.length; i++) {
-    generateScrollAnimation(i);
-}
+// // ITERATE ALL ELEMENTS
+// let sections = document.querySelectorAll('.scrollReveal');
+// for (let i = 0; i < sections.length; i++) {
+//     generateScrollAnimation(i);
+// }
 
-// REGISTER ANIMATION
-function generateScrollAnimation(i) {
-    let element = sections[i];
-    if (i % 2 == 0) {
-        /* SET START KEY FRAME */
-        gsap.set(element, {
-            x: '-100%',
-            y: '-2%',
-            scale: 0.8,
-            opacity: 0
-        });
-    } else {
-        /* SET START KEY FRAME */
-        gsap.set(element, {
-            x: '100%',
-            y: '-2%',
-            scale: 0.8,
-            opacity: 0
-        });
-    }
+// // REGISTER ANIMATION
+// function generateScrollAnimation(i) {
+//     let element = sections[i];
+//     if (i % 2 == 0) {
+//         /* SET START KEY FRAME */
+//         gsap.set(element, {
+//             x: '-100%',
+//             y: '-2%',
+//             scale: 0.8,
+//             opacity: 0
+//         });
+//     } else {
+//         /* SET START KEY FRAME */
+//         gsap.set(element, {
+//             x: '100%',
+//             y: '-2%',
+//             scale: 0.8,
+//             opacity: 0
+//         });
+//     }
 
-    /* SET END KEY FRAME */
-    gsap.to(element, {
-        x: 0,
-        y: 0,
-        scale: 1,
-        opacity: 1,
-        duration: 0.85,
-        scrollTrigger: {
-            trigger: element,
-            start: '10% 80%',  /* 'Ankerpunkt Offset' */
-        }
-    });
-}
+//     /* SET END KEY FRAME */
+//     gsap.to(element, {
+//         x: 0,
+//         y: 0,
+//         scale: 1,
+//         opacity: 1,
+//         duration: 0.85,
+//         scrollTrigger: {
+//             trigger: element,
+//             start: '10% -500%',  /* 'Ankerpunkt Offset' */
+//         }
+//     });
+// }

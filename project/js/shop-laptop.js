@@ -15,7 +15,7 @@ function initItemBoxes() {
         ITEMS.device[i] = laptops[i];
         ITEMS.id = i;
         console.log(ITEMS.id);
-        
+
         ITEMS.isFavourite[i] = false;
         str += `
         <div class="itemBox scrollReveal">
@@ -55,7 +55,7 @@ function initItemName() {
     }
     console.log(str);
 }
-initItemName();
+// initItemName();
 
 function initNavBtnsShop() {
     // Dropdown: https://www.w3schools.com/howto/howto_css_dropdown.asp
@@ -100,5 +100,43 @@ function changeFavBtnSaved(index) {
 }
 
 function showDeviceDetails(index) {
-    
+
+}
+
+// INIT GSAP SCROLL PLUGIN
+gsap.registerPlugin(ScrollTrigger);
+
+// SHOW CONTENT
+window.onload = () => {
+    document.querySelector('body').style.opacity = 1;
+}
+
+// ITERATE ALL ELEMENTS
+let sections = document.querySelectorAll('.scrollReveal');
+for (let i = 0; i < sections.length; i++) {
+    generateScrollAnimation(i);
+}
+
+// REGISTER ANIMATION
+function generateScrollAnimation(i) {
+    let element = sections[i];
+
+    /* SET START KEY FRAME */
+    gsap.set(element, {
+        y: '20%',
+        opacity: 0
+    });
+
+    /* SET END KEY FRAME */
+    gsap.to(element, {
+        x: 0,
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 0.85,
+        scrollTrigger: {
+            trigger: element,
+            start: '0% 75%',  /* 'Ankerpunkt Offset' */
+        }
+    });
 }
