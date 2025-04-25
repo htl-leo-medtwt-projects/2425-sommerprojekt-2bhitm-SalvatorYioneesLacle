@@ -128,6 +128,19 @@ let laptops = [
         "price": 1925.00,
         "batteryLife": -1,
         "usage": "Home"
+    },
+    {
+        "name": 'Lenovo ThinkPad X13 Gen 6 (13" Intel)',
+        "img": "/img/laptops/Lenovo-ThinkPad-X13-Gen6.avif",
+        "os": "Windows 11 Pro",
+        "displaySize": 13.3,
+        "displayRes": 1200, 
+        "ram": 32,
+        "rom": 1000,
+        "cpu": "Intel® Core™ Ultra 7 255U",
+        "price": 1989.00,
+        "batteryLife": -1,
+        "usage": "Home"
     }
 ]
 

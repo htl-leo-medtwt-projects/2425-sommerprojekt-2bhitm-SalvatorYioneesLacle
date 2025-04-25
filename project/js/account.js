@@ -29,4 +29,3 @@ function toHomepage() {
 function checkLogin() {
     toAccountOverview()
 }
-

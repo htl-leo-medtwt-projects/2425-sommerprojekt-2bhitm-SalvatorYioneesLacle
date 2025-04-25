@@ -100,8 +100,19 @@ function changeFavBtnSaved(index) {
 }
 
 function showDeviceDetails(index) {
-
+    str = `
+        <div>
+            <div class="itemDetailsHeader">
+                <h1>${ITEMS.device[index].name}</h1>
+            </div>
+            <div>
+                <p>${ITEMS.device[index].os}</p>
+            </div>
+        </div> 
+    `;
+    console.log(str);
 }
+
 
 // INIT GSAP SCROLL PLUGIN
 gsap.registerPlugin(ScrollTrigger);
@@ -133,7 +144,7 @@ function generateScrollAnimation(i) {
         y: 0,
         scale: 1,
         opacity: 1,
-        duration: 0.85,
+        duration: 1.1,
         scrollTrigger: {
             trigger: element,
             start: '0% 75%',  /* 'Ankerpunkt Offset' */
