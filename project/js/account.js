@@ -25,3 +25,8 @@ function toAccountOverview() {
 function toHomepage() {
     window.location.href = `/index.html`;
 }
+
+function checkLogin() {
+    toAccountOverview()
+}
+

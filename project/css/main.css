@@ -35,6 +35,7 @@
     --background: #f6f6f6;
     --white: #ffffff;
     --black: #171717;
+    --lightgray: rgb(224, 224, 224);
     --gray: rgb(196, 196, 196);
     --darkgray: rgb(88, 88, 88);
     --red: red;
@@ -42,6 +43,9 @@
     --green: #32A852;
     --accountBorder: .08em var(--black) solid;
     --accountBoxShadow: 0px 0px 3px var(--black), inset 0px 0px 2px var(--black);
+    --btnWidth: 7em;
+    --btnPadding: .3em 1em;
+    --btnFont: orbitron-bold;
 }
 
 * {

@@ -18,85 +18,33 @@
             <img src="/img/util/whTr.png" alt="Transparent Go Around">
         </div>
     </div>
-    <div id="wrapper">
-        <div id="backBtnBox">
+    <div id="accountCredentialsWrapper">
+        <div id="backBtnBoxCredential">
             <a href="/index.html"><img src="/img/util/BackBtn.png" alt="Back button"></a>
         </div>
-        <div id="transactionsWrapper">
-            <h2>Transactions</h2>
-            <div id="transactions">
-                <div class="transactionDateBox" id="2025-04-09">
-                    <div>09. 04. 2025</div>
-                    <div class="transactionPosBox">
-                        <div class="transactionBox">
-                            <div>
-                                <p>Samsung Galaxy A35 5G</p>
-                            </div>
-                            <div>
-                                <p>379,54 €</p>
-                            </div>
-                            <div class="transactionBoxImg">
-                                <img src="/img/util/trWhTr70.png" alt="Transparent Go Around">
-                            </div>
-                        </div>
-                        <div class="transactionBox">
-                            <div>
-                                <p>Samsung Galaxy A53 5G</p>
-                            </div>
-                            <div>
-                                <p>239,65 €</p>
-                            </div>
-                            <div class="transactionBoxImg">
-                                <img src="/img/util/trWhTr70.png" alt="Transparent Go Around">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="transactionDateBox" id="2025-04-05">
-                    <div>05. 04. 2025</div>
-                    <div class="transactionPosBox">
-                        <div class="transactionBox" id="transaction-2"> <!-- ID system -->
-                            <div>
-                                <p>OMEN Gaming Laptop 17-db0575ng (A5SG7EA)</p>
-                            </div>
-                            <div>
-                                <p>379,54 €</p>
-                            </div>
-                            <div class="transactionBoxImg">
-                                <img src="/img/util/trWhTr70.png" alt="Transparent Go Around">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="accountBox">
-            <h2>Account info</h2>
-            <div id="accountDetails">
+        <div id="accountCredentialsBox">
+            <div id="accountCredentialsInput">
                 <div>
-                    <p>Change me 0123</p>
+                    <h1>Create an account</h1>
+                    <p>Start a new account here</p>
                 </div>
-                <div>
-                    <img src="/img/icons/anonymous.jpg" alt="anonymous">
+                <div class="accountInputFields">
+                    <input type="email" name="email" id="email">
+                    <p>Email address</p>
+                </div>
+                <div class="accountInputFields">
+                    <input type="password" name="password" id="password">
+                    <p>Password</p>
                 </div>
             </div>
-            <div id="accountBalance">
-                <p>151,54 €</p>
-            </div>
-            <div id="accountBtns">
-                <div id="accountLogOut" onclick="toLogOutScreen()">
-                    <p>Log out</p>
+            <div id="accountBottom">
+                <div id="accountBtnToMove" onclick="checkLogin()">
+                    <p>Sign Up</p>
                 </div>
-                <div id="accountDelete" onclick="toAccountDeleteScreen()"> <!-- Pop up with confimation, then toAccountDeleteScreeen() -->
-                    <p>Delete Account</p>
-                </div>
+                <p>Or log in with an exisitng account <a href="/pages/account/account-signup.html">here</a></p>
             </div>
         </div>
     </div>
-    <footer>
-
-    </footer>
 </body>
 
 </html>

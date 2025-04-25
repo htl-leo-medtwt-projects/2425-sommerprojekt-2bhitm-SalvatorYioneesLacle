@@ -329,7 +329,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 25em;
+    max-width: 40em;
     max-height: fit-content;
     gap: 2.3em;
 }
@@ -367,18 +367,54 @@
     top: 1em;
 }
 
-#accountCredentialsInput input {
+.accountInputFields {
+    text-align: left;
+    color: var(--black);
+}
+
+.accountInputFields input {
     border: none;
     outline: none;
     background-color: var(--gray);
     font-size: 1.2em;
     padding: .4em .55em;
+    border: var(--accountBorder);
+    border-color: transparent;
+    border-width: .1em;
 }
 
-.accountInputFields {
-    text-align: left;
-    color: var(--black);
+.accountInputFields input:focus {
+    background-color: var(--lightgray);
+    border-color: var(--black);
 }
+
+#accountBottom {
+    width: fit-content;
+}
+
+#accountBtnToMove {
+    cursor: pointer;
+    user-select: none;
+}
+
+#accountBtnToMove:hover {
+    transform: scale(1.1);
+}
+
+#accountBtnToMove:active {
+    transform: scale(1.03);
+}
+
+#accountBtnToMove p {
+    background-color: var(--expert);
+    padding: var(--btnPadding);
+    width: var(--btnWidth);
+
+    color: var(--white);
+    font-size: 1.4em;
+    font-family: var(--btnFont);
+}
+
 
 /* Background for sign out, create account, ... */
 #background {

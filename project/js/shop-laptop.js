@@ -18,7 +18,7 @@ function initItemBoxes() {
         
         ITEMS.isFavourite[i] = false;
         str += `
-        <div class="itemBox">
+        <div class="itemBox scrollReveal">
             <div class="itemImg">
                 <img src="${ITEMS.device[i].img}" alt="${ITEMS.device[i].name}">
             </div>

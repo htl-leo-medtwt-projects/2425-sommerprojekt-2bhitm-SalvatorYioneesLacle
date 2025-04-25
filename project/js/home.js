@@ -21,14 +21,3 @@ function initNavBtnsHome() {
 }
 initNavBtnsHome();
 
-gsap.registerPlugin(ScrollToPlugin);
-
-document.addEventListener("DOMContentLoaded", (event) => {
-    console.log(event);
-
-    // gsap code here!
-    
-    // gsap.to(window, {
-    //     duration: 2, scrollTo: "#btnDiv"
-    // });
-});
