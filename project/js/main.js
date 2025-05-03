@@ -5,11 +5,30 @@ let longPopLeave = new Audio('/audio/long-pop-leave.wav');
 
 // gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
+let cart = []
+let favourites = []
+
 let USER = {
-    username: 'E',
-    money: 154,
-    isSignedIn: false
+    username: localStorage['acc-username'] || 'Max Mustermann',
+    email: localStorage['acc-email'] || 'max.mustermann@gmail.com',
+    pw: localStorage['acc-pw'] || '1234',
+    pfp: localStorage['acc-pfp'] || 'https://rewards.bing.com/rewardscdn/images/rewards.png',
+    money: JSON.parse(localStorage['acc-money'] ?? 0),
+    cart: JSON.parse(localStorage['acc-cart'] ?? cart),
+    favourites: JSON.parse(localStorage['acc-favourites'] ?? favourites),
+    logInStatus: JSON.parse(localStorage['acc-logInStatus'] ?? false)
 }
+
+
+// localStorage['acc-username'] = USER.username
+// localStorage['acc-email'] = USER.email
+// localStorage['acc-pw'] = USER.pw
+// localStorage['acc-pfp'] = USER.pfp
+// localStorage['acc-money'] = JSON.stringify(USER.money)
+// localStorage['acc-cart'] = JSON.stringify(USER.cart)
+// localStorage['acc-favourites'] = JSON.stringify(USER.favourites)
+// localStorage['acc-logInStatus'] = JSON.stringify(USER.logInStatus)
+
 
 function playLongPop() {
     longPop.currentTime = 0
@@ -56,7 +75,7 @@ function initNavigationbar() {
             </div>
             
             <div id="nav-items">
-                <img src="/img/icons/shopping-cart.png" alt="shopping cart">
+                <img src="${USER.pfp}" alt="shopping cart">
             </div>
     `;
     document.getElementsByTagName('nav').item(0).innerHTML = str;
