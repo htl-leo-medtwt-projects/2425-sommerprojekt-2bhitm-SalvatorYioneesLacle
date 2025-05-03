@@ -132,18 +132,33 @@
     font-size: 1.25em;
 }
 
+/* box for all filters */
+#filterBox {
+    box-shadow: 0px 0px 15px 5px var(--lightgray);
+}
+
+/* "Filter" text in filterBox */
+#filterBox header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* box for min/max price grid */
 #priceFilter {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 #priceFilter>div {
     max-width: 10em;
-    width: 90%;
+    /* width: 100%; */
+    /* padding: 0 2em; */
 }
 
+/* € */
 #priceFilter>div>div:first-of-type {
     display: flex;
     background-color: var(--white);

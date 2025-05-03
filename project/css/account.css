@@ -390,25 +390,24 @@
 
 #accountBottom {
     width: fit-content;
+    display: grid;
+    gap: .6em;
+}
+
+#accountBottom a {
+    color: var(--expert);
+    text-decoration: none;
 }
 
 #accountBtnToMove {
-    cursor: pointer;
     user-select: none;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#accountBtnToMove:hover {
-    transform: scale(1.1);
-}
-
-#accountBtnToMove:active {
-    transform: scale(1.03);
-}
-
 #accountBtnToMove p {
+    cursor: pointer;
     text-align: center;
     background-color: var(--expert);
     padding: var(--btnPadding);
@@ -419,6 +418,13 @@
     font-family: var(--btnFont);
 }
 
+#accountBtnToMove p:hover {
+    transform: scale(1.1);
+}
+
+#accountBtnToMove p:active {
+    transform: scale(1.03);
+}
 
 /* Background for sign out, create account, ... */
 #background {
