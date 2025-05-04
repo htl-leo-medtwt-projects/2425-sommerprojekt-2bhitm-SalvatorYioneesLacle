@@ -1,5 +1,10 @@
+let DATA = {
+    "email": USER.email,
+    "password": USER.pw
+}
+
 function initNavigationbar() {
-document.getElementsByTagName('nav').item(0).innerHTML = `
+    document.getElementsByTagName('nav').item(0).innerHTML = `
             <a id="nav-logo" href="/index.html">
                 <img src="/img/logos/logo.png" alt="ExpertShop logo">
             </a>`;
@@ -28,4 +33,12 @@ function toHomepage() {
 
 function checkLogin() {
     toAccountOverview()
+}
+
+function saveEmail() {
+    DATA.email = document.getElementById("email").value
+}
+
+function savePassword() {
+    DATA.password = document.getElementById("password").value
 }

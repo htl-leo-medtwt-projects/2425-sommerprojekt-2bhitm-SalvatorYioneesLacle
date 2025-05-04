@@ -104,6 +104,14 @@
 }
 
 .transactionBox div p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-lines: 1;
+    min-width: max-content;
+}
+
+.transactionBox div:first-of-type p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
@@ -122,7 +130,7 @@
 
 /* Left and right padding for device and price */
 .transactionBox div:not(.transactionBoxImg) {
-    padding: 0 1em;
+    padding: 0 2%;
 }
 
 .transactionBoxImg {

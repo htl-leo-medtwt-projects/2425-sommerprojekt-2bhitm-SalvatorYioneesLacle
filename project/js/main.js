@@ -62,20 +62,22 @@ function initNavigationbar() {
                 
             </div>
             <div id="nav-account">
-                <div onclick="toSignUp()">
-                    <p>Sign Up</p>
-                </div>
+                ${USER.logInStatus == false ? `
+                    <div onclick="toSignUp()">
+                        <p>Sign Up</p>
+                    </div>
 
-                <div onclick="toLogIn()">
-                    <p>Log In</p>
-                </div>
-
-               <!-- <p>Account Name 0123</p>
-                <img src="/img/icons/anonymous.jpg" alt="account icon"> -->
+                    <div onclick="toLogIn()">
+                        <p>Log In</p>
+                    </div>` :
+            `
+                    <p>${USER.username}</p>
+                    <img src="${USER.pfp}" alt="${USER.username}">`
+        }
             </div>
             
             <div id="nav-items">
-                <img src="${USER.pfp}" alt="shopping cart">
+                <img src="/img/icons/shopping-cart.png" alt="shopping cart">
             </div>
     `;
     document.getElementsByTagName('nav').item(0).innerHTML = str;
