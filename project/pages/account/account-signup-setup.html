@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/account.css">
     <script src="/js/main.js" defer></script>
     <script src="/js/account.js" defer></script>
+    <script src="/js/account-setup.js" defer></script>
 </head>
 
 <body>
@@ -25,21 +26,22 @@
         <div id="accountCredentialsBox">
             <div id="accountCredentialsInput">
                 <div>
-                    <h1>Create an account</h1>
-                    <p>Start a new account here</p>
+                    <h1>Set up your account</h1>
+                    <p>Configure your account</p>
                 </div>
                 <div class="accountInputFields">
-                    <input type="email" name="email" id="email" placeholder="email@address.com" onchange="saveEmail()">
-                    <p>Email address</p>
+                    <input type="text" name="username" id="username" placeholder="Max Mustermann" onchange="saveUsername()">
+                    <p>Username</p>
                 </div>
+
                 <div class="accountInputFields">
-                    <input type="password" name="password" id="password" placeholder="password" onchange="savePassword()">
-                    <p>Password</p>
+                    <div id="accountPfpBox"></div>
+                    <p id="accountPfpTxt">Select a profile picture</p>
                 </div>
             </div>
             <div id="accountBottom">
-                <div id="accountBtnToMove" onclick="toSignUpSetupScreen()">
-                    <p>Sign Up</p>
+                <div id="accountBtnToMove" onclick="checkLogin()">
+                    <p>Finish</p>
                 </div>
                 <p>Or log in with an exisitng account <a href="/pages/account/account-login.html">here</a></p>
             </div>

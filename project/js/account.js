@@ -1,6 +1,8 @@
-let DATA = {
-    "email": USER.email,
-    "password": USER.pw
+let TEMP = {
+    email: USER.email,
+    pw: USER.pw,
+    username: USER.username,
+    pfp: USER.pfp
 }
 
 function initNavigationbar() {
@@ -10,6 +12,10 @@ function initNavigationbar() {
             </a>`;
 }
 initNavigationbar()
+
+function toSignUpSetupScreen() {
+    window.location.href = `/pages/account/account-signup-setup.html`;
+}
 
 function toLogOutScreen() {
     window.location.href = `/pages/account/account-signout-done.html`;
@@ -36,9 +42,19 @@ function checkLogin() {
 }
 
 function saveEmail() {
-    DATA.email = document.getElementById("email").value
+    TEMP.email = document.getElementById("email").value
 }
 
 function savePassword() {
-    DATA.password = document.getElementById("password").value
+    TEMP.pw = document.getElementById("password").value
+}
+
+function saveUsername() {
+    TEMP.username = document.getElementById("username").value
+}
+
+function savePfp(index) {
+    TEMP.pfp = `<img src="/img/pfp/${index}.png" alt="image-${index}">`
+    console.log(TEMP.pfp);
+    
 }

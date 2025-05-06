@@ -116,7 +116,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     line-clamp: 1;
-    word-break:break-all;
+    word-break: break-all;
     overflow: hidden;
 }
 
@@ -177,7 +177,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     line-clamp: 1;
-    word-break:break-all;
+    word-break: break-all;
     overflow: hidden;
 }
 
@@ -448,4 +448,39 @@
 #background img {
     width: inherit;
     height: inherit;
+}
+
+#accountPfpBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 21em;
+    /* box-shadow: 0px 0px 5px 4px var(--lightgray); */
+}
+
+#accountPfpBox img {
+    width: 3.7em;
+}
+
+#accountPfpBox>div {
+    border-radius: 3em;
+}
+
+#accountPfpBox>div:hover {
+    box-shadow: 3px 3px 5px 1px var(--darkgray);
+}
+
+#accountPfpBox img:hover {
+    transform: scale(1.2);
+}
+
+#accountPfpBox>div:active {
+    transform: scale(.89);
+}
+
+#accountPfpTxt {
+    text-align: center;
 }
