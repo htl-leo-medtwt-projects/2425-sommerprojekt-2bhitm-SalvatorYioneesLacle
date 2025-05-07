@@ -175,8 +175,6 @@ nav #nav-account {
 nav #nav-account img {
     width: fit-content;
     height: 85%;
-    border: var(--accountBorder);
-    box-shadow: var(--accountBoxShadow);
 }
 
 nav #nav-account>p {

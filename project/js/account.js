@@ -38,6 +38,10 @@ function toHomepage() {
 }
 
 function checkLogin() {
+    localStorage['acc-email'] = USER.email = TEMP.email
+    localStorage['acc-pw'] = USER.pw = TEMP.pw
+    localStorage['acc-username'] = USER.username = TEMP.username
+    localStorage['acc-pfp'] = USER.pfp = TEMP.pfp
     toAccountOverview()
 }
 
@@ -54,7 +58,20 @@ function saveUsername() {
 }
 
 function savePfp(index) {
-    TEMP.pfp = `<img src="/img/pfp/${index}.png" alt="image-${index}">`
+    TEMP.pfp = `/img/pfp/${index}.png`
     console.log(TEMP.pfp);
-    
+
+    for (let i = 0; i < 10; i++) {
+        if (i == index) {
+             document.getElementById(`pfp-${i}`).style.border = 'var(--accountBorder)'
+            // document.getElementById(`pfp-${i}`).style.transform = 'scale(1.2)'
+        } else {
+            document.getElementById(`pfp-${i}`).style.transform = 'scale(1)'
+        }
+    }
+}
+
+function saveCustomPfp() {
+    TEMP.pfp = `<img src="/img/pfp/${"own"}.png" alt="image-${"own"}">`
+    console.log(TEMP.pfp);
 }

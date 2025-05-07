@@ -5,7 +5,7 @@ let longPopLeave = new Audio('/audio/long-pop-leave.wav');
 
 // gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
-let cart = []
+let cart = ''
 let favourites = []
 
 let USER = {
@@ -14,9 +14,9 @@ let USER = {
     pw: localStorage['acc-pw'] || '1234',
     pfp: localStorage['acc-pfp'] || 'https://rewards.bing.com/rewardscdn/images/rewards.png',
     money: JSON.parse(localStorage['acc-money'] ?? 0),
-    cart: JSON.parse(localStorage['acc-cart'] ?? cart),
-    favourites: JSON.parse(localStorage['acc-favourites'] ?? favourites),
-    logInStatus: JSON.parse(localStorage['acc-logInStatus'] ?? false)
+    // cart: JSON.parse(localStorage['acc-cart'] ?? cart),
+    // favourites: JSON.parse(localStorage['acc-favourites'] ?? favourites),
+    // logInStatus: JSON.parse(localStorage['acc-logInStatus'] ?? false)
 }
 
 
