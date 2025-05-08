@@ -7,9 +7,9 @@ let cart = ''
 let favourites = []
 
 let USER = {
-    username: localStorage['acc-username'] || 'Max Mustermann',
-    email: localStorage['acc-email'] || 'max.mustermann@gmail.com',
-    pw: localStorage['acc-pw'] || '1234',
+    username: localStorage['acc-username'] || 'Email Address',
+    email: localStorage['acc-email'] || 'email.address@gmail.com',
+    pw: localStorage['acc-pw'] || 'password',
     pfp: localStorage['acc-pfp'] || 'https://rewards.bing.com/rewardscdn/images/rewards.png',
     money: JSON.parse(localStorage['acc-money'] ?? 0),
     // cart: JSON.parse(localStorage['acc-cart'] ?? cart),

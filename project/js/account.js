@@ -13,6 +13,43 @@ function initNavigationbar() {
 }
 initNavigationbar()
 
+function isEmailValid() {
+    return document.getElementById('email').value.split('@').length != 2
+        || document.getElementById('email').value.split('.').length != 2
+}
+
+function isPasswordValid() {
+    return document.getElementById('password').value.length <= 5;
+}
+
+function checkSignUpStage1() {
+    if (isEmailValid()) {
+        showWarningMessage('Invalid email address')
+        document.getElementById('email').value = ''
+        return false;
+    }
+
+    if (isPasswordValid()) {
+        showWarningMessage('Password too short!')
+        document.getElementById('password').value = '';
+        return false;
+    }
+
+    USER.email = document.getElementById('email').value
+    USER.pw = document.getElementById('password').value
+
+    localStorage['acc-email'] = USER.email
+    localStorage['acc-pw'] = USER.pw
+
+    toSignUpSetupScreen()
+}
+
+function checkSignUpStage2() {
+    
+
+    toAccountOverview()
+}
+
 function toSignUpSetupScreen() {
     window.location.href = `/pages/account/account-signup-setup.html`;
 }
@@ -39,7 +76,16 @@ function toHomepage() {
 
 function deleteAccount() {
     USER.logInStatus = false
-    localStorage['acc-logInStatus'] = USER.logInStatus;
+
+    localStorage['acc-username'] = null
+    localStorage['acc-email'] = null
+    localStorage['acc-pw'] = null
+    localStorage['acc-pfp'] = null
+    localStorage['acc-money'] = null
+    localStorage['acc-cart'] = null
+    localStorage['acc-favourites'] = null
+    localStorage['acc-logInStatus'] = USER.logInStatus
+
     toHomepage()
 }
 
@@ -49,7 +95,33 @@ function logOut() {
     toHomepage()
 }
 
+function isEmailEqual() {
+    return document.getElementById("email").value == USER.email
+}
+function isPasswordEqual() {
+    return document.getElementById("password").value == USER.pw
+}
+
 function checkLogin() {
+    if (isEmailEqual() && isPasswordEqual()) {
+        showWarningMessage('Wrong email address and password!')
+        document.getElementById("email").value = ''
+        document.getElementById("password").value = ''
+        return false;
+    }
+
+    if (isEmailEqual()) {
+        showWarningMessage('Wrong email address!')
+        document.getElementById("email").value = ''
+        return false;
+    }
+
+    if (isPasswordEqual()) {
+        showWarningMessage('Wrong password!')
+        document.getElementById("password").value = '';
+        return false;
+    }
+
     USER.email = TEMP.email
     localStorage['acc-email'] = USER.email
 

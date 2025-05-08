@@ -364,13 +364,13 @@ footer {
 }
 
 .warningAnim {
-    animation: warning 1s ease 1 forwards;
+    animation: warning .4s ease-out 1 forwards;
 }
 
 @keyframes warning {
     from {
         opacity: 0;
-        transform: translateY(-30%);
+        transform: translateY(-50%);
     }
 
     to {
