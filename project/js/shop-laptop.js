@@ -5,6 +5,7 @@ let ITEMS = {
     device: [null],
     isFavourite: [false],
     isFittingFilter: [false],
+    isDetailsPressed: [false],
     id: 0
 }
 
@@ -15,20 +16,13 @@ function initItemBoxes() {
         ITEMS.device[i] = laptops[i];
         ITEMS.id = i;
         console.log(ITEMS.id);
-
         ITEMS.isFavourite[i] = false;
+        ITEMS.isDetailsPressed[i] = false;
+
         str += `
         <div class="itemBox scrollReveal">
             <div class="itemBoxFront">
-                <div class="itemBoxFrontGrid">
-                    <div class="itemImg">
-                        <img src="${ITEMS.device[i].img}" alt="${ITEMS.device[i].name}">
-                    </div>
-
-                    <div class="itemStats">
-                        <h2>${ITEMS.device[i].name}</h2>
-                    </div>
-                </div>
+                ${initItemBoxFront(i)}
             </div>
 
             <div class="itemDetailsBtn" onclick="showDeviceDetails(${ITEMS.id})">
@@ -43,23 +37,69 @@ function initItemBoxes() {
         `;
     }
     document.getElementById('items-grid').innerHTML = str;
+
+    for (let i = 0; i < laptops.length; i++) {
+        initItemName(i)
+    }
 }
 initItemBoxes();
 
-function initItemName() {
+function initItemBoxFront(index) {
+    return `
+        <div class="itemBoxFrontGrid">
+            <div class="itemImg">
+                <img src="${ITEMS.device[index].img}" alt="${ITEMS.device[index].name}">
+            </div>
+
+            <div class="itemStats">
+                <h2>${ITEMS.device[index].name}</h2>
+            </div>
+        </div>`;
+}
+
+function initItemName(index) {
     let str = '';
-    for (let i = 0; i < ITEMS.device[0].name.split(' ').length; i++) {
-        if (ITEMS.device[0].name.split(' ')[i].at(0) == '('
-            && ITEMS.device[0].name.split(' ')[i].at(ITEMS.device[0].name.split(' ')[i].length - 1) == ')') {
+    for (let i = 0; i < ITEMS.device[index].name.split(' ').length; i++) {
+        if (ITEMS.device[index].name.split(' ')[i].at(0) == '('
+            && ITEMS.device[index].name.split(' ')[i].at(ITEMS.device[index].name.split(' ')[i].length - 1) == ')') {
             console.log('EEEEEEEE EEEEEEEE');
 
-            ITEMS.device[0].name.split(' ')[i].style.color = 'red';
+            let temp = `<smol>${ITEMS.device[index].name.split(' ')[i]}</smol>`
+            ITEMS.device[index].name.split(' ')[i].innerHTML = temp;;
         }
-        str += ITEMS.device[0].name.split(' ')[i] + ' '
+        str += ITEMS.device[index].name.split(' ')[i] + ' '
     }
     console.log(str);
 }
-// initItemName();
+
+function showDeviceDetails(index) {
+    ITEMS.isDetailsPressed[index] = !ITEMS.isDetailsPressed[index]
+    let str = `
+        <div class="itemDetails">
+            <div class="itemDetailsHeader">
+                <h1>${ITEMS.device[index].name}</h1>
+            </div>
+            <div>
+                <p>OS: ${ITEMS.device[index].os}</p>
+                <p>Storage: ${ITEMS.device[index].rom} GB</p>
+                <p>RAM: ${ITEMS.device[index].ram} GB</p>
+                <p>CPU: ${ITEMS.device[index].cpu}</p>
+            </div>
+            <div class="itemDetailsFooter">
+                <p>${ITEMS.device[index].price} €</p>
+            </div>
+        </div> 
+    `;
+    if (ITEMS.isDetailsPressed[index]) {
+        document.getElementsByClassName('itemBoxFront').item(index).innerHTML = str
+        document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'none'
+    } else {
+        document.getElementsByClassName('itemBoxFront').item(index).innerHTML = initItemBoxFront(index)
+        document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'block'
+    }
+
+    console.log(ITEMS.isDetailsPressed[index]);
+}
 
 function initNavBtnsShop() {
     // Dropdown: https://www.w3schools.com/howto/howto_css_dropdown.asp
@@ -102,30 +142,6 @@ function changeFavBtnSaved(index) {
         document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
     }
 }
-
-function showDeviceDetails(index) {
-    str = `
-        <div class="itemDetails">
-            <div class="itemDetailsHeader">
-                <h1>${ITEMS.device[index].name}</h1>
-            </div>
-            <div>
-                <p>OS: ${ITEMS.device[index].os}</p>
-                <p>Storage: ${ITEMS.device[index].rom} GB</p>
-                <p>RAM: ${ITEMS.device[index].ram} GB</p>
-                <p>CPU: ${ITEMS.device[index].cpu}</p>
-            </div>
-            <div>
-                <p>${ITEMS.device[index].price}</p>
-            </div>
-        </div> 
-    `;
-    // document.getElementsByClassName('itemBox').item(index).style.display = 'flex'
-    document.getElementsByClassName('itemBoxFront').item(index).innerHTML = str
-
-    console.log(str);
-}
-
 
 // INIT GSAP SCROLL PLUGIN
 gsap.registerPlugin(ScrollTrigger);

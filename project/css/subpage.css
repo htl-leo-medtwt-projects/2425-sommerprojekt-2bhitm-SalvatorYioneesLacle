@@ -1,3 +1,8 @@
+
+smol {
+    color: red;
+}
+
 /* Header with stripes background */
 #headerBox {
     position: relative;
@@ -41,6 +46,7 @@
 /* outer filter box (no id) */
 #wrapper>div:first-of-type {
     border-right: .1em var(--gray) solid;
+    border-bottom: .1em var(--gray) solid;
 }
 
 /* plus btn for more details */
@@ -132,13 +138,26 @@
     font-size: 1.25em;
 }
 
+/*  */
 .itemDetailsHeader {
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--lightgray);
+    color: var(--black);
     font-size: .7em;
     width: 100%;
 }
 
+/* Device details price */
+.itemDetailsFooter {
+    background-color: var(--lightgray);
+    color: var(--black);
+    font-size: 1.2em;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+´
+/* Device details */
 .itemDetails {
     display: flex;
     justify-content: center;

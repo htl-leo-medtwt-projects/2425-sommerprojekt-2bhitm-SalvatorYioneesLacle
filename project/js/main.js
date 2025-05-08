@@ -109,6 +109,22 @@ function toSignUp() {
     window.location.href = `/pages/account/account-signup.html`;
 }
 
+function showWarningMessage() {
+    document.getElementsByTagName('warning').item(0).innerHTML += `
+        <div class="warning warningAnim">
+            <div class="warningMessage">
+                <p></p>
+            </div>
+            <div class="warningCancel">
+                <div>
+                    <p>X</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
+showWarningMessage()
+
 // // INIT GSAP SCROLL PLUGIN
 // gsap.registerPlugin(ScrollTrigger);
 
