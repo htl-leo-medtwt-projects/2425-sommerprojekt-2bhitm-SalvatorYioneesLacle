@@ -16,17 +16,21 @@
     /* min-height: 5em; */
     /* background-color: var(--gray); */
     border: .1em var(--black) solid;
-
-    display: grid;
-    grid-template-columns: 30% 1fr;
     position: relative;
     opacity: 0;
 }
 
 /* inner boxes of .itemBox --> centered positioning */
-.itemBox div {
+.itemBox div:not(.itemBoxFrontGrid):not(.itemBoxFront) {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.itemBoxFrontGrid {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    height: 100%;
+    width: 100%;
 }
 

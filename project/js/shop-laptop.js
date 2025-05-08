@@ -19,12 +19,16 @@ function initItemBoxes() {
         ITEMS.isFavourite[i] = false;
         str += `
         <div class="itemBox scrollReveal">
-            <div class="itemImg">
-                <img src="${ITEMS.device[i].img}" alt="${ITEMS.device[i].name}">
-            </div>
+            <div class="itemBoxFront">
+                <div class="itemBoxFrontGrid">
+                    <div class="itemImg">
+                        <img src="${ITEMS.device[i].img}" alt="${ITEMS.device[i].name}">
+                    </div>
 
-            <div class="itemStats">
-                <h2>${ITEMS.device[i].name}</h2>
+                    <div class="itemStats">
+                        <h2>${ITEMS.device[i].name}</h2>
+                    </div>
+                </div>
             </div>
 
             <div class="itemDetailsBtn" onclick="showDeviceDetails(${ITEMS.id})">
@@ -101,15 +105,24 @@ function changeFavBtnSaved(index) {
 
 function showDeviceDetails(index) {
     str = `
-        <div>
+        <div class="itemDetails">
             <div class="itemDetailsHeader">
                 <h1>${ITEMS.device[index].name}</h1>
             </div>
             <div>
-                <p>${ITEMS.device[index].os}</p>
+                <p>OS: ${ITEMS.device[index].os}</p>
+                <p>Storage: ${ITEMS.device[index].rom} GB</p>
+                <p>RAM: ${ITEMS.device[index].ram} GB</p>
+                <p>CPU: ${ITEMS.device[index].cpu}</p>
+            </div>
+            <div>
+                <p>${ITEMS.device[index].price}</p>
             </div>
         </div> 
     `;
+    // document.getElementsByClassName('itemBox').item(index).style.display = 'flex'
+    document.getElementsByClassName('itemBoxFront').item(index).innerHTML = str
+
     console.log(str);
 }
 
