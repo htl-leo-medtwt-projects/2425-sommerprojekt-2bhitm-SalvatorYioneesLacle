@@ -1,4 +1,4 @@
-{
+let details = {
     "CPU": [
         {
             "model": "Samsung Exrynos 1380",

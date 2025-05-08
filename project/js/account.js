@@ -37,12 +37,35 @@ function toHomepage() {
     window.location.href = `/index.html`;
 }
 
+function deleteAccount() {
+    USER.logInStatus = false
+    localStorage['acc-logInStatus'] = USER.logInStatus;
+    toHomepage()
+}
+
+function logOut() {
+    USER.logInStatus = false
+    localStorage['acc-logInStatus'] = USER.logInStatus;
+    toHomepage()
+}
+
 function checkLogin() {
-    localStorage['acc-email'] = USER.email = TEMP.email
-    localStorage['acc-pw'] = USER.pw = TEMP.pw
-    localStorage['acc-username'] = USER.username = TEMP.username
-    localStorage['acc-pfp'] = USER.pfp = TEMP.pfp
-    toAccountOverview()
+    USER.email = TEMP.email
+    localStorage['acc-email'] = USER.email
+
+    USER.pw = TEMP.pw
+    localStorage['acc-pw'] = USER.pw
+
+    USER.username = TEMP.username
+    localStorage['acc-username'] = USER.username
+
+    USER.pfp = TEMP.pfp
+    localStorage['acc-pfp'] = USER.pfp
+
+    USER.logInStatus = true;
+    localStorage['acc-logInStatus'] = USER.logInStatus
+
+    toAccountOverview();
 }
 
 function saveEmail() {
@@ -63,8 +86,7 @@ function savePfp(index) {
 
     for (let i = 0; i < 10; i++) {
         if (i == index) {
-             document.getElementById(`pfp-${i}`).style.border = 'var(--accountBorder)'
-            // document.getElementById(`pfp-${i}`).style.transform = 'scale(1.2)'
+            document.getElementById(`pfp-${i}`).style.border = 'var(--accountBorder)'
         } else {
             document.getElementById(`pfp-${i}`).style.transform = 'scale(1)'
         }
@@ -72,6 +94,6 @@ function savePfp(index) {
 }
 
 function saveCustomPfp() {
-    TEMP.pfp = `<img src="/img/pfp/${"own"}.png" alt="image-${"own"}">`
+    TEMP.pfp = `${"ownURL"}`
     console.log(TEMP.pfp);
 }

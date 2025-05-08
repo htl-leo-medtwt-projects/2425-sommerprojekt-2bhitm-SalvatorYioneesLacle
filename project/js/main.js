@@ -16,7 +16,7 @@ let USER = {
     money: JSON.parse(localStorage['acc-money'] ?? 0),
     // cart: JSON.parse(localStorage['acc-cart'] ?? cart),
     // favourites: JSON.parse(localStorage['acc-favourites'] ?? favourites),
-    // logInStatus: JSON.parse(localStorage['acc-logInStatus'] ?? false)
+    logInStatus: localStorage['acc-logInStatus'] == 'false' ? false : true
 }
 
 
@@ -69,9 +69,7 @@ function initNavigationbar() {
 
                     <div onclick="toLogIn()">
                         <p>Log In</p>
-                    </div>` :
-            `
-                    <p>${USER.username}</p>
+                    </div>` : `<p>${USER.username}</p>
                     <img src="${USER.pfp}" alt="${USER.username}">`
         }
             </div>

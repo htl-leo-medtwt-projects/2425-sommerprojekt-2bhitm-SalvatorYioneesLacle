@@ -1,4 +1,4 @@
-[
+let phones = [
     {
         "brand": "Samsung",
         "model": "Galaxy A35 5G",
