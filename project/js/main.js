@@ -3,8 +3,6 @@
 let longPop = new Audio('/audio/long-pop.wav');
 let longPopLeave = new Audio('/audio/long-pop-leave.wav');
 
-// gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
-
 let cart = ''
 let favourites = []
 
@@ -17,6 +15,10 @@ let USER = {
     // cart: JSON.parse(localStorage['acc-cart'] ?? cart),
     // favourites: JSON.parse(localStorage['acc-favourites'] ?? favourites),
     logInStatus: localStorage['acc-logInStatus'] == 'false' ? false : true
+}
+
+let WARNING = {
+    count: 0
 }
 
 
@@ -109,21 +111,72 @@ function toSignUp() {
     window.location.href = `/pages/account/account-signup.html`;
 }
 
-function showWarningMessage() {
-    document.getElementsByTagName('warning').item(0).innerHTML += `
-        <div class="warning warningAnim">
+function showWarningMessage(msg) {
+    document.getElementsByTagName('warning').item(0).innerHTML = `
+        <div class="warning warningAnim" id="warning-${WARNING.count}">
             <div class="warningMessage">
-                <p></p>
+                <p>${msg}</p>
             </div>
-            <div class="warningCancel">
+            <div class="warningCancel" onclick="removeWarning()">
                 <div>
                     <p>X</p>
                 </div>
             </div>
         </div>
     `;
+
+    let box = document.querySelector(`#warning-${WARNING.count}`);
+    document.getElementById(`warning-${WARNING.count}`).style.animationDirection = 'normal'
+
+    box.classList.remove('warningAnim');
+    box.offsetHeight;
+    box.classList.add('warningAnim');
+
+    WARNING.count++;
 }
-showWarningMessage()
+// showWarningMessage()
+
+function removeWarning() {
+    WARNING.count--;
+
+    let box = document.querySelector(`#warning-${WARNING.count}`);
+    document.getElementById(`warning-${WARNING.count}`).style.animationDirection = 'reverse'
+    
+    box.classList.remove('warningAnim');
+    box.offsetHeight;
+    box.classList.add('warningAnim');
+}
+
+// INIT GSAP SCROLL PLUGIN
+// gsap.registerPlugin(ScrollTrigger);
+
+// SHOW CONTENT
+window.onload = () => {
+    document.querySelector('body').style.opacity = 1;
+}
+
+// ITERATE ALL ELEMENTS
+let warning = document.querySelectorAll('.warningAnim');
+for (let i = 0; i < warning.length; i++) {
+    generateWarningMsgAnimation(i);
+}
+
+// REGISTER ANIMATION
+function generateWarningMsgAnimation(i) {
+    let element = warning[i];
+    /* SET START KEY FRAME */
+    gsap.set(element, {
+        y: '-10%',
+        opacity: 0
+    });
+
+    /* SET END KEY FRAME */
+    gsap.to(element, {
+        y: 0,
+        opacity: 1,
+        duration: 0.85,
+    });
+}
 
 // // INIT GSAP SCROLL PLUGIN
 // gsap.registerPlugin(ScrollTrigger);
