@@ -35,19 +35,30 @@ function checkSignUpStage1() {
         return false;
     }
 
-    USER.email = document.getElementById('email').value
-    USER.pw = document.getElementById('password').value
-
-    localStorage['acc-email'] = USER.email
-    localStorage['acc-pw'] = USER.pw
-
+    TEMP.email = document.getElementById('email').value
+    TEMP.pw = document.getElementById('password').value
     toSignUpSetupScreen()
 }
 
 function checkSignUpStage2() {
-    
+    TEMP.username = document.getElementById('username').value
 
+    saveUserData()
     toAccountOverview()
+}
+
+function saveUserData() {
+    USER.email = TEMP.email
+    localStorage['acc-email'] = USER.email
+
+    USER.pw = TEMP.pw
+    localStorage['acc-pw'] = USER.pw
+
+    USER.username = TEMP.username
+    localStorage['acc-username'] = USER.username
+
+    USER.pfp = TEMP.pfp
+    localStorage['acc-pfp'] = USER.pfp
 }
 
 function toSignUpSetupScreen() {
@@ -80,8 +91,8 @@ function deleteAccount() {
     localStorage['acc-username'] = null
     localStorage['acc-email'] = null
     localStorage['acc-pw'] = null
-    localStorage['acc-pfp'] = null
-    localStorage['acc-money'] = null
+    localStorage['acc-pfp'] = '/img/pfp/0.png'
+    localStorage['acc-money'] = 0
     localStorage['acc-cart'] = null
     localStorage['acc-favourites'] = null
     localStorage['acc-logInStatus'] = USER.logInStatus
@@ -122,17 +133,7 @@ function checkLogin() {
         return false;
     }
 
-    USER.email = TEMP.email
-    localStorage['acc-email'] = USER.email
-
-    USER.pw = TEMP.pw
-    localStorage['acc-pw'] = USER.pw
-
-    USER.username = TEMP.username
-    localStorage['acc-username'] = USER.username
-
-    USER.pfp = TEMP.pfp
-    localStorage['acc-pfp'] = USER.pfp
+    saveUserData()
 
     USER.logInStatus = true;
     localStorage['acc-logInStatus'] = USER.logInStatus
