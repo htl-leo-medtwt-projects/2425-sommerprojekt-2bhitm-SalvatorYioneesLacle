@@ -3,7 +3,22 @@
 let longPop = new Audio('/audio/long-pop.wav');
 let longPopLeave = new Audio('/audio/long-pop-leave.wav');
 
-let cart = ''
+
+// type 0: Laptops
+// type 1: Phones
+// type 2: Monitors
+
+let ITEMS = {
+    type: [{
+        device: [null],
+        isFavourite: [false],
+        isFittingFilter: [false],
+        isDetailsPressed: [false],
+        id: 0
+    }]
+}
+
+let cart = ITEMS
 let favourites = []
 
 let USER = {
@@ -12,7 +27,7 @@ let USER = {
     pw: localStorage['acc-pw'] || 'password',
     pfp: localStorage['acc-pfp'] || 'https://rewards.bing.com/rewardscdn/images/rewards.png',
     money: JSON.parse(localStorage['acc-money'] ?? 0),
-    // cart: JSON.parse(localStorage['acc-cart'] ?? cart),
+    cart: JSON.parse(localStorage['acc-cart'] ?? cart),
     // favourites: JSON.parse(localStorage['acc-favourites'] ?? favourites),
     logInStatus: localStorage['acc-logInStatus'] == 'false' ? false : true
 }
@@ -27,7 +42,7 @@ let WARNING = {
 // localStorage['acc-pw'] = USER.pw
 // localStorage['acc-pfp'] = USER.pfp
 // localStorage['acc-money'] = JSON.stringify(USER.money)
-// localStorage['acc-cart'] = JSON.stringify(USER.cart)
+localStorage['acc-cart'] = JSON.stringify(USER.cart)
 // localStorage['acc-favourites'] = JSON.stringify(USER.favourites)
 // localStorage['acc-logInStatus'] = JSON.stringify(USER.logInStatus)
 

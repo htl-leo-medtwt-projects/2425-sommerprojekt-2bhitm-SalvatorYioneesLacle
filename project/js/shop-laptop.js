@@ -1,23 +1,18 @@
 /// <reference path="../data/laptops.js"/>
 
 console.log(laptops);
-let ITEMS = {
-    device: [null],
-    isFavourite: [false],
-    isFittingFilter: [false],
-    isDetailsPressed: [false],
-    id: 0
-}
+
+let laptopItems = ITEMS.type[0]
 
 // Laptop name: If Split(" ") char[0] = ( & Split(" ") char[end] = ) --> Font size smaller
 function initItemBoxes() {
     let str = '';
     for (let i = 0; i < laptops.length; i++) {
-        ITEMS.device[i] = laptops[i];
-        ITEMS.id = i;
-        console.log(ITEMS.id);
-        ITEMS.isFavourite[i] = false;
-        ITEMS.isDetailsPressed[i] = false;
+        laptopItems.device[i] = laptops[i];
+        laptopItems.id = i;
+        console.log(laptopItems.id);
+        laptopItems.isFavourite[i] = false;
+        laptopItems.isDetailsPressed[i] = false;
 
         str += `
         <div class="itemBox scrollReveal">
@@ -25,13 +20,13 @@ function initItemBoxes() {
                 ${initItemBoxFront(i)}
             </div>
 
-            <div class="itemDetailsBtn" onclick="showDeviceDetails(${ITEMS.id})">
+            <div class="itemDetailsBtn" onclick="showDeviceDetails(${laptopItems.id})">
                 <p>+</p>
             </div>
 
             <div class="itemFavouriteBtn">
                 <div class="itemFavouriteBtnBackground"></div>
-                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${ITEMS.id})" onmouseenter="changeFavBtnColourYellow(${ITEMS.id})" onmouseleave="changeFavBtnColourGray(${ITEMS.id})">
+                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${laptopItems.id})" onmouseenter="changeFavBtnColourYellow(${laptopItems.id})" onmouseleave="changeFavBtnColourGray(${laptopItems.id})">
             </div>
         </div>
         `;
@@ -48,49 +43,49 @@ function initItemBoxFront(index) {
     return `
         <div class="itemBoxFrontGrid">
             <div class="itemImg">
-                <img src="${ITEMS.device[index].img}" alt="${ITEMS.device[index].name}">
+                <img src="${laptopItems.device[index].img}" alt="${laptopItems.device[index].name}">
             </div>
 
             <div class="itemStats">
-                <h2>${ITEMS.device[index].name}</h2>
+                <h2>${laptopItems.device[index].name}</h2>
             </div>
         </div>`;
 }
 
 function initItemName(index) {
     let str = '';
-    for (let i = 0; i < ITEMS.device[index].name.split(' ').length; i++) {
-        if (ITEMS.device[index].name.split(' ')[i].at(0) == '('
-            && ITEMS.device[index].name.split(' ')[i].at(ITEMS.device[index].name.split(' ')[i].length - 1) == ')') {
+    for (let i = 0; i < laptopItems.device[index].name.split(' ').length; i++) {
+        if (laptopItems.device[index].name.split(' ')[i].at(0) == '('
+            && laptopItems.device[index].name.split(' ')[i].at(laptopItems.device[index].name.split(' ')[i].length - 1) == ')') {
             console.log('EEEEEEEE EEEEEEEE');
 
-            let temp = `<smol>${ITEMS.device[index].name.split(' ')[i]}</smol>`
-            ITEMS.device[index].name.split(' ')[i].innerHTML = temp;;
+            let temp = `<smol>${laptopItems.device[index].name.split(' ')[i]}</smol>`
+            laptopItems.device[index].name.split(' ')[i].innerHTML = temp;;
         }
-        str += ITEMS.device[index].name.split(' ')[i] + ' '
+        str += laptopItems.device[index].name.split(' ')[i] + ' '
     }
     console.log(str);
 }
 
 function showDeviceDetails(index) {
-    ITEMS.isDetailsPressed[index] = !ITEMS.isDetailsPressed[index]
+    laptopItems.isDetailsPressed[index] = !laptopItems.isDetailsPressed[index]
     let str = `
         <div class="itemDetails">
             <div class="itemDetailsHeader">
-                <h1>${ITEMS.device[index].name}</h1>
+                <h1>${laptopItems.device[index].name}</h1>
             </div>
             <div>
-                <p>OS: ${ITEMS.device[index].os}</p>
-                <p>Storage: ${ITEMS.device[index].rom} GB</p>
-                <p>RAM: ${ITEMS.device[index].ram} GB</p>
-                <p>CPU: ${ITEMS.device[index].cpu}</p>
+                <p>OS: ${laptopItems.device[index].os}</p>
+                <p>Storage: ${laptopItems.device[index].rom} GB</p>
+                <p>RAM: ${laptopItems.device[index].ram} GB</p>
+                <p>CPU: ${laptopItems.device[index].cpu}</p>
             </div>
             <div class="itemDetailsFooter">
-                <p>${ITEMS.device[index].price} €</p>
+                <p>${laptopItems.device[index].price} €</p>
             </div>
         </div> 
     `;
-    if (ITEMS.isDetailsPressed[index]) {
+    if (laptopItems.isDetailsPressed[index]) {
         document.getElementsByClassName('itemBoxFront').item(index).innerHTML = str
         document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'none'
     } else {
@@ -98,7 +93,7 @@ function showDeviceDetails(index) {
         document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'block'
     }
 
-    console.log(ITEMS.isDetailsPressed[index]);
+    console.log(laptopItems.isDetailsPressed[index]);
 }
 
 function initNavBtnsShop() {
@@ -133,10 +128,10 @@ function initNavBtnsShop() {
 initNavBtnsShop();
 
 function changeFavBtnSaved(index) {
-    ITEMS.isFavourite[index] = !ITEMS.isFavourite[index]
-    console.log(ITEMS.isFavourite);
+    laptopItems.isFavourite[index] = !laptopItems.isFavourite[index]
+    console.log(laptopItems.isFavourite);
 
-    if (ITEMS.isFavourite[index]) {
+    if (laptopItems.isFavourite[index]) {
         document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
     } else {
         document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`

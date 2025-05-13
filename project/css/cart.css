@@ -24,8 +24,9 @@
 
 /* "Content", filter + sold thing */
 #wrapper {
-    display: grid;
-    grid-template-columns: 5% 60% 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: start;
     text-align: center;
     padding: 1.5em 0;
     min-height: 100vh;
@@ -33,30 +34,31 @@
 
 /* Back button */
 #backBtnBox {
-    /* padding: 35%; */
     padding-top: 0;
     height: min-content;
-    /* background-color: rgba(255, 0, 0, 0.355); */
+    position: sticky;
+    position: absolute;
+    top: 14em;
+    left: 1em;
 }
 
-
 #backBtnBox img {
-    width: 30%;
-    /* transform: scale(.3); */
+    width: 1em;
 }
 
 #backBtnBox:hover img {
     transform: scale(1.25);
 }
 
-/* outer filter box (no id) */
-#wrapper>div:nth-of-type(2) {
-    border-right: .1em var(--gray) solid;
-}
-
 /* transactions box with h2 element */
 #transactionsWrapper {
-    padding: 0 1.2em;
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    height: fit-content;
 }
 
 #transactionsWrapper h2 {
@@ -64,14 +66,13 @@
     font-family: orbitron-bold;
     margin-left: auto;
     margin-bottom: .3em;
-    width: fit-content;
+    width: 100%;
 }
 
 /* transaction box */
 #transactions {
     display: grid;
     gap: 4.3em;
-    /* height: 100em; */
 }
 
 /* date of transaction box */
@@ -90,7 +91,7 @@
     align-items: center;
     justify-content: space-between;
     margin: .3em 0;
-    width: 90%;
+    width: 100%;
     max-width: 47em;
     height: 3em;
     border: .1em solid var(--black);
@@ -109,7 +110,7 @@
     justify-content: center;
     align-items: center;
     max-lines: 1;
-    min-width: max-content;
+    min-width: fit-content;
 }
 
 .transactionBox div:first-of-type p {
@@ -127,6 +128,7 @@
 
 .transactionBox>div:nth-of-type(2)>p {
     font-family: orbitron-medium;
+    word-break: keep-all;
 }
 
 /* Left and right padding for device and price */
