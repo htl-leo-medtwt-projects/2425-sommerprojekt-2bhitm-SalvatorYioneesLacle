@@ -129,7 +129,16 @@ initNavBtnsShop();
 
 function changeFavBtnSaved(index) {
     laptopItems.isFavourite[index] = !laptopItems.isFavourite[index]
-    console.log(laptopItems.isFavourite);
+
+    if (laptopItems.isFavourite[index]) {
+        FAVOURITES.item.push(laptopItems.device[index]);
+    } else {
+        FAVOURITES.item.splice(FAVOURITES.item.indexOf(laptopItems.device[index]), 1);
+    }
+    
+    console.log(laptopItems.isFavourite, FAVOURITES.item);
+    // console.log();
+    
 
     if (laptopItems.isFavourite[index]) {
         document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`

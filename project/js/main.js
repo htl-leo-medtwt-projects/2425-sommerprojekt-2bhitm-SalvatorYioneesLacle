@@ -10,7 +10,7 @@ let longPopLeave = new Audio('/audio/long-pop-leave.wav');
 
 let ITEMS = {
     type: [{
-        device: [null],
+        device: [],
         isFavourite: [false],
         isFittingFilter: [false],
         isDetailsPressed: [false],
@@ -18,8 +18,13 @@ let ITEMS = {
     }]
 }
 
-let cart = ITEMS
-let favourites = []
+// onclick --> add to CART.item, save the date
+let CART = {
+    item: []
+}
+
+// onclick --> add to FAVOURITES.item
+let FAVOURITES = { item: [] }
 
 let USER = {
     username: localStorage['acc-username'] || 'Email Address',
@@ -27,7 +32,7 @@ let USER = {
     pw: localStorage['acc-pw'] || 'password',
     pfp: localStorage['acc-pfp'] || 'https://rewards.bing.com/rewardscdn/images/rewards.png',
     money: JSON.parse(localStorage['acc-money'] ?? 0),
-    cart: JSON.parse(localStorage['acc-cart'] ?? cart),
+    cart: JSON.parse(localStorage['acc-cart'] ?? CART),
     // favourites: JSON.parse(localStorage['acc-favourites'] ?? favourites),
     logInStatus: localStorage['acc-logInStatus'] == 'false' ? false : true
 }
@@ -156,7 +161,7 @@ function removeWarning() {
 
     let box = document.querySelector(`#warning-${WARNING.count}`);
     document.getElementById(`warning-${WARNING.count}`).style.animationDirection = 'reverse'
-    
+
     box.classList.remove('warningAnim');
     box.offsetHeight;
     box.classList.add('warningAnim');
