@@ -67,6 +67,7 @@ function checkSignUpStage2() {
 function saveUserData() {
     USER.email = TEMP.email
     localStorage['acc-email'] = USER.email
+
     console.log(TEMP.email, USER.email, localStorage['acc-email']);
 
     USER.pw = TEMP.pw

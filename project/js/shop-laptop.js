@@ -103,37 +103,6 @@ function showDeviceDetails(index) {
     console.log(laptopItems.isDetailsPressed[index]);
 }
 
-function initNavBtnsShop() {
-    // Dropdown: https://www.w3schools.com/howto/howto_css_dropdown.asp
-    document.getElementById('nav-btns').innerHTML = `
-                <div class="dropdown" onmouseenter="swapToWhiteNavIcon('shopIcon')" onmouseleave="swapToNormalNavIcon('shopIcon')">
-                    <div class="dropbtn">
-                        <div id="shopIcon">
-                            <img src="/img/icons/shopIcon.png" alt="shop icon">
-                        </div>
-                        <p>Shop</p>
-                    </div>
-                    <div class="dropdown-content">
-                        <a href="/pages/shop-laptops.html">Laptops</a>
-                        <a href="/pages/shop-phones.html">Phones</a>
-                        <a href="/pages/shop-monitors.html">Monitors</a>
-                    </div>
-                </div>
-                <a href="/pages/partners.html" onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
-                    <div id="partners">
-                        <img id="nav-account-biggerImg" src="/img/icons/partners.png" alt="partners icon">
-                    </div>
-                    <p>Partners</p>
-                </a>
-                <a href="/pages/account/account-overview.html" onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
-                    <div id="check">
-                        <img src="/img/icons/check.png" alt="check icon">
-                    </div>
-                    <p>Account</p>
-                </a>`;
-}
-initNavBtnsShop();
-
 function changeFavBtnSaved(index) {
     laptopItems.isFavourite[index] = !laptopItems.isFavourite[index]
 
@@ -156,11 +125,6 @@ function changeFavBtnSaved(index) {
 
 // INIT GSAP SCROLL PLUGIN
 gsap.registerPlugin(ScrollTrigger);
-
-// SHOW CONTENT
-window.onload = () => {
-    document.querySelector('body').style.opacity = 1;
-}
 
 // ITERATE ALL ELEMENTS
 let sections = document.querySelectorAll('.scrollReveal');

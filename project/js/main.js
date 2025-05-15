@@ -15,13 +15,25 @@ let ITEMS = {
         isFittingFilter: [false],
         isDetailsPressed: [false],
         id: 0
+    },
+    {
+        device: [],
+        isFavourite: [false],
+        isFittingFilter: [false],
+        isDetailsPressed: [false],
+        id: 0
+    },
+    {
+        device: [],
+        isFavourite: [false],
+        isFittingFilter: [false],
+        isDetailsPressed: [false],
+        id: 0
     }]
 }
 
 // onclick --> add to CART.item, save the date
-let CART = {
-    item: []
-}
+let CART = { item: [] }
 
 // onclick --> add to FAVOURITES.item
 let FAVOURITES = { item: [] }
@@ -32,9 +44,9 @@ let USER = {
     pw: localStorage['acc-pw'] || 'password',
     pfp: localStorage['acc-pfp'] || 'https://rewards.bing.com/rewardscdn/images/rewards.png',
     money: JSON.parse(localStorage['acc-money'] ?? 0),
-    cart: JSON.parse(localStorage['acc-cart'] ?? CART),
-    // favourites: JSON.parse(localStorage['acc-favourites'] ?? favourites),
-    logInStatus: localStorage['acc-logInStatus'] == 'false' ? false : true
+    cart: localStorage['acc-cart'] != null ? JSON.parse(localStorage['acc-cart']) : CART /*JSON.parse(localStorage['acc-cart'] ?? CART)*/,
+    favourites: localStorage['acc-favourites'] != null ? JSON.parse(localStorage['acc-favourites']) : FAVOURITES,
+    logInStatus: localStorage['acc-logInStatus'] == 'false' || null ? false : true
 }
 
 let WARNING = {
@@ -133,7 +145,7 @@ function warningCancelled(timeout) {
 function showWarningMessage(msg) {
     let timeout = setTimeout(removeWarning, 5000);
 
-    document.getElementsByTagName('warning').item(0).innerHTML = `
+    document.getElementsByTagName('warning').item(0).innerHTML += `
         <div class="warning warningAnim" id="warning-${WARNING.count}">
             <div class="warningMessage">
                 <p>${msg}</p>
@@ -148,6 +160,7 @@ function showWarningMessage(msg) {
 
     let box = document.querySelector(`#warning-${WARNING.count}`);
     document.getElementById(`warning-${WARNING.count}`).style.animationDirection = 'normal'
+    document.getElementById(`warning-${WARNING.count}`).style.top += `calc(${WARNING.count} * 5em)`
 
     box.classList.remove('warningAnim');
     box.offsetHeight;
@@ -155,6 +168,8 @@ function showWarningMessage(msg) {
 
     WARNING.count++;
     // window.open('../../');
+    console.log(WARNING.count);
+
 }
 
 function removeWarning() {
@@ -166,6 +181,16 @@ function removeWarning() {
     box.classList.remove('warningAnim');
     box.offsetHeight;
     box.classList.add('warningAnim');
+    setTimeout(() => {
+        document.getElementById(`warning-${WARNING.count}`).style.display = 'none';
+        if (WARNING.count <= 0) {
+            setTimeout(() => {
+                document.getElementsByTagName('warning').item(0).innerHTML = 0;
+            }, 400)
+        }
+    }, 400);
+
+    console.log(WARNING.count);
 }
 
 // INIT GSAP SCROLL PLUGIN
