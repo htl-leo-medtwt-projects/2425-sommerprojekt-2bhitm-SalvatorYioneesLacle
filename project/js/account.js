@@ -5,6 +5,13 @@ let TEMP = {
     pfp: USER.pfp
 }
 
+let INPUTS = {
+    email: document.getElementById('email'),
+    pw: document.getElementById('password'),
+    pwConfirm: document.getElementById('password-confirm'),
+    username: document.getElementById('username')
+}
+
 function initNavigationbar() {
     document.getElementsByTagName('nav').item(0).innerHTML = `
             <a id="nav-logo" href="/index.html">
@@ -14,51 +21,52 @@ function initNavigationbar() {
 initNavigationbar()
 
 function isEmailValid() {
-    return document.getElementById('email').value.includes('@')
-        && document.getElementById('email').value.includes('.')
+    return INPUTS.email.value.includes('@')
+        && INPUTS.email.value.includes('.')
 }
 
 function isPasswordValid() {
-    return document.getElementById('password').value.length > 5;
+    return INPUTS.pw.value.length > 5;
 }
 
 function isEmailEqual() {
-    return document.getElementById("email").value != 'null' && document.getElementById("email").value == localStorage['acc-email']
+    return INPUTS.email.value != 'null' && INPUTS.email.value == localStorage['acc-email']
 }
+
 function isPasswordEqual() {
-    return document.getElementById("password").value != 'null' && document.getElementById("password").value == localStorage['acc-pw']
+    return INPUTS.pw.value != 'null' && INPUTS.pw.value == localStorage['acc-pw']
 }
 
 function isSamePassword() {
-    return document.getElementById("password-confirm").value == document.getElementById("password").value
+    return INPUTS.pwConfirm.value == INPUTS.pw.value
 }
 
 function checkSignUpStage1() {
     if (!isEmailValid()) {
         showWarningMessage('Invalid email address');
-        document.getElementById('email').value = '';
+        INPUTS.email.value = '';
         return false;
     }
 
     if (!isPasswordValid()) {
         showWarningMessage('Password too short!');
-        document.getElementById('password').value = '';
+        INPUTS.pw.value = '';
         return false;
     }
 
     if (!isSamePassword()) {
         showWarningMessage('Passwords do not match!');
-        document.getElementById('password-confirm').value = '';
+        INPUTS.pwConfirm.value = '';
         return false;
     }
 
-    TEMP.email = document.getElementById('email').value
-    TEMP.pw = document.getElementById('password').value
+    TEMP.email = INPUTS.email.value
+    TEMP.pw = INPUTS.pw.value
     toSignUpSetupScreen()
 }
 
 function checkSignUpStage2() {
-    TEMP.username = document.getElementById('username').value
+    TEMP.username = INPUTS.username.value
 
     saveUserData()
     toAccountOverview()
@@ -128,20 +136,20 @@ function logOut() {
 function checkLogin() {
     if (!isEmailEqual() && !isPasswordEqual()) {
         showWarningMessage('Wrong email address and password!')
-        document.getElementById("email").value = ''
-        document.getElementById("password").value = ''
+        INPUTS.email.value = ''
+        INPUTS.pw.value = ''
         return false;
     }
 
     if (!isEmailEqual()) {
         showWarningMessage('Wrong email address!')
-        document.getElementById("email").value = ''
+        INPUTS.email.value = ''
         return false;
     }
 
     if (!isPasswordEqual()) {
         showWarningMessage('Wrong password!')
-        document.getElementById("password").value = '';
+        INPUTS.pw.value = '';
         return false;
     }
 
@@ -154,15 +162,15 @@ function checkLogin() {
 }
 
 function saveEmail() {
-    TEMP.email = document.getElementById("email").value
+    TEMP.email = INPUTS.email.value
 }
 
 function savePassword() {
-    TEMP.pw = document.getElementById("password").value
+    TEMP.pw = INPUTS.pw.value
 }
 
 function saveUsername() {
-    TEMP.username = document.getElementById("username").value
+    TEMP.username = INPUTS.username.value
 }
 
 function savePfp(index) {

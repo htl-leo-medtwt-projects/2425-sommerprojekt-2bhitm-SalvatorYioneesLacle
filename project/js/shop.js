@@ -69,12 +69,57 @@ function initNavBtnsShop() {
 }
 initNavBtnsShop();
 
+function initFilter() {
+    document.getElementById('filterBox').innerHTML = `
+        <div id="priceFilter">
+            <div>
+                <div>
+                    <input type="text" name="min-price" id="min-price" onchange="checkMinValue()"> €
+                </div>
+                <div class="filterText">
+                    <p>Minimum price</p>
+                </div> 
+            </div>
+            <div>
+                <div>
+                    <input type="text" name="max-price" id="max-price" onchange="checkMaxValue()"> €
+                </div>
+                <div class="filterText">
+                    <p>Maximum price</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="displaySizeFilter">
+            <div>
+                <div>
+                    <input type="number" name="min-price" id="min-price" onchange="checkMinValue()"> €
+                </div>
+                <div class="filterText">
+                    <p>Minimum price</p>
+                </div> 
+            </div>
+            <div>
+                <div>
+                    <input type="number" name="max-price" id="max-price" onchange="checkMaxValue()"> €
+                </div>
+                <div class="filterText">
+                    <p>Maximum price</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
+initFilter()
+
 function getShopDropdownValue() {
     shopDropdown = document.getElementById('shops-dropdown').value;
     window.location.href = `/pages/shop-${shopDropdown}.html`;
 }
 
 function checkMinValue() {
+    if(PRICE.min)
+
     if (PRICE.min < 0) {
         PRICE.min = 0;
     }

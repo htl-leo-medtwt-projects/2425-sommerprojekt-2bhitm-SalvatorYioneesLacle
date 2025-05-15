@@ -44,14 +44,21 @@ function initItemBoxes() {
 initItemBoxes();
 
 function initItemBoxFront(index) {
+    let img = `<img src="../img/phones/${phones[index].brand}-${phones[index].model.split(' ')[0] ?
+         phones[index].model.split(' ')[0] : 'logo'}${phones[index].model.split(' ')[1] ? '-' + phones[index].model.split(' ')[1] : ''}${phones[index].model.split(' ')[2] ? '-' + phones[index].model.split(' ')[2] : ''}${phones[index].model.split(' ')[3] ? '-' + phones[index].model.split(' ')[3] : ''}.png" 
+                alt="${phones[index].brand} ${phones[index].model.split(' ')[0]} 
+                ${phones[index].model.split(' ')[1]} 
+                ${phones[index].model.split(' ')[2] ? phones[index].model.split(' ')[2] : ''} 
+                ${phones[index].model.split(' ')[3] ? phones[index].model.split(' ')[3] : ''}">
+                `;
     return `
         <div class="itemBoxFrontGrid">
             <div class="itemImg">
-                <img src="${phoneItems.device[index].img}" alt="${phoneItems.device[index].name}">
+                ${img}
             </div>
 
             <div class="itemStats">
-                <h2>${phoneItems.device[index].name}</h2>
+                <h2>${phoneItems.device[index].brand} ${phoneItems.device[index].model}</h2>
             </div>
         </div>`;
 }
@@ -96,8 +103,6 @@ function changeFavBtnSaved(index) {
     }
     
     console.log(phoneItems.isFavourite, FAVOURITES.item);
-    // console.log();
-    
 
     if (phoneItems.isFavourite[index]) {
         document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
