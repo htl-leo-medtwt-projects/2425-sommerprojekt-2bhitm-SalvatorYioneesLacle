@@ -41,16 +41,17 @@ let WARNING = {
     count: 0
 }
 
-
-// localStorage['acc-username'] = USER.username
-// localStorage['acc-email'] = USER.email
-// localStorage['acc-pw'] = USER.pw
-// localStorage['acc-pfp'] = USER.pfp
-// localStorage['acc-money'] = JSON.stringify(USER.money)
-localStorage['acc-cart'] = JSON.stringify(USER.cart)
-// localStorage['acc-favourites'] = JSON.stringify(USER.favourites)
-// localStorage['acc-logInStatus'] = JSON.stringify(USER.logInStatus)
-
+function initAccountState() {
+    // localStorage['acc-username'] = USER.username
+    // localStorage['acc-email'] = USER.email
+    // localStorage['acc-pw'] = USER.pw
+    // localStorage['acc-pfp'] = USER.pfp
+    // localStorage['acc-money'] = JSON.stringify(USER.money)
+    localStorage['acc-cart'] = JSON.stringify(USER.cart)
+    // localStorage['acc-favourites'] = JSON.stringify(USER.favourites)
+    // localStorage['acc-logInStatus'] = JSON.stringify(USER.logInStatus)
+}
+initAccountState()
 
 function playLongPop() {
     longPop.currentTime = 0
@@ -115,14 +116,6 @@ function initFooter() {
 }
 initFooter()
 
-function initAccountState() {
-
-}
-
-function name() {
-
-}
-
 function toLogIn() {
     window.location.href = `/pages/account/account-login.html`
 }
@@ -131,13 +124,21 @@ function toSignUp() {
     window.location.href = `/pages/account/account-signup.html`;
 }
 
+function warningCancelled(timeout) {
+    removeWarning();
+    clearTimeout(timeout)
+    return true;
+}
+
 function showWarningMessage(msg) {
+    let timeout = setTimeout(removeWarning, 5000);
+
     document.getElementsByTagName('warning').item(0).innerHTML = `
         <div class="warning warningAnim" id="warning-${WARNING.count}">
             <div class="warningMessage">
                 <p>${msg}</p>
             </div>
-            <div class="warningCancel" onclick="removeWarning()">
+            <div class="warningCancel" onclick="warningCancelled(${timeout}), removeWarning()">
                 <div>
                     <p>X</p>
                 </div>
@@ -152,9 +153,12 @@ function showWarningMessage(msg) {
     box.offsetHeight;
     box.classList.add('warningAnim');
 
+    if (warningCancelled) {
+        WARNING.isCancelled = !WARNING.isCancelled
+    }
+
     WARNING.count++;
 }
-// showWarningMessage()
 
 function removeWarning() {
     WARNING.count--;

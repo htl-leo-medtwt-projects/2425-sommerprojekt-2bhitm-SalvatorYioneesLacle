@@ -12,7 +12,7 @@ function initNavBtnsHome() {
                     </div>
                     <p>Partners</p>
                 </a>
-                <a href="/pages/account/account-overview.html" onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
+                <a href="${USER.logInStatus ? '/pages/account/account-overview.html' : '/pages/account/account-login.html'}" onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
                     <div id="check">
                         <img src="/img/icons/check.png" alt="check icon">
                     </div>

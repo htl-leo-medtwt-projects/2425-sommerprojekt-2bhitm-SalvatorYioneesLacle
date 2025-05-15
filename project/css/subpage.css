@@ -1,4 +1,3 @@
-
 smol {
     color: red;
 }
@@ -53,21 +52,21 @@ smol {
 .itemDetailsBtn {
     width: 2em;
     height: 2em;
-    border: .03em var(--darkgray) solid;
+    /* border: .03em var(--darkgray) solid; */
     color: var(--darkgray);
     position: absolute;
     bottom: .6em;
-    right: .6em;
+    right: 3.2em;
     cursor: pointer;
     user-select: none;
 }
 
 .itemDetailsBtn:hover {
-    background-color: var(--expert);
-    border-color: var(--expert);
+    background-color: var(--black);
+    border-color: var(--black);
     color: var(--white);
     text-shadow: 0px 0px 3px var(--white);
-    box-shadow: 0px 0px 5px var(--expert), inset 0px 0px 5px var(--expert);
+    box-shadow: 0px 0px 5px var(--black), inset 0px 0px 5px var(--black);
     transform: scale(1.2);
 }
 
@@ -83,6 +82,53 @@ smol {
 .itemDetailsBtn:hover p {
     transform: scale(2.1) translateY(-.05em);
     /* transform: scale(1.6); */
+}
+
+.itemDetailsText {
+    position: absolute;
+    left: 0;
+    font-size: .85em;
+    width: max-content;
+    display: none;
+}
+
+/* plus btn for more details */
+.toCartBtn {
+    width: 2em;
+    height: 2em;
+    /* border: .03em var(--darkgray) solid; */
+    color: var(--darkgray);
+    position: absolute;
+    bottom: .6em;
+    right: .6em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toCartBtn:hover {
+    /* background-color: var(--expert); */
+    /* border-color: var(--expert); */
+    color: var(--white);
+    /* text-shadow: 0px 0px 3px var(--white); */
+    /* box-shadow: 0px 0px 5px var(--expert), inset 0px 0px 5px var(--expert); */
+    transform: scale(1.2);
+}
+
+.toCartBtn:active {
+    transform: scale(1.06);
+}
+
+.toCartBtn img {
+    width: 70%;
+    filter: grayscale(1);
+}
+
+.toCartBtn:hover img {
+    /* transform: scale(1.2); */
+    /* filter: brightness(10); */
+    
+    filter: grayscale(0);
+    transform: scale(1.25);
 }
 
 /* star btn for favourites */
@@ -156,7 +202,9 @@ smol {
     justify-content: left;
     align-items: center;
 }
+
 ´
+
 /* Device details */
 .itemDetails {
     display: flex;

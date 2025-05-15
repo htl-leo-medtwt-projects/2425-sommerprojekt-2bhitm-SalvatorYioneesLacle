@@ -22,6 +22,13 @@ function initItemBoxes() {
 
             <div class="itemDetailsBtn" onclick="showDeviceDetails(${laptopItems.id})">
                 <p>+</p>
+                <div class="itemDetailsText">
+                    <p>Show more</p>
+                </div>
+            </div>
+
+            <div class="toCartBtn" onclick="updateCart(${laptopItems.device[i]})">
+                <img src="/img/icons/shopIcon.png" alt="shop icon">
             </div>
 
             <div class="itemFavouriteBtn">

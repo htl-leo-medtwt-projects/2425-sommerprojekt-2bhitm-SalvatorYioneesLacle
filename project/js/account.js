@@ -14,24 +14,41 @@ function initNavigationbar() {
 initNavigationbar()
 
 function isEmailValid() {
-    return document.getElementById('email').value.split('@').length != 2
-        || document.getElementById('email').value.split('.').length != 2
+    return document.getElementById('email').value.includes('@')
+        && document.getElementById('email').value.includes('.')
 }
 
 function isPasswordValid() {
-    return document.getElementById('password').value.length <= 5;
+    return document.getElementById('password').value.length > 5;
+}
+
+function isEmailEqual() {
+    return document.getElementById("email").value != 'null' && document.getElementById("email").value == localStorage['acc-email']
+}
+function isPasswordEqual() {
+    return document.getElementById("password").value != 'null' && document.getElementById("password").value == localStorage['acc-pw']
+}
+
+function isSamePassword() {
+    return document.getElementById("password-confirm").value == document.getElementById("password").value
 }
 
 function checkSignUpStage1() {
-    if (isEmailValid()) {
-        showWarningMessage('Invalid email address')
-        document.getElementById('email').value = ''
+    if (!isEmailValid()) {
+        showWarningMessage('Invalid email address');
+        document.getElementById('email').value = '';
         return false;
     }
 
-    if (isPasswordValid()) {
-        showWarningMessage('Password too short!')
+    if (!isPasswordValid()) {
+        showWarningMessage('Password too short!');
         document.getElementById('password').value = '';
+        return false;
+    }
+
+    if (!isSamePassword()) {
+        showWarningMessage('Passwords do not match!');
+        document.getElementById('password-confirm').value = '';
         return false;
     }
 
@@ -50,6 +67,7 @@ function checkSignUpStage2() {
 function saveUserData() {
     USER.email = TEMP.email
     localStorage['acc-email'] = USER.email
+    console.log(TEMP.email, USER.email, localStorage['acc-email']);
 
     USER.pw = TEMP.pw
     localStorage['acc-pw'] = USER.pw
@@ -106,28 +124,21 @@ function logOut() {
     toHomepage()
 }
 
-function isEmailEqual() {
-    return document.getElementById("email").value == USER.email
-}
-function isPasswordEqual() {
-    return document.getElementById("password").value == USER.pw
-}
-
 function checkLogin() {
-    if (isEmailEqual() && isPasswordEqual()) {
+    if (!isEmailEqual() && !isPasswordEqual()) {
         showWarningMessage('Wrong email address and password!')
         document.getElementById("email").value = ''
         document.getElementById("password").value = ''
         return false;
     }
 
-    if (isEmailEqual()) {
+    if (!isEmailEqual()) {
         showWarningMessage('Wrong email address!')
         document.getElementById("email").value = ''
         return false;
     }
 
-    if (isPasswordEqual()) {
+    if (!isPasswordEqual()) {
         showWarningMessage('Wrong password!')
         document.getElementById("password").value = '';
         return false;
