@@ -153,11 +153,8 @@ function showWarningMessage(msg) {
     box.offsetHeight;
     box.classList.add('warningAnim');
 
-    if (warningCancelled) {
-        WARNING.isCancelled = !WARNING.isCancelled
-    }
-
     WARNING.count++;
+    // window.open('../../');
 }
 
 function removeWarning() {
