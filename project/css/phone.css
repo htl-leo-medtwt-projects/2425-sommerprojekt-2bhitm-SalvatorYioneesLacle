@@ -13,10 +13,7 @@
 
 /* seperate sold thing boxes */
 .itemBox {
-    /* max-height: 30em; */
     height: 20em;
-    /* min-height: 5em; */
-    /* background-color: var(--gray); */
     border: .1em var(--black) solid;
     position: relative;
     padding-bottom: 5em;
@@ -30,13 +27,15 @@
 }
 
 .itemImg {
-    /* position: relative; */
-    /* top: .6em; */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    /* background-color: var(--expert); */
+}
+
+.itemImg img {
+    max-height: 16em;
+    /* width: 1em; */
 }
 
 .itemStats {

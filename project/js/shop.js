@@ -1,8 +1,8 @@
 let shopDropdown = 0;
 
 let PRICE= {
-    min: document.getElementById('min-price').value,
-    max: document.getElementById('max-price').value
+    min: document.getElementById('min-price'),
+    max: document.getElementById('max-price')
 }
 
 let isFavourite = {
@@ -74,7 +74,7 @@ function initFilter() {
         <div id="priceFilter">
             <div>
                 <div>
-                    <input type="text" name="min-price" id="min-price" onchange="checkMinValue()"> €
+                    <input type="number" name="min-price" id="min-price" onchange="checkMinValue()"> €
                 </div>
                 <div class="filterText">
                     <p>Minimum price</p>
@@ -82,7 +82,7 @@ function initFilter() {
             </div>
             <div>
                 <div>
-                    <input type="text" name="max-price" id="max-price" onchange="checkMaxValue()"> €
+                    <input type="number" name="max-price" id="max-price" onchange="checkMaxValue()"> €
                 </div>
                 <div class="filterText">
                     <p>Maximum price</p>
@@ -93,7 +93,7 @@ function initFilter() {
         <div id="displaySizeFilter">
             <div>
                 <div>
-                    <input type="number" name="min-price" id="min-price" onchange="checkMinValue()"> €
+                    <input type="number" name="min-displaySize" id="min-displaySize" onchange="checkMinValue()"> €
                 </div>
                 <div class="filterText">
                     <p>Minimum price</p>
@@ -101,7 +101,7 @@ function initFilter() {
             </div>
             <div>
                 <div>
-                    <input type="number" name="max-price" id="max-price" onchange="checkMaxValue()"> €
+                    <input type="number" name="max-displaySize" id="max-displaySize" onchange="checkMaxValue()"> €
                 </div>
                 <div class="filterText">
                     <p>Maximum price</p>
@@ -118,13 +118,11 @@ function getShopDropdownValue() {
 }
 
 function checkMinValue() {
-    if(PRICE.min)
-
-    if (PRICE.min < 0) {
-        PRICE.min = 0;
+    if (PRICE.min.value < 0) {
+        PRICE.min.value = 0;
     }
-    if (PRICE.min > PRICE.max) {
-        PRICE.max = PRICE.min;
+    if (PRICE.min.value > PRICE.max.value) {
+        PRICE.max.value = PRICE.min.value;
     }
 }
 

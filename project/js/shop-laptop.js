@@ -104,22 +104,26 @@ function showDeviceDetails(index) {
 }
 
 function changeFavBtnSaved(index) {
-    laptopItems.isFavourite[index] = !laptopItems.isFavourite[index]
+    if (USER.logInStatus) {
+        laptopItems.isFavourite[index] = !laptopItems.isFavourite[index]
 
-    if (laptopItems.isFavourite[index]) {
-        FAVOURITES.item.push(laptopItems.device[index]);
-    } else {
-        FAVOURITES.item.splice(FAVOURITES.item.indexOf(laptopItems.device[index]), 1);
-    }
-    
-    console.log(laptopItems.isFavourite, FAVOURITES.item);
-    // console.log();
-    
+        if (laptopItems.isFavourite[index]) {
+            FAVOURITES.item.push(laptopItems.device[index]);
+        } else {
+            FAVOURITES.item.splice(FAVOURITES.item.indexOf(laptopItems.device[index]), 1);
+        }
 
-    if (laptopItems.isFavourite[index]) {
-        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
+        console.log(laptopItems.isFavourite, FAVOURITES.item);
+        // console.log();
+
+
+        if (laptopItems.isFavourite[index]) {
+            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
+        } else {
+            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
+        }
     } else {
-        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
+        showWarningMessage('Log in to save!')
     }
 }
 

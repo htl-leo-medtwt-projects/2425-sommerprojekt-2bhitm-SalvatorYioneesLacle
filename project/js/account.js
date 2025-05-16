@@ -166,10 +166,6 @@ function checkLogin() {
     }
 
     saveUserData()
-
-    USER.logInStatus = true;
-    localStorage['acc-logInStatus'] = USER.logInStatus
-
     toAccountOverview();
 }
 

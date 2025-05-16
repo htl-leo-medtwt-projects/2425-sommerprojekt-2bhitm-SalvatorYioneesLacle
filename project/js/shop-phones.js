@@ -45,7 +45,7 @@ initItemBoxes();
 
 function initItemBoxFront(index) {
     let img = `<img src="../img/phones/${phones[index].brand}-${phones[index].model.split(' ')[0] ?
-         phones[index].model.split(' ')[0] : 'logo'}${phones[index].model.split(' ')[1] ? '-' + phones[index].model.split(' ')[1] : ''}${phones[index].model.split(' ')[2] ? '-' + phones[index].model.split(' ')[2] : ''}${phones[index].model.split(' ')[3] ? '-' + phones[index].model.split(' ')[3] : ''}.png" 
+        phones[index].model.split(' ')[0] : 'logo'}${phones[index].model.split(' ')[1] ? '-' + phones[index].model.split(' ')[1] : ''}${phones[index].model.split(' ')[2] ? '-' + phones[index].model.split(' ')[2] : ''}${phones[index].model.split(' ')[3] ? '-' + phones[index].model.split(' ')[3] : ''}.png" 
                 alt="${phones[index].brand} ${phones[index].model.split(' ')[0]} 
                 ${phones[index].model.split(' ')[1]} 
                 ${phones[index].model.split(' ')[2] ? phones[index].model.split(' ')[2] : ''} 
@@ -94,20 +94,24 @@ function showDeviceDetails(index) {
 }
 
 function changeFavBtnSaved(index) {
-    phoneItems.isFavourite[index] = !phoneItems.isFavourite[index]
+    if (USER.logInStatus) {
+        phoneItems.isFavourite[index] = !phoneItems.isFavourite[index]
 
-    if (phoneItems.isFavourite[index]) {
-        FAVOURITES.item.push(phoneItems.device[index]);
-    } else {
-        FAVOURITES.item.splice(FAVOURITES.item.indexOf(phoneItems.device[index]), 1);
-    }
-    
-    console.log(phoneItems.isFavourite, FAVOURITES.item);
+        if (phoneItems.isFavourite[index]) {
+            FAVOURITES.item.push(phoneItems.device[index]);
+        } else {
+            FAVOURITES.item.splice(FAVOURITES.item.indexOf(phoneItems.device[index]), 1);
+        }
 
-    if (phoneItems.isFavourite[index]) {
-        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
+        console.log(phoneItems.isFavourite, FAVOURITES.item);
+
+        if (phoneItems.isFavourite[index]) {
+            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
+        } else {
+            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
+        }
     } else {
-        document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
+        showWarningMessage('Log in to save!')
     }
 }
 
