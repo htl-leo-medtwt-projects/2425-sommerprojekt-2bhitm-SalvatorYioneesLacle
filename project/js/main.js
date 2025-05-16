@@ -188,7 +188,9 @@ function removeWarning() {
         document.getElementById(`warning-${WARNING.count}`).style.display = 'none';
         if (WARNING.count <= 0) {
             setTimeout(() => {
-                document.getElementsByTagName('warning').item(0).innerHTML = 0;
+                document.getElementsByTagName('warning').item(0).innerHTML = '';
+                WARNING.count = 0;
+                console.log(WARNING.count);
             }, 400)
         }
     }, 400);

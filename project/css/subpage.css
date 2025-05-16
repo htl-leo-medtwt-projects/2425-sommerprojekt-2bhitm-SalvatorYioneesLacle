@@ -279,7 +279,7 @@ smol {
     width: 100%;
 }
 
-/* text */
+/* input box */
 #priceFilter>div {
     max-width: 10em;
 }

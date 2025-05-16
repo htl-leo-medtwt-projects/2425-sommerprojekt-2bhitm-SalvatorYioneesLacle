@@ -321,14 +321,14 @@ footer {
     width: 24em;
     height: 4.5em;
     background-color: #F6E5E4;
-    border: .08em #b22b2b solid;
+    border: .11em #b22b2b solid;
     padding: .3em .5em;
     margin: 3em 0;
     display: grid;
     grid-template-columns: 1fr 25%;
     text-align: center;
     align-items: center;
-    box-shadow: 0px 0px 4px #b22b2b, inset 0px 0px 3.5px #b22b2b;
+    box-shadow: 0px 0px 9px #b22b2b8c, inset 0px 0px 1.5px #b22b2b;
 }
 
 .warningMessage p {

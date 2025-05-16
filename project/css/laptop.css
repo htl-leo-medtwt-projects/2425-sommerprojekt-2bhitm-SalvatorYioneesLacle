@@ -12,26 +12,8 @@
 .itemBox {
     max-height: 12.5em;
     height: 12.5em;
-    /* border: .06em var(--darkgray) solid; */
-    box-shadow: 0px 0px .12em var(--darkgray), inset 0px 0px .2em var(--gray);
-    border-right: .1em var(--gray) solid;
-    border-bottom: .1em var(--gray) solid;
-    position: relative;
-    opacity: 0;
-    overflow: hidden;
 }
 
-/* inner boxes of .itemBox --> centered positioning */
-.itemBox>div:not(.itemDetails) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.itemBoxFront {
-    width: 100%;
-    height: 100%;
-}
 
 .itemBoxFrontGrid {
     display: grid;

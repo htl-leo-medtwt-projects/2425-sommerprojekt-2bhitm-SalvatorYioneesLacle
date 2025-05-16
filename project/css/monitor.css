@@ -13,12 +13,8 @@
 
 /* seperate sold thing boxes */
 .itemBox {
-    max-height: 15em;
     height: 15em;
-    /* min-height: 5em; */
-    /* background-color: var(--gray); */
     border: .1em var(--black) solid;
-
     display: grid;
     grid-template-columns: 1fr 3fr;
     position: relative;
@@ -29,4 +25,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.itemBoxFrontGrid {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    height: 100%;
+    width: 100%;
 }
