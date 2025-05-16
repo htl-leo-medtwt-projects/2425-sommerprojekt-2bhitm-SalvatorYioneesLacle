@@ -21,47 +21,55 @@ function initNavigationbar() {
 initNavigationbar()
 
 function isEmailValid() {
-    return INPUTS.email.value.includes('@')
-        && INPUTS.email.value.includes('.')
+    return document.getElementById('email').value.includes('@')
+        && document.getElementById('email').value.includes('.')
 }
 
 function isPasswordValid() {
-    return INPUTS.pw.value.length > 5;
+    return document.getElementById('password').value.length > 5;
 }
 
 function isEmailEqual() {
-    return INPUTS.email.value != 'null' && INPUTS.email.value == localStorage['acc-email']
+    return document.getElementById('email').value != 'null' && document.getElementById('email').value == localStorage['acc-email']
 }
 
 function isPasswordEqual() {
-    return INPUTS.pw.value != 'null' && INPUTS.pw.value == localStorage['acc-pw']
+    return document.getElementById('password').value != 'null' && document.getElementById('password').value == localStorage['acc-pw']
 }
 
 function isSamePassword() {
-    return INPUTS.pwConfirm.value == INPUTS.pw.value
+    return document.getElementById('password-confirm').value == document.getElementById('password').value
 }
 
 function checkSignUpStage1() {
     if (!isEmailValid()) {
         showWarningMessage('Invalid email address');
-        INPUTS.email.value = '';
+        document.getElementById('email').value = '';
         return false;
     }
 
     if (!isPasswordValid()) {
         showWarningMessage('Password too short!');
-        INPUTS.pw.value = '';
+        document.getElementById('password').value = '';
         return false;
     }
 
     if (!isSamePassword()) {
         showWarningMessage('Passwords do not match!');
-        INPUTS.pwConfirm.value = '';
+        document.getElementById('password-confirm').value = '';
         return false;
     }
 
-    TEMP.email = INPUTS.email.value
-    TEMP.pw = INPUTS.pw.value
+    TEMP.email = document.getElementById('email').value
+    TEMP.pw = document.getElementById('password').value
+
+    USER.email = TEMP.email
+    localStorage['acc-email'] = USER.email
+
+    console.log(TEMP.email, USER.email, localStorage['acc-email']);
+
+    USER.pw = TEMP.pw
+    localStorage['acc-pw'] = USER.pw
     toSignUpSetupScreen()
 }
 
@@ -86,6 +94,9 @@ function saveUserData() {
 
     USER.pfp = TEMP.pfp
     localStorage['acc-pfp'] = USER.pfp
+
+    USER.logInStatus = true;
+    localStorage['acc-logInStatus'] = USER.logInStatus
 }
 
 function toSignUpSetupScreen() {
@@ -136,20 +147,21 @@ function logOut() {
 function checkLogin() {
     if (!isEmailEqual() && !isPasswordEqual()) {
         showWarningMessage('Wrong email address and password!')
-        INPUTS.email.value = ''
-        INPUTS.pw.value = ''
+        document.getElementById('email').value = ''
+        document.getElementById('password').value = ''
         return false;
     }
 
     if (!isEmailEqual()) {
         showWarningMessage('Wrong email address!')
-        INPUTS.email.value = ''
+        document.getElementById('email').value = ''
+        document.getElementById('password').value = ''
         return false;
     }
 
     if (!isPasswordEqual()) {
         showWarningMessage('Wrong password!')
-        INPUTS.pw.value = '';
+        document.getElementById('password').value = '';
         return false;
     }
 
@@ -162,11 +174,11 @@ function checkLogin() {
 }
 
 function saveEmail() {
-    TEMP.email = INPUTS.email.value
+    TEMP.email = document.getElementById('email').value
 }
 
 function savePassword() {
-    TEMP.pw = INPUTS.pw.value
+    TEMP.pw = document.getElementById('password').value
 }
 
 function saveUsername() {

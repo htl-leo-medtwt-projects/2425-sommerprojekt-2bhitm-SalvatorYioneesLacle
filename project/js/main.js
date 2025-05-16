@@ -35,18 +35,21 @@ let ITEMS = {
 // onclick --> add to CART.item, save the date
 let CART = { item: [] }
 
+// onclick --> add to TRANSACTIONS.item, save the date
+let TRANSACTIONS = { item: [] }
+
 // onclick --> add to FAVOURITES.item
 let FAVOURITES = { item: [] }
 
 let USER = {
-    username: localStorage['acc-username'] || 'Email Address',
-    email: localStorage['acc-email'] || 'email.address@gmail.com',
+    username: localStorage['acc-username'] || 'Guest',
+    email: localStorage['acc-email'] || 'user.mail@gmail.com',
     pw: localStorage['acc-pw'] || 'password',
     pfp: localStorage['acc-pfp'] || 'https://rewards.bing.com/rewardscdn/images/rewards.png',
     money: JSON.parse(localStorage['acc-money'] ?? 0),
     cart: localStorage['acc-cart'] != null ? JSON.parse(localStorage['acc-cart']) : CART /*JSON.parse(localStorage['acc-cart'] ?? CART)*/,
     favourites: localStorage['acc-favourites'] != null ? JSON.parse(localStorage['acc-favourites']) : FAVOURITES,
-    logInStatus: localStorage['acc-logInStatus'] == 'false' || null ? false : true
+    logInStatus: localStorage['acc-logInStatus'] == 'false' || localStorage['acc-logInStatus'] == null ? false : true
 }
 
 let WARNING = {
@@ -54,14 +57,14 @@ let WARNING = {
 }
 
 function initAccountState() {
-    // localStorage['acc-username'] = USER.username
-    // localStorage['acc-email'] = USER.email
-    // localStorage['acc-pw'] = USER.pw
-    // localStorage['acc-pfp'] = USER.pfp
-    // localStorage['acc-money'] = JSON.stringify(USER.money)
+    localStorage['acc-username'] = USER.username
+    localStorage['acc-email'] = USER.email
+    localStorage['acc-pw'] = USER.pw
+    localStorage['acc-pfp'] = USER.pfp
+    localStorage['acc-money'] = JSON.stringify(USER.money)
     localStorage['acc-cart'] = JSON.stringify(USER.cart)
-    // localStorage['acc-favourites'] = JSON.stringify(USER.favourites)
-    // localStorage['acc-logInStatus'] = JSON.stringify(USER.logInStatus)
+    localStorage['acc-favourites'] = JSON.stringify(USER.favourites)
+    localStorage['acc-logInStatus'] = JSON.stringify(USER.logInStatus)
 }
 initAccountState()
 
@@ -78,7 +81,7 @@ function playLongPopLeave() {
 function initPageIcon() {
     document.getElementsByTagName('head').item(0).innerHTML += `<link rel="icon" href="/img/logos/logo.png" type="image/x-icon" />`
 }
-initPageIcon()
+initPageIcon();
 
 function swapToWhiteNavIcon(icon) {
     document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-account-biggerImg"' : ''} src="/img/icons/${icon}_white.png" alt="${icon}">`

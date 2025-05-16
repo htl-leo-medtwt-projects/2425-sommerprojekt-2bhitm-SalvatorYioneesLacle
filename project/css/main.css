@@ -311,10 +311,10 @@ footer {
     position: fixed;
     z-index: 99;
     top: 1em;
-    left: calc(50% - 10em);
+    left: calc(50% - 12em);
     min-width: 20em;
     width: fit-content;
-    max-width: 30em;
+    width: 24em;
     height: 4.5em;
     background-color: #F6E5E4;
     border: .08em #b22b2b solid;
