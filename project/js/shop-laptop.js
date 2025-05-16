@@ -35,6 +35,23 @@ function initItemBoxes() {
                 <div class="itemFavouriteBtnBackground"></div>
                 <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${laptopItems.id})" onmouseenter="changeFavBtnColourYellow(${laptopItems.id})" onmouseleave="changeFavBtnColourGray(${laptopItems.id})">
             </div>
+
+            <div class="itemDetails">
+                <div>
+                    <div class="itemDetailsHeader">
+                        <h1>${laptopItems.device[i].name}</h1>
+                    </div>
+                    <div>
+                        <p>OS: ${laptopItems.device[i].os}</p>
+                        <p>Storage: ${laptopItems.device[i].rom} GB</p>
+                        <p>RAM: ${laptopItems.device[i].ram} GB</p>
+                        <p>CPU: ${laptopItems.device[i].cpu}</p>
+                    </div>
+                    <div class="itemDetailsFooter">
+                        <p>${laptopItems.device[i].price} €</p>
+                    </div>
+                </div>
+            </div>
         </div>
         `;
     }
@@ -54,7 +71,12 @@ function initItemBoxFront(index) {
             </div>
 
             <div class="itemStats">
-                <h2>${laptopItems.device[index].name}</h2>
+                <div>
+                    <h2>${laptopItems.device[index].name}</h2>
+                </div>
+                <div>
+                    <p>${laptopItems.device[index].price} €</p>
+                </div>
             </div>
         </div>`;
 }
@@ -76,27 +98,10 @@ function initItemName(index) {
 
 function showDeviceDetails(index) {
     laptopItems.isDetailsPressed[index] = !laptopItems.isDetailsPressed[index]
-    let str = `
-        <div class="itemDetails">
-            <div class="itemDetailsHeader">
-                <h1>${laptopItems.device[index].name}</h1>
-            </div>
-            <div>
-                <p>OS: ${laptopItems.device[index].os}</p>
-                <p>Storage: ${laptopItems.device[index].rom} GB</p>
-                <p>RAM: ${laptopItems.device[index].ram} GB</p>
-                <p>CPU: ${laptopItems.device[index].cpu}</p>
-            </div>
-            <div class="itemDetailsFooter">
-                <p>${laptopItems.device[index].price} €</p>
-            </div>
-        </div> 
-    `;
+    
     if (laptopItems.isDetailsPressed[index]) {
-        document.getElementsByClassName('itemBoxFront').item(index).innerHTML = str
         document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'none'
     } else {
-        document.getElementsByClassName('itemBoxFront').item(index).innerHTML = initItemBoxFront(index)
         document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'block'
     }
 
@@ -114,8 +119,6 @@ function changeFavBtnSaved(index) {
         }
 
         console.log(laptopItems.isFavourite, FAVOURITES.item);
-        // console.log();
-
 
         if (laptopItems.isFavourite[index]) {
             document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
@@ -123,7 +126,7 @@ function changeFavBtnSaved(index) {
             document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
         }
     } else {
-        showWarningMessage('Log in to save!')
+        showWarningMessage('Log in to save!');
     }
 }
 

@@ -93,18 +93,18 @@ function initFilter() {
         <div id="displaySizeFilter">
             <div>
                 <div>
-                    <input type="number" name="min-displaySize" id="min-displaySize" onchange="checkMinValue()"> €
+                    <input type="range" name="min-displaySize" id="min-displaySize" onchange="checkMinValue()">
                 </div>
                 <div class="filterText">
-                    <p>Minimum price</p>
+                    <p>Min display size</p>
                 </div> 
             </div>
             <div>
                 <div>
-                    <input type="number" name="max-displaySize" id="max-displaySize" onchange="checkMaxValue()"> €
+                    <input type="range" name="max-displaySize" id="max-displaySize" onchange="checkMaxValue()">
                 </div>
                 <div class="filterText">
-                    <p>Maximum price</p>
+                    <p>Max display size</p>
                 </div>
             </div>
         </div>

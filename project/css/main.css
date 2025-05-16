@@ -225,6 +225,10 @@ nav #nav-items {
     align-items: center;
 }
 
+nav .dropdown {
+    cursor: pointer;
+}
+
 /* Dropdown Menu */
 .dropdown {
     position: relative;

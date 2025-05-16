@@ -14,7 +14,6 @@
 /* seperate sold thing boxes */
 .itemBox {
     height: 20em;
-    border: .1em var(--black) solid;
     position: relative;
     padding-bottom: 5em;
 }

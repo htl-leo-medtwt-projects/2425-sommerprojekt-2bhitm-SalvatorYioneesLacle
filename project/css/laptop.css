@@ -12,13 +12,17 @@
 .itemBox {
     max-height: 12.5em;
     height: 12.5em;
-    border: .1em var(--black) solid;
+    /* border: .06em var(--darkgray) solid; */
+    box-shadow: 0px 0px .12em var(--darkgray), inset 0px 0px .2em var(--gray);
+    border-right: .1em var(--gray) solid;
+    border-bottom: .1em var(--gray) solid;
     position: relative;
     opacity: 0;
+    overflow: hidden;
 }
 
 /* inner boxes of .itemBox --> centered positioning */
-.itemBox>div {
+.itemBox>div:not(.itemDetails) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,10 +40,31 @@
     width: 100%;
 }
 
-.itemBoxFrontGrid>div {
+.itemImg {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.itemStats {
+    display: grid;
+    grid-template-columns: 1fr;
+}
 
+.itemStats>div {
+    display: flex;
+    justify-content: center;
+    width: 88%;
+    margin: 0 auto;
+}
+
+.itemStats>div:first-of-type {
+    align-items: end;
+    padding-bottom: .2em;
+}
+
+.itemStats>div:last-of-type {
+    align-items: start;
+    padding-top: .2em;
+    border-top: var(--accountBorder);
+}

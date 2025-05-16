@@ -145,13 +145,6 @@ function logOut() {
 }
 
 function checkLogin() {
-    if (!isEmailEqual() && !isPasswordEqual()) {
-        showWarningMessage('Wrong email address and password!')
-        document.getElementById('email').value = ''
-        document.getElementById('password').value = ''
-        return false;
-    }
-
     if (!isEmailEqual()) {
         showWarningMessage('Wrong email address!')
         document.getElementById('email').value = ''
