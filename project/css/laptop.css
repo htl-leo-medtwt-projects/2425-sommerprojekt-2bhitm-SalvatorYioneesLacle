@@ -39,14 +39,3 @@
     width: 88%;
     margin: 0 auto;
 }
-
-.itemStats>div:first-of-type {
-    align-items: end;
-    padding-bottom: .2em;
-}
-
-.itemStats>div:last-of-type {
-    align-items: start;
-    padding-top: .2em;
-    border-top: var(--accountBorder);
-}

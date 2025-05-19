@@ -97,13 +97,13 @@ smol {
 
 .itemStats>div:first-of-type {
     align-items: end;
-    padding-bottom: .2em;
+    padding-bottom: .35em;
 }
 
 .itemStats>div:last-of-type {
     align-items: start;
-    padding-top: .2em;
-    border-top: var(--accountBorder);
+    padding-top: .25em;
+    border-top: .08em var(--gray) solid;
 }
 
 /* plus btn for more details */
@@ -111,6 +111,7 @@ smol {
     width: 2em;
     height: 2em;
     color: var(--darkgray);
+    /*  */
     position: absolute;
     top: .5em;
     right: 5.7em;
@@ -131,16 +132,36 @@ smol {
     font-family: orbitron-bold;
 }
 
-.itemDetailsBtn:hover p {
+.itemDetailsBtn:hover>p {
     transform: scale(2) translateY(-.05em);
+    /* filter: invert(1); */
 }
 
 .itemDetailsText {
     position: absolute;
     left: 0;
+    top: .4;
     font-size: .85em;
     width: max-content;
     display: none;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.itemDetailsBtn:hover .itemDetailsText {
+    overflow: visible;
+    left: -6em;
+    opacity: 1;
+    display: block;
+}
+
+.itemDetailsBackgr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: black; */
 }
 
 /* plus btn for more details */
@@ -245,6 +266,12 @@ smol {
     /* display: none; */
     width: 100%;
     height: 100%;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    z-index: 0;
 }
 
 /* Inner box for flex and display */
@@ -254,9 +281,97 @@ smol {
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+}
+
+.itemRating {
     position: absolute;
-    left: 100%;
-    top: 0;
+    bottom: .5em;
+}
+
+/* From Uiverse.io by SelfMadeSystem */
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.3rem;
+    --stroke: #666;
+    --fill: #ffc73a;
+}
+
+.rating input {
+    appearance: unset;
+}
+
+.rating label {
+    cursor: pointer;
+}
+
+.rating svg {
+    width: 2rem;
+    height: 2rem;
+    overflow: visible;
+    fill: transparent;
+    stroke: var(--stroke);
+    /* stroke-linejoin: bevel; */
+    /* stroke-dasharray: 12; */
+    /* animation: idle 4s linear infinite; */
+    transition: stroke 0.2s, fill 0.5s;
+}
+
+@keyframes idle {
+    from {
+        stroke-dashoffset: 24;
+    }
+}
+
+.rating label:hover svg {
+    stroke: var(--fill);
+}
+
+.rating input:checked~label svg {
+    transition: 0s;
+    animation: yippee 0.75s backwards;
+    fill: var(--fill);
+    stroke: var(--fill);
+    stroke-opacity: 0;
+    stroke-dasharray: 0;
+    stroke-linejoin: miter;
+    stroke-width: 8px;
+}
+
+@keyframes yippee {
+    0% {
+        transform: scale(1);
+        fill: var(--fill);
+        fill-opacity: 0;
+        stroke-opacity: 1;
+        stroke: var(--stroke);
+        /* stroke-dasharray: 10; */
+        stroke-width: 1px;
+        stroke-linejoin: bevel;
+    }
+
+    30% {
+        transform: scale(0);
+        fill: var(--fill);
+        fill-opacity: 0;
+        stroke-opacity: 1;
+        stroke: var(--stroke);
+        /* stroke-dasharray: 10; */
+        stroke-width: 1px;
+        stroke-linejoin: bevel;
+    }
+
+    30.1% {
+        stroke: var(--fill);
+        stroke-dasharray: 0;
+        stroke-linejoin: miter;
+        stroke-width: 8px;
+    }
+
+    60% {
+        transform: scale(1.2);
+        fill: var(--fill);
+    }
 }
 
 /* box for all filters */

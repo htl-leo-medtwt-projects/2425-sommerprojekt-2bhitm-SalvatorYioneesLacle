@@ -180,9 +180,11 @@ function savePfp(index) {
 
     for (let i = 0; i < 10; i++) {
         if (i == index) {
-            document.getElementById(`pfp-${i}`).style.border = 'var(--accountBorder)'
+            document.getElementById(`pfp-${i}`).style.backgroundColor = 'var(--darkgray)'
+            document.getElementById(`pfp-${i}`).style.borderRadius = '0'
         } else {
-            document.getElementById(`pfp-${i}`).style.transform = 'scale(1)'
+            document.getElementById(`pfp-${i}`).style.backgroundColor = 'transparent'
+            document.getElementById(`pfp-${i}`).style.borderRadius = '3em'
         }
     }
 }

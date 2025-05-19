@@ -125,7 +125,9 @@ function initFooter() {
         <div id="footerBorder">
             <img src="/img/util/WhTrWh.png" alt="gradient">
         </div>
-        <div id="footerContent"></div>
+        <div id="footerContent">
+        
+        </div>
     `;
     document.getElementsByTagName('footer').item(0).innerHTML = str;
 }
