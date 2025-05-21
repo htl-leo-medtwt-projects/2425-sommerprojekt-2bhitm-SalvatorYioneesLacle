@@ -88,6 +88,17 @@ smol {
     grid-template-columns: 1fr;
 }
 
+/* Device names */
+.itemStats h2 {
+    font-size: 1.2em;
+    font-weight: 100;
+    color: var(--darkgray);
+}
+
+.itemStats p {
+    font-weight: 900;
+}
+
 .itemStats>div {
     display: flex;
     justify-content: center;
@@ -235,11 +246,6 @@ smol {
 
 .itemFavouriteBtnImg:active {
     transform: scale(1.8);
-}
-
-/* Device names */
-.itemStats h2 {
-    font-size: 1.25em;
 }
 
 /*  */

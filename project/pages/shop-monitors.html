@@ -8,8 +8,13 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/subpage.css">
     <link rel="stylesheet" href="/css/monitor.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+    <script src="/data/monitors.js" defer></script>
     <script src="/js/main.js" defer></script>
     <script src="/js/shop.js" defer></script>
+    <script src="/js/shop-monitor.js" defer></script>
 </head>
 
 <body>
@@ -21,39 +26,36 @@
         <h2>Monitors</h2>
     </div>
     <div id="wrapper">
-        <div>
-            <h2>Filter</h2>
-            <div id="filterBox">
-                <div id="priceFilter">
+        <div id="filterBox">
+            <header>
+                <h2>Filter</h2>
+            </header>
+            <div id="priceFilter">
+                <div>
                     <div>
-                        <div>
-                            <input type="number" name="min-price" id="min-price" onchange="checkMinValue()"> €
-                        </div>
-                        <div class="filterText">
-                            <p>Minimum price</p>
-                        </div>
+                        <input type="number" name="min-price" id="min-price" onchange="checkMinValue()"> €
                     </div>
+                    <div class="filterText">
+                        <p>Minimum price</p>
+                    </div>
+                </div>
 
+                <div>
                     <div>
-                        <div>
-                            <input type="number" name="max-price" id="max-price" onchange="checkMaxValue()"> €
-                        </div>
-                        <div class="filterText">
-                            <p>Maximum price</p>
-                        </div>
+                        <input type="number" name="max-price" id="max-price" onchange="checkMaxValue()"> €
+                    </div>
+                    <div class="filterText">
+                        <p>Maximum price</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div>
-            <h2>Monitors</h2>
-            <div id="items-grid">
-                <div class="itemBox"></div>
-            </div>
+        <div id="items-grid">
+            <div class="itemBox"></div>
         </div>
     </div>
     <warning>
-        
+
     </warning>
     <footer>
 

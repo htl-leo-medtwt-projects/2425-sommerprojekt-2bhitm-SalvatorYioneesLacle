@@ -1,10 +1,7 @@
-
 /* sold thing box */
 #items-grid {
-    width: 75%;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr ;
     row-gap: 3em;
     column-gap: 1.6em;
     padding: 2em 1em;
@@ -14,17 +11,11 @@
 /* seperate sold thing boxes */
 .itemBox {
     height: 15em;
-    border: .1em var(--black) solid;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    position: relative;
+    /* opacity: 1; */
 }
 
-/* inner boxes of .itemBox --> centered positioning */
-.itemBox div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.itemBox img {
+    width: min-content;
 }
 
 .itemBoxFrontGrid {
@@ -32,4 +23,22 @@
     grid-template-columns: 30% 1fr;
     height: 100%;
     width: 100%;
+}
+
+.itemImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemStats {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.itemStats>div {
+    display: flex;
+    justify-content: center;
+    width: 88%;
+    margin: 0 auto;
 }

@@ -1,18 +1,18 @@
-/// <reference path="../data/laptops.js"/>
+/// <reference path="../data/monitors.js"/>
 
-console.log(laptops);
+console.log(monitors);
 
-let laptopItems = ITEMS.type[0]
+let monitorItems = ITEMS.type[2]
 
 // Laptop name: If Split(" ") char[0] = ( & Split(" ") char[end] = ) --> Font size smaller
 function initItemBoxes() {
     let str = '';
-    for (let i = 0; i < laptops.length; i++) {
-        laptopItems.device[i] = laptops[i];
-        laptopItems.id = i;
-        console.log(laptopItems.id);
-        laptopItems.isFavourite[i] = false;
-        laptopItems.isDetailsPressed[i] = false;
+    for (let i = 0; i < monitors.length; i++) {
+        monitorItems.device[i] = monitors[i];
+        monitorItems.id = i;
+        console.log(monitorItems.id);
+        monitorItems.isFavourite[i] = false;
+        monitorItems.isDetailsPressed[i] = false;
 
         str += `
         <div class="itemBox scrollReveal">
@@ -20,7 +20,7 @@ function initItemBoxes() {
                 ${initItemBoxFront(i)}
             </div>
 
-            <div class="itemDetailsBtn" onclick="showDeviceDetails(${laptopItems.id})">
+            <div class="itemDetailsBtn" onclick="showDeviceDetails(${monitorItems.id})">
                 <p>+</p>
                 <div class="itemDetailsText">
                     <p>Show more</p>
@@ -29,13 +29,13 @@ function initItemBoxes() {
                 </div>
             </div>
 
-            <div class="toCartBtn" onclick="updateCart(${laptopItems.device[i]})">
+            <div class="toCartBtn" onclick="updateCart(${monitorItems.device[i]})">
                 <img src="/img/icons/shopIcon.png" alt="shop icon">
             </div>
 
             <div class="itemFavouriteBtn">
                 <div class="itemFavouriteBtnBackground"></div>
-                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${laptopItems.id})" onmouseenter="changeFavBtnColourYellow(${laptopItems.id})" onmouseleave="changeFavBtnColourGray(${laptopItems.id})">
+                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${monitorItems.id})" onmouseenter="changeFavBtnColourYellow(${monitorItems.id})" onmouseleave="changeFavBtnColourGray(${monitorItems.id})">
             </div>
 
            <!-- <div class="itemRating">
@@ -67,16 +67,13 @@ function initItemBoxes() {
             <div class="itemDetails">
                 <div>
                     <div class="itemDetailsHeader">
-                        <h1>${laptopItems.device[i].name}</h1>
+                        <h1>${monitorItems.device[i].name}</h1>
                     </div>
                     <div>
-                        <p>OS: ${laptopItems.device[i].os}</p>
-                        <p>Storage: ${laptopItems.device[i].rom} GB</p>
-                        <p>RAM: ${laptopItems.device[i].ram} GB</p>
-                        <p>CPU: ${laptopItems.device[i].cpu}</p>
+
                     </div>
                     <div class="itemDetailsFooter">
-                        <p>${laptopItems.device[i].price} €</p>
+                        <p>${monitorItems.device[i].price} €</p>
                     </div>
                 </div>
             </div>
@@ -85,7 +82,7 @@ function initItemBoxes() {
     }
     document.getElementById('items-grid').innerHTML = str;
 
-    for (let i = 0; i < laptops.length; i++) {
+    for (let i = 0; i < monitors.length; i++) {
         initItemName(i)
     }
 }
@@ -95,39 +92,39 @@ function initItemBoxFront(index) {
     return `
         <div class="itemBoxFrontGrid">
             <div class="itemImg">
-                <img src="${laptopItems.device[index].img}" alt="${laptopItems.device[index].name}">
+                <img src="${monitorItems.device[index].img}" alt="${monitorItems.device[index].name}">
             </div>
 
             <div class="itemStats">
                 <div>
-                    <h2>${laptopItems.device[index].name}</h2>
+                    <h2>${monitorItems.device[index].name}</h2>
                 </div>
                 <div>
-                    <p>${laptopItems.device[index].price} €</p>
+                    <p>${monitorItems.device[index].price} €</p>
                 </div>
             </div>
         </div>`;
 }
 
-function initItemName(index) {
-    let str = '';
-    for (let i = 0; i < laptopItems.device[index].name.split(' ').length; i++) {
-        if (laptopItems.device[index].name.split(' ')[i].at(0) == '('
-            && laptopItems.device[index].name.split(' ')[i].at(laptopItems.device[index].name.split(' ')[i].length - 1) == ')') {
-            console.log('EEEEEEEE EEEEEEEE');
+// function initItemName(index) {
+//     let str = '';
+//     for (let i = 0; i < monitorItems.device[index].name.split(' ').length; i++) {
+//         if (monitorItems.device[index].name.split(' ')[i].at(0) == '('
+//             && monitorItems.device[index].name.split(' ')[i].at(monitorItems.device[index].name.split(' ')[i].length - 1) == ')') {
+//             console.log('EEEEEEEE EEEEEEEE');
 
-            let temp = `<smol>${laptopItems.device[index].name.split(' ')[i]}</smol>`
-            laptopItems.device[index].name.split(' ')[i].innerHTML = temp;;
-        }
-        str += laptopItems.device[index].name.split(' ')[i] + ' '
-    }
-    console.log(str);
-}
+//             let temp = `<smol>${monitorItems.device[index].name.split(' ')[i]}</smol>`
+//             monitorItems.device[index].name.split(' ')[i].innerHTML = temp;;
+//         }
+//         str += monitorItems.device[index].name.split(' ')[i] + ' '
+//     }
+//     console.log(str);
+// }
 
 function showDeviceDetails(index) {
-    laptopItems.isDetailsPressed[index] = !laptopItems.isDetailsPressed[index]
+    monitorItems.isDetailsPressed[index] = !monitorItems.isDetailsPressed[index]
     
-    if (laptopItems.isDetailsPressed[index]) {
+    if (monitorItems.isDetailsPressed[index]) {
         // document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'none'
         document.getElementsByClassName('itemDetails').item(index).style.left = '0'
     } else {
@@ -135,22 +132,22 @@ function showDeviceDetails(index) {
         // document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'block'
     }
 
-    console.log(laptopItems.isDetailsPressed[index]);
+    console.log(monitorItems.isDetailsPressed[index]);
 }
 
 function changeFavBtnSaved(index) {
     if (USER.logInStatus) {
-        laptopItems.isFavourite[index] = !laptopItems.isFavourite[index]
+        monitorItems.isFavourite[index] = !monitorItems.isFavourite[index]
 
-        if (laptopItems.isFavourite[index]) {
-            FAVOURITES.item.push(laptopItems.device[index]);
+        if (monitorItems.isFavourite[index]) {
+            FAVOURITES.item.push(monitorItems.device[index]);
         } else {
-            FAVOURITES.item.splice(FAVOURITES.item.indexOf(laptopItems.device[index]), 1);
+            FAVOURITES.item.splice(FAVOURITES.item.indexOf(monitorItems.device[index]), 1);
         }
 
-        console.log(laptopItems.isFavourite, FAVOURITES.item);
+        console.log(monitorItems.isFavourite, FAVOURITES.item);
 
-        if (laptopItems.isFavourite[index]) {
+        if (monitorItems.isFavourite[index]) {
             document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
         } else {
             document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
@@ -188,7 +185,7 @@ function generateScrollAnimation(i) {
         duration: 1.1,
         scrollTrigger: {
             trigger: element,
-            start: '0% 75%',  /* 'Ankerpunkt Offset' */
+            start: '0% 5%',  /* 'Ankerpunkt Offset' */
         }
     });
 }
@@ -217,7 +214,7 @@ function generateScrollAnimationDetails(i) {
         duration: 1.1,
         scrollTrigger: {
             trigger: element,
-            start: '0% 75%',  /* 'Ankerpunkt Offset' */
+            start: '0% 5%',  /* 'Ankerpunkt Offset' */
         }
     });
 }
