@@ -248,6 +248,12 @@ smol {
     transform: scale(1.8);
 }
 
+.itemDetailsBtn,
+.toCartBtn,
+.itemFavouriteBtn {
+    z-index: 99;
+}
+
 /*  */
 .itemDetailsHeader {
     background-color: var(--lightgray);
@@ -409,7 +415,6 @@ smol {
 #priceFilter>div>div:first-of-type {
     display: flex;
     background-color: var(--white);
-    text-align: center;
     align-items: center;
     font-size: 1.25em;
     padding-right: .2em;
@@ -424,10 +429,14 @@ smol {
     padding: 1em 0;
     position: sticky;
     top: calc(50% - 12em);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
 }
 
 #filterBox>div {
-    gap: 1em;
+    gap: .9em;
 }
 
 /* filter inputs */
@@ -435,7 +444,7 @@ smol {
     width: 100%;
     padding: .2em .5em;
     font-size: 1em;
-    text-align: center;
+    text-align: right;
     outline: none;
     border: none;
 }
@@ -457,4 +466,35 @@ smol {
     align-items: flex-start;
     font-size: .93em;
     border: none;
+}
+
+#displaySizeFilter {
+    width: 85%;
+    max-width: 14em;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#displaySizeFilter input {
+    /* Override default CSS styles */
+    -webkit-appearance: none;
+    appearance: none;
+    height: .85em;
+    border: .05em var(--gray) solid;
+}
+
+#displaySizeFilter input::-webkit-slider-thumb {
+    /* Override default look */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: var(--expert);
+    /* background-image: url(../img/logos/logo.png); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }

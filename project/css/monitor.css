@@ -14,10 +14,6 @@
     /* opacity: 1; */
 }
 
-.itemBox img {
-    width: min-content;
-}
-
 .itemBoxFrontGrid {
     display: grid;
     grid-template-columns: 30% 1fr;
@@ -29,6 +25,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.itemImg img {
+    max-width: 12em;
 }
 
 .itemStats {

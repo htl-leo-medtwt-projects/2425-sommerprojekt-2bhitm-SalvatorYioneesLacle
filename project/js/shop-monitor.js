@@ -82,9 +82,9 @@ function initItemBoxes() {
     }
     document.getElementById('items-grid').innerHTML = str;
 
-    for (let i = 0; i < monitors.length; i++) {
-        initItemName(i)
-    }
+    // for (let i = 0; i < monitors.length; i++) {
+    //     initItemName(i)
+    // }
 }
 initItemBoxes();
 
@@ -185,7 +185,7 @@ function generateScrollAnimation(i) {
         duration: 1.1,
         scrollTrigger: {
             trigger: element,
-            start: '0% 5%',  /* 'Ankerpunkt Offset' */
+            start: '0% 75%',  /* 'Ankerpunkt Offset' */
         }
     });
 }

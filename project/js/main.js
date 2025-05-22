@@ -47,7 +47,7 @@ let USER = {
     pw: localStorage['acc-pw'] || 'password',
     pfp: localStorage['acc-pfp'] || 'https://rewards.bing.com/rewardscdn/images/rewards.png',
     money: JSON.parse(localStorage['acc-money'] ?? 0),
-    cart: localStorage['acc-cart'] != null ? JSON.parse(localStorage['acc-cart']) : CART /*JSON.parse(localStorage['acc-cart'] ?? CART)*/,
+    cart: localStorage['acc-cart'] != null ? JSON.parse(localStorage['acc-cart']) : CART /*JSON.parse(localStorage['acc - cart'] ?? CART)*/,
     favourites: localStorage['acc-favourites'] != null ? JSON.parse(localStorage['acc-favourites']) : FAVOURITES,
     logInStatus: localStorage['acc-logInStatus'] == 'false' || localStorage['acc-logInStatus'] == null ? false : true
 }

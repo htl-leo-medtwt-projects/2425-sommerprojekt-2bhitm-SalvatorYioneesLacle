@@ -74,7 +74,7 @@ function initFilter() {
         <div id="priceFilter">
             <div>
                 <div>
-                    <input type="number" name="min-price" id="min-price" onchange="checkMinValue()"> €
+                    <input type="number" name="min-price" id="min-price" oninput="checkMinPrice()"> €
                 </div>
                 <div class="filterText">
                     <p>Minimum price</p>
@@ -82,7 +82,7 @@ function initFilter() {
             </div>
             <div>
                 <div>
-                    <input type="number" name="max-price" id="max-price" onchange="checkMaxValue()"> €
+                    <input type="number" name="max-price" id="max-price" oninput="checkMaxPrice()"> €
                 </div>
                 <div class="filterText">
                     <p>Maximum price</p>
@@ -93,7 +93,7 @@ function initFilter() {
         <div id="displaySizeFilter">
             <div>
                 <div>
-                    <input type="range" name="min-displaySize" id="min-displaySize" onchange="checkMinValue()">
+                    <input type="range" name="min-displaySize" id="min-displaySize" step="0.1" oninput="checkMinValue()">
                 </div>
                 <div class="filterText">
                     <p>Min display size</p>
@@ -101,7 +101,7 @@ function initFilter() {
             </div>
             <div>
                 <div>
-                    <input type="range" name="max-displaySize" id="max-displaySize" onchange="checkMaxValue()">
+                    <input type="range" name="max-displaySize" id="max-displaySize" step="0.1" oninput="checkMaxValue()">
                 </div>
                 <div class="filterText">
                     <p>Max display size</p>
@@ -117,7 +117,7 @@ function getShopDropdownValue() {
     window.location.href = `/pages/shop-${shopDropdown}.html`;
 }
 
-function checkMinValue() {
+function checkMinPrice() {
     if (PRICE.min.value < 0) {
         PRICE.min.value = 0;
     }
@@ -126,7 +126,7 @@ function checkMinValue() {
     }
 }
 
-function checkMaxValue() {
+function checkMaxPrice() {
     if (PRICE.max < 0) {
         PRICE.max = 0;
     }
