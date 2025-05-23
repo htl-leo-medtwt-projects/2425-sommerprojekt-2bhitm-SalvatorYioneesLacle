@@ -1,7 +1,3 @@
-smol {
-    color: red;
-}
-
 /* Header with stripes background */
 #headerBox {
     position: relative;
@@ -323,9 +319,6 @@ smol {
     overflow: visible;
     fill: transparent;
     stroke: var(--stroke);
-    /* stroke-linejoin: bevel; */
-    /* stroke-dasharray: 12; */
-    /* animation: idle 4s linear infinite; */
     transition: stroke 0.2s, fill 0.5s;
 }
 
@@ -357,7 +350,6 @@ smol {
         fill-opacity: 0;
         stroke-opacity: 1;
         stroke: var(--stroke);
-        /* stroke-dasharray: 10; */
         stroke-width: 1px;
         stroke-linejoin: bevel;
     }
@@ -368,7 +360,6 @@ smol {
         fill-opacity: 0;
         stroke-opacity: 1;
         stroke: var(--stroke);
-        /* stroke-dasharray: 10; */
         stroke-width: 1px;
         stroke-linejoin: bevel;
     }
@@ -388,7 +379,22 @@ smol {
 
 /* box for all filters */
 #filterBox {
+    color: var(--black);
+    height: 24em;
+    width: 85%;
+    margin: 0 auto;
+    padding: 1em 0;
+    position: sticky;
+    top: calc(50% - 12em);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
     box-shadow: 0px 0px 15px 5px var(--lightgray);
+}
+
+#filterBox>div {
+    gap: .9em;
 }
 
 /* "Filter" text in filterBox */
@@ -418,25 +424,6 @@ smol {
     align-items: center;
     font-size: 1.25em;
     padding-right: .2em;
-}
-
-/* filter box */
-#filterBox {
-    color: var(--black);
-    height: 24em;
-    width: 85%;
-    margin: 0 auto;
-    padding: 1em 0;
-    position: sticky;
-    top: calc(50% - 12em);
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-wrap: wrap;
-}
-
-#filterBox>div {
-    gap: .9em;
 }
 
 /* filter inputs */
@@ -484,6 +471,8 @@ smol {
     appearance: none;
     height: .85em;
     border: .05em var(--gray) solid;
+    border-radius: .2em;
+
 }
 
 #displaySizeFilter input::-webkit-slider-thumb {
@@ -492,9 +481,53 @@ smol {
     appearance: none;
     width: 1.2em;
     height: 1.2em;
+    border-radius: .2em;
     background-color: var(--expert);
-    /* background-image: url(../img/logos/logo.png); */
+    /* background-image: url(../img/icons/euro.png); */
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    #wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    #filterBox {
+        width: 100%;
+        height: min-content;
+        color: var(--black);
+        margin: 0 auto;
+        padding: 1em 2em;
+        top: .1em;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: nowrap;
+        box-shadow: 0px 0px 15px 5px var(--lightgray);
+        gap: 4em;
+        background-color: var(--white);
+        z-index: 9;
+    }
+
+    #filterBox p {
+        font-size: .7em;
+    }
+
+    #filterBox>div {
+        margin: 0;
+        gap: 2em;
+        width: fit-content;
+    }
+
+    #priceFilter {
+        width: min-content;
+        flex-wrap: nowrap;
+    }
+
+    #displaySizeFilter {
+        width: min-content;
+        flex-wrap: nowrap;
+    }
 }

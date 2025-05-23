@@ -2,8 +2,8 @@
 #items-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 4em;
-    column-gap: 3.6em;
+    row-gap: 3.5em;
+    column-gap: 2.6em;
     padding: 2em 1em;
     color: var(--black);
     width: 87%;

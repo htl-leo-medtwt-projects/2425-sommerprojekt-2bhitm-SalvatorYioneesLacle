@@ -139,12 +139,11 @@ function changeFavBtnColourYellow(index) {
     document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.backgroundColor = 'var(--yellow)'
     document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.transform = `scale(1.35)`
 }
+
 function changeFavBtnColourGray(index) {
     document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.backgroundColor = 'transparent'
     document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.transform = `scale(1)`
 }
-
--
 
 function isInPriceArea(item) {
     if (item.device.price >= PRICE.min && item.device.price <= PRICE.max) {
