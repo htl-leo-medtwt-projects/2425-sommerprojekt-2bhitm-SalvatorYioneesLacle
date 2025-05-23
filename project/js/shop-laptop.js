@@ -15,7 +15,7 @@ function initItemBoxes() {
         while (usedIndex.includes(rnd)) {
             rnd = Math.floor(Math.random() * laptops.length);
             console.log("calc new rnd");
-        }
+        } 
         usedIndex.push(rnd);
 
         laptopItems.device[rnd] = laptops[rnd];
