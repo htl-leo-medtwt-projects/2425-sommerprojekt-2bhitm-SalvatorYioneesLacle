@@ -39,3 +39,15 @@
     width: 88%;
     margin: 0 auto;
 }
+
+
+@media screen and (max-width: 1000px) {
+    #items-grid {
+        grid-template-columns: 1fr;
+        padding: 2em 5.5em;
+    }
+
+    .itemBox img {
+        max-width: 12em;
+    }
+}

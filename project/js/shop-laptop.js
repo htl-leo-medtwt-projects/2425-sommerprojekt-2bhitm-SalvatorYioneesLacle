@@ -6,18 +6,28 @@ let laptopItems = ITEMS.type[0]
 
 // Laptop name: If Split(" ") char[0] = ( & Split(" ") char[end] = ) --> Font size smaller
 function initItemBoxes() {
+    let usedIndex = [];
+    let rnd = Math.floor(Math.random() * laptops.length);
+
     let str = '';
     for (let i = 0; i < laptops.length; i++) {
-        laptopItems.device[i] = laptops[i];
-        laptopItems.id = i;
+        // Randomised phone display
+        while (usedIndex.includes(rnd)) {
+            rnd = Math.floor(Math.random() * laptops.length);
+            console.log("calc new rnd");
+        }
+        usedIndex.push(rnd);
+
+        laptopItems.device[rnd] = laptops[rnd];
+        laptopItems.id = rnd;
         console.log(laptopItems.id);
-        laptopItems.isFavourite[i] = false;
-        laptopItems.isDetailsPressed[i] = false;
+        laptopItems.isFavourite[rnd] = false;
+        laptopItems.isDetailsPressed[rnd] = false;
 
         str += `
         <div class="itemBox scrollReveal">
             <div class="itemBoxFront">
-                ${initItemBoxFront(i)}
+                ${initItemBoxFront(rnd)}
             </div>
 
             <div class="itemDetailsBtn" onclick="showDeviceDetails(${laptopItems.id})">
@@ -29,8 +39,8 @@ function initItemBoxes() {
                 </div>
             </div>
 
-            <div class="toCartBtn" onclick="updateCart(${laptopItems.device[i]})">
-                <img src="/img/icons/shopIcon.png" alt="shop icon">
+            <div class="toCartBtn" onclick="updateCart(${laptopItems.device[rnd]})">
+                <img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">
             </div>
 
             <div class="itemFavouriteBtn">
@@ -67,16 +77,24 @@ function initItemBoxes() {
             <div class="itemDetails">
                 <div>
                     <div class="itemDetailsHeader">
-                        <h1>${laptopItems.device[i].name}</h1>
+                        <h1>${laptopItems.device[rnd].name}</h1>
                     </div>
-                    <div>
-                        <p>OS: ${laptopItems.device[i].os}</p>
-                        <p>Storage: ${laptopItems.device[i].rom} GB</p>
-                        <p>RAM: ${laptopItems.device[i].ram} GB</p>
-                        <p>CPU: ${laptopItems.device[i].cpu}</p>
+                    <div class="itemDetailsMain">
+                        <div>
+                            <p>${laptopItems.device[rnd].os}</p>
+                        </div>
+                        <div>
+                            <p>${laptopItems.device[rnd].rom} GB</p>
+                        </div>
+                        <div>
+                            <p>${laptopItems.device[rnd].ram} GB</p>
+                        </div>
+                        <div>
+                            <p>${laptopItems.device[rnd].cpu}</p>
+                        </div>
                     </div>
                     <div class="itemDetailsFooter">
-                        <p>${laptopItems.device[i].price} €</p>
+                        <p>${laptopItems.device[rnd].price} €</p>
                     </div>
                 </div>
             </div>
@@ -85,9 +103,9 @@ function initItemBoxes() {
     }
     document.getElementById('items-grid').innerHTML = str;
 
-    for (let i = 0; i < laptops.length; i++) {
-        initItemName(i)
-    }
+    // for (let i = 0; i < laptops.length; i++) {
+    //     initItemName(i)
+    // }
 }
 initItemBoxes();
 
@@ -126,13 +144,13 @@ function initItemName(index) {
 
 function showDeviceDetails(index) {
     laptopItems.isDetailsPressed[index] = !laptopItems.isDetailsPressed[index]
-    
+
     if (laptopItems.isDetailsPressed[index]) {
-        // document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'none'
         document.getElementsByClassName('itemDetails').item(index).style.left = '0'
+        // document.getElementsByClassName('toCartBtnImg').item(index).style.filter = 'brightness(5)'
     } else {
         document.getElementsByClassName('itemDetails').item(index).style.left = '110%'
-        // document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'block'
+        // document.getElementsByClassName('toCartBtnImg').item(index).style.filter = 'grayscale(1)'
     }
 
     console.log(laptopItems.isDetailsPressed[index]);
