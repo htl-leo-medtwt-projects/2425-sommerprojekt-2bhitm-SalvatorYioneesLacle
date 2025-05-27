@@ -19,7 +19,9 @@ function initItemBoxes() {
         usedIndex.push(rnd);
 
         laptopItems.device[rnd] = laptops[rnd];
-        laptopItems.id = rnd;
+        
+        // Laptops get a new ID after each reload
+        laptopItems.id = i;
         console.log(laptopItems.id);
         laptopItems.isFavourite[rnd] = false;
         laptopItems.isDetailsPressed[rnd] = false;

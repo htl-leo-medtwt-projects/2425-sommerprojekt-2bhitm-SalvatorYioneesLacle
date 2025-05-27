@@ -260,7 +260,7 @@ nav .dropdown {
     pointer-events: none;
     border: .1em var(--black) solid;
     overflow: hidden;
-    z-index: 1;
+    z-index: 99;
 }
 
 .dropdown:hover .dropdown-content {

@@ -247,7 +247,7 @@
 .itemDetailsBtn,
 .toCartBtn,
 .itemFavouriteBtn {
-    z-index: 99;
+    z-index: 9;
 }
 
 /*  */
@@ -497,6 +497,11 @@
         grid-template-columns: 1fr;
     }
 
+    /* outer filter box (no id) */
+    #wrapper>div:first-of-type {
+        border: none;
+    }
+
     #filterBox {
         width: 100%;
         height: min-content;
@@ -536,6 +541,10 @@
 
     #headerBox h2 {
         font-size: 2.5em;
+    }
+
+    .itemStats h2 {
+        font-size: 1em;
     }
 
 }
