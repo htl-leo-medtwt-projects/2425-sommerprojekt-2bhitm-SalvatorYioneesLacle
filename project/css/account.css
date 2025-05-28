@@ -6,7 +6,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 4em 0;
+    padding: 2em 0;
 }
 
 /* whTr.png image with stripes background image */
@@ -42,11 +42,26 @@
 
 #backBtnBox img {
     width: 30%;
+    width: 1.2em;
     /* transform: scale(.3); */
 }
 
 #backBtnBox:hover img {
     transform: scale(1.25);
+}
+
+/* Back button */
+#backBtnBoxCredential {
+    padding-top: 0;
+    height: min-content;
+}
+
+#backBtnBoxCredential:hover img {
+    transform: scale(1.4);
+}
+
+#backBtnBoxCredential:active img {
+    transform: scale(1.1);
 }
 
 /* outer filter box (no id) */
@@ -346,6 +361,7 @@
     border-bottom: .1em var(--gray) solid;
     box-shadow: 0px 0px 15px 5px var(--lightgray);
     padding: 1.5em 0;
+    margin-bottom: .3em;
 }
 
 #accountCredentialsBox h2 {
@@ -384,6 +400,18 @@
 .accountInputFields {
     text-align: left;
     color: var(--black);
+}
+
+.allPfpStuff {
+    text-align: center;
+}
+
+.allPfpStuff>div:first-of-type {
+    padding-bottom: 1em;
+}
+
+.allPfpStuff>div:last-of-type {
+    padding-top: 1em;
 }
 
 .accountInputFields input {
@@ -473,6 +501,7 @@
 
 #accountPfpBox>div {
     border-radius: 3em;
+    cursor: pointer;
 }
 
 #accountPfpBox>div:hover {

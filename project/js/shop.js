@@ -56,7 +56,7 @@ function initNavBtnsShop() {
                 </div>
                 <a href="/pages/partners.html" onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
                     <div id="partners">
-                        <img id="nav-account-biggerImg" src="/img/icons/partners.png" alt="partners icon">
+                        <img id="nav-partners-biggerImg" src="/img/icons/partners.png" alt="partners icon">
                     </div>
                     <p>Partners</p>
                 </a>
@@ -74,7 +74,7 @@ function initFilter() {
         <div id="priceFilter">
             <div>
                 <div>
-                    <input type="number" name="min-price" id="min-price" oninput="checkMinPrice()"> €
+                    <input type="number" name="min-price" id="min-price" onchange="checkMinPrice()"> €
                 </div>
                 <div class="filterText">
                     <p>Minimum price</p>
@@ -82,7 +82,7 @@ function initFilter() {
             </div>
             <div>
                 <div>
-                    <input type="number" name="max-price" id="max-price" oninput="checkMaxPrice()"> €
+                    <input type="number" name="max-price" id="max-price" onchange="checkMaxPrice()"> €
                 </div>
                 <div class="filterText">
                     <p>Maximum price</p>
@@ -131,11 +131,11 @@ function checkMinPrice() {
 }
 
 function checkMaxPrice() {
-    if (PRICE.max < 0) {
-        PRICE.max = 0;
+    if (PRICE.max.value < 0) {
+        PRICE.max.value = 0;
     }
-    if (PRICE.max < PRICE.min) {
-        PRICE.min = PRICE.max;
+    if (PRICE.max.value < PRICE.min.value) {
+        PRICE.min.value = PRICE.max.value;
     }
 }
 

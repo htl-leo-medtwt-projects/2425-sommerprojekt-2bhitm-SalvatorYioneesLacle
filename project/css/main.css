@@ -126,7 +126,7 @@ nav #nav-logo img {
     width: 4em;
 }
 
-nav #nav-logo :hover {
+nav #nav-logo img:hover {
     width: 4.5em;
 }
 
@@ -387,6 +387,8 @@ footer {
 @media screen and (max-width: 1100px) {
     nav {
         height: 3.5em;
+        z-index: 99;
+        /* box-shadow: 0px 0px 8px var(--expert); */
     }
 
     nav #nav-btns p {
@@ -397,20 +399,23 @@ footer {
         width: 3em;
     }
 
+    nav #nav-logo img:hover {
+        width: 3.5em;
+    }
+
     nav #nav-btns>div,
     nav #nav-btns>a {
         height: 3.5em;
     }
 
     nav #nav-btns img:not(#nav-partners-biggerImg) {
-        width: 1em;
+        width: 1.2em;
     }
 
     nav #nav-partners-biggerImg {
-        width: 1.5em;
+        width: 1.6em;
     }
 }
-
 
 /* .card {
     width: 200px;

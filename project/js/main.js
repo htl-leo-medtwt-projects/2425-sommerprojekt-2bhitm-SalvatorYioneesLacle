@@ -8,6 +8,7 @@ let longPopLeave = new Audio('/audio/long-pop-leave.wav');
 // type 1: Phones
 // type 2: Monitors
 
+// All devices in one varible
 let ITEMS = {
     type: [{
         device: [],
@@ -47,7 +48,7 @@ let USER = {
     pw: localStorage['acc-pw'] || 'password',
     pfp: localStorage['acc-pfp'] || 'https://rewards.bing.com/rewardscdn/images/rewards.png',
     money: JSON.parse(localStorage['acc-money'] ?? 0),
-    cart: localStorage['acc-cart'] != null ? JSON.parse(localStorage['acc-cart']) : CART /*JSON.parse(localStorage['acc - cart'] ?? CART)*/,
+    cart: localStorage['acc-cart'] != null ? JSON.parse(localStorage['acc-cart']) : CART,
     favourites: localStorage['acc-favourites'] != null ? JSON.parse(localStorage['acc-favourites']) : FAVOURITES,
     logInStatus: localStorage['acc-logInStatus'] == 'false' || localStorage['acc-logInStatus'] == null ? false : true
 }
@@ -84,11 +85,11 @@ function initPageIcon() {
 initPageIcon();
 
 function swapToWhiteNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-account-biggerImg"' : ''} src="/img/icons/${icon}_white.png" alt="${icon}">`
+    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-partners-biggerImg"' : ''} src="/img/icons/${icon}_white.png" alt="${icon}">`
 }
 
 function swapToNormalNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-account-biggerImg"' : ''} src="/img/icons/${icon}.png" alt="${icon}">`
+    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-partners-biggerImg"' : ''} src="/img/icons/${icon}.png" alt="${icon}">`
 }
 
 function initNavigationbar() {
@@ -108,7 +109,7 @@ function initNavigationbar() {
                     <div onclick="toLogIn()">
                         <p>Log In</p>
                     </div>` : `<p>${USER.username}</p>
-                    <img src="${USER.pfp}" alt="${USER.username}">`
+                    <img src="${USER.pfp}" alt="Profile picture of: ${USER.username}">`
         }
             </div>
             
@@ -125,6 +126,7 @@ function initFooter() {
         <div id="footerBorder">
             <img src="/img/util/WhTrWh.png" alt="gradient">
         </div>
+        
         <div id="footerContent">
         
         </div>
@@ -134,17 +136,11 @@ function initFooter() {
 initFooter()
 
 function toLogIn() {
-    window.location.href = `/pages/account/account-login.html`
+    window.location.href = `/pages/account/account-login.html`;
 }
 
 function toSignUp() {
     window.location.href = `/pages/account/account-signup.html`;
-}
-
-function warningCancelled(timeout) {
-    removeWarning();
-    clearTimeout(timeout)
-    return true;
 }
 
 function showWarningMessage(msg) {
@@ -177,6 +173,12 @@ function showWarningMessage(msg) {
 
 }
 
+function warningCancelled(t) {
+    clearTimeout(t)
+    removeWarning();
+    return true;
+}
+
 function removeWarning() {
     WARNING.count--;
 
@@ -188,7 +190,9 @@ function removeWarning() {
     box.classList.add('warningAnim');
     setTimeout(() => {
         document.getElementById(`warning-${WARNING.count}`).style.display = 'none';
-        if (WARNING.count <= 0) {
+        if (WARNING.count <= 0 || document.getElementById(`warning-${WARNING.count}`) == null) {
+            WARNING.count = 0;
+
             setTimeout(() => {
                 document.getElementsByTagName('warning').item(0).innerHTML = '';
                 WARNING.count = 0;

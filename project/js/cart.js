@@ -11,5 +11,4 @@ function showNewDevice(index) {
         </div>
     `;
 }
-
 showNewDevice(0)

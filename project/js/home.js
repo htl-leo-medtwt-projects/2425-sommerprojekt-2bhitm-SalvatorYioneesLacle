@@ -8,7 +8,7 @@ function initNavBtnsHome() {
                 </a>
                 <a href="/pages/partners.html" onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
                     <div id="partners">
-                        <img id="nav-account-biggerImg" src="/img/icons/partners.png" alt="partners icon">
+                        <img id="nav-partners-biggerImg" src="/img/icons/partners.png" alt="partners icon">
                     </div>
                     <p>Partners</p>
                 </a>
