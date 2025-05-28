@@ -93,7 +93,7 @@ function initFilter() {
         <div id="displaySizeFilter">
             <div>
                 <div>
-                    <input type="range" name="min-displaySize" id="min-displaySize" step="0.1" oninput="checkMinValue()">
+                    <input type="range" name="min-displaySize" id="min-displaySize" min="0" max="40" step="0.1" oninput="checkMinValue()">
                 </div>
                 <div class="filterText">
                     <p>Min display size</p>
@@ -101,12 +101,16 @@ function initFilter() {
             </div>
             <div>
                 <div>
-                    <input type="range" name="max-displaySize" id="max-displaySize" step="0.1" oninput="checkMaxValue()">
+                    <input type="range" name="max-displaySize" id="max-displaySize" min="0" max="40" step="0.1" oninput="checkMaxValue()">
                 </div>
                 <div class="filterText">
                     <p>Max display size</p>
                 </div>
             </div>
+        </div>
+
+        <div id="filter-saveBtn">
+            <p>Save</p>
         </div>
     `;
 }
@@ -149,6 +153,11 @@ function isInPriceArea(item) {
     if (item.device.price >= PRICE.min && item.device.price <= PRICE.max) {
 
     }
+}
+
+function addToCart(device) {
+    CART.item.push(device);
+    console.log(CART);
 }
 
 // If displayRes == 1200: WUXGA

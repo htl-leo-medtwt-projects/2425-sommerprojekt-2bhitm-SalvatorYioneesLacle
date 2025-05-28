@@ -6,18 +6,29 @@ let monitorItems = ITEMS.type[2]
 
 // Laptop name: If Split(" ") char[0] = ( & Split(" ") char[end] = ) --> Font size smaller
 function initItemBoxes() {
+    let usedIndex = [];
+    let rnd = Math.floor(Math.random() * monitors.length);
+
     let str = '';
     for (let i = 0; i < monitors.length; i++) {
-        monitorItems.device[i] = monitors[i];
+        while (usedIndex.includes(rnd)) {
+            rnd = Math.floor(Math.random() * monitors.length);
+            console.log("calc new rnd");
+        }
+        usedIndex.push(rnd);
+
+        monitorItems.device[rnd] = monitors[rnd];
+
+        // Monitors get a new ID after each reload
         monitorItems.id = i;
         console.log(monitorItems.id);
-        monitorItems.isFavourite[i] = false;
-        monitorItems.isDetailsPressed[i] = false;
+        monitorItems.isFavourite[rnd] = false;
+        monitorItems.isDetailsPressed[rnd] = false;
 
         str += `
         <div class="itemBox scrollReveal">
             <div class="itemBoxFront">
-                ${initItemBoxFront(i)}
+                ${initItemBoxFront(rnd)}
             </div>
 
             <div class="itemDetailsBtn" onclick="showDeviceDetails(${monitorItems.id})">
@@ -29,8 +40,8 @@ function initItemBoxes() {
                 </div>
             </div>
 
-            <div class="toCartBtn" onclick="updateCart(${monitorItems.device[i]})">
-                <img src="/img/icons/shopIcon.png" alt="shop icon">
+            <div class="toCartBtn" onclick="addToCart(${monitorItems.device[rnd]})">
+                <img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">
             </div>
 
             <div class="itemFavouriteBtn">
@@ -67,13 +78,30 @@ function initItemBoxes() {
             <div class="itemDetails">
                 <div>
                     <div class="itemDetailsHeader">
-                        <h1>${monitorItems.device[i].name}</h1>
+                        <h1>${monitorItems.device[rnd].name}</h1>
                     </div>
-                    <div>
-
+                    <div class="itemDetailsMain">
+                        <div class="itemDetailsMainGrid">
+                            <div>
+                                <h2>Display size</h2>
+                                <p>${monitorItems.device[rnd].display.size}"</p>
+                            </div>
+                            <div>
+                                <h2>Resolution</h2>
+                                <p>${monitorItems.device[rnd].display.resWidth} x ${monitorItems.device[rnd].display.resHeight}</p>
+                            </div>
+                            <div>
+                                <h2>Memory</h2>
+                                <p>${monitorItems.device[rnd].display.type} GB</p>
+                            </div>
+                            <div>
+                                <h2>RAM</h2>
+                                <p>${monitorItems.device[rnd].display.fps} GB</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="itemDetailsFooter">
-                        <p>${monitorItems.device[i].price} €</p>
+                        <p>${monitorItems.device[rnd].price} €</p>
                     </div>
                 </div>
             </div>
@@ -123,7 +151,7 @@ function initItemBoxFront(index) {
 
 function showDeviceDetails(index) {
     monitorItems.isDetailsPressed[index] = !monitorItems.isDetailsPressed[index]
-    
+
     if (monitorItems.isDetailsPressed[index]) {
         // document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'none'
         document.getElementsByClassName('itemDetails').item(index).style.left = '0'

@@ -250,26 +250,6 @@
     z-index: 9;
 }
 
-/*  */
-.itemDetailsHeader {
-    /* background-color: var(--lightgray) */
-    color: var(--black);
-    font-size: .7em;
-    width: 100%;
-    display: none;
-}
-
-/* Device details price */
-.itemDetailsFooter {
-    /* background-color: var(--lightgray); */
-    color: var(--black);
-    font-size: 1.2em;
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
 /* Device details */
 .itemDetails {
     /* display: none; */
@@ -280,18 +260,67 @@
     top: 0;
     display: flex;
     align-items: center;
-    z-index: 0;
-    background-color: var(--white);
-    background-color: red;
+    z-index: 1;
+    background-color: var(--white70);
+    backdrop-filter: blur(.17em);
 }
 
 /* Inner box for flex and display */
 .itemDetails>div {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: self-end;
     flex-wrap: wrap;
     width: 100%;
+    height: 100%;
+    /* height: calc(100% - 4em); */
+}
+
+/* Device details header */
+.itemDetailsHeader {
+    /* background-color: var(--lightgray); */
+    color: var(--black);
+    font-size: .65em;
+    width: 100%;
+    display: none;
+}
+
+/* Device details price */
+.itemDetailsFooter {
+    /* background-color: var(--lightgray); */
+    color: var(--black);
+    font-size: 1.2em;
+    width: 65%;
+    padding: .6em 0;
+    border-top: .1em var(--gray) solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Details text */
+.itemDetailsMain {
+    width: 100%;
+    padding: .6em 1.2em;
+    text-align: left;
+}
+
+.itemDetailsMainGrid {
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1em;
+}
+
+.itemDetailsMain h2 {
+    font-size: .7em;
+    letter-spacing: .03em;
+}
+
+.itemDetailsMain p {
+    font-size: 1em;
+    color: var(--darkgray);
 }
 
 .itemRating {
@@ -299,7 +328,7 @@
     bottom: .5em;
 }
 
-/* From Uiverse.io by SelfMadeSystem */
+/* From Uiverse.io by SelfMadeSystem 
 .rating {
     display: flex;
     flex-direction: row-reverse;
@@ -379,7 +408,7 @@
         fill: var(--fill);
     }
 }
-
+*/
 /* box for all filters */
 #filterBox {
     color: var(--black);
@@ -398,6 +427,8 @@
 
 #filterBox>div {
     gap: .9em;
+    margin: 0 auto;
+    width: 100%;
 }
 
 /* "Filter" text in filterBox */
@@ -472,17 +503,16 @@
     /* Override default CSS styles */
     -webkit-appearance: none;
     appearance: none;
-    height: .85em;
+    height: .55em;
     border: .05em var(--gray) solid;
     border-radius: .2em;
-
 }
 
 #displaySizeFilter input::-webkit-slider-thumb {
     /* Override default look */
     -webkit-appearance: none;
     appearance: none;
-    width: 1.2em;
+    width: .7em;
     height: 1.2em;
     border-radius: .2em;
     background-color: var(--expert);
@@ -490,6 +520,32 @@
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
+}
+
+#filter-saveBtn {
+    width: 4em;
+    padding: .3em .65em;
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+#filter-saveBtn p {
+    color: var(--expert);
+    font-family: orbitron-bold;
+    user-select: none;
+}
+
+#filter-saveBtn:hover {
+    background-color: var(--expert);
+}
+
+#filter-saveBtn:hover p {
+    color: var(--white);
+    transform: scale(1.15);
+}
+
+#filter-saveBtn:active p {
+    transform: scale(1.05);
 }
 
 @media screen and (max-width: 1100px) {
@@ -545,6 +601,31 @@
 
     .itemStats h2 {
         font-size: 1em;
+    }
+
+    #filter-saveBtn {
+        background-color: var(--expert);
+    }
+
+    #filter-saveBtn p {
+        color: var(--white);
+    }
+
+    #filter-saveBtn:hover {
+        background-color: var(--expert);
+        transform: scale(1.15);
+    }
+
+    #filter-saveBtn:active {
+        transform: scale(1.05);
+    }
+
+    #filter-saveBtn:hover p {
+        transform: scale(1);
+    }
+
+    #filter-saveBtn:active p {
+        transform: scale(1);
     }
 
 }

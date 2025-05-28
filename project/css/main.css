@@ -34,6 +34,7 @@
     --expert: #ff6123;
     --background: #f6f6f6;
     --white: #ffffff;
+    --white70: #ffffffb3;
     --black: #171717;
     --lightgray: rgb(224, 224, 224);
     --gray: rgb(196, 196, 196);
@@ -155,11 +156,11 @@ nav #nav-btns>a:hover {
     color: var(--white);
 }
 
-nav #nav-btns img:not(#nav-account-biggerImg) {
+nav #nav-btns img:not(#nav-partners-biggerImg) {
     width: 1.5em;
 }
 
-nav #nav-account-biggerImg {
+nav #nav-partners-biggerImg {
     width: 2em;
 }
 
@@ -380,6 +381,33 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0%);
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    nav {
+        height: 3.5em;
+    }
+
+    nav #nav-btns p {
+        font-size: .8em;
+    }
+
+    nav #nav-logo img {
+        width: 3em;
+    }
+
+    nav #nav-btns>div,
+    nav #nav-btns>a {
+        height: 3.5em;
+    }
+
+    nav #nav-btns img:not(#nav-partners-biggerImg) {
+        width: 1em;
+    }
+
+    nav #nav-partners-biggerImg {
+        width: 1.5em;
     }
 }
 

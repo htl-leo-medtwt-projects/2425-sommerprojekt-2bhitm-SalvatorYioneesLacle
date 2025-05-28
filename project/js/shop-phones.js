@@ -1,40 +1,87 @@
 /// <reference path="../data/phones.js"/>
+/// <reference path="../data/details.js"/>
 
 console.log(phones);
+console.log(details);
+
 
 
 let phoneItems = ITEMS.type[1]
 
 // phone name: If Split(" ") char[0] = ( & Split(" ") char[end] = ) --> Font size smaller
 function initItemBoxes() {
+    let usedIndex = [];
+    let rnd = Math.floor(Math.random() * phones.length);
+
     let str = '';
     for (let i = 0; i < phones.length; i++) {
-        phoneItems.device[i] = phones[i];
+        while (usedIndex.includes(rnd)) {
+            rnd = Math.floor(Math.random() * phones.length);
+            console.log("calc new rnd");
+        }
+        usedIndex.push(rnd);
+
+        phoneItems.device[rnd] = phones[rnd];
+
+        // Phones get a new ID after each reload
         phoneItems.id = i;
         console.log(phoneItems.id);
-        phoneItems.isFavourite[i] = false;
-        phoneItems.isDetailsPressed[i] = false;
+        phoneItems.isFavourite[rnd] = false;
+        phoneItems.isDetailsPressed[rnd] = false;
 
         str += `
         <div class="itemBox scrollReveal">
             <div class="itemBoxFront">
-                ${initItemBoxFront(i)}
+                ${initItemBoxFront(rnd)}
             </div>
 
             <div class="itemDetailsBtn" onclick="showDeviceDetails(${phoneItems.id})">
                 <p>+</p>
                 <div class="itemDetailsText">
                     <p>Show more</p>
+                    <div class="itemDetailsBackgr">
+                    </div>
                 </div>
             </div>
 
-            <div class="toCartBtn" onclick="updateCart(${phoneItems.device[i]})">
-                <img src="/img/icons/shopIcon.png" alt="shop icon">
+            <div class="toCartBtn" onclick="addToCart(${phoneItems.device[rnd]})">
+                <img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">
             </div>
 
             <div class="itemFavouriteBtn">
                 <div class="itemFavouriteBtnBackground"></div>
                 <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${phoneItems.id})" onmouseenter="changeFavBtnColourYellow(${phoneItems.id})" onmouseleave="changeFavBtnColourGray(${phoneItems.id})">
+            </div>
+
+             <div class="itemDetails">
+                <div>
+                    <div class="itemDetailsHeader">
+                        <h1>${phoneItems.device[rnd].name}</h1>
+                    </div>
+                    <div class="itemDetailsMain">
+                        <div class="itemDetailsMainGrid">
+                            <div>
+                                <h2>Operating System</h2>
+                                <p>${details.os[phoneItems.device[rnd].os]}</p>
+                            </div>
+                            <div>
+                                <h2>CPU</h2>
+                                <p>${details.CPU[phoneItems.device[rnd].CPU].model}</p>
+                            </div>
+                            <div>
+                                <h2>Display</h2>
+                                <p>${details.display[phoneItems.device[rnd].display.type]}, ${details.diagonal[phoneItems.device[rnd].display.diagonal].zoll}"</p>
+                            </div>
+                            <div>
+                                <h2>RAM</h2>
+                                <p>${phoneItems.device[rnd].ram} GB</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="itemDetailsFooter">
+                        <p>${phoneItems.device[rnd].price} €</p>
+                    </div>
+                </div>
             </div>
         </div>
         `;
@@ -66,33 +113,15 @@ function initItemBoxFront(index) {
 
 function showDeviceDetails(index) {
     phoneItems.isDetailsPressed[index] = !phoneItems.isDetailsPressed[index]
-    let str = `
-        <div class="itemDetails">
-            <div class="itemDetailsHeader">
-                <h1>${phoneItems.device[index].name}</h1>
-            </div>
-            <div>
-                <p>OS: ${phoneItems.device[index].os}</p>
-                <p>Storage: ${phoneItems.device[index].rom} GB</p>
-                <p>RAM: ${phoneItems.device[index].ram} GB</p>
-                <p>CPU: ${phoneItems.device[index].cpu}</p>
-            </div>
-            <div class="itemDetailsFooter">
-                <p>${phoneItems.device[index].price} €</p>
-            </div>
-        </div> 
-    `;
+
     if (phoneItems.isDetailsPressed[index]) {
-        document.getElementsByClassName('itemBoxFront').item(index).innerHTML = str
-        document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'none'
+        document.getElementsByClassName('itemDetails').item(index).style.left = '0'
     } else {
-        document.getElementsByClassName('itemBoxFront').item(index).innerHTML = initItemBoxFront(index)
-        document.getElementsByClassName('itemFavouriteBtn').item(index).style.display = 'block'
+        document.getElementsByClassName('itemDetails').item(index).style.left = '110%'
     }
 
     console.log(phoneItems.isDetailsPressed[index]);
 }
-
 function changeFavBtnSaved(index) {
     if (USER.logInStatus) {
         phoneItems.isFavourite[index] = !phoneItems.isFavourite[index]

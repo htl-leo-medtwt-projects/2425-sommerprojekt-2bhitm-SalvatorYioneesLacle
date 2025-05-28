@@ -41,7 +41,7 @@ function initItemBoxes() {
                 </div>
             </div>
 
-            <div class="toCartBtn" onclick="updateCart(${laptopItems.device[rnd]})">
+            <div class="toCartBtn" onclick="addToCart(${laptopItems.device[rnd]})">
                 <img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">
             </div>
 
@@ -82,17 +82,23 @@ function initItemBoxes() {
                         <h1>${laptopItems.device[rnd].name}</h1>
                     </div>
                     <div class="itemDetailsMain">
-                        <div>
-                            <p>${laptopItems.device[rnd].os}</p>
-                        </div>
-                        <div>
-                            <p>${laptopItems.device[rnd].rom} GB</p>
-                        </div>
-                        <div>
-                            <p>${laptopItems.device[rnd].ram} GB</p>
-                        </div>
-                        <div>
-                            <p>${laptopItems.device[rnd].cpu}</p>
+                        <div class="itemDetailsMainGrid">
+                            <div>
+                                <h2>Operating System</h2>
+                                <p>${laptopItems.device[rnd].os}</p>
+                            </div>
+                            <div>
+                                <h2>CPU</h2>
+                                <p>${laptopItems.device[rnd].cpu}</p>
+                            </div>
+                            <div>
+                                <h2>Memory</h2>
+                                <p>${laptopItems.device[rnd].rom} GB</p>
+                            </div>
+                            <div>
+                                <h2>RAM</h2>
+                                <p>${laptopItems.device[rnd].ram} GB</p>
+                            </div>
                         </div>
                     </div>
                     <div class="itemDetailsFooter">
