@@ -173,7 +173,7 @@ function showWarningMessage(msg) {
 
     WARNING.count++;
     // window.open('../../');
-    console.log(WARNING.count);
+    console.log("Warning pop-ups: " + WARNING.count);
 
 }
 
@@ -200,12 +200,12 @@ function removeWarning() {
             setTimeout(() => {
                 document.getElementsByTagName('warning').item(0).innerHTML = '';
                 WARNING.count = 0;
-                console.log(WARNING.count);
+                console.log("Warning pop-ups in timeout: " + WARNING.count);
             }, 400)
         }
     }, 400);
 
-    console.log(WARNING.count);
+    console.log("Warning pop-ups after timeout: " + WARNING.count);
 }
 
 // INIT GSAP SCROLL PLUGIN

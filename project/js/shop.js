@@ -158,10 +158,14 @@ function isInPriceArea(item) {
 }
 
 function addToCart(deviceType, index) {
-    localStorage['acc-cart'] != null ? USER.cart = JSON.parse(localStorage['acc-cart']) : USER.cart;
-    USER.cart.item.push(ITEMS.type[deviceType].device[index]);
-    localStorage['acc-cart'] = JSON.stringify(USER.cart);
-    console.log(USER.cart);
+    if (USER.logInStatus) {
+        localStorage['acc-cart'] != null ? USER.cart = JSON.parse(localStorage['acc-cart']) : USER.cart;
+        USER.cart.item.push(ITEMS.type[deviceType].device[index]);
+        localStorage['acc-cart'] = JSON.stringify(USER.cart);
+        console.log(USER.cart);
+    } else {
+        showWarningMessage('Log in to add to cart!')
+    }
 }
 
 function removeFromCart(deviceType, index) {
