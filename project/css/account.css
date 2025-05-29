@@ -420,7 +420,7 @@
     background-color: var(--gray);
     font-size: 1.2em;
     padding: .4em .55em;
-    border: var(--accountBorder);
+    border: var(--simpleBorder);
     border-color: transparent;
     border-width: .1em;
 }

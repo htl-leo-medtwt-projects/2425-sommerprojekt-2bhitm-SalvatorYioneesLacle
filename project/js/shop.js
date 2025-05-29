@@ -1,42 +1,9 @@
 let shopDropdown = 0;
 
-let PRICE= {
+let PRICE = {
     min: document.getElementById('min-price'),
     max: document.getElementById('max-price')
 }
-
-let isFavourite = {
-    monitors: false
-};
-
-function initItemBoxes() {
-    let str = '';
-    for (let i = 0; i < 10; i++) {
-        isFavourite.monitors[i] = false;
-        str += `
-        <div class="itemBox">
-            <div class="itemImg">
-                <img src="/img/phones/phone.png" alt="phone">
-            </div>
-
-            <div class="itemStats">
-                <h2>Samsung</h2>
-            </div>
-
-            <div class="itemDetailsBtn">
-                <p>+</p>
-            </div>
-
-            <div class="itemFavouriteBtn">
-                <div class="itemFavouriteBtnBackground"></div>
-                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${i})" onmouseenter="changeFavBtnColourYellow(${i})" onmouseleave="changeFavBtnColourGray(${i})">
-            </div>
-        </div>
-        `;
-    }
-    document.getElementById('items-grid').innerHTML = str;
-}
-initItemBoxes();
 
 function initNavBtnsShop() {
     // Dropdown: https://www.w3schools.com/howto/howto_css_dropdown.asp
@@ -72,31 +39,37 @@ initNavBtnsShop();
 function initFilter() {
     document.getElementById('filterBox').innerHTML = `
         <div id="priceFilter">
+            <div class="filterHeaders">
+                <h2>Price</h2>
+            </div>
             <div>
                 <div>
-                    <input type="number" name="min-price" id="min-price" onchange="checkMinPrice()"> €
+                    <input type="number" name="min-price" id="min-price" oninput="checkMinPrice()"> €
                 </div>
                 <div class="filterText">
-                    <p>Minimum price</p>
+                    <p>Min: ${0}</p>
                 </div> 
             </div>
             <div>
                 <div>
-                    <input type="number" name="max-price" id="max-price" onchange="checkMaxPrice()"> €
+                    <input type="number" name="max-price" id="max-price" oninput="checkMaxPrice()"> €
                 </div>
                 <div class="filterText">
-                    <p>Maximum price</p>
+                    <p>Max: ${0}</p>
                 </div>
             </div>
         </div>
 
         <div id="displaySizeFilter">
+            <div class="filterHeaders">
+                <h2>Display size</h2>
+            </div>
             <div>
                 <div>
                     <input type="range" name="min-displaySize" id="min-displaySize" min="0" max="40" step="0.1" oninput="checkMinValue()">
                 </div>
                 <div class="filterText">
-                    <p>Min display size</p>
+                    <p>Min: ${0}</p>
                 </div> 
             </div>
             <div>
@@ -104,12 +77,12 @@ function initFilter() {
                     <input type="range" name="max-displaySize" id="max-displaySize" min="0" max="40" step="0.1" oninput="checkMaxValue()">
                 </div>
                 <div class="filterText">
-                    <p>Max display size</p>
+                    <p>Max: ${0}</p>
                 </div>
             </div>
         </div>
 
-        <div id="filter-saveBtn">
+        <div id="filter-saveBtn" onclick="checkFilterSettings()">
             <p>Save</p>
         </div>
     `;
@@ -119,6 +92,11 @@ initFilter()
 function getShopDropdownValue() {
     shopDropdown = document.getElementById('shops-dropdown').value;
     window.location.href = `/pages/shop-${shopDropdown}.html`;
+}
+
+function checkFilterSettings() {
+    checkMinPrice()
+    checkMaxPrice()
 }
 
 function checkMinPrice() {
@@ -155,9 +133,19 @@ function isInPriceArea(item) {
     }
 }
 
-function addToCart(device) {
-    CART.item.push(device);
+function addToCart(deviceType, index) {
+    CART.item.push(ITEMS.type[deviceType].device[index]);
     console.log(CART);
+}
+
+function removeFromCart(deviceType, index) {
+    for (let i = 0; i < CART.item.length; i++) {
+        if (CART.item[i] == ITEMS.type[deviceType].device[index]) {
+            CART.item.splice(i, 1);
+            console.log(CART);
+            return true;
+        }
+    }
 }
 
 // If displayRes == 1200: WUXGA

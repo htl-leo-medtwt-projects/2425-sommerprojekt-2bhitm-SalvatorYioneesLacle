@@ -426,16 +426,20 @@
 }
 
 #filterBox>div {
-    gap: .9em;
+    gap: .55em;
     margin: 0 auto;
     width: 100%;
 }
 
-/* "Filter" text in filterBox */
-#filterBox header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Setting headers box */
+.filterHeaders {
+    width: 100%;
+}
+
+/* Setting headers */
+.filterHeaders h2 {
+    font-size: 1em;
+    font-weight: 600;
 }
 
 /* box for min/max price grid */
@@ -451,6 +455,10 @@
     max-width: 10em;
 }
 
+#priceFilter input {
+    padding: .2em .5em;
+}
+
 /* € */
 #priceFilter>div>div:first-of-type {
     display: flex;
@@ -463,7 +471,6 @@
 /* filter inputs */
 #filterBox input {
     width: 100%;
-    padding: .2em .5em;
     font-size: 1em;
     text-align: right;
     outline: none;
@@ -477,7 +484,7 @@
 }
 
 #priceFilter>div>div:first-of-type {
-    border: var(--accountBorder);
+    border: var(--simpleBorder);
 }
 
 /* filter descriptions */
@@ -485,8 +492,11 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    font-size: .93em;
     border: none;
+}
+
+.filterText p {
+    font-size: .93em;
 }
 
 #displaySizeFilter {
@@ -580,8 +590,8 @@
         z-index: 9;
     }
 
-    #filterBox p {
-        font-size: .7em;
+    .filterText p {
+        font-size: .65em;
     }
 
     #filterBox>div {

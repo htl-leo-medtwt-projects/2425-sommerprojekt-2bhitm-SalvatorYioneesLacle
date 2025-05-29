@@ -41,7 +41,7 @@ function initItemBoxes() {
                 </div>
             </div>
 
-            <div class="toCartBtn" onclick="addToCart(${laptopItems.device[rnd]})">
+            <div class="toCartBtn" onclick="addToCart(${0},${rnd})">
                 <img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">
             </div>
 

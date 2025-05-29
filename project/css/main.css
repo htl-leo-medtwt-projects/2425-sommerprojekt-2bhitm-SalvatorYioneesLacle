@@ -42,7 +42,7 @@
     --red: red;
     --yellow: rgb(255, 227, 18);
     --green: #32A852;
-    --accountBorder: .08em var(--black) solid;
+    --simpleBorder: .08em var(--black) solid;
     --accountBoxShadow: 0px 0px 3px var(--black), inset 0px 0px 2px var(--black);
     --btnWidth: 7em;
     --btnPadding: .3em 1em;
