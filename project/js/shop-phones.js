@@ -24,10 +24,12 @@ function initItemBoxes() {
         phoneItems.device[rnd] = phones[rnd];
 
         // Phones get a new ID after each reload
-        phoneItems.id = i;
-        console.log(phoneItems.id);
+        phoneItems.device[rnd].id = i;
+        console.log(phoneItems.device[rnd].id);
+
         phoneItems.isFavourite[rnd] = false;
         phoneItems.isDetailsPressed[rnd] = false;
+        phoneItems.isInCart[rnd] = false;
 
         str += `
         <div class="itemBox scrollReveal">
@@ -35,7 +37,7 @@ function initItemBoxes() {
                 ${initItemBoxFront(rnd)}
             </div>
 
-            <div class="itemDetailsBtn" onclick="showDeviceDetails(${phoneItems.id})">
+            <div class="itemDetailsBtn" onclick="showDeviceDetails(${phoneItems.device[rnd].id})">
                 <p>+</p>
                 <div class="itemDetailsText">
                     <p>Show more</p>
@@ -50,7 +52,7 @@ function initItemBoxes() {
 
             <div class="itemFavouriteBtn">
                 <div class="itemFavouriteBtnBackground"></div>
-                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${1}, ${phoneItems.id})" onmouseenter="changeFavBtnColourYellow(${phoneItems.id})" onmouseleave="changeFavBtnColourGray(${phoneItems.id})">
+                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${1}, ${phoneItems.device[rnd].id})" onmouseenter="changeFavBtnColourYellow(${phoneItems.device[rnd].id})" onmouseleave="changeFavBtnColourGray(${phoneItems.device[rnd].id})">
             </div>
 
              <div class="itemDetails">
@@ -95,7 +97,7 @@ function initItemBoxFront(index) {
         phones[index].name.split(' ')[0] : 'logo'}${phones[index].name.split(' ')[1] ? '-' + phones[index].name.split(' ')[1] : ''}${phones[index].name.split(' ')[2] ? '-' + phones[index].name.split(' ')[2] : ''}${phones[index].name.split(' ')[3] ? '-' + phones[index].name.split(' ')[3] : ''}.png" 
                 alt="${phones[index].name.split(' ')[0]} 
                 ${phones[index].name.split(' ')[1]} 
-                ${phones[index].name.split(' ')[2] ?  phones[index].name.split(' ')[2] : ''} 
+                ${phones[index].name.split(' ')[2] ? phones[index].name.split(' ')[2] : ''} 
                 ${phones[index].name.split(' ')[3] ? phones[index].name.split(' ')[3] : ''}">
                 `;
     return `

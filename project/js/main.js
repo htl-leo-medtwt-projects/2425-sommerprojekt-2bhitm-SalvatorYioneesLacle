@@ -15,6 +15,7 @@ let ITEMS = {
         isFavourite: [false],
         isFittingFilter: [false],
         isDetailsPressed: [false],
+        isInCart: [false],
         id: 0
     },
     {
@@ -22,6 +23,7 @@ let ITEMS = {
         isFavourite: [false],
         isFittingFilter: [false],
         isDetailsPressed: [false],
+        isInCart: [false],
         id: 0
     },
     {
@@ -29,6 +31,7 @@ let ITEMS = {
         isFavourite: [false],
         isFittingFilter: [false],
         isDetailsPressed: [false],
+        isInCart: [false],
         id: 0
     }]
 }

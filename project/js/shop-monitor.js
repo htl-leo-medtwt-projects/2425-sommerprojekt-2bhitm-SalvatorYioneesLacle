@@ -20,10 +20,12 @@ function initItemBoxes() {
         monitorItems.device[rnd] = monitors[rnd];
 
         // Monitors get a new ID after each reload
-        monitorItems.id = i;
-        console.log(monitorItems.id);
+        monitorItems.device[rnd].id = i;
+        console.log(monitorItems.device[rnd].id);
+
         monitorItems.isFavourite[rnd] = false;
         monitorItems.isDetailsPressed[rnd] = false;
+        monitorItems.isInCart[rnd] = false;
 
         str += `
         <div class="itemBox scrollReveal">
@@ -31,7 +33,7 @@ function initItemBoxes() {
                 ${initItemBoxFront(rnd)}
             </div>
 
-            <div class="itemDetailsBtn" onclick="showDeviceDetails(${monitorItems.id})">
+            <div class="itemDetailsBtn" onclick="showDeviceDetails(${monitorItems.device[rnd].id})">
                 <p>+</p>
                 <div class="itemDetailsText">
                     <p>Show more</p>
@@ -46,7 +48,7 @@ function initItemBoxes() {
 
             <div class="itemFavouriteBtn">
                 <div class="itemFavouriteBtnBackground"></div>
-                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${2}, ${monitorItems.id})" onmouseenter="changeFavBtnColourYellow(${monitorItems.id})" onmouseleave="changeFavBtnColourGray(${monitorItems.id})">
+                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${2}, ${monitorItems.device[rnd].id})" onmouseenter="changeFavBtnColourYellow(${monitorItems.device[rnd].id})" onmouseleave="changeFavBtnColourGray(${monitorItems.device[rnd].id})">
             </div>
 
            <!-- <div class="itemRating">

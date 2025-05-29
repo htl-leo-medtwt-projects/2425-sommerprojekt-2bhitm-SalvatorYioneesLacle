@@ -152,31 +152,47 @@ function changeFavBtnColourGray(index) {
 }
 
 function isInPriceArea(item) {
-    if (item.device.price >= PRICE.min && item.device.price <= PRICE.max) {
+    if (item.device.price >= PRICE.min.value && item.device.price <= PRICE.max.value) {
 
     }
 }
 
 function addToCart(deviceType, index) {
-    if (USER.logInStatus) {
+    if (!USER.logInStatus) {
+        showWarningMessage('Log in to add to cart!')
+        return;
+    }
+    let device = ITEMS.type[deviceType].device[index];
+
+    if (!device.isInCart) {
+        device.isInCart = !device.isInCart;
+
         localStorage['acc-cart'] != null ? USER.cart = JSON.parse(localStorage['acc-cart']) : USER.cart;
-        USER.cart.item.push(ITEMS.type[deviceType].device[index]);
+        USER.cart.item.push(device);
         localStorage['acc-cart'] = JSON.stringify(USER.cart);
         console.log(USER.cart);
+
+        document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon-filled.png" alt="shop icon">`
+        document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(0)'
     } else {
-        showWarningMessage('Log in to add to cart!')
+        device.isInCart = !device.isInCart;
+
+        for (let i = 0; i < USER.cart.item.length; i++) {
+            if (USER.cart.item[i] == device) {
+                USER.cart.item.splice(i, 1);
+                localStorage['acc-cart'] = JSON.stringify(USER.cart)
+                console.log(USER.cart);
+
+                document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">`
+                document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(1)'
+                return true;
+            }
+        }
     }
 }
 
 function removeFromCart(deviceType, index) {
-    for (let i = 0; i < USER.cart.item.length; i++) {
-        if (USER.cart.item[i] == ITEMS.type[deviceType].device[index]) {
-            USER.cart.item.splice(i, 1);
-            localStorage['acc-cart'] = JSON.stringify(USER.cart)
-            console.log(USER.cart);
-            return true;
-        }
-    }
+
 }
 
 // If displayRes == 1200: WUXGA
