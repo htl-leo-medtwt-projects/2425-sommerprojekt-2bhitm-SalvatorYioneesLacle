@@ -40,13 +40,13 @@ function initItemBoxes() {
                 </div>
             </div>
 
-            <div class="toCartBtn" onclick="addToCart(${monitorItems.device[rnd]})">
+            <div class="toCartBtn" onclick="addToCart(${2}, ${rnd})">
                 <img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">
             </div>
 
             <div class="itemFavouriteBtn">
                 <div class="itemFavouriteBtnBackground"></div>
-                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${monitorItems.id})" onmouseenter="changeFavBtnColourYellow(${monitorItems.id})" onmouseleave="changeFavBtnColourGray(${monitorItems.id})">
+                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${2}, ${monitorItems.id})" onmouseenter="changeFavBtnColourYellow(${monitorItems.id})" onmouseleave="changeFavBtnColourGray(${monitorItems.id})">
             </div>
 
            <!-- <div class="itemRating">
@@ -161,28 +161,6 @@ function showDeviceDetails(index) {
     }
 
     console.log(monitorItems.isDetailsPressed[index]);
-}
-
-function changeFavBtnSaved(index) {
-    if (USER.logInStatus) {
-        monitorItems.isFavourite[index] = !monitorItems.isFavourite[index]
-
-        if (monitorItems.isFavourite[index]) {
-            FAVOURITES.item.push(monitorItems.device[index]);
-        } else {
-            FAVOURITES.item.splice(FAVOURITES.item.indexOf(monitorItems.device[index]), 1);
-        }
-
-        console.log(monitorItems.isFavourite, FAVOURITES.item);
-
-        if (monitorItems.isFavourite[index]) {
-            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
-        } else {
-            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
-        }
-    } else {
-        showWarningMessage('Log in to save!');
-    }
 }
 
 // INIT GSAP SCROLL PLUGIN

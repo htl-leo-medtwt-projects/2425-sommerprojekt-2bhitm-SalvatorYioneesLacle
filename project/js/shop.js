@@ -47,7 +47,7 @@ function initFilter() {
                     <input type="number" name="min-price" id="min-price" oninput="checkMinPrice()"> €
                 </div>
                 <div class="filterText">
-                    <p>Min: ${0}</p>
+                    <p>Min</p>
                 </div> 
             </div>
             <div>
@@ -55,7 +55,7 @@ function initFilter() {
                     <input type="number" name="max-price" id="max-price" oninput="checkMaxPrice()"> €
                 </div>
                 <div class="filterText">
-                    <p>Max: ${0}</p>
+                    <p>Max</p>
                 </div>
             </div>
         </div>
@@ -86,6 +86,8 @@ function initFilter() {
             <p>Save</p>
         </div>
     `;
+    PRICE.min = document.getElementById('min-price');
+    PRICE.max = document.getElementById('max-price');
 }
 initFilter()
 
@@ -94,13 +96,35 @@ function getShopDropdownValue() {
     window.location.href = `/pages/shop-${shopDropdown}.html`;
 }
 
+function changeFavBtnSaved(deviceType, index) {
+    if (USER.logInStatus) {
+        ITEMS.type[deviceType].isFavourite[index] = !ITEMS.type[deviceType].isFavourite[index]
+
+        if (ITEMS.type[deviceType].isFavourite[index]) {
+            FAVOURITES.item.push(ITEMS.type[deviceType].device[index]);
+        } else {
+            FAVOURITES.item.splice(FAVOURITES.item.indexOf(ITEMS.type[deviceType].device[index]), 1);
+        }
+
+        console.log(ITEMS.type[deviceType].isFavourite, FAVOURITES.item);
+
+        if (ITEMS.type[deviceType].isFavourite[index]) {
+            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
+        } else {
+            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
+        }
+    } else {
+        showWarningMessage('Log in to save!')
+    }
+}
+
 function checkFilterSettings() {
     checkMinPrice()
     checkMaxPrice()
 }
 
 function checkMinPrice() {
-    if (PRICE.min.value < 0) {
+    if (PRICE.min.value < 0 || PRICE.min.value == null) {
         PRICE.min.value = 0;
     }
     if (PRICE.min.value > PRICE.max.value) {
@@ -109,7 +133,7 @@ function checkMinPrice() {
 }
 
 function checkMaxPrice() {
-    if (PRICE.max.value < 0) {
+    if (PRICE.max.value < 0 || PRICE.max.value == null) {
         PRICE.max.value = 0;
     }
     if (PRICE.max.value < PRICE.min.value) {
@@ -134,15 +158,18 @@ function isInPriceArea(item) {
 }
 
 function addToCart(deviceType, index) {
-    CART.item.push(ITEMS.type[deviceType].device[index]);
-    console.log(CART);
+    localStorage['acc-cart'] != null ? USER.cart = JSON.parse(localStorage['acc-cart']) : USER.cart;
+    USER.cart.item.push(ITEMS.type[deviceType].device[index]);
+    localStorage['acc-cart'] = JSON.stringify(USER.cart);
+    console.log(USER.cart);
 }
 
 function removeFromCart(deviceType, index) {
-    for (let i = 0; i < CART.item.length; i++) {
-        if (CART.item[i] == ITEMS.type[deviceType].device[index]) {
-            CART.item.splice(i, 1);
-            console.log(CART);
+    for (let i = 0; i < USER.cart.item.length; i++) {
+        if (USER.cart.item[i] == ITEMS.type[deviceType].device[index]) {
+            USER.cart.item.splice(i, 1);
+            localStorage['acc-cart'] = JSON.stringify(USER.cart)
+            console.log(USER.cart);
             return true;
         }
     }

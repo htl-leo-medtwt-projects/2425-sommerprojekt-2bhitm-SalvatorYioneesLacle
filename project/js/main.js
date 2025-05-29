@@ -113,7 +113,7 @@ function initNavigationbar() {
         }
             </div>
             
-            <div id="nav-items">
+            <div id="nav-items" onclick="toCartPage()">
                 <img src="/img/icons/shopping-cart.png" alt="shopping cart">
             </div>
     `;
@@ -141,6 +141,10 @@ function toLogIn() {
 
 function toSignUp() {
     window.location.href = `/pages/account/account-signup.html`;
+}
+
+function toCartPage() {
+    window.location.href = `/pages/cart.html`;
 }
 
 function showWarningMessage(msg) {

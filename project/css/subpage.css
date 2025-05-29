@@ -425,47 +425,15 @@
     box-shadow: 0px 0px 15px 5px var(--lightgray);
 }
 
-#filterBox>div {
+#filterBox>div:not(#filter-saveBtn) {
     gap: .55em;
     margin: 0 auto;
-    width: 100%;
-}
-
-/* Setting headers box */
-.filterHeaders {
-    width: 100%;
-}
-
-/* Setting headers */
-.filterHeaders h2 {
-    font-size: 1em;
-    font-weight: 600;
-}
-
-/* box for min/max price grid */
-#priceFilter {
+    width: 85%;
+    max-width: 14em;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-/* input box */
-#priceFilter>div {
-    max-width: 10em;
-}
-
-#priceFilter input {
-    padding: .2em .5em;
-}
-
-/* € */
-#priceFilter>div>div:first-of-type {
-    display: flex;
-    background-color: var(--white);
+    justify-content: center;
     align-items: center;
-    font-size: 1.25em;
-    padding-right: .2em;
+    flex-wrap: wrap;
 }
 
 /* filter inputs */
@@ -480,11 +448,24 @@
 #filterBox input::-webkit-outer-spin-button,
 #filterBox input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+    appearance: none;
     margin: 0;
 }
 
-#priceFilter>div>div:first-of-type {
-    border: var(--simpleBorder);
+/* Setting headers box */
+.filterHeaders {
+    width: 100%;
+    border-bottom: .02em var(--expert) solid;
+    padding: .15em .2em;
+    margin-bottom: .5em;
+}
+
+/* Setting headers */
+.filterHeaders h2 {
+    font-size: 1em;
+    font-weight: 600;
+    text-align: left;
+    color: var(--expert);
 }
 
 /* filter descriptions */
@@ -496,17 +477,38 @@
 }
 
 .filterText p {
-    font-size: .93em;
+    font-size: .85em;
+}
+
+/* box for min/max price grid */
+#priceFilter {
+    justify-content: space-around;
+}
+
+/* input box */
+#priceFilter>div:not(.filterHeaders) {
+    max-width: 10em;
+}
+
+#priceFilter input {
+    padding: .2em .5em;
+}
+
+/* € */
+#priceFilter>div>div:first-of-type {
+    display: flex;
+    background-color: var(--white);
+    align-items: center;
+    font-size: 1.2em;
+    padding-right: .2em;
+}
+
+#priceFilter>div>div:first-of-type {
+    border: var(--simpleBorder);
 }
 
 #displaySizeFilter {
-    width: 85%;
-    max-width: 14em;
-    margin: 0 auto;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
 }
 
 #displaySizeFilter input {
@@ -533,7 +535,7 @@
 }
 
 #filter-saveBtn {
-    width: 4em;
+    width: 100%;
     padding: .3em .65em;
     background-color: var(--white);
     cursor: pointer;
@@ -569,8 +571,8 @@
     }
 
     /* outer filter box (no id) */
-    #wrapper>div:first-of-type {
-        border: none;
+    #wrapper>div:first-of-type> {
+        /* border: none; */
     }
 
     #filterBox {
@@ -582,7 +584,7 @@
         top: 3.5px;
         display: flex;
         justify-content: space-around;
-        align-items: center;
+        align-items: start;
         flex-wrap: nowrap;
         box-shadow: 0px 0px 15px 5px var(--lightgray);
         gap: 4em;
@@ -600,10 +602,9 @@
         width: fit-content;
     }
 
-    #priceFilter,
-    #displaySizeFilter {
-        width: min-content;
-        flex-wrap: nowrap;
+    #filterBox>div:not(#filter-saveBtn) {
+        max-width: 100%;
+        align-items: end;
     }
 
     #headerBox {
@@ -620,6 +621,7 @@
 
     #filter-saveBtn {
         background-color: var(--expert);
+        align-items: center;
     }
 
     #filter-saveBtn p {

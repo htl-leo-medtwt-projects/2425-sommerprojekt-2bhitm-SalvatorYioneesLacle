@@ -1,7 +1,6 @@
 let phones = [
     {
-        "brand": "Samsung",
-        "model": "Galaxy A35 5G",
+        "name": "Samsung Galaxy A35 5G",
         "category": "A",
         "CPU": 0,
         "url": "/api/details",
@@ -23,8 +22,7 @@ let phones = [
         }
     },
     {
-        "brand": "Samsung",
-        "model": "Galaxy A15",
+        "name": "Samsung Galaxy A15",
         "category": "A",
         "CPU": 3,
         "url": "/api/details",
@@ -46,8 +44,7 @@ let phones = [
         }
     },
     {
-        "brand": "Samsung",
-        "model": "Galaxy A15 5G",
+        "name": "Samsung Galaxy A15 5G",
         "category": "A",
         "CPU": 2,
         "url": "/api/details",
@@ -69,8 +66,7 @@ let phones = [
         }
     },
     {
-        "brand": "Samsung",
-        "model": "Galaxy A55 5G",
+        "name": "Samsung Galaxy A55 5G",
         "category": "A",
         "CPU": 1,
         "url": "/api/details",
@@ -92,8 +88,7 @@ let phones = [
         }
     },
     {
-        "brand": "Samsung",
-        "model": "Galaxy A12",
+        "name": "Samsung Galaxy A12",
         "category": "A",
         "CPU": 4,
         "url": "/api/details",
@@ -115,8 +110,7 @@ let phones = [
         }
     },
     {
-        "brand": "Samsung",
-        "model": "Galaxy S24 Ultra",
+        "name": "Samsung Galaxy S24 Ultra",
         "category": "A",
         "CPU": 6,
         "url": "/api/details",
@@ -138,8 +132,7 @@ let phones = [
         }
     },
     {
-        "brand": "Samsung",
-        "model": "Galaxy A53 5G",
+        "name": "Samsung Galaxy A53 5G",
         "category": "A",
         "CPU": 7,
         "url": "/api/details",
@@ -161,8 +154,7 @@ let phones = [
         }
     },
     {
-        "brand": "Apple",
-        "model": "iPhone 16",
+        "name": "Apple iPhone 16",
         "category": "16",
         "CPU": 5,
         "url": "/api/details",
@@ -184,8 +176,7 @@ let phones = [
         }
     },
     {
-        "brand": "Apple",
-        "model": "iPhone 16 Pro",
+        "name": "Apple iPhone 16 Pro",
         "category": "16",
         "CPU": 5,
         "url": "/api/details",
@@ -207,8 +198,7 @@ let phones = [
         }
     },
     {
-        "brand": "Apple",
-        "model": "iPhone 16 Pro Max",
+        "name": "Apple iPhone 16 Pro Max",
         "category": "16",
         "CPU": 5,
         "url": "/api/details",
@@ -230,8 +220,7 @@ let phones = [
         }
     },
     {
-        "brand": "Apple",
-        "model": "iPhone 16 Plus",
+        "name": "Apple iPhone 16 Plus",
         "category": "16",
         "CPU": 5,
         "url": "/api/details",
@@ -253,8 +242,7 @@ let phones = [
         }
     },
     {
-        "brand": "Apple",
-        "model": "iPhone 15",
+        "name": "Apple iPhone 15",
         "category": "15",
         "CPU": 8,
         "url": "/api/details",
@@ -276,8 +264,7 @@ let phones = [
         }
     },
     {
-        "brand": "Apple",
-        "model": "iPhone 15 Pro",
+        "name": "Apple iPhone 15 Pro",
         "category": "15",
         "CPU": 9,
         "url": "/api/details",
@@ -299,8 +286,7 @@ let phones = [
         }
     },
     {
-        "brand": "Apple",
-        "model": "iPhone 15 Pro Max",
+        "name": "Apple iPhone 15 Pro Max",
         "category": "15",
         "CPU": 9,
         "url": "/api/details",
@@ -322,8 +308,7 @@ let phones = [
         }
     },
     {
-        "brand": "Apple",
-        "model": "iPhone 15 Plus",
+        "name": "Apple iPhone 15 Plus",
         "category": "15",
         "CPU": 8,
         "url": "/api/details",
@@ -345,8 +330,7 @@ let phones = [
         }
     },
     {
-        "brand": "Huawei",
-        "model": "P60 Pro",
+        "name": "Huawei P60 Pro",
         "category": "P60",
         "CPU": 10,
         "url": "/api/details",
@@ -368,8 +352,7 @@ let phones = [
         }
     },
     {
-        "brand": "Huawei",
-        "model": "P60",
+        "name": "Huawei P60",
         "category": "P60",
         "CPU": 10,
         "url": "/api/details",
@@ -391,8 +374,7 @@ let phones = [
         }
     },
     {
-        "brand": "Huawei",
-        "model": "P50 Pro",
+        "name": "Huawei P50 Pro",
         "category": "P50",
         "CPU": 11,
         "url": "/api/details",
@@ -414,8 +396,7 @@ let phones = [
         }
     },
     {
-        "brand": "Huawei",
-        "model": "P50",
+        "name": "Huawei P50",
         "category": "P50",
         "CPU": 11,
         "url": "/api/details",
@@ -437,8 +418,7 @@ let phones = [
         }
     },
     {
-        "brand": "Oppo",
-        "model": "Reno8 5G",
+        "name": "Oppo Reno8 5G",
         "category": "Reno",
         "CPU": 12,
         "url": "/api/details",
@@ -460,8 +440,7 @@ let phones = [
         }
     },
     {
-        "brand": "Oppo",
-        "model": "Find N5",
+        "name": "Oppo Find N5",
         "category": "Find",
         "CPU": 13,
         "url": "/api/details",

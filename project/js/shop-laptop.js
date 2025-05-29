@@ -15,11 +15,11 @@ function initItemBoxes() {
         while (usedIndex.includes(rnd)) {
             rnd = Math.floor(Math.random() * laptops.length);
             console.log("calc new rnd");
-        } 
+        }
         usedIndex.push(rnd);
 
         laptopItems.device[rnd] = laptops[rnd];
-        
+
         // Laptops get a new ID after each reload
         laptopItems.id = i;
         console.log(laptopItems.id);
@@ -47,7 +47,7 @@ function initItemBoxes() {
 
             <div class="itemFavouriteBtn">
                 <div class="itemFavouriteBtnBackground"></div>
-                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${laptopItems.id})" onmouseenter="changeFavBtnColourYellow(${laptopItems.id})" onmouseleave="changeFavBtnColourGray(${laptopItems.id})">
+                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${0}, ${laptopItems.id})" onmouseenter="changeFavBtnColourYellow(${laptopItems.id})" onmouseleave="changeFavBtnColourGray(${laptopItems.id})">
             </div>
 
            <!-- <div class="itemRating">
@@ -162,28 +162,6 @@ function showDeviceDetails(index) {
     }
 
     console.log(laptopItems.isDetailsPressed[index]);
-}
-
-function changeFavBtnSaved(index) {
-    if (USER.logInStatus) {
-        laptopItems.isFavourite[index] = !laptopItems.isFavourite[index]
-
-        if (laptopItems.isFavourite[index]) {
-            FAVOURITES.item.push(laptopItems.device[index]);
-        } else {
-            FAVOURITES.item.splice(FAVOURITES.item.indexOf(laptopItems.device[index]), 1);
-        }
-
-        console.log(laptopItems.isFavourite, FAVOURITES.item);
-
-        if (laptopItems.isFavourite[index]) {
-            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
-        } else {
-            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
-        }
-    } else {
-        showWarningMessage('Log in to save!');
-    }
 }
 
 // INIT GSAP SCROLL PLUGIN

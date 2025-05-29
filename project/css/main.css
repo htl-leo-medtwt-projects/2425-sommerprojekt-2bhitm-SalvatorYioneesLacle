@@ -224,6 +224,7 @@ nav #nav-items {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 nav .dropdown {

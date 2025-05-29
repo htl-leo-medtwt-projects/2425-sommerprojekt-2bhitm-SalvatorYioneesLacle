@@ -44,13 +44,13 @@ function initItemBoxes() {
                 </div>
             </div>
 
-            <div class="toCartBtn" onclick="addToCart(${phoneItems.device[rnd]})">
+            <div class="toCartBtn" onclick="addToCart(${1}, ${rnd})">
                 <img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">
             </div>
 
             <div class="itemFavouriteBtn">
                 <div class="itemFavouriteBtnBackground"></div>
-                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${phoneItems.id})" onmouseenter="changeFavBtnColourYellow(${phoneItems.id})" onmouseleave="changeFavBtnColourGray(${phoneItems.id})">
+                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${1}, ${phoneItems.id})" onmouseenter="changeFavBtnColourYellow(${phoneItems.id})" onmouseleave="changeFavBtnColourGray(${phoneItems.id})">
             </div>
 
              <div class="itemDetails">
@@ -91,12 +91,12 @@ function initItemBoxes() {
 initItemBoxes();
 
 function initItemBoxFront(index) {
-    let img = `<img src="../img/phones/${phones[index].brand}-${phones[index].model.split(' ')[0] ?
-        phones[index].model.split(' ')[0] : 'logo'}${phones[index].model.split(' ')[1] ? '-' + phones[index].model.split(' ')[1] : ''}${phones[index].model.split(' ')[2] ? '-' + phones[index].model.split(' ')[2] : ''}${phones[index].model.split(' ')[3] ? '-' + phones[index].model.split(' ')[3] : ''}.png" 
-                alt="${phones[index].brand} ${phones[index].model.split(' ')[0]} 
-                ${phones[index].model.split(' ')[1]} 
-                ${phones[index].model.split(' ')[2] ? phones[index].model.split(' ')[2] : ''} 
-                ${phones[index].model.split(' ')[3] ? phones[index].model.split(' ')[3] : ''}">
+    let img = `<img src="../img/phones/${phones[index].name.split(' ')[0] ?
+        phones[index].name.split(' ')[0] : 'logo'}${phones[index].name.split(' ')[1] ? '-' + phones[index].name.split(' ')[1] : ''}${phones[index].name.split(' ')[2] ? '-' + phones[index].name.split(' ')[2] : ''}${phones[index].name.split(' ')[3] ? '-' + phones[index].name.split(' ')[3] : ''}.png" 
+                alt="${phones[index].name.split(' ')[0]} 
+                ${phones[index].name.split(' ')[1]} 
+                ${phones[index].name.split(' ')[2] ?  phones[index].name.split(' ')[2] : ''} 
+                ${phones[index].name.split(' ')[3] ? phones[index].name.split(' ')[3] : ''}">
                 `;
     return `
         <div class="itemBoxFrontGrid">
@@ -105,7 +105,7 @@ function initItemBoxFront(index) {
             </div>
 
             <div class="itemStats">
-                <h2>${phoneItems.device[index].brand} ${phoneItems.device[index].model}</h2>
+                <h2>${phoneItems.device[index].name}</h2>
             </div>
         </div>`;
 }
@@ -122,27 +122,7 @@ function showDeviceDetails(index) {
 
     console.log(phoneItems.isDetailsPressed[index]);
 }
-function changeFavBtnSaved(index) {
-    if (USER.logInStatus) {
-        phoneItems.isFavourite[index] = !phoneItems.isFavourite[index]
 
-        if (phoneItems.isFavourite[index]) {
-            FAVOURITES.item.push(phoneItems.device[index]);
-        } else {
-            FAVOURITES.item.splice(FAVOURITES.item.indexOf(phoneItems.device[index]), 1);
-        }
-
-        console.log(phoneItems.isFavourite, FAVOURITES.item);
-
-        if (phoneItems.isFavourite[index]) {
-            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(0)`
-        } else {
-            document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
-        }
-    } else {
-        showWarningMessage('Log in to save!')
-    }
-}
 
 // INIT GSAP SCROLL PLUGIN
 gsap.registerPlugin(ScrollTrigger);
