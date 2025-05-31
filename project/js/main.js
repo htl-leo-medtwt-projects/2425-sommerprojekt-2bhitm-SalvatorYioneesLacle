@@ -67,6 +67,7 @@ function initAccountState() {
     localStorage['acc-pfp'] = USER.pfp
     localStorage['acc-money'] = JSON.stringify(USER.money)
     localStorage['acc-cart'] = JSON.stringify(USER.cart)
+    localStorage['acc-isInCart'] = JSON.stringify([[false]])
     localStorage['acc-favourites'] = JSON.stringify(USER.favourites)
     localStorage['acc-logInStatus'] = JSON.stringify(USER.logInStatus)
 }

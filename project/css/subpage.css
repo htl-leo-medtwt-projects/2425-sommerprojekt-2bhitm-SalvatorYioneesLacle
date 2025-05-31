@@ -570,11 +570,6 @@
         grid-template-columns: 1fr;
     }
 
-    /* outer filter box (no id) */
-    #wrapper>div:first-of-type> {
-        /* border: none; */
-    }
-
     #filterBox {
         width: 100%;
         height: min-content;

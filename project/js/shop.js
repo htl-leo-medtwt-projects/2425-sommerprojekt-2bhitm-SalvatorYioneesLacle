@@ -163,14 +163,19 @@ function addToCart(deviceType, index) {
         return;
     }
     let device = ITEMS.type[deviceType].device[index];
+    // let itemType = ITEMS.type[deviceType];
 
     if (!device.isInCart) {
         device.isInCart = !device.isInCart;
+        localStorage['acc-isInCart'] = JSON.stringify(device.isInCart)
 
+        // Check if localStorage value is null
         localStorage['acc-cart'] != null ? USER.cart = JSON.parse(localStorage['acc-cart']) : USER.cart;
         USER.cart.item.push(device);
+
+        // Assign new cart to localStorage
         localStorage['acc-cart'] = JSON.stringify(USER.cart);
-        console.log(USER.cart);
+        console.log(USER.cart.item);
 
         document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon-filled.png" alt="shop icon">`
         document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(0)'
@@ -181,7 +186,7 @@ function addToCart(deviceType, index) {
             if (USER.cart.item[i] == device) {
                 USER.cart.item.splice(i, 1);
                 localStorage['acc-cart'] = JSON.stringify(USER.cart)
-                console.log(USER.cart);
+                console.log(USER.cart.item);
 
                 document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">`
                 document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(1)'
@@ -191,8 +196,15 @@ function addToCart(deviceType, index) {
     }
 }
 
-function removeFromCart(deviceType, index) {
-
+function inCartStatus() {
+    if (!itemType.isInCart) {
+        document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon-filled.png" alt="shop icon">`
+        document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(0)'
+    } else {
+        document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">`
+        document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(1)'
+    }
+    itemType.isInCart = !itemType.isInCart;
 }
 
 // If displayRes == 1200: WUXGA

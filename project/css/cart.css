@@ -6,7 +6,15 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 4em 0;
+    padding: 2em 0;
+}
+
+/* Header text */
+#headerBox h2 {
+    color: var(--black);
+    font-size: 3em;
+    font-family: orbitron-extrabold;
+    padding: 0 1.6em;
 }
 
 /* whTr.png image with stripes background image */
@@ -124,11 +132,13 @@
 
 .transactionBox>div:first-of-type>p {
     font-family: orbitron-extrabold;
+    text-align: left;
 }
 
 .transactionBox>div:nth-of-type(2)>p {
     font-family: orbitron-medium;
     word-break: keep-all;
+    min-width: max-content;
 }
 
 /* Left and right padding for device and price */
