@@ -21,8 +21,8 @@ initDevices()
 function initFilterValues() {
     getLowestPrice(0);
     getHighestPrice(0);
-    getLowestStorage(0);
-    getHighestStorage(0);
+    getLowestDisplaySize(0);
+    getHighestDisplaySize(0);
 }
 initFilterValues()
 
@@ -118,6 +118,14 @@ function initItemBoxes() {
                                 <div>
                                     <h2>RAM</h2>
                                     <p>${laptopItems.device[rnd].ram} GB</p>
+                                </div>
+                                <div>
+                                    <h2>Display size</h2>
+                                    <p>${laptopItems.device[rnd].displaySize}"</p>
+                                </div>
+                                <div>
+                                    <h2>Display resolution</h2>
+                                    <p>${laptopItems.device[rnd].displayRes} x ${(laptopItems.device[rnd].displayRes / 9 * 16).toFixed(0)} px</p>
                                 </div>
                             </div>
                         </div>

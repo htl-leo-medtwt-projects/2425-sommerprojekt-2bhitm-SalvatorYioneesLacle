@@ -2,12 +2,12 @@ let shopDropdown = 0;
 
 let MIN = {
     price: document.getElementById('min-price'),
-    rom: document.getElementById('min-rom')
+    displaySize: document.getElementById('min-displaySize')
 }
 
 let MAX = {
     price: document.getElementById('max-price'),
-    rom: document.getElementById('max-rom')
+    displaySize: document.getElementById('max-displaySize')
 }
 
 
@@ -72,17 +72,17 @@ function initFilter() {
             </div>
             <div>
                 <div>
-                    <input type="range" name="min-displaySize" id="min-displaySize" min="0" max="40" step="0.1" oninput="checkMinValue()">
+                    <input type="range" name="min-displaySize" id="min-displaySize" min="0" max="40" step="0.1" oninput="outputMinDispSize()">
                 </div>
-                <div class="filterText">
+                <div class="filterText" id="min-displaySize-value">
                     <p>Min: ${0}</p>
                 </div> 
             </div>
             <div>
                 <div>
-                    <input type="range" name="max-displaySize" id="max-displaySize" min="0" max="40" step="0.1" oninput="checkMaxValue()">
+                    <input type="range" name="max-displaySize" id="max-displaySize" min="0" max="40" step="0.1" oninput="outputMaxDispSize()">
                 </div>
-                <div class="filterText">
+                <div class="filterText" id="max-displaySize-value">
                     <p>Max: ${0}</p>
                 </div>
             </div>
@@ -92,8 +92,11 @@ function initFilter() {
             <p>Save</p>
         </div>
     `;
+
     MIN.price = document.getElementById('min-price');
     MAX.price = document.getElementById('max-price');
+    MAX.displaySize = document.getElementById('max-displaySize');
+    MIN.displaySize = document.getElementById('min-displaySize');
 }
 initFilter()
 
@@ -148,28 +151,34 @@ function getLowestPrice(deviceType) {
     return price;
 }
 
-function getHighestStorage(deviceType) {
-    let storage = 0;
+function getHighestDisplaySize(deviceType) {
+    let displaySize = 0;
     for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
-        if (ITEMS.type[deviceType].device[i].rom > storage) {
-            storage = ITEMS.type[deviceType].device[i].rom
-            ROM.max.value = storage
+        if (ITEMS.type[deviceType].device[i].displaySize > displaySize) {
+            displaySize = ITEMS.type[deviceType].device[i].displaySize
+            MAX.displaySize.value = displaySize
+
+            MIN.displaySize.max = displaySize;
+            MAX.displaySize.max = displaySize;
         }
     }
-    console.log(MAX.price.value);
-    return storage;
+    console.log(MAX.displaySize.value);
+    return displaySize;
 }
 
-function getLowestStorage(deviceType) {
-    let storage = 99999999;
+function getLowestDisplaySize(deviceType) {
+    let displaySize = 99999999;
     for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
-        if (ITEMS.type[deviceType].device[i].rom < storage) {
-            storage = ITEMS.type[deviceType].device[i].rom
-            ROM.min.value = storage
+        if (ITEMS.type[deviceType].device[i].displaySize < displaySize) {
+            displaySize = ITEMS.type[deviceType].device[i].displaySize
+            MIN.displaySize.value = displaySize
+
+            MIN.displaySize.min = displaySize;
+            MAX.displaySize.min = displaySize;
         }
     }
-    console.log(MIN.price.value);
-    return storage;
+    console.log(MIN.displaySize.value);
+    return displaySize;
 }
 
 function checkFilterSettings() {
@@ -178,6 +187,9 @@ function checkFilterSettings() {
 
     checkMinPrice()
     checkMaxPrice()
+
+    outputMinDispSize()
+    outputMaxDispSize()
 
     initItemBoxes()
     initAnimations()
@@ -208,6 +220,16 @@ function checkMaxPrice() {
         // MIN.price.value = MAX.price.value;
     }
     console.log(MAX.price.value);
+}
+
+function outputMinDispSize() {
+    document.getElementById('min-displaySize-value').innerHTML = `<p>Min: ${MIN.displaySize.value}</p>`
+    console.log("E");
+}
+
+function outputMaxDispSize() {
+    document.getElementById('max-displaySize-value').innerHTML = `<p>Max: ${MAX.displaySize.value}</p>`
+    console.log("F");
 }
 
 function changeFavBtnColourYellow(index) {
