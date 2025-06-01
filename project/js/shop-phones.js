@@ -31,62 +31,64 @@ function initItemBoxes() {
         phoneItems.isDetailsPressed[rnd] = false;
         phoneItems.isInCart[rnd] = false;
 
-        str += `
-        <div class="itemBox scrollReveal">
-            <div class="itemBoxFront">
-                ${initItemBoxFront(rnd)}
-            </div>
-
-            <div class="itemDetailsBtn" onclick="showDeviceDetails(${phoneItems.device[rnd].id})">
-                <p>+</p>
-                <div class="itemDetailsText">
-                    <p>Show more</p>
-                    <div class="itemDetailsBackgr">
-                    </div>
+        if (isInPriceArea(1, rnd)) {
+            str += `
+            <div class="itemBox scrollReveal">
+                <div class="itemBoxFront">
+                    ${initItemBoxFront(rnd)}
                 </div>
-            </div>
 
-            <div class="toCartBtn" onclick="addToCart(${1}, ${rnd})">
-                <img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">
-            </div>
-
-            <div class="itemFavouriteBtn">
-                <div class="itemFavouriteBtnBackground"></div>
-                <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${1}, ${phoneItems.device[rnd].id})" onmouseenter="changeFavBtnColourYellow(${phoneItems.device[rnd].id})" onmouseleave="changeFavBtnColourGray(${phoneItems.device[rnd].id})">
-            </div>
-
-             <div class="itemDetails">
-                <div>
-                    <div class="itemDetailsHeader">
-                        <h1>${phoneItems.device[rnd].name}</h1>
-                    </div>
-                    <div class="itemDetailsMain">
-                        <div class="itemDetailsMainGrid">
-                            <div>
-                                <h2>Operating System</h2>
-                                <p>${details.os[phoneItems.device[rnd].os]}</p>
-                            </div>
-                            <div>
-                                <h2>CPU</h2>
-                                <p>${details.CPU[phoneItems.device[rnd].CPU].model}</p>
-                            </div>
-                            <div>
-                                <h2>Display</h2>
-                                <p>${details.display[phoneItems.device[rnd].display.type]}, ${details.diagonal[phoneItems.device[rnd].display.diagonal].zoll}"</p>
-                            </div>
-                            <div>
-                                <h2>RAM</h2>
-                                <p>${phoneItems.device[rnd].ram} GB</p>
-                            </div>
+                <div class="itemDetailsBtn" onclick="showDeviceDetails(${phoneItems.device[rnd].id})">
+                    <p>+</p>
+                    <div class="itemDetailsText">
+                        <p>Show more</p>
+                        <div class="itemDetailsBackgr">
                         </div>
                     </div>
-                    <div class="itemDetailsFooter">
-                        <p>${phoneItems.device[rnd].price} €</p>
+                </div>
+
+                <div class="toCartBtn" onclick="addToCart(${1}, ${rnd})">
+                    <img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">
+                </div>
+
+                <div class="itemFavouriteBtn">
+                    <div class="itemFavouriteBtnBackground"></div>
+                    <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${1}, ${phoneItems.device[rnd].id})" onmouseenter="changeFavBtnColourYellow(${phoneItems.device[rnd].id})" onmouseleave="changeFavBtnColourGray(${phoneItems.device[rnd].id})">
+                </div>
+
+                <div class="itemDetails">
+                    <div>
+                        <div class="itemDetailsHeader">
+                            <h1>${phoneItems.device[rnd].name}</h1>
+                        </div>
+                        <div class="itemDetailsMain">
+                            <div class="itemDetailsMainGrid">
+                                <div>
+                                    <h2>Operating System</h2>
+                                    <p>${details.os[phoneItems.device[rnd].os]}</p>
+                                </div>
+                                <div>
+                                    <h2>CPU</h2>
+                                    <p>${details.CPU[phoneItems.device[rnd].CPU].model}</p>
+                                </div>
+                                <div>
+                                    <h2>Display</h2>
+                                    <p>${details.display[phoneItems.device[rnd].display.type]}, ${details.diagonal[phoneItems.device[rnd].display.diagonal].zoll}"</p>
+                                </div>
+                                <div>
+                                    <h2>RAM</h2>
+                                    <p>${phoneItems.device[rnd].ram} GB</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="itemDetailsFooter">
+                            <p>${phoneItems.device[rnd].price} €</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        `;
+            `;
+        }
     }
     document.getElementById('items-grid').innerHTML = str;
 }

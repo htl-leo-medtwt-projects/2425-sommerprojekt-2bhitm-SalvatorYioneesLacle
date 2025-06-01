@@ -1,9 +1,15 @@
 let shopDropdown = 0;
 
-let PRICE = {
-    min: document.getElementById('min-price'),
-    max: document.getElementById('max-price')
+let MIN = {
+    price: document.getElementById('min-price'),
+    rom: document.getElementById('min-rom')
 }
+
+let MAX = {
+    price: document.getElementById('max-price'),
+    rom: document.getElementById('max-rom')
+}
+
 
 function initNavBtnsShop() {
     // Dropdown: https://www.w3schools.com/howto/howto_css_dropdown.asp
@@ -44,7 +50,7 @@ function initFilter() {
             </div>
             <div>
                 <div>
-                    <input type="number" name="min-price" id="min-price" oninput="checkMinPrice()"> €
+                    <input type="number" name="min-price" id="min-price"> €
                 </div>
                 <div class="filterText">
                     <p>Min</p>
@@ -52,7 +58,7 @@ function initFilter() {
             </div>
             <div>
                 <div>
-                    <input type="number" name="max-price" id="max-price" oninput="checkMaxPrice()"> €
+                    <input type="number" name="max-price" id="max-price"> €
                 </div>
                 <div class="filterText">
                     <p>Max</p>
@@ -86,8 +92,8 @@ function initFilter() {
             <p>Save</p>
         </div>
     `;
-    PRICE.min = document.getElementById('min-price');
-    PRICE.max = document.getElementById('max-price');
+    MIN.price = document.getElementById('min-price');
+    MAX.price = document.getElementById('max-price');
 }
 initFilter()
 
@@ -118,27 +124,90 @@ function changeFavBtnSaved(deviceType, index) {
     }
 }
 
+function getHighestPrice(deviceType) {
+    let price = 0;
+    for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
+        if (ITEMS.type[deviceType].device[i].price > price) {
+            price = ITEMS.type[deviceType].device[i].price
+            MAX.price.value = price
+        }
+    }
+    console.log(MAX.price.value);
+    return price;
+}
+
+function getLowestPrice(deviceType) {
+    let price = 99999999;
+    for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
+        if (ITEMS.type[deviceType].device[i].price < price) {
+            price = ITEMS.type[deviceType].device[i].price
+            MIN.price.value = price
+        }
+    }
+    console.log(MIN.price.value);
+    return price;
+}
+
+function getHighestStorage(deviceType) {
+    let storage = 0;
+    for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
+        if (ITEMS.type[deviceType].device[i].rom > storage) {
+            storage = ITEMS.type[deviceType].device[i].rom
+            ROM.max.value = storage
+        }
+    }
+    console.log(MAX.price.value);
+    return storage;
+}
+
+function getLowestStorage(deviceType) {
+    let storage = 99999999;
+    for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
+        if (ITEMS.type[deviceType].device[i].rom < storage) {
+            storage = ITEMS.type[deviceType].device[i].rom
+            ROM.min.value = storage
+        }
+    }
+    console.log(MIN.price.value);
+    return storage;
+}
+
 function checkFilterSettings() {
+    MIN.price.value = document.getElementById('min-price').value
+    MAX.price.value = document.getElementById('max-price').value
+
     checkMinPrice()
     checkMaxPrice()
+
+    initItemBoxes()
+    initAnimations()
+}
+
+function isInPriceArea(deviceType, index) {
+    if (ITEMS.type[deviceType].device[index].price >= MIN.price.value && ITEMS.type[deviceType].device[index].price <= MAX.price.value) {
+        return true;
+    }
+    return false;
 }
 
 function checkMinPrice() {
-    if (PRICE.min.value < 0 || PRICE.min.value == null) {
-        PRICE.min.value = 0;
+    if (MIN.price.value < 0) {
+        MIN.price.value = 0;
     }
-    if (PRICE.min.value > PRICE.max.value) {
-        PRICE.max.value = PRICE.min.value;
+    if (MIN.price.value > MAX.price.value) {
+        // MAX.price.value = MIN.price.value;
     }
+    console.log(MIN.price.value);
 }
 
 function checkMaxPrice() {
-    if (PRICE.max.value < 0 || PRICE.max.value == null) {
-        PRICE.max.value = 0;
+    if (MAX.price.value < 0) {
+        MAX.price.value = 0;
     }
-    if (PRICE.max.value < PRICE.min.value) {
-        PRICE.min.value = PRICE.max.value;
+    if (MAX.price.value < MIN.price.value) {
+        // MIN.price.value = MAX.price.value;
     }
+    console.log(MAX.price.value);
 }
 
 function changeFavBtnColourYellow(index) {
@@ -149,12 +218,6 @@ function changeFavBtnColourYellow(index) {
 function changeFavBtnColourGray(index) {
     document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.backgroundColor = 'transparent'
     document.getElementsByClassName('itemFavouriteBtnBackground').item(index).style.transform = `scale(1)`
-}
-
-function isInPriceArea(item) {
-    if (item.device.price >= PRICE.min.value && item.device.price <= PRICE.max.value) {
-
-    }
 }
 
 function addToCart(deviceType, index) {
@@ -180,10 +243,10 @@ function addToCart(deviceType, index) {
         document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon-filled.png" alt="shop icon">`
         document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(0)'
     } else {
-        device.isInCart = !device.isInCart;
-
         for (let i = 0; i < USER.cart.item.length; i++) {
             if (USER.cart.item[i] == device) {
+                device.isInCart = !device.isInCart;
+
                 USER.cart.item.splice(i, 1);
                 localStorage['acc-cart'] = JSON.stringify(USER.cart)
                 console.log(USER.cart.item);
