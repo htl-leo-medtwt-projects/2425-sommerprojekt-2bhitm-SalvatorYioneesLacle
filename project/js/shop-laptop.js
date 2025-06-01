@@ -127,6 +127,14 @@ function initItemBoxes() {
                                     <h2>Display resolution</h2>
                                     <p>${laptopItems.device[rnd].displayRes} x ${(laptopItems.device[rnd].displayRes / 9 * 16).toFixed(0)} px</p>
                                 </div>
+                                 <div>
+                                    <h2>Battery life</h2>
+                                    <p>${laptopItems.device[rnd].batteryLife <= 0 ? '-' : `${laptopItems.device[rnd].batteryLife} h`}</p>
+                                </div>
+                                <div>
+                                    <h2>Usage</h2>
+                                    <p>${laptopItems.device[rnd].usage}</p>
+                                </div>
                             </div>
                         </div>
                         <div class="itemDetailsFooter">

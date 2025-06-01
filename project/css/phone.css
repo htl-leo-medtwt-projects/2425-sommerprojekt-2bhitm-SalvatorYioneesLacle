@@ -18,7 +18,7 @@
 }
 
 /* inner boxes of .itemBox --> centered positioning */
-.itemBox div {
+.itemBox>div {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -305,7 +305,8 @@
     text-align: left;
     overflow-x: hidden;
     overflow-y: scroll;
-    max-height: calc(100% - 2.8em);
+    max-height: calc(100% - 2.80em);
+flex-wrap:wrap;
 }
 
 .itemDetailsMainGrid {

@@ -4,32 +4,47 @@
 console.log(phones);
 console.log(details);
 
-
-
 let phoneItems = ITEMS.type[1]
+
+function initDevices() {
+    for (let i = 0; i < phones.length; i++) {
+        phoneItems.device[i] = phones[i];
+
+        // Laptops get a new ID after each reload
+        phoneItems.device[i].id = i;
+
+        phoneItems.isFavourite[i] = false;
+        phoneItems.isDetailsPressed[i] = false;
+        phoneItems.isInCart[i] = false;
+    }
+}
+initDevices()
+
+function initFilterValues() {
+    getLowestPrice(1);
+    getHighestPrice(1);
+    getLowestDisplaySize(1);
+    getHighestDisplaySize(1);
+}
+initFilterValues()
 
 // phone name: If Split(" ") char[0] = ( & Split(" ") char[end] = ) --> Font size smaller
 function initItemBoxes() {
     let usedIndex = [];
     let rnd = Math.floor(Math.random() * phones.length);
+    let notPassed = 0;
 
     let str = '';
-    for (let i = 0; i < phones.length; i++) {
+    for (let i = 0; i < phones.length - notPassed; i++) {
         while (usedIndex.includes(rnd)) {
             rnd = Math.floor(Math.random() * phones.length);
             console.log("calc new rnd");
         }
         usedIndex.push(rnd);
 
-        phoneItems.device[rnd] = phones[rnd];
-
         // Phones get a new ID after each reload
         phoneItems.device[rnd].id = i;
-        console.log(phoneItems.device[rnd].id);
-
-        phoneItems.isFavourite[rnd] = false;
-        phoneItems.isDetailsPressed[rnd] = false;
-        phoneItems.isInCart[rnd] = false;
+        // console.log(phoneItems.device[rnd].id);
 
         if (isInPriceArea(1, rnd)) {
             str += `
@@ -88,6 +103,9 @@ function initItemBoxes() {
                 </div>
             </div>
             `;
+        } else {
+            notPassed++;
+            i--;
         }
     }
     document.getElementById('items-grid').innerHTML = str;
@@ -132,10 +150,14 @@ function showDeviceDetails(index) {
 gsap.registerPlugin(ScrollTrigger);
 
 // ITERATE ALL ELEMENTS
-let sections = document.querySelectorAll('.scrollReveal');
-for (let i = 0; i < sections.length; i++) {
-    generateScrollAnimation(i);
+let sections;
+function initAnimations() {
+    sections = document.querySelectorAll('.scrollReveal');
+    for (let i = 0; i < sections.length; i++) {
+        generateScrollAnimation(i);
+    }
 }
+initAnimations()
 
 // REGISTER ANIMATION
 function generateScrollAnimation(i) {
@@ -156,7 +178,7 @@ function generateScrollAnimation(i) {
         duration: 1.1,
         scrollTrigger: {
             trigger: element,
-            start: '0% 75%',  /* 'Ankerpunkt Offset' */
+            start: '0% 55%',  /* 'Ankerpunkt Offset' */
         }
     });
 }

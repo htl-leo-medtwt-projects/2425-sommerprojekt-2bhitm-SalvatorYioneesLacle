@@ -4,28 +4,46 @@ console.log(monitors);
 
 let monitorItems = ITEMS.type[2]
 
+function initDevices() {
+    for (let i = 0; i < monitors.length; i++) {
+        monitorItems.device[i] = monitors[i];
+
+        // Laptops get a new ID after each reload
+        monitorItems.device[i].id = i;
+
+        monitorItems.isFavourite[i] = false;
+        monitorItems.isDetailsPressed[i] = false;
+        monitorItems.isInCart[i] = false;
+    }
+}
+initDevices()
+
+function initFilterValues() {
+    getLowestPrice(2);
+    getHighestPrice(2);
+    getLowestDisplaySize(2);
+    getHighestDisplaySize(2);
+}
+initFilterValues()
+
 // Laptop name: If Split(" ") char[0] = ( & Split(" ") char[end] = ) --> Font size smaller
 function initItemBoxes() {
     let usedIndex = [];
     let rnd = Math.floor(Math.random() * monitors.length);
+    let notPassed = 0;
 
     let str = '';
-    for (let i = 0; i < monitors.length; i++) {
+    for (let i = 0; i < monitors.length - notPassed; i++) {
         while (usedIndex.includes(rnd)) {
             rnd = Math.floor(Math.random() * monitors.length);
             console.log("calc new rnd");
         }
         usedIndex.push(rnd);
 
-        monitorItems.device[rnd] = monitors[rnd];
-
         // Monitors get a new ID after each reload
         monitorItems.device[rnd].id = i;
-        console.log(monitorItems.device[rnd].id);
+        // console.log(monitorItems.device[rnd].id);
 
-        monitorItems.isFavourite[rnd] = false;
-        monitorItems.isDetailsPressed[rnd] = false;
-        monitorItems.isInCart[rnd] = false;
         if (isInPriceArea(2, rnd)) {
             str += `
             <div class="itemBox scrollReveal">
@@ -93,12 +111,12 @@ function initItemBoxes() {
                                     <p>${monitorItems.device[rnd].display.resWidth} x ${monitorItems.device[rnd].display.resHeight}</p>
                                 </div>
                                 <div>
-                                    <h2>Memory</h2>
-                                    <p>${monitorItems.device[rnd].display.type} GB</p>
+                                    <h2>Display type</h2>
+                                    <p>${monitorItems.device[rnd].display.type == null ? 'flat' : `${monitorItems.device[rnd].display.type}`}</p>
                                 </div>
                                 <div>
-                                    <h2>RAM</h2>
-                                    <p>${monitorItems.device[rnd].display.fps} GB</p>
+                                    <h2>FPS</h2>
+                                    <p>${monitorItems.device[rnd].display.fps} fps</p>
                                 </div>
                             </div>
                         </div>
@@ -109,6 +127,9 @@ function initItemBoxes() {
                 </div>
             </div>
             `;
+        } else {
+            notPassed++;
+            i--;
         }
     }
     document.getElementById('items-grid').innerHTML = str;
@@ -170,10 +191,14 @@ function showDeviceDetails(index) {
 gsap.registerPlugin(ScrollTrigger);
 
 // ITERATE ALL ELEMENTS
-let sections = document.querySelectorAll('.scrollReveal');
-for (let i = 0; i < sections.length; i++) {
-    generateScrollAnimation(i);
+let sections;
+function initAnimations() {
+    sections = document.querySelectorAll('.scrollReveal');
+    for (let i = 0; i < sections.length; i++) {
+        generateScrollAnimation(i);
+    }
 }
+initAnimations()
 
 // REGISTER ANIMATION
 function generateScrollAnimation(i) {
@@ -194,7 +219,7 @@ function generateScrollAnimation(i) {
         duration: 1.1,
         scrollTrigger: {
             trigger: element,
-            start: '0% 75%',  /* 'Ankerpunkt Offset' */
+            start: '0% 55%',  /* 'Ankerpunkt Offset' */
         }
     });
 }
