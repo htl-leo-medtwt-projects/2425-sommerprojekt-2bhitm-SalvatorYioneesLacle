@@ -11,31 +11,68 @@ let MAX = {
 }
 
 
+function initNavigationbar() {
+    let str = `
+            <a id="nav-logo" href="../index.html">
+                <img src="../img/logos/logo.png" alt="ExpertShop logo">
+            </a>
+            <div id="nav-btns">
+                
+            </div>
+            <div id="nav-account">
+                ${USER.logInStatus == false ? `
+                    <div onclick="toSignUp()">
+                        <p>Sign Up</p>
+                    </div>
+
+                    <div onclick="toLogIn()">
+                        <p>Log In</p>
+                    </div>` : `<p>${USER.username}</p>
+                    <img src=".${USER.pfp}" alt="Profile picture of: ${USER.username}">`
+        }
+            </div>
+            
+            <div id="nav-items" onclick="toCartPage()">
+                <img src="../img/icons/shopping-cart.png" alt="shopping cart">
+            </div>
+    `;
+    document.getElementsByTagName('nav').item(0).innerHTML = str;
+}
+initNavigationbar()
+
+function swapToWhiteNavIcon(icon) {
+    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-partners-biggerImg"' : ''} src="../img/icons/${icon}_white.png" alt="${icon}">`
+}
+
+function swapToNormalNavIcon(icon) {
+    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-partners-biggerImg"' : ''} src="../img/icons/${icon}.png" alt="${icon}">`
+}
+
 function initNavBtnsShop() {
     // Dropdown: https://www.w3schools.com/howto/howto_css_dropdown.asp
     document.getElementById('nav-btns').innerHTML = `
                 <div class="dropdown" onmouseenter="swapToWhiteNavIcon('shopIcon')" onmouseleave="swapToNormalNavIcon('shopIcon')">
                     <div class="dropbtn">
                         <div id="shopIcon">
-                            <img src="/img/icons/shopIcon.png" alt="shop icon">
+                            <img src="../img/icons/shopIcon.png" alt="shop icon">
                         </div>
                         <p>Shop</p>
                     </div>
                     <div class="dropdown-content">
-                        <a href="/pages/shop-laptops.html">Laptops</a>
-                        <a href="/pages/shop-phones.html">Phones</a>
-                        <a href="/pages/shop-monitors.html">Monitors</a>
+                        <a href="./shop-laptops.html">Laptops</a>
+                        <a href="./shop-phones.html">Phones</a>
+                        <a href="./shop-monitors.html">Monitors</a>
                     </div>
                 </div>
-                <a href="/pages/partners.html" onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
+                <a href="./partners.html" onmouseenter="swapToWhiteNavIcon('partners')" onmouseleave="swapToNormalNavIcon('partners')">
                     <div id="partners">
-                        <img id="nav-partners-biggerImg" src="/img/icons/partners.png" alt="partners icon">
+                        <img id="nav-partners-biggerImg" src="../img/icons/partners.png" alt="partners icon">
                     </div>
                     <p>Partners</p>
                 </a>
-                <a href="${USER.logInStatus ? '/pages/account/account-overview.html' : '/pages/account/account-login.html'}" onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
+                <a href="${USER.logInStatus ? './account/account-overview.html' : './account/account-login.html'}" onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
                     <div id="check">
-                        <img src="/img/icons/check.png" alt="check icon">
+                        <img src="../img/icons/check.png" alt="check icon">
                     </div>
                     <p>Account</p>
                 </a>`;
@@ -102,7 +139,7 @@ initFilter()
 
 function getShopDropdownValue() {
     shopDropdown = document.getElementById('shops-dropdown').value;
-    window.location.href = `/pages/shop-${shopDropdown}.html`;
+    window.location.href = `./shop-${shopDropdown}.html`;
 }
 
 function changeFavBtnSaved(deviceType, index) {
@@ -269,7 +306,7 @@ function addToCart(deviceType, index) {
         console.log(USER.cart.item);
         console.log(USER.cart.item[USER.cart.item.length - 1].onDate);
 
-        document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon-filled.png" alt="shop icon">`
+        document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="../img/icons/shopIcon-filled.png" alt="shop icon">`
         document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(0)'
     } else {
         for (let i = 0; i < USER.cart.item.length; i++) {
@@ -280,7 +317,7 @@ function addToCart(deviceType, index) {
                 localStorage['acc-cart'] = JSON.stringify(USER.cart)
                 console.log(USER.cart.item);
 
-                document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">`
+                document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="../img/icons/shopIcon.png" alt="shop icon">`
                 document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(1)'
                 return true;
             }
@@ -290,14 +327,15 @@ function addToCart(deviceType, index) {
 
 function inCartStatus() {
     if (!itemType.isInCart) {
-        document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon-filled.png" alt="shop icon">`
+        document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="../img/icons/shopIcon-filled.png" alt="shop icon">`
         document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(0)'
     } else {
-        document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">`
+        document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="../img/icons/shopIcon.png" alt="shop icon">`
         document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(1)'
     }
     itemType.isInCart = !itemType.isInCart;
 }
+
 
 // If displayRes == 1200: WUXGA
 // 1280 = WUXGA+

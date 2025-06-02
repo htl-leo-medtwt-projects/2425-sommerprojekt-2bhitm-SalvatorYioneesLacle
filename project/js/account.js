@@ -14,8 +14,8 @@ let INPUTS = {
 
 function initNavigationbar() {
     document.getElementsByTagName('nav').item(0).innerHTML = `
-            <a id="nav-logo" href="/index.html">
-                <img src="/img/logos/logo.png" alt="ExpertShop logo">
+            <a id="nav-logo" href="../../index.html">
+                <img src="../../img/logos/logo.png" alt="ExpertShop logo">
             </a>`;
 }
 initNavigationbar()
@@ -100,27 +100,27 @@ function saveUserData() {
 }
 
 function toSignUpSetupScreen() {
-    window.location.href = `/pages/account/account-signup-setup.html`;
+    window.location.href = `./account-signup-setup.html`;
 }
 
 function toLogOutScreen() {
-    window.location.href = `/pages/account/account-signout-done.html`;
+    window.location.href = `./account-signout-done.html`;
 }
 
 function toAccountDeleteScreen() {
-    window.location.href = `/pages/account/account-delete.html`;
+    window.location.href = `./account-delete.html`;
 }
 
 function toAccountDeleteDone() {
-    window.location.href = `/pages/account/account-delete-done.html`;
+    window.location.href = `./account-delete-done.html`;
 }
 
 function toAccountOverview() {
-    window.location.href = `/pages/account/account-overview.html`;
+    window.location.href = `./account-overview.html`;
 }
 
 function toHomepage() {
-    window.location.href = `/index.html`;
+    window.location.href = `../../index.html`;
 }
 
 function deleteAccount() {
@@ -175,7 +175,7 @@ function saveUsername() {
 }
 
 function savePfp(index) {
-    TEMP.pfp = `/img/pfp/${index}.png`
+    TEMP.pfp = `../../img/pfp/${index}.png`
     console.log(TEMP.pfp);
 
     for (let i = 0; i < 10; i++) {
@@ -192,4 +192,32 @@ function savePfp(index) {
 function saveCustomPfp() {
     TEMP.pfp = `${"ownURL"}`
     console.log(TEMP.pfp);
+}
+
+function toPaymentPage() {
+    window.location.href = `../shop-payment.html`;
+}
+
+function toSignUpSetupScreen() {
+    window.location.href = `../account/account-signup-setup.html`;
+}
+
+function toLogOutScreen() {
+    window.location.href = `../account/account-signout-done.html`;
+}
+
+function toAccountDeleteScreen() {
+    window.location.href = `../account/account-delete.html`;
+}
+
+function toAccountDeleteDone() {
+    window.location.href = `../account/account-delete-done.html`;
+}
+
+function toAccountOverview() {
+    window.location.href = `../account/account-overview.html`;
+}
+
+function toHomepage() {
+    window.location.href = `../../index.html`;
 }

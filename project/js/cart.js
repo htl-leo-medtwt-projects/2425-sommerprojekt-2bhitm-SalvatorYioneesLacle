@@ -40,7 +40,7 @@ function initDevices() {
                     <p>${USER.cart.item[i].price} €</p>
                 </div>
                 <div class="transactionBoxImg">
-                    <img src="/img/util/trWhTr70.png" alt="Transparent Go Around">
+                    <img src="./img/util/trWhTr70.png" alt="Transparent Go Around">
                 </div>
             </div>`
     }

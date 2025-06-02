@@ -1,4 +1,4 @@
-/// <reference path="../data/monitors.js"/>
+/// <reference path="../data/monitors.js"./>
 
 console.log(monitors);
 
@@ -61,12 +61,12 @@ function initItemBoxes() {
                 </div>
 
                 <div class="toCartBtn" onclick="addToCart(${2}, ${rnd})">
-                    <img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">
+                    <img class="toCartBtnImg" src="../img/icons/shopIcon.png" alt="shop icon">
                 </div>
 
                 <div class="itemFavouriteBtn">
                     <div class="itemFavouriteBtnBackground"></div>
-                    <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${2}, ${monitorItems.device[rnd].id})" onmouseenter="changeFavBtnColourYellow(${monitorItems.device[rnd].id})" onmouseleave="changeFavBtnColourGray(${monitorItems.device[rnd].id})">
+                    <img class="itemFavouriteBtnImg" src="../img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${2}, ${monitorItems.device[rnd].id})" onmouseenter="changeFavBtnColourYellow(${monitorItems.device[rnd].id})" onmouseleave="changeFavBtnColourGray(${monitorItems.device[rnd].id})">
                 </div>
 
             <!-- <div class="itemRating">
@@ -144,7 +144,7 @@ function initItemBoxFront(index) {
     return `
         <div class="itemBoxFrontGrid">
             <div class="itemImg">
-                <img src="${monitorItems.device[index].img}" alt="${monitorItems.device[index].name}">
+                <img src="..${monitorItems.device[index].img}" alt="${monitorItems.device[index].name}">
             </div>
 
             <div class="itemStats">

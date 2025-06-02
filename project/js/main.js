@@ -1,7 +1,7 @@
 
 // Audio
-let longPop = new Audio('/audio/long-pop.wav');
-let longPopLeave = new Audio('/audio/long-pop-leave.wav');
+let longPop = new Audio('./audio/long-pop.wav');
+let longPopLeave = new Audio('../audio/long-pop-leave.wav');
 
 
 // type 0: Laptops
@@ -56,7 +56,7 @@ let USER = {
     email: localStorage['acc-email'] || 'user.mail@gmail.com',
     pw: localStorage['acc-pw'] || 'password',
     pfp: localStorage['acc-pfp'] || 'https://rewards.bing.com/rewardscdn/images/rewards.png',
-    money: JSON.parse(localStorage['acc-money'] ?? 0),
+    money: JSON.parse(localStorage['acc-money'] ?? (Math.random() * 10_000).toFixed(2)),
     cart: localStorage['acc-cart'] != null ? JSON.parse(localStorage['acc-cart']) : CART,
     favourites: localStorage['acc-favourites'] != null ? JSON.parse(localStorage['acc-favourites']) : FAVOURITES,
     logInStatus: localStorage['acc-logInStatus'] == 'false' || localStorage['acc-logInStatus'] == null ? false : true
@@ -90,22 +90,22 @@ function playLongPopLeave() {
 }
 
 function initPageIcon() {
-    document.getElementsByTagName('head').item(0).innerHTML += `<link rel="icon" href="/img/logos/logo.png" type="image/x-icon" />`
+    document.getElementsByTagName('head').item(0).innerHTML += `<link rel="icon" href="./img/logos/logo.png" type="image/x-icon" />`
 }
 initPageIcon();
 
 function swapToWhiteNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-partners-biggerImg"' : ''} src="/img/icons/${icon}_white.png" alt="${icon}">`
+    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-partners-biggerImg"' : ''} src="./img/icons/${icon}_white.png" alt="${icon}">`
 }
 
 function swapToNormalNavIcon(icon) {
-    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-partners-biggerImg"' : ''} src="/img/icons/${icon}.png" alt="${icon}">`
+    document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-partners-biggerImg"' : ''} src="./img/icons/${icon}.png" alt="${icon}">`
 }
 
 function initNavigationbar() {
     let str = `
-            <a id="nav-logo" href="/index.html">
-                <img src="/img/logos/logo.png" alt="ExpertShop logo">
+            <a id="nav-logo" href="./index.html">
+                <img src="./img/logos/logo.png" alt="ExpertShop logo">
             </a>
             <div id="nav-btns">
                 
@@ -124,7 +124,7 @@ function initNavigationbar() {
             </div>
             
             <div id="nav-items" onclick="toCartPage()">
-                <img src="/img/icons/shopping-cart.png" alt="shopping cart">
+                <img src="./img/icons/shopping-cart.png" alt="shopping cart">
             </div>
     `;
     document.getElementsByTagName('nav').item(0).innerHTML = str;
@@ -134,7 +134,7 @@ initNavigationbar()
 function initFooter() {
     let str = `
         <div id="footerBorder">
-            <img src="/img/util/WhTrWh.png" alt="gradient">
+            <img src="./img/util/WhTrWh.png" alt="gradient">
         </div>
         
         <div id="footerContent">
@@ -146,43 +146,43 @@ function initFooter() {
 initFooter()
 
 function toLogIn() {
-    window.location.href = `/pages/account/account-login.html`;
+    window.location.href = `./pages/account/account-login.html`;
 }
 
 function toSignUp() {
-    window.location.href = `/pages/account/account-signup.html`;
+    window.location.href = `./pages/account/account-signup.html`;
 }
 
 function toCartPage() {
-    window.location.href = `/pages/cart.html`;
+    window.location.href = `./pages/cart.html`;
 }
 
 function toPaymentPage() {
-    window.location.href = `/pages/shop-payment.html`;
+    window.location.href = `./pages/shop-payment.html`;
 }
 
 function toSignUpSetupScreen() {
-    window.location.href = `/pages/account/account-signup-setup.html`;
+    window.location.href = `./pages/account/account-signup-setup.html`;
 }
 
 function toLogOutScreen() {
-    window.location.href = `/pages/account/account-signout-done.html`;
+    window.location.href = `./pages/account/account-signout-done.html`;
 }
 
 function toAccountDeleteScreen() {
-    window.location.href = `/pages/account/account-delete.html`;
+    window.location.href = `./pages/account/account-delete.html`;
 }
 
 function toAccountDeleteDone() {
-    window.location.href = `/pages/account/account-delete-done.html`;
+    window.location.href = `./pages/account/account-delete-done.html`;
 }
 
 function toAccountOverview() {
-    window.location.href = `/pages/account/account-overview.html`;
+    window.location.href = `./pages/account/account-overview.html`;
 }
 
 function toHomepage() {
-    window.location.href = `/index.html`;
+    window.location.href = `./index.html`;
 }
 
 function showWarningMessage(msg) {

@@ -1,5 +1,5 @@
-/// <reference path="../data/phones.js"/>
-/// <reference path="../data/details.js"/>
+/// <reference path="../data/phones.js"./>
+/// <reference path="../data/details.js"./>
 
 console.log(phones);
 console.log(details);
@@ -63,12 +63,12 @@ function initItemBoxes() {
                 </div>
 
                 <div class="toCartBtn" onclick="addToCart(${1}, ${rnd})">
-                    <img class="toCartBtnImg" src="/img/icons/shopIcon.png" alt="shop icon">
+                    <img class="toCartBtnImg" src="../img/icons/shopIcon.png" alt="shop icon">
                 </div>
 
                 <div class="itemFavouriteBtn">
                     <div class="itemFavouriteBtnBackground"></div>
-                    <img class="itemFavouriteBtnImg" src="/img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${1}, ${phoneItems.device[rnd].id})" onmouseenter="changeFavBtnColourYellow(${phoneItems.device[rnd].id})" onmouseleave="changeFavBtnColourGray(${phoneItems.device[rnd].id})">
+                    <img class="itemFavouriteBtnImg" src="../img/icons/star.png" alt="star" onclick="changeFavBtnSaved(${1}, ${phoneItems.device[rnd].id})" onmouseenter="changeFavBtnColourYellow(${phoneItems.device[rnd].id})" onmouseleave="changeFavBtnColourGray(${phoneItems.device[rnd].id})">
                 </div>
 
                 <div class="itemDetails">

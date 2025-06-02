@@ -5,70 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExpertShop - Shop</title>
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/shop-payment.css">
-    <script src="/js/main.js" defer></script>
-    <script src="/js/shop-payment.js" defer></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/shop-payment.css">
+    <script src="./js/main.js" defer></script>
+    <script src="./js/shop-payment.js" defer></script>
 </head>
 
 <body>
     <nav></nav>
     <div id="headerBox">
         <div id="headerBoxImg">
-            <img src="/img/util/whTr.png" alt="Transparent Go Around">
+            <img src="./img/util/whTr.png" alt="Transparent Go Around">
         </div>
     </div>
     <div id="accountCredentialsWrapper">
         <div id="backBtnBoxCredential">
-            <a href="/pages/account/account-signup.html"><img src="/img/util/BackBtn.png" alt="Back button"></a>
+            <a href="./pages/account/account-signup.html"><img src="./img/util/BackBtn.png" alt="Back button"></a>
         </div>
         <div id="accountCredentialsBox">
             <div id="accountCredentialsInput">
-                <div>
+                <header>
                     <h1>Shop</h1>
                     <p>Enter all the information here</p>
-                </div>
+                </header>
 
-                <div class="accountInputFields">
-                    <select name="payment-metod" id="payment-method">
-                        <option value="ExpertShop Credits" selected>ExpertShop Credits</option>
-                    </select>
-                    <p>Payment method</p>
-                </div>
-
-                <div class="accountInputFields">
-                    <input type="text" name="username" id="username" placeholder="Max Mustermann"
-                        onchange="saveUsername()">
-                    <p>Username</p>
-                </div>
                 <div class="accountInputFields">
                     <div>
-                        <input type="text" name="address" id="address" placeholder="Max-Mustermann-Straße 1"
-                            onchange="saveAddress()">
+                        <select name="payment-metod" id="payment-method">
+                            <option value="ExpertShop Credits" selected>ExpertShop Credits</option>
+                        </select>
+                        <p>Payment method</p>
+                    </div>
+
+                    <div>
+                        <input type="text" name="username" id="username" onchange="saveUsername()">
+                        <p>Username</p>
+                    </div>
+                </div>
+
+
+                <div class="accountInputFields">
+                    <div>
+                        <input type="text" name="address" id="address" onchange="saveAddress()">
                         <p>Address</p>
                     </div>
 
                     <div>
-                        <input type="text" name="location" id="location" placeholder="Mustermannhausen"
-                            onchange="saveLocation()">
+                        <input type="text" name="location" id="location" onchange="saveLocation()">
                         <p>Location</p>
                     </div>
 
                     <div>
-                        <input type="number" name="postal" id="postal" placeholder="1234" onchange="savePostal()">
+                        <input type="number" name="postal" id="postal" onchange="savePostal()">
                         <p>Postal number</p>
                     </div>
                 </div>
                 <div class="accountInputFields">
                     <div>
-                        <input type="number" name="phone-number" id="phone-number" placeholder="Max-Mustermann-Straße 1"
-                            onchange="savePhoneNumber()">
+                        <input type="number" name="phone-number" id="phone-number" onchange="savePhoneNumber()">
                         <p>Phone number</p>
                     </div>
 
                     <div>
-                        <input type="text" name="country" id="country" placeholder="Max-Mustermann-Straße 1"
-                            onchange="saveCountry()">
+                        <input type="text" name="country" id="country" onchange="saveCountry()">
                         <p>Country</p>
                     </div>
                 </div>
@@ -77,7 +76,7 @@
                 <div id="accountBtnToMove" onclick="checkPaymentInfo()">
                     <p>Finish</p>
                 </div>
-                <p>Click here to purchase your products</a></p>
+                <!-- <p>Click here to purchase your products</a></p> -->
             </div>
         </div>
     </div>

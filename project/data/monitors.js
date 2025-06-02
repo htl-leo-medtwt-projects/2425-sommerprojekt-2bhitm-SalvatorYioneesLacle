@@ -100,7 +100,7 @@ let monitors = [
         price: 260.40,
     },
     {
-        "name": "Dell UltraSharp-24-USB-C®-Hub-Monitor – U2424HE",
+        name: "Dell UltraSharp-24-USB-C®-Hub-Monitor – U2424HE",
         img: "/img/monitors/dell-ultrasharp-24-usb-c-hub.avif",
         display: {
             size: 23.8,
@@ -120,7 +120,7 @@ let monitors = [
         price: 308.40,
     },
     {
-        "name": 'Alienware 81,28 cm (32") 4K-QD-OLED-Gamingmonitor – AW3225QF',
+        name: 'Alienware 81,28 cm (32") 4K-QD-OLED-Gamingmonitor – AW3225QF',
         img: "/img/monitors/alienware-81.28-4k-qd-oled.avif",
         display: {
             size: 31.6,

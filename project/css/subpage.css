@@ -136,7 +136,7 @@
 }
 
 .itemDetailsBtn p {
-    font-family: orbitron-bold;
+    font-family: var(--btnFont);
 }
 
 .itemDetailsBtn:hover>p {
@@ -540,7 +540,7 @@ flex-wrap:wrap;
 
 #filter-saveBtn p {
     color: var(--expert);
-    font-family: orbitron-bold;
+    font-family: var(--btnFont);
     user-select: none;
 }
 
