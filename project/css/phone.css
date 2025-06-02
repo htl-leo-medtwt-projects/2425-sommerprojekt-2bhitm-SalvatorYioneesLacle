@@ -44,3 +44,10 @@
     background-size: 100%;
     width: 100%;
 }
+
+.itemBoxFrontGrid {
+    grid-template-columns: 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}

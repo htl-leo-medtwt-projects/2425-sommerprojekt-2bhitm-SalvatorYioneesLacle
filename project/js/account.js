@@ -12,6 +12,11 @@ let INPUTS = {
     username: document.getElementById('username')
 }
 
+function initPageIcon() {
+    document.getElementsByTagName('head').item(0).innerHTML += `<link rel="icon" href="../../img/logos/logo.png" type="image/x-icon" />`
+}
+initPageIcon();
+
 function initNavigationbar() {
     document.getElementsByTagName('nav').item(0).innerHTML = `
             <a id="nav-logo" href="../../index.html">

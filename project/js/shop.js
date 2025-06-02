@@ -14,6 +14,10 @@ let MAX = {
     displaySize: document.getElementById('max-displaySize')
 }
 
+function initPageIcon() {
+    document.getElementsByTagName('head').item(0).innerHTML += `<link rel="icon" href="../img/logos/logo.png" type="image/x-icon" />`
+}
+initPageIcon();
 
 function initNavigationbar() {
     let str = `

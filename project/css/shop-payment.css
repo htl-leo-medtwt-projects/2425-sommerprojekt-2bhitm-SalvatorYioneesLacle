@@ -420,7 +420,6 @@ nav #nav-logo {
 
 .accountInputFields input,
 .accountInputFields select {
-    border: none;
     outline: none;
     background-color: var(--gray);
     font-size: 1.2em;
