@@ -182,9 +182,6 @@ function getLowestDisplaySize(deviceType) {
 }
 
 function checkFilterSettings() {
-    MIN.price.value = document.getElementById('min-price').value
-    MAX.price.value = document.getElementById('max-price').value
-
     checkMinPrice()
     checkMaxPrice()
 
@@ -247,6 +244,7 @@ function addToCart(deviceType, index) {
         showWarningMessage('Log in to add to cart!')
         return;
     }
+
     let device = ITEMS.type[deviceType].device[index];
     // let itemType = ITEMS.type[deviceType];
 
@@ -255,12 +253,22 @@ function addToCart(deviceType, index) {
         localStorage['acc-isInCart'] = JSON.stringify(device.isInCart)
 
         // Check if localStorage value is null
-        localStorage['acc-cart'] != null ? USER.cart = JSON.parse(localStorage['acc-cart']) : USER.cart;
+        if (localStorage['acc-cart'] != null) {
+            USER.cart = JSON.parse(localStorage['acc-cart']);
+        }
+        if (USER.cart.item[0].onDate == null) {
+            USER.cart.item.splice(0, 1);
+        }
         USER.cart.item.push(device);
+
+        let date = new Date()
+
+        USER.cart.item[USER.cart.item.length - 1].onDate = `${date.getUTCDate()}-${date.getUTCMonth()}-${date.getUTCFullYear()}`
 
         // Assign new cart to localStorage
         localStorage['acc-cart'] = JSON.stringify(USER.cart);
         console.log(USER.cart.item);
+        console.log(USER.cart.item[USER.cart.item.length - 1].onDate);
 
         document.getElementsByClassName('toCartBtn').item(device.id).innerHTML = `<img class="toCartBtnImg" src="/img/icons/shopIcon-filled.png" alt="shop icon">`
         document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(0)'

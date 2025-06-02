@@ -37,7 +37,13 @@ let ITEMS = {
 }
 
 // onclick --> add to CART.item, save the date
-let CART = { item: [] }
+let CART = {
+    item: [
+        {
+            onDate: undefined
+        }
+    ]
+}
 
 // onclick --> add to TRANSACTIONS.item, save the date
 let TRANSACTIONS = { item: [] }

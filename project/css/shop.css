@@ -1,0 +1,524 @@
+/* Header with stripes background */
+#headerBox {
+    position: relative;
+    height: max-content;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2em 0;
+}
+
+/* whTr.png image with stripes background image */
+#headerBoxImg {
+    position: absolute;
+    top: 0;
+    background-image: url(/img/util/Shadow.png);
+    background-size: 75%;
+    z-index: -1;
+}
+
+#headerBoxImg img {
+    height: inherit;
+}
+
+/* "Content", filter + sold thing */
+#wrapper {
+    display: grid;
+    grid-template-columns: 5% 60% 1fr;
+    text-align: center;
+    padding: 1.5em 0;
+    min-height: 100vh;
+}
+
+/* Back button */
+#backBtnBox {
+    /* padding: 35%; */
+    padding-top: 0;
+    height: min-content;
+    /* background-color: rgba(255, 0, 0, 0.355); */
+}
+
+
+#backBtnBox img {
+    width: 30%;
+    width: 1.2em;
+    /* transform: scale(.3); */
+}
+
+#backBtnBox:hover img {
+    transform: scale(1.25);
+}
+
+/* Back button */
+#backBtnBoxCredential {
+    padding-top: 0;
+    height: min-content;
+}
+
+#backBtnBoxCredential:hover img {
+    transform: scale(1.4);
+}
+
+#backBtnBoxCredential:active img {
+    transform: scale(1.1);
+}
+
+/* outer filter box (no id) */
+#wrapper>div:nth-of-type(2) {
+    border-right: .1em var(--gray) solid;
+}
+
+/* transactions box with h2 element */
+#transactionsWrapper {
+    padding: 0 1.2em;
+}
+
+#transactionsWrapper h2 {
+    font-size: 1.4em;
+    font-family: orbitron-bold;
+    margin-left: auto;
+    margin-bottom: .3em;
+    width: fit-content;
+}
+
+/* transaction box */
+#transactions {
+    display: grid;
+    gap: 4.3em;
+    /* height: 100em; */
+}
+
+/* date of transaction box */
+.transactionDateBox {
+    text-align: right;
+}
+
+/* Position the transactions: now float right */
+/* .transactionPosBox {} */
+
+/* seperate transaction box */
+.transactionBox {
+    float: right;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: .3em 0;
+    width: 90%;
+    max-width: 47em;
+    height: 3em;
+    border: .1em solid var(--black);
+    overflow: hidden;
+}
+
+/* content of seperate transaction box */
+.transactionBox div {
+    height: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.transactionBox div p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-lines: 1;
+    min-width: max-content;
+}
+
+.transactionBox div:first-of-type p {
+    max-width: 5em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.transactionBox>div:first-of-type>p {
+    font-family: orbitron-extrabold;
+    text-align: left;
+}
+
+.transactionBox>div:nth-of-type(2)>p {
+    font-family: orbitron-medium;
+    word-break: keep-all;
+    min-width: max-content;
+}
+
+/* Left and right padding for device and price */
+.transactionBox div:not(.transactionBoxImg) {
+    padding: 0 2%;
+}
+
+.transactionBoxImg {
+    position: absolute;
+    top: 0;
+    background-image: url(/img/util/ShadowBlackTr.png);
+    background-size: 170%;
+    width: 100%;
+    z-index: -1;
+}
+
+.transactionBoxImg img {
+    height: inherit;
+}
+
+#accountBox {
+    height: min-content;
+    margin: 0 2.65em;
+    position: sticky;
+    top: 10em;
+}
+
+#accountBox h2 {
+    font-size: 1.8em;
+    font-family: orbitron-bold;
+    margin-left: auto;
+    margin-top: 1em;
+    margin-bottom: .5em;
+    width: fit-content;
+}
+
+
+#accountDetails {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 1.6em;
+}
+
+#accountDetails p {
+    font-size: 1.12em;
+    font-family: orbitron-medium;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+/* account pfp div */
+#accountDetails div:last-of-type {
+    position: relative;
+    background-color: transparent;
+    min-height: 5em;
+    /* height: 5em; */
+    max-height: 100%;
+}
+
+
+#accountDetails div:last-of-type:hover {
+    background-color: var(--gray);
+}
+
+/* account pfp image */
+#accountDetails img {
+    width: 5em;
+    height: inherit;
+}
+
+#accountDetails img:hover {
+    opacity: .2;
+}
+
+/* account balance + delete + log out grid box */
+#accountBtns {
+    display: grid;
+    gap: .7em;
+}
+
+/* account delete + log out styling */
+#accountBtns>div {
+    width: fit-content;
+    padding: .3em 1em;
+    margin-left: auto;
+}
+
+#accountBtns>div p {
+    font-family: orbitron-black;
+    font-size: 1.2em;
+}
+
+#accountBalance {
+    color: var(--green);
+    width: fit-content;
+    margin: 2em 0;
+    margin-left: auto;
+}
+
+#accountBalance p {
+    font-size: 1.7em;
+    font-family: orbitron-semibold;
+}
+
+#accountDelete {
+    color: var(--red);
+    border: .2em var(--red) solid;
+    user-select: none;
+    cursor: pointer;
+}
+
+#accountDelete:hover {
+    color: var(--white);
+    background-color: var(--red);
+    transform: scale(1.085);
+}
+
+#accountLogOut {
+    color: var(--white);
+    background-color: var(--expert);
+    border: .2em var(--expert) solid;
+    user-select: none;
+    cursor: pointer;
+}
+
+#accountLogOut:hover {
+    transform: scale(1.085);
+    user-select: none;
+    cursor: pointer;
+}
+
+.accountOptionBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 100vh - nav height */
+    height: calc(100vh - 4.5em);
+}
+
+.accountOptionBox>div {
+    width: 60%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+}
+
+.accountOptionText {
+    width: 100%;
+}
+
+.accountOptionText h1 {
+    font-family: Orbitron;
+    font-weight: 700;
+}
+
+.accountOptionText p {
+    font-size: .85em;
+    color: var(--darkgray);
+}
+
+.accountOptionBtn {
+    box-sizing: border-box;
+    width: max-content;
+    padding: .4em .8em;
+    background-color: var(--white);
+    border: .1em var(--gray) solid;
+    cursor: pointer;
+    user-select: none;
+}
+
+.accountOptionBtn:last-of-type {
+    background-color: var(--expert);
+    border-color: var(--expert);
+}
+
+.accountOptionBtn:hover {
+    transform: scale(1.07);
+}
+
+.accountOptionBtn p {
+    color: var(--black);
+    font-family: orbitron-extrabold;
+    font-size: 1.2em;
+}
+
+.accountOptionBtn:last-of-type p {
+    color: var(--white);
+}
+
+#accountCredentialsWrapper {
+    position: relative;
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: .1em var(--gray) solid;
+}
+
+#accountCredentialsBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 40em;
+    max-height: fit-content;
+    gap: 2.3em;
+    border-right: .1em var(--gray) solid;
+    border-bottom: .1em var(--gray) solid;
+    box-shadow: 0px 0px 15px 5px var(--lightgray);
+    padding: 1.5em 0;
+    margin-bottom: .3em;
+}
+
+#accountCredentialsBox h2 {
+    font-family: orbitron-black;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!   NOT  !!!!!!!!!!!!!!!!!!!!!!!! input tag */
+#accountCredentialsInput {
+    width: 60%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6em;
+}
+
+#accountCredentialsBox h1 {
+    font-family: Orbitron;
+    font-weight: 700;
+}
+
+#accountCredentialsBox p {
+    font-size: .85em;
+    color: var(--darkgray);
+}
+
+/* Back button */
+#backBtnBoxCredential {
+    position: absolute;
+    width: 1.2em;
+    left: 1em;
+    top: 1em;
+}
+
+.accountInputFields {
+    text-align: left;
+    color: var(--black);
+}
+
+.allPfpStuff {
+    text-align: center;
+}
+
+.allPfpStuff>div:first-of-type {
+    padding-bottom: 1em;
+}
+
+.allPfpStuff>div:last-of-type {
+    padding-top: 1em;
+}
+
+.accountInputFields input {
+    border: none;
+    outline: none;
+    background-color: var(--gray);
+    font-size: 1.2em;
+    padding: .4em .55em;
+    border: var(--simpleBorder);
+    border-color: transparent;
+    border-width: .1em;
+}
+
+.accountInputFields input:focus {
+    background-color: var(--lightgray);
+    border-color: var(--black);
+}
+
+#accountBottom {
+    width: fit-content;
+    display: grid;
+    gap: .6em;
+}
+
+#accountBottom a {
+    color: var(--expert);
+    text-decoration: none;
+}
+
+#accountBtnToMove {
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#accountBtnToMove p {
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--expert);
+    padding: var(--btnPadding);
+    width: var(--btnWidth);
+
+    color: var(--white);
+    font-size: 1.4em;
+    font-family: var(--btnFont);
+}
+
+#accountBtnToMove p:hover {
+    transform: scale(1.1);
+}
+
+#accountBtnToMove p:active {
+    transform: scale(1.03);
+}
+
+/* Background for sign out, create account, ... */
+#background {
+    position: absolute;
+    background-image: url(/img/util/Shadow.png);
+    background-size: 120%;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: -2;
+}
+
+#background img {
+    width: inherit;
+    height: inherit;
+}
+
+#accountPfpBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 21em;
+    /* box-shadow: 0px 0px 5px 4px var(--lightgray); */
+}
+
+#accountPfpBox img {
+    width: 3.7em;
+}
+
+#accountPfpBox>div {
+    border-radius: 3em;
+    cursor: pointer;
+}
+
+#accountPfpBox>div:hover {
+    box-shadow: 3px 3px 5px 1px var(--darkgray);
+}
+
+#accountPfpBox img:hover {
+    transform: scale(1.2);
+}
+
+#accountPfpBox>div:active {
+    transform: scale(.89);
+}
+
+#accountPfpTxt {
+    text-align: center;
+}
