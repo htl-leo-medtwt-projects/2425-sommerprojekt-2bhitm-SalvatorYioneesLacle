@@ -1,7 +1,7 @@
 
 // Audio
 let longPop = new Audio('./audio/long-pop.wav');
-let longPopLeave = new Audio('../audio/long-pop-leave.wav');
+let longPopLeave = new Audio('./audio/long-pop-leave.wav');
 
 
 // type 0: Laptops

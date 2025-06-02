@@ -1,3 +1,7 @@
+// Audio
+let longPop = new Audio('../audio/long-pop.wav');
+let longPopLeave = new Audio('../audio/long-pop-leave.wav');
+
 let shopDropdown = 0;
 
 let MIN = {
@@ -28,7 +32,7 @@ function initNavigationbar() {
                     <div onclick="toLogIn()">
                         <p>Log In</p>
                     </div>` : `<p>${USER.username}</p>
-                    <img src=".${USER.pfp}" alt="Profile picture of: ${USER.username}">`
+                    <img src="${USER.pfp.split(':')[0].includes('http') ? USER.pfp : '../' + USER.pfp}" alt="Profile picture of: ${USER.username}">`
         }
             </div>
             
@@ -39,6 +43,20 @@ function initNavigationbar() {
     document.getElementsByTagName('nav').item(0).innerHTML = str;
 }
 initNavigationbar()
+
+function initFooter() {
+    let str = `
+        <div id="footerBorder">
+            <img src="../img/util/WhTrWh.png" alt="gradient">
+        </div>
+        
+        <div id="footerContent">
+        
+        </div>
+    `;
+    document.getElementsByTagName('footer').item(0).innerHTML = str;
+}
+initFooter()
 
 function swapToWhiteNavIcon(icon) {
     document.getElementById(icon).innerHTML = `<img ${icon == 'partners' ? 'id="nav-partners-biggerImg"' : ''} src="../img/icons/${icon}_white.png" alt="${icon}">`
@@ -334,6 +352,46 @@ function inCartStatus() {
         document.getElementsByClassName('toCartBtnImg').item(device.id).style.filter = 'grayscale(1)'
     }
     itemType.isInCart = !itemType.isInCart;
+}
+
+function toLogIn() {
+    window.location.href = `./account/account-login.html`;
+}
+
+function toSignUp() {
+    window.location.href = `./account/account-signup.html`;
+}
+
+function toCartPage() {
+    window.location.href = `./cart.html`;
+}
+
+function toPaymentPage() {
+    window.location.href = `./shop-payment.html`;
+}
+
+function toSignUpSetupScreen() {
+    window.location.href = `./account/account-signup-setup.html`;
+}
+
+function toLogOutScreen() {
+    window.location.href = `./account/account-signout-done.html`;
+}
+
+function toAccountDeleteScreen() {
+    window.location.href = `./account/account-delete.html`;
+}
+
+function toAccountDeleteDone() {
+    window.location.href = `./account/account-delete-done.html`;
+}
+
+function toAccountOverview() {
+    window.location.href = `./account/account-overview.html`;
+}
+
+function toHomepage() {
+    window.location.href = `../index.html`;
 }
 
 

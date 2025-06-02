@@ -1,3 +1,7 @@
+// Audio
+let longPop = new Audio('./audio/long-pop.wav');
+let longPopLeave = new Audio('./audio/long-pop-leave.wav');
+
 function initNavBtnsHome() {
     document.getElementById('nav-btns').innerHTML = `
                 <a href="#btnDiv" onmouseenter="swapToWhiteNavIcon('shopIcon')" onmouseleave="swapToNormalNavIcon('shopIcon')">
@@ -12,7 +16,7 @@ function initNavBtnsHome() {
                     </div>
                     <p>Partners</p>
                 </a>
-                <a href="${USER.logInStatus ? '/pages/account/account-overview.html' : '/pages/account/account-login.html'}" onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
+                <a href="${USER.logInStatus ? './pages/account/account-overview.html' : './pages/account/account-login.html'}" onmouseenter="swapToWhiteNavIcon('check')" onmouseleave="swapToNormalNavIcon('check')">
                     <div id="check">
                         <img src="./img/icons/check.png" alt="check icon">
                     </div>

@@ -21,7 +21,7 @@
 #headerBoxImg {
     position: absolute;
     top: 0;
-    background-image: url(/img/util/Shadow.png);
+    background-image: url(../img/util/Shadow.png);
     background-size: 75%;
     z-index: -1;
 }
@@ -39,8 +39,13 @@
     display: grid;
     grid-template-columns: 1fr;
     text-align: center;
-    padding: 1.5em 0;
-    min-height: 100vh;
+    padding-top: 1.5em;
+    padding-bottom: .6em;
+    /* min-height: 100vh; */
+}
+
+nav #nav-logo {
+    width: 6em;
 }
 
 /* Back button */
@@ -103,7 +108,7 @@
     align-items: center;
     justify-content: space-between;
     margin: .3em 0;
-    width: 100%;
+    width: 85vw;
     max-width: 47em;
     height: 3em;
     border: .1em solid var(--black);
@@ -153,7 +158,7 @@
 .transactionBoxImg {
     position: absolute;
     top: 0;
-    background-image: url(/img/util/ShadowBlackTr.png);
+    background-image: url(../img/util/ShadowBlackTr.png);
     background-size: 170%;
     width: 100%;
     z-index: -1;
@@ -163,7 +168,14 @@
     height: inherit;
 }
 
+#buy-all-btn-wrapper {
+    width: min-content;
+    margin: 0 auto;
+    padding: 2em 0;
+}
+
 #buy-all-btn {
+    width: 100%;
     background-color: var(--expert);
     margin: 0 auto;
     padding: .35em .9em;
@@ -175,6 +187,7 @@
     color: var(--white);
     font-size: 1.2em;
     font-family: orbitron-bold;
+    width: max-content;
 }
 
 #buy-all-btn:hover {
@@ -480,7 +493,7 @@
 /* Background for sign out, create account, ... */
 #background {
     position: absolute;
-    background-image: url(/img/util/Shadow.png);
+    background-image: url(../img/util/Shadow.png);
     background-size: 120%;
     height: 100%;
     width: 100%;

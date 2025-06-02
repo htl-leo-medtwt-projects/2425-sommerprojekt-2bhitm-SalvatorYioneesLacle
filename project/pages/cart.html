@@ -5,25 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExpertShop - Cart</title>
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/cart.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
-    <script src="./js/main.js" defer></script>
-    <script src="./js/cart.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/cart.js" defer></script>
 </head>
 
 <body>
     <nav></nav>
     <div id="headerBox">
         <div id="headerBoxImg">
-            <img src="./img/util/whTr.png" alt="Transparent Go Around">
+            <img src="../img/util/whTr.png" alt="Transparent Go Around">
         </div>
         <h2>Cart</h2>
     </div>
     <div id="backBtnBox">
-        <a href="./index.html"><img src="./img/util/BackBtn.png" alt="Back button"></a>
+        <a href="../index.html"><img src="../img/util/BackBtn.png" alt="Back button"></a>
     </div>
     <div id="wrapper">
         <div id="transactionsWrapper">
@@ -32,8 +32,10 @@
             </div>
         </div>
 
-        <div id="buy-all-btn" onclick="toPaymentPage()">
-            <p>Buy all</p>
+        <div id="buy-all-btn-wrapper" onclick="toPaymentPage()">
+            <div id="buy-all-btn">
+                <p>Buy all</p>
+            </div>
         </div>
     </div>
     <warning>

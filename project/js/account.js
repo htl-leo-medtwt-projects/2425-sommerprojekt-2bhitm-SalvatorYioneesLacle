@@ -20,6 +20,20 @@ function initNavigationbar() {
 }
 initNavigationbar()
 
+function initFooter() {
+    let str = `
+        <div id="footerBorder">
+            <img src="../img/util/WhTrWh.png" alt="gradient">
+        </div>
+        
+        <div id="footerContent">
+        
+        </div>
+    `;
+    document.getElementsByTagName('footer').item(0).innerHTML = str;
+}
+initFooter()
+
 function isEmailValid() {
     return document.getElementById('email').value.includes('@')
         && document.getElementById('email').value.includes('.')

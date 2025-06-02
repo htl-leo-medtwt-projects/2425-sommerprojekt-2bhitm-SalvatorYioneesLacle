@@ -13,13 +13,17 @@
 #headerBoxImg {
     position: absolute;
     top: 0;
-    background-image: url(/img/util/Shadow.png);
+    background-image: url(../img/util/Shadow.png);
     background-size: 75%;
     z-index: -1;
 }
 
 #headerBoxImg img {
     height: inherit;
+}
+
+nav #nav-logo {
+    width: 6em;
 }
 
 /* "Content", filter + sold thing */
@@ -156,7 +160,7 @@
 .transactionBoxImg {
     position: absolute;
     top: 0;
-    background-image: url(/img/util/ShadowBlackTr.png);
+    background-image: url(../img/util/ShadowBlackTr.png);
     background-size: 170%;
     width: 100%;
     z-index: -1;
