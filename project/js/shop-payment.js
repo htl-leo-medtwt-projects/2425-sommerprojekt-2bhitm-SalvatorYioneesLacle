@@ -20,38 +20,29 @@ function initNavigationbar() {
 }
 initNavigationbar()
 
-function checkSignUpStage1() {
-    
+function initUsernameInput() {
+    document.getElementById('username').value = USER.username;
 }
+initUsernameInput()
 
-function checkSignUpStage2() {
-   
+function checkPaymentInfo() {
+    let temp = 0;
+    for (let i = 0; i < USER.cart.item.length; i++) {
+        temp += USER.cart.item[i].price
+    }
+
+    if (USER.money - temp < 0) {
+        showWarningMessage('Not enough funds!')
+        return;
+    }
+    USER.money -= temp;
+    localStorage['acc-money'] = JSON.stringify(USER.money)
+    console.log(USER.money);
+    
 }
 
 function saveUserData() {
-    
+
 }
 
-function toSignUpSetupScreen() {
-    window.location.href = `/pages/account/account-signup-setup.html`;
-}
 
-function toLogOutScreen() {
-    window.location.href = `/pages/account/account-signout-done.html`;
-}
-
-function toAccountDeleteScreen() {
-    window.location.href = `/pages/account/account-delete.html`;
-}
-
-function toAccountDeleteDone() {
-    window.location.href = `/pages/account/account-delete-done.html`;
-}
-
-function toAccountOverview() {
-    window.location.href = `/pages/account/account-overview.html`;
-}
-
-function toHomepage() {
-    window.location.href = `/index.html`;
-}

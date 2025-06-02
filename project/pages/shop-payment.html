@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExpertShop - Shop</title>
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/shop.css">
+    <link rel="stylesheet" href="/css/shop-payment.css">
     <script src="/js/main.js" defer></script>
     <script src="/js/shop-payment.js" defer></script>
 </head>
@@ -26,7 +26,7 @@
             <div id="accountCredentialsInput">
                 <div>
                     <h1>Shop</h1>
-                    <p>Enter your credentials here</p>
+                    <p>Enter all the information here</p>
                 </div>
 
                 <div class="accountInputFields">
@@ -41,29 +41,43 @@
                         onchange="saveUsername()">
                     <p>Username</p>
                 </div>
-
-                <div class="accountInputFields allPfpStuff">
+                <div class="accountInputFields">
                     <div>
-                        <div id="accountPfpBox"></div>
-                        <p id="accountPfpTxt">
-                            Select a profile picture
-                        </p>
+                        <input type="text" name="address" id="address" placeholder="Max-Mustermann-Straße 1"
+                            onchange="saveAddress()">
+                        <p>Address</p>
                     </div>
 
                     <div>
-                        <p>Or enter a custom profile picture here</p>
-                        <div>
-                            <input type="text" name="custom-pfp-input" id="custom-pfp-input"
-                                placeholder="https://your/url.png">
-                        </div>
+                        <input type="text" name="location" id="location" placeholder="Mustermannhausen"
+                            onchange="saveLocation()">
+                        <p>Location</p>
+                    </div>
+
+                    <div>
+                        <input type="number" name="postal" id="postal" placeholder="1234" onchange="savePostal()">
+                        <p>Postal number</p>
+                    </div>
+                </div>
+                <div class="accountInputFields">
+                    <div>
+                        <input type="number" name="phone-number" id="phone-number" placeholder="Max-Mustermann-Straße 1"
+                            onchange="savePhoneNumber()">
+                        <p>Phone number</p>
+                    </div>
+
+                    <div>
+                        <input type="text" name="country" id="country" placeholder="Max-Mustermann-Straße 1"
+                            onchange="saveCountry()">
+                        <p>Country</p>
                     </div>
                 </div>
             </div>
             <div id="accountBottom">
-                <div id="accountBtnToMove" onclick="checkSignUpStage2()">
+                <div id="accountBtnToMove" onclick="checkPaymentInfo()">
                     <p>Finish</p>
                 </div>
-                <p>Or log in with an exisitng account <a href="/pages/account/account-login.html">here</a></p>
+                <p>Click here to purchase your products</a></p>
             </div>
         </div>
     </div>

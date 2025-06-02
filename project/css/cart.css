@@ -32,9 +32,12 @@
 
 /* "Content", filter + sold thing */
 #wrapper {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: start; */
+
+    display: grid;
+    grid-template-columns: 1fr;
     text-align: center;
     padding: 1.5em 0;
     min-height: 100vh;
@@ -61,6 +64,7 @@
 /* transactions box with h2 element */
 #transactionsWrapper {
     width: 90%;
+    margin: 0 auto;
 
     display: flex;
     justify-content: center;
@@ -93,7 +97,7 @@
 
 /* seperate transaction box */
 .transactionBox {
-    float: right;
+    /* float: right; */
     position: relative;
     display: flex;
     align-items: center;
@@ -157,6 +161,28 @@
 
 .transactionBoxImg img {
     height: inherit;
+}
+
+#buy-all-btn {
+    background-color: var(--expert);
+    margin: 0 auto;
+    padding: .35em .9em;
+    height: fit-content;
+    cursor: pointer;
+}
+
+#buy-all-btn p {
+    color: var(--white);
+    font-size: 1.2em;
+    font-family: orbitron-bold;
+}
+
+#buy-all-btn:hover {
+    transform: scale(1.1);
+}
+
+#buy-all-btn:active {
+    transform: scale(1.02);
 }
 
 #accountBox {

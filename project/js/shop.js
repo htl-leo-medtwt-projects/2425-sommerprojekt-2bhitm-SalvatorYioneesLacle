@@ -262,7 +262,6 @@ function addToCart(deviceType, index) {
         USER.cart.item.push(device);
 
         let date = new Date()
-
         USER.cart.item[USER.cart.item.length - 1].onDate = `${date.getUTCDate()}-${date.getUTCMonth()}-${date.getUTCFullYear()}`
 
         // Assign new cart to localStorage

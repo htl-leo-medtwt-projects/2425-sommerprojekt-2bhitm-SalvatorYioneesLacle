@@ -157,6 +157,34 @@ function toCartPage() {
     window.location.href = `/pages/cart.html`;
 }
 
+function toPaymentPage() {
+    window.location.href = `/pages/shop-payment.html`;
+}
+
+function toSignUpSetupScreen() {
+    window.location.href = `/pages/account/account-signup-setup.html`;
+}
+
+function toLogOutScreen() {
+    window.location.href = `/pages/account/account-signout-done.html`;
+}
+
+function toAccountDeleteScreen() {
+    window.location.href = `/pages/account/account-delete.html`;
+}
+
+function toAccountDeleteDone() {
+    window.location.href = `/pages/account/account-delete-done.html`;
+}
+
+function toAccountOverview() {
+    window.location.href = `/pages/account/account-overview.html`;
+}
+
+function toHomepage() {
+    window.location.href = `/index.html`;
+}
+
 function showWarningMessage(msg) {
     let timeout = setTimeout(removeWarning, 5000);
 

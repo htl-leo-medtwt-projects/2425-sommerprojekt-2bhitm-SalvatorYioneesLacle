@@ -449,13 +449,6 @@ flex-wrap:wrap;
     border: none;
 }
 
-#filterBox input::-webkit-outer-spin-button,
-#filterBox input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    appearance: none;
-    margin: 0;
-}
-
 /* Setting headers box */
 .filterHeaders {
     width: 100%;

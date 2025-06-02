@@ -405,6 +405,13 @@
     color: var(--black);
 }
 
+.accountInputFields>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .allPfpStuff {
     text-align: center;
 }
@@ -417,7 +424,8 @@
     padding-top: 1em;
 }
 
-.accountInputFields input {
+.accountInputFields input,
+.accountInputFields select {
     border: none;
     outline: none;
     background-color: var(--gray);
@@ -428,7 +436,8 @@
     border-width: .1em;
 }
 
-.accountInputFields input:focus {
+.accountInputFields input:focus,
+.accountInputFields select:focus {
     background-color: var(--lightgray);
     border-color: var(--black);
 }
