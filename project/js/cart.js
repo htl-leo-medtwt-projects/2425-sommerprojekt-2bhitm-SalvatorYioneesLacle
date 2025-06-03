@@ -136,6 +136,9 @@ function removeFromCart(docId) {
 
     setTimeout(() => {
         document.getElementById(`transaction-${docId}`).outerHTML = '';
+        if (getTotalPrice() == 0) {
+            document.getElementById('transactionsWrapper').innerHTML = '';
+        }
     }, 2000)
 
     initTotalPrice()
@@ -153,7 +156,7 @@ function getTotalPrice() {
 }
 
 function initTotalPrice() {
-    document.getElementsByClassName('monetaryText').item(0).innerHTML = `<p>${getTotalPrice() <= 0 || getTotalPrice() == null ? 'There is nothing to see...' : `${getTotalPrice()} €`}</p>`
+    document.getElementsByClassName('monetaryText').item(0).innerHTML = `<p>${getTotalPrice() <= 0 || getTotalPrice() == null ? 'There is nothing to see...' : `${getTotalPrice().toFixed(2)} €`}</p>`
 }
 
 function checkMoney() {
@@ -166,6 +169,12 @@ function checkMoney() {
         showWarningMessage('Not enough funds!')
         return;
     }
+
+    if (temp <= 0) {
+        showWarningMessage('No products to buy!')
+        return;
+    }
+
     USER.money -= temp;
     localStorage['acc-money'] = JSON.stringify(USER.money)
     console.log(USER.money);

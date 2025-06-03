@@ -152,7 +152,7 @@ function deleteAccount() {
     localStorage['acc-money'] = 0
     localStorage['acc-cart'] = null
     localStorage['acc-favourites'] = null
-    localStorage['acc-logInStatus'] = USER.logInStatus
+    localStorage['acc-logInStatus'] = USER.logInStatus;
 
     toHomepage()
 }
@@ -209,7 +209,7 @@ function savePfp(index) {
 }
 
 function saveCustomPfp() {
-    TEMP.pfp = `${"ownURL"}`
+    TEMP.pfp = document.getElementById('custom-pfp-input').value
     console.log(TEMP.pfp);
 }
 

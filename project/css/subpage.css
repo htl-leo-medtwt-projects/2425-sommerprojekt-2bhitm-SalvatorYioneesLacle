@@ -613,7 +613,7 @@ flex-wrap:wrap;
 
     #filter-saveBtn {
         background-color: var(--expert);
-        height: 100%;
+        min-height: 100%;
     }
 
     #filter-saveBtn p {

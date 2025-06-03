@@ -9,7 +9,7 @@ function initAccountOverview() {
     `;
 
     document.getElementById('accountBalance').innerHTML = `
-        <p>${USER.money} €</p>
+        <p>${USER.money.toFixed(2)} €</p>
     `;
 }
 initAccountOverview()

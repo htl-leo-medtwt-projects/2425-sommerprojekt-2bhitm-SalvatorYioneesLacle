@@ -182,7 +182,7 @@ function changeFavBtnSaved(deviceType, index) {
             document.getElementsByClassName('itemFavouriteBtnImg').item(index).style.filter = `grayscale(1)`
         }
     } else {
-        showWarningMessage('Log in to save!')
+        showWarningMessage('Log in to save!');
     }
 }
 
@@ -190,8 +190,8 @@ function getHighestPrice(deviceType) {
     let price = 0;
     for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
         if (ITEMS.type[deviceType].device[i].price > price) {
-            price = ITEMS.type[deviceType].device[i].price
-            MAX.price.value = price
+            price = ITEMS.type[deviceType].device[i].price;
+            MAX.price.value = price;
         }
     }
     console.log(MAX.price.value);
@@ -202,8 +202,8 @@ function getLowestPrice(deviceType) {
     let price = 99999999;
     for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
         if (ITEMS.type[deviceType].device[i].price < price) {
-            price = ITEMS.type[deviceType].device[i].price
-            MIN.price.value = price
+            price = ITEMS.type[deviceType].device[i].price;
+            MIN.price.value = price;
         }
     }
     console.log(MIN.price.value);

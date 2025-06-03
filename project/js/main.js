@@ -192,7 +192,7 @@ function removeWarning() {
         }
     }, 400);
 
-    console.log("Warning pop-ups after timeout: " + WARNING.count);
+    console.log("Warning pop-ups 'after' timeout: " + WARNING.count);
 }
 
 // INIT GSAP SCROLL PLUGIN

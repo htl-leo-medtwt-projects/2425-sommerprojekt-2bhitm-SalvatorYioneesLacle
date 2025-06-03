@@ -16,7 +16,7 @@ function initNavigationbar() {
             <div id="nav-btns">
                 
             </div>
-            <div id="nav-account" ${USER.logInStatus  ? 'onclick="toAccountOverview()"' : ''}>
+            <div id="nav-account" ${USER.logInStatus ? 'onclick="toAccountOverview()"' : ''}>
                 ${USER.logInStatus == false ? `
                     <div onclick="toSignUp()">
                         <p>Sign Up</p>
