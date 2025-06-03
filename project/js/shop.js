@@ -222,6 +222,7 @@ function getHighestDisplaySize(deviceType) {
         }
     }
     console.log(MAX.displaySize.value);
+    outputMaxDispSize()
     return displaySize;
 }
 
@@ -237,6 +238,7 @@ function getLowestDisplaySize(deviceType) {
         }
     }
     console.log(MIN.displaySize.value);
+    outputMinDispSize()
     return displaySize;
 }
 
@@ -251,8 +253,16 @@ function checkFilterSettings() {
     initAnimations()
 }
 
+
 function isInPriceArea(deviceType, index) {
     if (ITEMS.type[deviceType].device[index].price >= MIN.price.value && ITEMS.type[deviceType].device[index].price <= MAX.price.value) {
+        return true;
+    }
+    return false;
+}
+
+function isInDispSizeArea(deviceType, index) {
+    if (ITEMS.type[deviceType].device[index].displaySize >= MIN.displaySize.value && ITEMS.type[deviceType].device[index].displaySize <= MAX.displaySize.value) {
         return true;
     }
     return false;
@@ -279,12 +289,12 @@ function checkMaxPrice() {
 }
 
 function outputMinDispSize() {
-    document.getElementById('min-displaySize-value').innerHTML = `<p>Min: ${MIN.displaySize.value}</p>`
+    document.getElementById('min-displaySize-value').innerHTML = `<p>Min: ${MIN.displaySize.value}"</p>`
     console.log("E");
 }
 
 function outputMaxDispSize() {
-    document.getElementById('max-displaySize-value').innerHTML = `<p>Max: ${MAX.displaySize.value}</p>`
+    document.getElementById('max-displaySize-value').innerHTML = `<p>Max: ${MAX.displaySize.value}"</p>`
     console.log("F");
 }
 
@@ -321,7 +331,7 @@ function addToCart(deviceType, index) {
         USER.cart.item.push(device);
 
         let date = new Date()
-        USER.cart.item[USER.cart.item.length - 1].onDate = `${date.getUTCDate()}-${date.getUTCMonth()}-${date.getUTCFullYear()}`
+        USER.cart.item[USER.cart.item.length - 1].onDate = `${date.getUTCDate()}-${date.getUTCMonth() + 1 /* Remove +1 when it works again */}-${date.getUTCFullYear()}`
 
         // Assign new cart to localStorage
         localStorage['acc-cart'] = JSON.stringify(USER.cart);
@@ -401,3 +411,27 @@ function toHomepage() {
 
 // If displayRes == 1200: WUXGA
 // 1280 = WUXGA+
+
+// REGISTER ANIMATION
+function generateScrollAnimation(i) {
+    let element = sections[i];
+
+    /* SET START KEY FRAME */
+    gsap.set(element, {
+        y: '20%',
+        opacity: 0
+    });
+
+    /* SET END KEY FRAME */
+    gsap.to(element, {
+        x: 0,
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 1.1,
+        scrollTrigger: {
+            trigger: element,
+            start: '0% 85%',  /* 'Ankerpunkt Offset' */
+        }
+    });
+}

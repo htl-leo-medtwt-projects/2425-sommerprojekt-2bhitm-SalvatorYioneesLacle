@@ -41,7 +41,7 @@
     text-align: center;
     padding-top: 1.5em;
     padding-bottom: .6em;
-    /* min-height: 100vh; */
+    min-height: 40vh;
 }
 
 nav #nav-logo {
@@ -69,20 +69,19 @@ nav #nav-logo {
 /* transactions box with h2 element */
 #transactionsWrapper {
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 3em auto;
 
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     flex-wrap: wrap;
     height: fit-content;
 }
 
-#transactionsWrapper h2 {
+#transactionsWrapper h2:not(.filterHeaders h2) {
     font-size: 1.4em;
     font-family: orbitron-bold;
     margin-left: auto;
-    margin-bottom: .3em;
     width: 100%;
 }
 
@@ -113,6 +112,8 @@ nav #nav-logo {
     height: 3em;
     border: .1em solid var(--black);
     overflow: hidden;
+    transition: all 2s ease;
+    left: 0;
 }
 
 /* content of seperate transaction box */
@@ -168,34 +169,78 @@ nav #nav-logo {
     height: inherit;
 }
 
-#buy-all-btn-wrapper {
-    width: min-content;
+/* Setting headers box */
+.filterHeaders {
+    width: 100%;
+    border-bottom: .02em var(--expert) solid;
+    padding: .15em .2em;
+}
+
+/* Setting headers */
+.filterHeaders h2 {
+    font-family: orbitron-bold;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--expert);
+}
+
+#totalPrice {
+    width: 25%;
+    /* min-width: 10em; */
+    min-height: 8em;
     margin: 0 auto;
-    padding: 2em 0;
+    box-shadow: 0px 0px .12em var(--darkgray), inset 0px 0px .2em var(--gray);
+    border-right: .1em var(--gray) solid;
+    border-bottom: .1em var(--gray) solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+
+.monetaryBoxes {
+    width: 100%;
+    padding: .3em .8em;
+    text-align: right;
+}
+
+.monetaryText {
+    width: 98%;
+    padding-top: .2em;
+    margin: 0 auto;
+}
+
+.monetaryText p {
+    color: var(--black);
+    font-family: var(--btnFont);
+    font-size: 1.8em;
 }
 
 #buy-all-btn {
     width: 100%;
-    background-color: var(--expert);
-    margin: 0 auto;
-    padding: .35em .9em;
-    height: fit-content;
+    padding: .3em .65em;
+    background-color: var(--white);
     cursor: pointer;
 }
 
 #buy-all-btn p {
-    color: var(--white);
-    font-size: 1.2em;
-    font-family: orbitron-bold;
-    width: max-content;
+    color: var(--expert);
+    font-family: var(--btnFont);
+    user-select: none;
 }
 
 #buy-all-btn:hover {
-    transform: scale(1.1);
+    background-color: var(--expert);
 }
 
-#buy-all-btn:active {
-    transform: scale(1.02);
+#buy-all-btn:hover p {
+    color: var(--white);
+    transform: scale(1.15);
+}
+
+#buy-all-btn:active p {
+    transform: scale(1.05);
 }
 
 #accountBox {
@@ -273,13 +318,6 @@ nav #nav-logo {
 #accountBtns>div p {
     font-family: orbitron-black;
     font-size: 1.2em;
-}
-
-#accountBalance {
-    color: var(--green);
-    width: fit-content;
-    margin: 2em 0;
-    margin-left: auto;
 }
 
 #accountBalance p {

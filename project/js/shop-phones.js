@@ -20,11 +20,51 @@ function initDevices() {
 }
 initDevices()
 
+function getHighestDisplaySize() {
+    let displaySize = 0;
+    for (let i = 0; i < details.diagonal.length; i++) {
+        if (details.diagonal[i].mm > displaySize) {
+            displaySize = details.diagonal[i].mm
+            MAX.displaySize.value = displaySize
+
+            MIN.displaySize.max = displaySize;
+            MAX.displaySize.max = displaySize;
+        }
+    }
+    console.log(MAX.displaySize.value);
+    outputMaxDispSize()
+    return displaySize;
+}
+
+function getLowestDisplaySize() {
+    let displaySize = 99999999;
+    for (let i = 0; i < details.diagonal.length; i++) {
+        if (details.diagonal[i].mm < displaySize) {
+            displaySize =details.diagonal[i].mm
+            MIN.displaySize.value = displaySize
+
+            MIN.displaySize.min = displaySize;
+            MAX.displaySize.min = displaySize;
+        }
+    }
+    console.log(MIN.displaySize.value);
+    outputMinDispSize()
+    return displaySize;
+}
+
+
+function isInDispSizeArea(deviceType, index) {
+    if (details.diagonal[ITEMS.type[deviceType].device[index].display.diagonal].mm >= MIN.displaySize.value && details.diagonal[ITEMS.type[deviceType].device[index].display.diagonal].mm <= MAX.displaySize.value) {
+        return true;
+    }
+    return false;
+}
+
 function initFilterValues() {
     getLowestPrice(1);
     getHighestPrice(1);
-    getLowestDisplaySize(1);
-    getHighestDisplaySize(1);
+    getLowestDisplaySize();
+    getHighestDisplaySize();
 }
 initFilterValues()
 
@@ -46,7 +86,7 @@ function initItemBoxes() {
         phoneItems.device[rnd].id = i;
         // console.log(phoneItems.device[rnd].id);
 
-        if (isInPriceArea(1, rnd)) {
+        if (isInPriceArea(1, rnd) && isInDispSizeArea(1, rnd)) {
             str += `
             <div class="itemBox scrollReveal">
                 <div class="itemBoxFront">
@@ -88,11 +128,19 @@ function initItemBoxes() {
                                 </div>
                                 <div>
                                     <h2>Display</h2>
-                                    <p>${details.display[phoneItems.device[rnd].display.type]}, ${details.diagonal[phoneItems.device[rnd].display.diagonal].zoll}"</p>
+                                    <p>${details.display[phoneItems.device[rnd].display.type]}</p>
+                                </div>
+                                <div>
+                                    <h2>Display diameter</h2>
+                                    <p>${details.diagonal[phoneItems.device[rnd].display.diagonal].mm} mm</p>
                                 </div>
                                 <div>
                                     <h2>RAM</h2>
-                                    <p>${phoneItems.device[rnd].ram} GB</p>
+                                    <p>${phoneItems.device[rnd].RAM} GB</p>
+                                </div>
+                                <div>
+                                    <h2>ROM</h2>
+                                    <p>${phoneItems.device[rnd].ROM} GB</p>
                                 </div>
                             </div>
                         </div>
@@ -145,6 +193,15 @@ function showDeviceDetails(index) {
     console.log(phoneItems.isDetailsPressed[index]);
 }
 
+function outputMinDispSize() {
+    document.getElementById('min-displaySize-value').innerHTML = `<p>Min: ${MIN.displaySize.value} mm</p>`
+    console.log("E");
+}
+
+function outputMaxDispSize() {
+    document.getElementById('max-displaySize-value').innerHTML = `<p>Max: ${MAX.displaySize.value} mm</p>`
+    console.log("F");
+}
 
 // INIT GSAP SCROLL PLUGIN
 gsap.registerPlugin(ScrollTrigger);
@@ -158,27 +215,3 @@ function initAnimations() {
     }
 }
 initAnimations()
-
-// REGISTER ANIMATION
-function generateScrollAnimation(i) {
-    let element = sections[i];
-
-    /* SET START KEY FRAME */
-    gsap.set(element, {
-        y: '20%',
-        opacity: 0
-    });
-
-    /* SET END KEY FRAME */
-    gsap.to(element, {
-        x: 0,
-        y: 0,
-        scale: 1,
-        opacity: 1,
-        duration: 1.1,
-        scrollTrigger: {
-            trigger: element,
-            start: '0% 55%',  /* 'Ankerpunkt Offset' */
-        }
-    });
-}

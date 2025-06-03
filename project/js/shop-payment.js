@@ -35,30 +35,8 @@ function initUsernameInput() {
 }
 initUsernameInput()
 
-//  a mess
 function pay() {
     checkInputFields()
-}
-
-function checkPaymentInfo() {
-    let temp = 0;
-    for (let i = 0; i < USER.cart.item.length; i++) {
-        temp += USER.cart.item[i].price
-    }
-
-    if (USER.money - temp < 0) {
-        showWarningMessage('Not enough funds!')
-        return;
-    }
-    USER.money -= temp;
-    localStorage['acc-money'] = JSON.stringify(USER.money)
-    console.log(USER.money);
-
-    USER.cart = [{ onDate: undefined }]
-    localStorage['acc-cart'] = JSON.stringify(USER.cart)
-    console.log(localStorage['acc-cart']);
-
-    toSuccessfullPurchasePage()
 }
 
 function toHomepage() {
@@ -82,7 +60,16 @@ function checkInputFields() {
     }
 
     if (canContinue) {
-        checkPaymentInfo()
+        USER.cart.item.splice(0);
+        USER.cart = {
+            item: [
+                {
+                    onDate: undefined
+                }
+            ]
+        }
+        localStorage['acc-cart'] = JSON.stringify(USER.cart)
+        toSuccessfullPurchasePage()
     }
 }
 

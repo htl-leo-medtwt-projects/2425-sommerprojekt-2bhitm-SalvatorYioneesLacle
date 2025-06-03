@@ -44,10 +44,41 @@ function initFooter() {
 }
 initFooter()
 
+function initWrapper() {
+    document.getElementById('wrapper').innerHTML = `
+        <div id="transactionsWrapper">
+            <div id="transactions">
+
+            </div>
+            <div id="totalPrice">
+                <div class="monetaryBoxes">
+                    <div class="filterHeaders">
+                        <h2>Total Price</h2>
+                    </div>
+                    <div class="monetaryText">
+                        <p>${getTotalPrice() <= 0 || getTotalPrice() == null ? 'There is nothing to see...' : `${getTotalPrice()} €`}</p>
+                    </div>
+                </div>
+                <div class="monetaryBoxes">
+                    <div class="filterHeaders">
+                        <h2>Your balance</h2>
+                    </div>
+                    <div class="monetaryText">
+                        <p>${`${USER.money} €`}</p>
+                    </div>
+                </div>
+                <div id="buy-all-btn" onclick="checkMoney()">
+                    <p>Buy all</p>
+                </div>
+            </div>
+        </div>
+    `
+}
+initWrapper()
+
 function initCartTemplate() {
     // Transaction Dates
     let strTransactionDates = '';
-    let strTransactionBoxes = '';
 
     for (let i = USER.cart.item.length - 1; i > 0; i--) {
         if (i == USER.cart.item.length - 1) {
@@ -58,16 +89,20 @@ function initCartTemplate() {
                     </div>
                 </div>
                 `;
+            console.log('transaction added');
         }
 
-        if (USER.cart.item[i].onDate != USER.cart.item[i - 1].onDate) {
-            strTransactionDates += `
+        if (i >= 1) {
+            if (USER.cart.item[i].onDate != USER.cart.item[i - 1].onDate) {
+                strTransactionDates += `
                 <div class="transactionDateBox">
                     <div>${USER.cart.item[i - 1].onDate}</div>
                     <div class="transactionPosBox" id="on-${USER.cart.item[i - 1].onDate}">
                     </div>
                 </div>
                 `;
+                console.log('transaction added');
+            }
         }
     }
     document.getElementById('transactions').innerHTML = strTransactionDates;
@@ -77,7 +112,7 @@ initCartTemplate()
 function initDevices() {
     for (let i = USER.cart.item.length - 1; i >= 0; i--) {
         document.getElementById(`on-${USER.cart.item[i].onDate}`).innerHTML += `
-            <div class="transactionBox" id="transaction-0">
+            <div class="transactionBox" id="transaction-${i}" onclick="removeFromCart(${i})">
                 <div>
                     <p>${USER.cart.item[i].name}</p>
                 </div>
@@ -91,6 +126,46 @@ function initDevices() {
     }
 }
 initDevices()
+
+function removeFromCart(docId) {
+    document.getElementById(`transaction-${docId}`).style.left = '-100vw';
+    USER.cart.item.splice(docId, 1);
+    localStorage['acc-cart'] = JSON.stringify(USER.cart)
+    console.log(localStorage['acc-cart']);
+
+    getTotalPrice()
+}
+
+function getTotalPrice() {
+    let temp = 0;
+    if (!USER.cart.item) {
+        return null;
+    }
+    for (let i = 0; i < USER.cart.item.length; i++) {
+        temp += USER.cart.item[i].price
+    }
+    return temp;
+}
+
+function checkMoney() {
+    let temp = 0;
+    for (let i = 0; i < USER.cart.item.length; i++) {
+        temp += USER.cart.item[i].price
+    }
+
+    if (USER.money - temp < 0) {
+        showWarningMessage('Not enough funds!')
+        return;
+    }
+    USER.money -= temp;
+    localStorage['acc-money'] = JSON.stringify(USER.money)
+    console.log(USER.money);
+
+    localStorage['acc-cart'] = JSON.stringify(USER.cart)
+    console.log(localStorage['acc-cart']);
+
+    toPaymentPage()
+}
 
 function toPaymentPage() {
     window.location.href = `./shop-payment.html`;

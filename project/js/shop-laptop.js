@@ -45,7 +45,7 @@ function initItemBoxes() {
         laptopItems.device[rnd].id = i;
         // console.log(laptopItems.device[rnd].id);
 
-        if (isInPriceArea(0, rnd)) {
+        if (isInPriceArea(0, rnd) && isInDispSizeArea(0, rnd)) {
             str += `
             <div class="itemBox scrollReveal">
                 <div class="itemBoxFront">
@@ -216,30 +216,6 @@ function initAnimations() {
     }
 }
 initAnimations()
-
-// REGISTER ANIMATION
-function generateScrollAnimation(i) {
-    let element = sections[i];
-
-    /* SET START KEY FRAME */
-    gsap.set(element, {
-        y: '20%',
-        opacity: 0
-    });
-
-    /* SET END KEY FRAME */
-    gsap.to(element, {
-        x: 0,
-        y: 0,
-        scale: 1,
-        opacity: 1,
-        duration: 1.1,
-        scrollTrigger: {
-            trigger: element,
-            start: '0% 85%',  /* 'Ankerpunkt Offset' */
-        }
-    });
-}
 
 let detailsBtnSections = document.querySelectorAll('.itemDetailsBtnText');
 for (let i = 0; i < detailsBtnSections.length; i++) {

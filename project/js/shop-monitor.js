@@ -18,6 +18,45 @@ function initDevices() {
 }
 initDevices()
 
+function getHighestDisplaySize(deviceType) {
+    let displaySize = 0;
+    for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
+        if (ITEMS.type[deviceType].device[i].display.size > displaySize) {
+            displaySize = ITEMS.type[deviceType].device[i].display.size
+            MAX.displaySize.value = displaySize
+
+            MIN.displaySize.max = displaySize;
+            MAX.displaySize.max = displaySize;
+        }
+    }
+    console.log(MAX.displaySize.value);
+    outputMaxDispSize()
+    return displaySize;
+}
+
+function getLowestDisplaySize(deviceType) {
+    let displaySize = 99999999;
+    for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
+        if (ITEMS.type[deviceType].device[i].display.size < displaySize) {
+            displaySize = ITEMS.type[deviceType].device[i].display.size
+            MIN.displaySize.value = displaySize
+
+            MIN.displaySize.min = displaySize;
+            MAX.displaySize.min = displaySize;
+        }
+    }
+    console.log(MIN.displaySize.value);
+    outputMinDispSize()
+    return displaySize;
+}
+
+function isInDispSizeArea(deviceType, index) {
+    if (ITEMS.type[deviceType].device[index].display.size >= MIN.displaySize.value && ITEMS.type[deviceType].device[index].display.size <= MAX.displaySize.value) {
+        return true;
+    }
+    return false;
+}
+
 function initFilterValues() {
     getLowestPrice(2);
     getHighestPrice(2);
@@ -44,7 +83,7 @@ function initItemBoxes() {
         monitorItems.device[rnd].id = i;
         // console.log(monitorItems.device[rnd].id);
 
-        if (isInPriceArea(2, rnd)) {
+        if (isInPriceArea(2, rnd) && isInDispSizeArea(2, rnd)) {
             str += `
             <div class="itemBox scrollReveal">
                 <div class="itemBoxFront">
@@ -199,30 +238,6 @@ function initAnimations() {
     }
 }
 initAnimations()
-
-// REGISTER ANIMATION
-function generateScrollAnimation(i) {
-    let element = sections[i];
-
-    /* SET START KEY FRAME */
-    gsap.set(element, {
-        y: '20%',
-        opacity: 0
-    });
-
-    /* SET END KEY FRAME */
-    gsap.to(element, {
-        x: 0,
-        y: 0,
-        scale: 1,
-        opacity: 1,
-        duration: 1.1,
-        scrollTrigger: {
-            trigger: element,
-            start: '0% 55%',  /* 'Ankerpunkt Offset' */
-        }
-    });
-}
 
 let detailsBtnSections = document.querySelectorAll('.itemDetailsBtnText');
 for (let i = 0; i < detailsBtnSections.length; i++) {
