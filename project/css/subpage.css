@@ -613,7 +613,7 @@ flex-wrap:wrap;
 
     #filter-saveBtn {
         background-color: var(--expert);
-        align-items: center;
+        height: 100%;
     }
 
     #filter-saveBtn p {

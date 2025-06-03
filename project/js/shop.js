@@ -27,7 +27,7 @@ function initNavigationbar() {
             <div id="nav-btns">
                 
             </div>
-            <div id="nav-account">
+            <div id="nav-account" ${USER.logInStatus ? 'onclick="toAccountOverview()"' : ''}>
                 ${USER.logInStatus == false ? `
                     <div onclick="toSignUp()">
                         <p>Sign Up</p>
@@ -215,10 +215,10 @@ function getHighestDisplaySize(deviceType) {
     for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
         if (ITEMS.type[deviceType].device[i].displaySize > displaySize) {
             displaySize = ITEMS.type[deviceType].device[i].displaySize
-            MAX.displaySize.value = displaySize
 
             MIN.displaySize.max = displaySize;
             MAX.displaySize.max = displaySize;
+            MAX.displaySize.value = displaySize
         }
     }
     console.log(MAX.displaySize.value);
@@ -231,12 +231,13 @@ function getLowestDisplaySize(deviceType) {
     for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
         if (ITEMS.type[deviceType].device[i].displaySize < displaySize) {
             displaySize = ITEMS.type[deviceType].device[i].displaySize
-            MIN.displaySize.value = displaySize
 
             MIN.displaySize.min = displaySize;
             MAX.displaySize.min = displaySize;
+            MIN.displaySize.value = displaySize
         }
     }
+
     console.log(MIN.displaySize.value);
     outputMinDispSize()
     return displaySize;

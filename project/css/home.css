@@ -195,3 +195,19 @@
     font-size: 1.5em;
     letter-spacing: .03em;
 }
+
+@media screen and (max-width: 1250px) {
+    #btnDiv h3 {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    #btnDiv h3 {
+        font-size: 1.4em;
+    }
+
+    #btnDiv p {
+        font-size: 1em;
+    }
+}

@@ -10,7 +10,7 @@ function initNavigationbar() {
                 <img src="../img/logos/logo.png" alt="ExpertShop logo">
             </a>
 
-            <div id="nav-account">
+            <div id="nav-account" ${USER.logInStatus  ? 'onclick="toAccountOverview()"' : ''}>
                 ${USER.logInStatus == false ? `
                     <div onclick="toSignUp()">
                         <p>Sign Up</p>

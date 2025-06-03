@@ -10,7 +10,7 @@ function initNavigationbar() {
                 <img src="../img/logos/logo.png" alt="ExpertShop logo">
             </a>
 
-            <div id="nav-account">
+            <div id="nav-account" ${USER.logInStatus ? 'onclick="toAccountOverview()"' : ''}>
                 ${USER.logInStatus == false ? `
                     <div onclick="toSignUp()">
                         <p>Sign Up</p>
@@ -56,7 +56,7 @@ function initWrapper() {
                         <h2>Total Price</h2>
                     </div>
                     <div class="monetaryText">
-                        <p>${getTotalPrice() <= 0 || getTotalPrice() == null ? 'There is nothing to see...' : `${getTotalPrice()} €`}</p>
+
                     </div>
                 </div>
                 <div class="monetaryBoxes">
@@ -72,7 +72,8 @@ function initWrapper() {
                 </div>
             </div>
         </div>
-    `
+    `;
+    initTotalPrice()
 }
 initWrapper()
 
@@ -80,7 +81,7 @@ function initCartTemplate() {
     // Transaction Dates
     let strTransactionDates = '';
 
-    for (let i = USER.cart.item.length - 1; i > 0; i--) {
+    for (let i = USER.cart.item.length - 1; i >= 0; i--) {
         if (i == USER.cart.item.length - 1) {
             strTransactionDates += `
                 <div class="transactionDateBox">
@@ -133,7 +134,11 @@ function removeFromCart(docId) {
     localStorage['acc-cart'] = JSON.stringify(USER.cart)
     console.log(localStorage['acc-cart']);
 
-    getTotalPrice()
+    setTimeout(() => {
+        document.getElementById(`transaction-${docId}`).outerHTML = '';
+    }, 2000)
+
+    initTotalPrice()
 }
 
 function getTotalPrice() {
@@ -145,6 +150,10 @@ function getTotalPrice() {
         temp += USER.cart.item[i].price
     }
     return temp;
+}
+
+function initTotalPrice() {
+    document.getElementsByClassName('monetaryText').item(0).innerHTML = `<p>${getTotalPrice() <= 0 || getTotalPrice() == null ? 'There is nothing to see...' : `${getTotalPrice()} €`}</p>`
 }
 
 function checkMoney() {
@@ -165,6 +174,10 @@ function checkMoney() {
     console.log(localStorage['acc-cart']);
 
     toPaymentPage()
+}
+
+function toAccountOverview() {
+    window.location.href = `./account/account-overview.html`;
 }
 
 function toPaymentPage() {

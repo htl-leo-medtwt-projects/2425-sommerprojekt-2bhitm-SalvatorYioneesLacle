@@ -23,10 +23,10 @@ function getHighestDisplaySize(deviceType) {
     for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
         if (ITEMS.type[deviceType].device[i].display.size > displaySize) {
             displaySize = ITEMS.type[deviceType].device[i].display.size
-            MAX.displaySize.value = displaySize
 
             MIN.displaySize.max = displaySize;
             MAX.displaySize.max = displaySize;
+            MAX.displaySize.value = displaySize
         }
     }
     console.log(MAX.displaySize.value);
@@ -39,10 +39,10 @@ function getLowestDisplaySize(deviceType) {
     for (let i = 0; i < ITEMS.type[deviceType].device.length; i++) {
         if (ITEMS.type[deviceType].device[i].display.size < displaySize) {
             displaySize = ITEMS.type[deviceType].device[i].display.size
-            MIN.displaySize.value = displaySize
 
             MIN.displaySize.min = displaySize;
             MAX.displaySize.min = displaySize;
+            MIN.displaySize.value = displaySize
         }
     }
     console.log(MIN.displaySize.value);

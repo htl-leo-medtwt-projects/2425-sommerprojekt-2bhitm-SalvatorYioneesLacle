@@ -171,6 +171,9 @@ nav #nav-account {
     align-items: center;
     text-align: right;
     gap: 1.5em;
+    cursor: pointer;
+    user-select: none;
+    transform-origin: right;
 }
 
 nav #nav-account img {
