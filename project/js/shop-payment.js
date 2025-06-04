@@ -94,6 +94,22 @@ function checkInputFields() {
     }
 }
 
+function changeNavLogoCart() {
+    document.getElementById('nav-logo').innerHTML = `<img src="../img/logos/logo${USER.darkMode == true ? '_dark' : ''}.png" alt="ExpertShop logo">`;
+    document.getElementById('nav-items').innerHTML = `<img src="../img/icons/shopping-cart${USER.darkMode == true ? '-white' : ''}.png" alt="shopping cart">`
+}
+
+function initDarkModeBtn() {
+    document.getElementsByTagName('darkmode').item(0).innerHTML = `
+    <div id="darkMode-wrapper">
+        <div id="darkMode-btn" onclick="darkMode()">
+            <img src="../img/icons/darkmode_${USER.darkMode == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">
+        </div>
+    </div>
+ `;
+}
+initDarkModeBtn()
+
 function toCartPage() {
     window.location.href = `./cart.html`;
 }

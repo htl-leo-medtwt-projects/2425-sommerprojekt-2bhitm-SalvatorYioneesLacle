@@ -60,7 +60,7 @@ let USER = {
     transactions: localStorage['acc-transactions'] != null ? JSON.parse(localStorage['acc-transactions']) : TRANSACTIONS,
     favourites: localStorage['acc-favourites'] != null ? JSON.parse(localStorage['acc-favourites']) : FAVOURITES,
     logInStatus: localStorage['acc-logInStatus'] == 'false' || localStorage['acc-logInStatus'] == null ? false : true,
-    darkMode: localStorage['acc-darkMode'] || false
+    darkMode: localStorage['acc-darkMode'] != null ? localStorage['acc-darkMode'] : false
 }
 
 let WARNING = {
@@ -161,26 +161,20 @@ function removeWarning() {
     console.log("Warning pop-ups 'after' timeout: " + WARNING.count);
 }
 
-function initDarkModeBtn() {
-    document.getElementsByTagName('darkmode').item(0).innerHTML = `
-    <div id="darkMode-wrapper">
-        <div id="darkMode-btn" onclick="darkMode()">
-            <img src="./img/icons/darkmode_${USER.darkMode == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">
-        </div>
-    </div>
- `;
-}
-initDarkModeBtn()
-
 function darkMode() {
     // To understand
     // If it was not on, turn it on and apply
-    USER.darkMode = !USER.darkMode
+    USER.darkMode = !JSON.parse(localStorage['acc-darkMode'])
     localStorage['acc-darkMode'] = JSON.stringify(USER.darkMode)
-    console.log(USER.darkMode);
+    console.log(USER.darkMode, localStorage['acc-darkMode']);
     
 
-    if (USER.darkMode == true) {
+    checkDarkMode()
+    changeNavLogoCart()
+}
+
+function checkDarkMode() {
+    if (JSON.parse(localStorage['acc-darkMode']) == true) {
         CV.style.setProperty('--background', '#262529');
         CV.style.setProperty('--white', '#262529')
         CV.style.setProperty('--white70', '#262529b3')
@@ -198,7 +192,7 @@ function darkMode() {
         CV.style.setProperty('--lightgray', 'rgb(224,224,224)')
     }
 }
-darkMode()
+checkDarkMode()
 
 function toLogIn() {
     window.location.href = `./pages/account/account-login.html`;

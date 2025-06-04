@@ -184,13 +184,14 @@ function checkMoney() {
     for (let i = 0; i < USER.cart.item.length; i++) {
         temp += USER.cart.item[i].price
     }
-
+    console.log(temp);
+    
     if (USER.money - temp < 0) {
         showWarningMessage('Not enough funds!')
         return;
     }
 
-    if (temp <= 0) {
+    if (temp <= 0 || temp == null) {
         showWarningMessage('No products to buy!')
         return;
     }
@@ -211,6 +212,22 @@ function addMoney(value) {
 
     document.getElementById('user-money').innerHTML = `<p>${`${USER.money} €`}</p>`;
 }
+
+function changeNavLogoCart() {
+    document.getElementById('nav-logo').innerHTML = `<img src="../img/logos/logo${USER.darkMode == true ? '_dark' : ''}.png" alt="ExpertShop logo">`;
+    document.getElementById('nav-items').innerHTML = `<img src="../img/icons/shopping-cart${USER.darkMode == true ? '-white' : ''}.png" alt="shopping cart">`
+}
+
+function initDarkModeBtn() {
+    document.getElementsByTagName('darkmode').item(0).innerHTML = `
+    <div id="darkMode-wrapper">
+        <div id="darkMode-btn" onclick="darkMode()">
+            <img src="../img/icons/darkmode_${USER.darkMode == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">
+        </div>
+    </div>
+ `;
+}
+initDarkModeBtn()
 
 function toAccountOverview() {
     window.location.href = `./account/account-overview.html`;
