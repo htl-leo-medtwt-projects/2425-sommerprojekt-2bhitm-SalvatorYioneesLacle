@@ -22,7 +22,7 @@ initPageIcon();
 function initNavigationbar() {
     let str = `
             <a id="nav-logo" href="../index.html">
-                <img src="../img/logos/logo${USER.darkMode ? '_dark' : ''}.png" alt="ExpertShop logo">
+                <img src="../img/logos/logo${!USER.darkMode ? '_dark' : ''}.png" alt="ExpertShop logo">
             </a>
             <div id="nav-btns">
                 

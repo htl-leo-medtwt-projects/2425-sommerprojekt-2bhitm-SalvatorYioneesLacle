@@ -7,7 +7,7 @@ initPageIcon();
 function initNavigationbar() {
     document.getElementsByTagName('nav').item(0).innerHTML = `
             <a id="nav-logo" href="../index.html">
-                <img src="../img/logos/logo${USER.darkMode ? '_dark' : ''}.png" alt="ExpertShop logo">
+                <img src="../img/logos/logo${!USER.darkMode ? '_dark' : ''}.png" alt="ExpertShop logo">
             </a>
 
             <div id="nav-account" ${USER.logInStatus ? 'onclick="toAccountOverview()"' : ''}>
