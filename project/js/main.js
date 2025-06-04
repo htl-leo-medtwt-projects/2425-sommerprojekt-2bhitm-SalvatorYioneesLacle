@@ -161,10 +161,21 @@ function removeWarning() {
     console.log("Warning pop-ups 'after' timeout: " + WARNING.count);
 }
 
+function initDarkModeBtn() {
+ document.getElementsByTagName('darkmode').item(0).innerHTML = `
+    <div id="darkMode-wrapper">
+        <div id="darkMode-btn">
+            <img src="./img/icons/darkmode_${USER.darkMode ? 'on' : 'off'}.png" alt="Dark Mode Icon">
+        </div>
+    </div>
+ `;   
+}
+initDarkModeBtn()
+
 function darkMode() {
     // To understand
     // If it was not on, turn it on
-    if (USER.darkMode) {
+    if (!USER.darkMode) {
         CV.style.setProperty('--background', '#262529');
         CV.style.setProperty('--white', '#262529')
         CV.style.setProperty('--white70', '#262529b3')
@@ -185,7 +196,6 @@ function darkMode() {
     USER.darkMode = !USER.darkMode
     localStorage['acc-darkMode'] = JSON.stringify(USER.darkMode)
 }
-darkMode()
 
 function toLogIn() {
     window.location.href = `./pages/account/account-login.html`;
