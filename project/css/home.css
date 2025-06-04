@@ -56,11 +56,13 @@
 #slideshowText h2 {
     font-family: orbitron-extrabold;
     font-size: 2.6em;
+    color: var(--white);
 }
 
 #slideshowText p {
     font-size: 1.2em;
     letter-spacing: .06em;
+    color: var(--white);
 }
 
 #content {

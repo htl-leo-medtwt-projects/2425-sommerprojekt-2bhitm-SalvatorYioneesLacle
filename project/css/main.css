@@ -57,6 +57,7 @@
     scroll-behavior: smooth;
     scroll-padding: 30%;
     transition: all .12s ease;
+    color: var(--black);
 }
 
 /* General classes */
