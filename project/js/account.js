@@ -114,6 +114,11 @@ function saveUserData() {
     USER.pfp = TEMP.pfp
     localStorage['acc-pfp'] = USER.pfp
 
+    if (USER.money <= 0) {
+        USER.money = (Math.random() * 10_000).toFixed(2)
+        localStorage['acc-money'] = USER.money
+    }
+
     USER.logInStatus = true;
     localStorage['acc-logInStatus'] = USER.logInStatus
 }
@@ -126,7 +131,8 @@ function deleteAccount() {
     localStorage['acc-pw'] = null
     localStorage['acc-pfp'] = '/img/pfp/0.png'
     localStorage['acc-money'] = 0
-    localStorage['acc-cart'] = null
+    localStorage['acc-cart'] = JSON.stringify({ item: [{ onDate: undefined }] })
+    localStorage['acc-transactions'] = null
     localStorage['acc-favourites'] = null
     localStorage['acc-logInStatus'] = USER.logInStatus;
 
@@ -151,6 +157,11 @@ function checkLogin() {
         showWarningMessage('Wrong password!')
         document.getElementById('password').value = '';
         return false;
+    }
+
+    if (USER.money <= 0) {
+        USER.money = (Math.random() * 10_000).toFixed(2)
+        localStorage['acc-money'] = USER.money
     }
 
     saveUserData()

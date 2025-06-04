@@ -10,7 +10,7 @@ function initNavigationbar() {
                 <img src="../img/logos/logo.png" alt="ExpertShop logo">
             </a>
 
-            <div id="nav-account" ${USER.logInStatus  ? 'onclick="toAccountOverview()"' : ''}>
+            <div id="nav-account" ${USER.logInStatus ? 'onclick="toAccountOverview()"' : ''}>
                 ${USER.logInStatus == false ? `
                     <div onclick="toSignUp()">
                         <p>Sign Up</p>
@@ -44,23 +44,23 @@ function saveUsername() {
 }
 
 function saveAddress() {
-    
+
 }
 
 function saveCity() {
-    
+
 }
 
 function savePostal() {
-    
+
 }
 
 function savePhoneNumber() {
-    
+
 }
 
 function saveCountry() {
-    
+
 }
 
 let inputFieldIds = ['username', 'address', 'city', 'postal', 'phone-number', 'country']
@@ -76,6 +76,10 @@ function checkInputFields() {
     }
 
     if (canContinue) {
+        for (let i = 0; i < USER.cart.item.length; i++) {
+            USER.transactions.item.push(USER.cart.item[i])
+        }
+
         USER.cart.item.splice(0);
         USER.cart = {
             item: [
@@ -85,6 +89,7 @@ function checkInputFields() {
             ]
         }
         localStorage['acc-cart'] = JSON.stringify(USER.cart)
+        localStorage['acc-transactions'] = JSON.stringify(USER.transactions)
         toSuccessfullPurchasePage()
     }
 }

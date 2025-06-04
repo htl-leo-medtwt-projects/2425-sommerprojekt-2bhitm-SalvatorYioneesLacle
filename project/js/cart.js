@@ -63,8 +63,24 @@ function initWrapper() {
                     <div class="filterHeaders">
                         <h2>Your balance</h2>
                     </div>
-                    <div class="monetaryText">
+                    <div class="monetaryText" id="user-money">
                         <p>${`${USER.money} €`}</p>
+                    </div>
+                </div>
+                <div class="monetaryBoxes">
+                    <div id="addMoneyBox">
+                        <div onclick="addMoney(${100})">
+                            <p>+100 €</p>
+                        </div>
+                        <div onclick="addMoney(${200})">
+                            <p>+200 €</p>
+                        </div>
+                        <div onclick="addMoney(${500})">
+                            <p>+500 €</p>
+                        </div>
+                        <div onclick="addMoney(${1000})">
+                            <p>+1000 €</p>
+                        </div>
                     </div>
                 </div>
                 <div id="buy-all-btn" onclick="checkMoney()">
@@ -82,27 +98,29 @@ function initCartTemplate() {
     let strTransactionDates = '';
 
     for (let i = USER.cart.item.length - 1; i >= 0; i--) {
-        if (i == USER.cart.item.length - 1) {
-            strTransactionDates += `
+        if (USER.cart.item[i].onDate != undefined || USER.cart.item[i].onDate != null) {
+            if (i == USER.cart.item.length - 1) {
+                strTransactionDates += `
                 <div class="transactionDateBox">
                     <div>${USER.cart.item[i].onDate}</div>
                     <div class="transactionPosBox" id="on-${USER.cart.item[i].onDate}">
                     </div>
                 </div>
                 `;
-            console.log('transaction added');
-        }
+                console.log('transaction added');
+            }
 
-        if (i >= 1) {
-            if (USER.cart.item[i].onDate != USER.cart.item[i - 1].onDate) {
-                strTransactionDates += `
+            if (i >= 1) {
+                if (USER.cart.item[i].onDate != USER.cart.item[i - 1].onDate) {
+                    strTransactionDates += `
                 <div class="transactionDateBox">
                     <div>${USER.cart.item[i - 1].onDate}</div>
                     <div class="transactionPosBox" id="on-${USER.cart.item[i - 1].onDate}">
                     </div>
                 </div>
                 `;
-                console.log('transaction added');
+                    console.log('transaction added');
+                }
             }
         }
     }
@@ -112,7 +130,8 @@ initCartTemplate()
 
 function initDevices() {
     for (let i = USER.cart.item.length - 1; i >= 0; i--) {
-        document.getElementById(`on-${USER.cart.item[i].onDate}`).innerHTML += `
+        if (USER.cart.item[i].onDate != undefined || USER.cart.item[i].onDate != null) {
+            document.getElementById(`on-${USER.cart.item[i].onDate}`).innerHTML += `
             <div class="transactionBox" id="transaction-${i}" onclick="removeFromCart(${i})">
                 <div>
                     <p>${USER.cart.item[i].name}</p>
@@ -124,6 +143,7 @@ function initDevices() {
                     <img src="../img/util/trWhTr70.png" alt="Transparent Go Around">
                 </div>
             </div>`
+        }
     }
 }
 initDevices()
@@ -139,14 +159,14 @@ function removeFromCart(docId) {
         if (getTotalPrice() == 0) {
             document.getElementById('transactions').innerHTML = '';
         }
-    }, 2000)
+    }, 2100)
 
     initTotalPrice()
 }
 
 function getTotalPrice() {
     let temp = 0;
-    if (!USER.cart.item) {
+    if (!USER.cart.item || USER.cart.item[0].onDate == undefined || USER.cart.item[0].onDate == null) {
         return null;
     }
     for (let i = 0; i < USER.cart.item.length; i++) {
@@ -185,10 +205,25 @@ function checkMoney() {
     toPaymentPage()
 }
 
+function addMoney(value) {
+    USER.money += value;
+    localStorage['acc-money'] = JSON.stringify(USER.money)
+
+    document.getElementById('user-money').innerHTML = `<p>${`${USER.money} €`}</p>`;
+}
+
 function toAccountOverview() {
     window.location.href = `./account/account-overview.html`;
 }
 
 function toPaymentPage() {
     window.location.href = `./shop-payment.html`;
+}
+
+function toLogIn() {
+    window.location.href = `./account/account-login.html`;
+}
+
+function toSignUp() {
+    window.location.href = `./account/account-signup.html`;
 }

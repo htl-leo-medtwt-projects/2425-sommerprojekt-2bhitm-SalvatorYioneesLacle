@@ -218,6 +218,47 @@ nav #nav-logo {
     font-size: 1.8em;
 }
 
+#addMoneyBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: .8em;
+    row-gap: .3em;
+    text-align: center;
+}
+
+#addMoneyBox>div {
+    padding: .4em 0;
+    margin: 0 auto;
+    width: 45%;
+    min-width: 6em;
+    box-shadow: 0px 0px .12em var(--darkgray), inset 0px 0px .2em var(--gray);
+    border-right: .1em var(--gray) solid;
+    border-bottom: .1em var(--gray) solid;
+    user-select: none;
+    cursor: pointer;
+}
+
+#addMoneyBox>div:hover {
+    transform: scale(1.1);
+    background-color: var(--expert);
+    color: var(--white);
+    border: none;
+    box-shadow: 0px 0px .2em .12em var(--black);
+}
+
+#addMoneyBox>div:active {
+    transform: scale(1.04);
+}
+
+#addMoneyBox>div p {
+    font-family: var(--btnFont);
+    text-align: center;
+    width: max-content;
+    margin: 0 auto;
+}
+
 #buy-all-btn {
     width: 100%;
     padding: .3em .65em;

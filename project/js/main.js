@@ -55,6 +55,7 @@ let USER = {
     pfp: localStorage['acc-pfp'] || 'https://rewards.bing.com/rewardscdn/images/rewards.png',
     money: JSON.parse(localStorage['acc-money'] ?? (Math.random() * 10_000).toFixed(2)),
     cart: localStorage['acc-cart'] != null ? JSON.parse(localStorage['acc-cart']) : CART,
+    transactions: localStorage['acc-transactions'] != null ? JSON.parse(localStorage['acc-transactions']) : TRANSACTIONS,
     favourites: localStorage['acc-favourites'] != null ? JSON.parse(localStorage['acc-favourites']) : FAVOURITES,
     logInStatus: localStorage['acc-logInStatus'] == 'false' || localStorage['acc-logInStatus'] == null ? false : true
 }
@@ -70,6 +71,7 @@ function initAccountState() {
     localStorage['acc-pfp'] = USER.pfp
     localStorage['acc-money'] = JSON.stringify(USER.money)
     localStorage['acc-cart'] = JSON.stringify(USER.cart)
+    localStorage['acc-transactions'] = JSON.stringify(USER.transactions)
     localStorage['acc-isInCart'] = JSON.stringify([[false]])
     localStorage['acc-favourites'] = JSON.stringify(USER.favourites)
     localStorage['acc-logInStatus'] = JSON.stringify(USER.logInStatus)
