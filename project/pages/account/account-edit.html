@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpertShop - Account</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/account.css">
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/account.js" defer></script>
+    <script src="../../js/account-setup.js" defer></script>
+    <script src="../../js/account-edit.js" defer></script>
+</head>
+
+<body>
+    <nav></nav>
+    <div id="headerBox">
+        <div id="headerBoxImg">
+            <img src="../../img/util/whTr.png" alt="Transparent Go Around">
+        </div>
+    </div>
+    <div id="accountCredentialsWrapper">
+        <div id="backBtnBoxCredential">
+            <a href="../../pages/account/account-signup.html"><img src="../../img/util/BackBtn.png" alt="Back button"></a>
+        </div>
+        <div id="accountCredentialsBox">
+            <div id="accountCredentialsInput">
+                <div>
+                    <h1>Edit your account</h1>
+                    <p>Make changes to your account</p>
+                </div>
+                <div class="accountInputFields">
+                    <input type="text" name="username" id="username" placeholder="Max Mustermann"
+                        onchange="saveUsername()">
+                    <p>Username</p>
+                </div>
+
+                <div class="accountInputFields allPfpStuff">
+                    <div>
+                        <div id="accountPfpBox"></div>
+                        <p id="accountPfpTxt">
+                            Select a profile picture
+                        </p>
+                    </div>
+
+                    <div>
+                        <p>Or enter a custom profile picture here</p>
+                        <div>
+                            <input type="text" name="custom-pfp-input" id="custom-pfp-input"
+                                placeholder="https://your/url.png" oninput="saveCustomPfp()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="accountBottom">
+                <div id="accountBtnToMove" onclick="checkSignUpStage2()">
+                    <p>Finish</p>
+                </div>
+                <p>Or log in with an exisitng account <a href="../../pages/account/account-login.html">here</a></p>
+            </div>
+        </div>
+    </div>
+    <warning>
+
+    </warning>
+</body>
+
+</html>

@@ -21,7 +21,7 @@
 #headerBoxImg {
     position: absolute;
     top: 0;
-    background-image: url(/img/util/Shadow.png);
+    background-image: url(../img/util/Shadow.png);
     background-size: 75%;
     z-index: -1;
 }

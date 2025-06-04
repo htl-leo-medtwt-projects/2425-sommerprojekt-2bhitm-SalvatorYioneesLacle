@@ -25,7 +25,7 @@ function initNavigationbar() {
                     <div onclick="toLogIn()">
                         <p>Log In</p>
                     </div>` : `<p>${USER.username}</p>
-                    <img src="${USER.pfp}" alt="Profile picture of: ${USER.username}">`
+                    <img src="${USER.pfp.split(':')[0].includes('http') ? USER.pfp : './' + USER.pfp}" alt="Profile picture of: ${USER.username}">`
         }
             </div>
             

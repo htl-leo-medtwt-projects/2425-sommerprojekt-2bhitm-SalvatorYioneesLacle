@@ -19,7 +19,7 @@ function initNavigationbar() {
                     <div onclick="toLogIn()">
                         <p>Log In</p>
                     </div>` : `<p>${USER.username}</p>
-                    <img src="${USER.pfp}" alt="Profile picture of: ${USER.username}">`
+                    <img src="${USER.pfp.split(':')[0].includes('http') ? USER.pfp : '../' + USER.pfp}" alt="Profile picture of: ${USER.username}">`
         }
             </div>
             
@@ -39,12 +39,28 @@ function pay() {
     checkInputFields()
 }
 
-function toHomepage() {
-    window.location.href = `../index.html`
+function saveUsername() {
+
 }
 
-function toSuccessfullPurchasePage() {
-    window.location.href = `./shop-payment-done.html`
+function saveAddress() {
+    
+}
+
+function saveCity() {
+    
+}
+
+function savePostal() {
+    
+}
+
+function savePhoneNumber() {
+    
+}
+
+function saveCountry() {
+    
 }
 
 let inputFieldIds = ['username', 'address', 'city', 'postal', 'phone-number', 'country']
@@ -75,4 +91,12 @@ function checkInputFields() {
 
 function toCartPage() {
     window.location.href = `./cart.html`;
+}
+
+function toHomepage() {
+    window.location.href = `../index.html`
+}
+
+function toSuccessfullPurchasePage() {
+    window.location.href = `./shop-payment-done.html`
 }

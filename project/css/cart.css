@@ -69,6 +69,7 @@ nav #nav-logo {
 /* transactions box with h2 element */
 #transactionsWrapper {
     width: 90%;
+    min-height: 50vh;
     margin: 0 auto 3em auto;
 
     display: flex;

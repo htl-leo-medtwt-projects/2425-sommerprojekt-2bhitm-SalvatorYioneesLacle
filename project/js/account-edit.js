@@ -1,16 +1,3 @@
-let TEMP = {
-    email: USER.email,
-    pw: USER.pw,
-    username: USER.username,
-    pfp: USER.pfp
-}
-
-let INPUTS = {
-    email: document.getElementById('email'),
-    pw: document.getElementById('password'),
-    pwConfirm: document.getElementById('password-confirm'),
-    username: document.getElementById('username')
-}
 
 function initPageIcon() {
     document.getElementsByTagName('head').item(0).innerHTML += `<link rel="icon" href="../../img/logos/logo.png" type="image/x-icon" />`
@@ -25,73 +12,6 @@ function initNavigationbar() {
 }
 initNavigationbar()
 
-function initFooter() {
-    let str = `
-        <div id="footerBorder">
-            <img src="../../img/util/WhTrWh.png" alt="gradient">
-        </div>
-        
-        <div id="footerContent">
-        
-        </div>
-    `;
-    document.getElementsByTagName('footer').item(0).innerHTML = str;
-}
-initFooter()
-
-function isEmailValid() {
-    return document.getElementById('email').value.includes('@')
-        && document.getElementById('email').value.includes('.')
-}
-
-function isPasswordValid() {
-    return document.getElementById('password').value.length > 5;
-}
-
-function isEmailEqual() {
-    return document.getElementById('email').value != 'null' && document.getElementById('email').value == localStorage['acc-email']
-}
-
-function isPasswordEqual() {
-    return document.getElementById('password').value != 'null' && document.getElementById('password').value == localStorage['acc-pw']
-}
-
-function isSamePassword() {
-    return document.getElementById('password-confirm').value == document.getElementById('password').value
-}
-
-function checkSignUpStage1() {
-    if (!isEmailValid()) {
-        showWarningMessage('Invalid email address');
-        document.getElementById('email').value = '';
-        return false;
-    }
-
-    if (!isPasswordValid()) {
-        showWarningMessage('Password too short!');
-        document.getElementById('password').value = '';
-        return false;
-    }
-
-    if (!isSamePassword()) {
-        showWarningMessage('Passwords do not match!');
-        document.getElementById('password-confirm').value = '';
-        return false;
-    }
-
-    TEMP.email = document.getElementById('email').value
-    TEMP.pw = document.getElementById('password').value
-
-    USER.email = TEMP.email
-    localStorage['acc-email'] = USER.email
-
-    console.log(TEMP.email, USER.email, localStorage['acc-email']);
-
-    USER.pw = TEMP.pw
-    localStorage['acc-pw'] = USER.pw
-    toSignUpSetupScreen()
-}
-
 function checkSignUpStage2() {
     TEMP.username = INPUTS.username.value
 
@@ -100,14 +20,6 @@ function checkSignUpStage2() {
 }
 
 function saveUserData() {
-    USER.email = TEMP.email
-    localStorage['acc-email'] = USER.email
-
-    console.log(TEMP.email, USER.email, localStorage['acc-email']);
-
-    USER.pw = TEMP.pw
-    localStorage['acc-pw'] = USER.pw
-
     USER.username = TEMP.username
     localStorage['acc-username'] = USER.username
 
@@ -153,16 +65,11 @@ function checkLogin() {
         return false;
     }
 
-    saveUserData()
+    USER.pfp = TEMP.pfp
+    localStorage['acc-pfp'] = USER.pfp
+    
+    // saveUserData()
     toAccountOverview();
-}
-
-function saveEmail() {
-    TEMP.email = document.getElementById('email').value
-}
-
-function savePassword() {
-    TEMP.pw = document.getElementById('password').value
 }
 
 function saveUsername() {
@@ -185,7 +92,13 @@ function savePfp(index) {
 }
 
 function saveCustomPfp() {
-    TEMP.pfp = document.getElementById('custom-pfp-input').value.split(':')[0].includes('http') ? document.getElementById('custom-pfp-input').value : USER.pfp
+    if (document.getElementById('custom-pfp-input').value.split(':')[0].includes('http')) {
+        TEMP.pfp = document.getElementById('custom-pfp-input').value
+    }
+
+    if (document.getElementById('custom-pfp-input').value.split(':')[0].includes('C')) {
+        TEMP.pfp = '../../../../../../../../..' + document.getElementById('custom-pfp-input').value.split(':')[1].replace('\ ', '/')
+    }
     console.log(TEMP.pfp);
 }
 

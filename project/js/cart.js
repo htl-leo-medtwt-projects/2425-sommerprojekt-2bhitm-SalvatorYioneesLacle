@@ -19,7 +19,7 @@ function initNavigationbar() {
                     <div onclick="toLogIn()">
                         <p>Log In</p>
                     </div>` : `<p>${USER.username}</p>
-                    <img src="${USER.pfp}" alt="Profile picture of: ${USER.username}">`
+                    <img src="${USER.pfp.split(':')[0].includes('http') ? USER.pfp : '../' + USER.pfp}" alt="Profile picture of: ${USER.username}">`
         }
             </div>
             
@@ -137,7 +137,7 @@ function removeFromCart(docId) {
     setTimeout(() => {
         document.getElementById(`transaction-${docId}`).outerHTML = '';
         if (getTotalPrice() == 0) {
-            document.getElementById('transactionsWrapper').innerHTML = '';
+            document.getElementById('transactions').innerHTML = '';
         }
     }, 2000)
 
@@ -156,7 +156,7 @@ function getTotalPrice() {
 }
 
 function initTotalPrice() {
-    document.getElementsByClassName('monetaryText').item(0).innerHTML = `<p>${getTotalPrice() <= 0 || getTotalPrice() == null ? 'There is nothing to see...' : `${getTotalPrice().toFixed(2)} €`}</p>`
+    document.getElementsByClassName('monetaryText').item(0).innerHTML = `<p>${getTotalPrice() <= 0 || getTotalPrice() == null ? 'Nothing to buy...' : `${getTotalPrice().toFixed(2)} €`}</p>`
 }
 
 function checkMoney() {

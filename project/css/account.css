@@ -13,7 +13,7 @@
 #headerBoxImg {
     position: absolute;
     top: 0;
-    background-image: url(/img/util/Shadow.png);
+    background-image: url(../img/util/Shadow.png);
     background-size: 75%;
     z-index: -1;
 }
@@ -156,7 +156,7 @@
 .transactionBoxImg {
     position: absolute;
     top: 0;
-    background-image: url(/img/util/ShadowBlackTr.png);
+    background-image: url(../img/util/ShadowBlackTr.png);
     background-size: 170%;
     width: 100%;
     z-index: -1;
@@ -474,7 +474,7 @@
 /* Background for sign out, create account, ... */
 #background {
     position: absolute;
-    background-image: url(/img/util/Shadow.png);
+    background-image: url(../img/util/Shadow.png);
     background-size: 120%;
     height: 100%;
     width: 100%;

@@ -37,7 +37,7 @@ let ITEMS = {
 let CART = {
     item: [
         {
-            onDate: undefined
+            onDate:null
         }
     ]
 }

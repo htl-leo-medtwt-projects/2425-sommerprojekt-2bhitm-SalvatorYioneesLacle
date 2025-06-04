@@ -3,8 +3,8 @@ function initAccountOverview() {
         <div>
             <p>${USER.username}</p>
         </div>
-        <div>
-            <img src="${USER.pfp}" alt="${USER.username}">
+        <div onclick="toAccountEdit()">
+            <img src="${USER.pfp.split(':')[0].includes('http') ? USER.pfp : '../../' + USER.pfp}" alt="${USER.username}">
         </div>
     `;
 

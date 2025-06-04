@@ -17,7 +17,7 @@
 #imageCover {
     position: absolute;
     bottom: 0;
-    background-image: url(/img/util/ShadowMask.png);
+    background-image: url(../img/util/ShadowMask.png);
     background-size: 30%;
     color: var(--white);
     z-index: 9;
@@ -139,7 +139,7 @@
 
 .btnDivImg {
     height: .25em;
-    background-image: url(/img/util/ShadowMask.png);
+    background-image: url(../img/util/ShadowMask.png);
     background-size: 85%;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     transition-duration: 1s;
