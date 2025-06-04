@@ -162,20 +162,25 @@ function removeWarning() {
 }
 
 function initDarkModeBtn() {
- document.getElementsByTagName('darkmode').item(0).innerHTML = `
+    document.getElementsByTagName('darkmode').item(0).innerHTML = `
     <div id="darkMode-wrapper">
-        <div id="darkMode-btn">
-            <img src="./img/icons/darkmode_${USER.darkMode ? 'on' : 'off'}.png" alt="Dark Mode Icon">
+        <div id="darkMode-btn" onclick="darkMode()">
+            <img src="./img/icons/darkmode_${USER.darkMode == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">
         </div>
     </div>
- `;   
+ `;
 }
 initDarkModeBtn()
 
 function darkMode() {
     // To understand
-    // If it was not on, turn it on
-    if (!USER.darkMode) {
+    // If it was not on, turn it on and apply
+    USER.darkMode = !USER.darkMode
+    localStorage['acc-darkMode'] = JSON.stringify(USER.darkMode)
+    console.log(USER.darkMode);
+    
+
+    if (USER.darkMode == true) {
         CV.style.setProperty('--background', '#262529');
         CV.style.setProperty('--white', '#262529')
         CV.style.setProperty('--white70', '#262529b3')
@@ -192,10 +197,8 @@ function darkMode() {
         CV.style.setProperty('--gray', 'rgb(196,196,196)')
         CV.style.setProperty('--lightgray', 'rgb(224,224,224)')
     }
-
-    USER.darkMode = !USER.darkMode
-    localStorage['acc-darkMode'] = JSON.stringify(USER.darkMode)
 }
+darkMode()
 
 function toLogIn() {
     window.location.href = `./pages/account/account-login.html`;

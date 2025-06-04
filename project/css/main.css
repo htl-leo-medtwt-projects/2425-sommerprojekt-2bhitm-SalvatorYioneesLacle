@@ -385,16 +385,31 @@ darkmode {
     position: fixed;
     top: 85vh;
     left: 4em;
+    z-index: 10;
 }
 
 #darkMode-wrapper {
-    width: 4em;
-    height: 4em;
+    width: 3em;
+    height: 3em;
 }
 
 #darkMode-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .4em;
+    
     background-color: var(--black);
-    border: .2em var(--expert) solid;
+    border: .1em var(--white) solid;
+    box-shadow: var(--accountBoxShadow);
+    user-select: none;
+    cursor: pointer;
+}
+
+#darkMode-btn:hover {
+    transform: scale(1.25);
+    border-color: var(--expert);
+    border-radius: .6em;
 }
 
 input::-webkit-outer-spin-button,

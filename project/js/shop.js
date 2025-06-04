@@ -22,7 +22,7 @@ initPageIcon();
 function initNavigationbar() {
     let str = `
             <a id="nav-logo" href="../index.html">
-                <img src="../img/logos/logo${!USER.darkMode ? '_dark' : ''}.png" alt="ExpertShop logo">
+                <img src="../img/logos/logo${USER.darkMode == true ? '_dark' : ''}.png" alt="ExpertShop logo">
             </a>
             <div id="nav-btns">
                 
@@ -41,7 +41,7 @@ function initNavigationbar() {
             </div>
             
             <div id="nav-items" onclick="toCartPage()">
-                <img src="../img/icons/shopping-cart.png" alt="shopping cart">
+                <img src="../img/icons/shopping-cart${USER.darkMode == true ? '-white' : ''}.png" alt="shopping cart">
             </div>
     `;
     document.getElementsByTagName('nav').item(0).innerHTML = str;
