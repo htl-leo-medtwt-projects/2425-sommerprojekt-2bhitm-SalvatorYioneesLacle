@@ -203,6 +203,21 @@ function outputMaxDispSize() {
     console.log("F");
 }
 
+function changeNavLogoCart() {
+    document.getElementById('nav-logo').innerHTML = `<img src="../img/logos/logo${JSON.parse(localStorage['acc-darkMode']) == true ? '_dark' : ''}.png" alt="ExpertShop logo">`;
+    document.getElementById('nav-items').innerHTML = `<img src="../img/icons/shopping-cart${JSON.parse(localStorage['acc-darkMode']) == true ? '-white' : ''}.png" alt="shopping cart">`
+    document.getElementById('darkMode-btn').innerHTML = `<img src="../img/icons/darkmode_${JSON.parse(localStorage['acc-darkMode']) == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">`
+    document.getElementById('headerBoxImg').innerHTML = `<img src="../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'bl' : 'wh'}Tr.png" alt="Transparent Go Around">`
+
+    for (let i = 0; i < document.getElementsByClassName('itemStats').length; i++) {
+        document.getElementsByClassName('itemStats').item(i).style.backgroundImage = `url(../img/util/tr${JSON.parse(localStorage['acc-darkMode']) == true ? 'bl' : 'wh'}Tr.png)`
+    }
+
+    document.getElementById('footerBorder').innerHTML = `<img src="../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'blTrBl' : 'whTrWh'}.png" alt="gradient">`
+    document.getElementById('footerBorder').style.backgroundImage = `url(../img/util/Shadow${JSON.parse(localStorage['acc-darkMode']) == true ? 'White' : 'Black'}Tr.png)`
+}
+changeNavLogoCart()
+
 // INIT GSAP SCROLL PLUGIN
 gsap.registerPlugin(ScrollTrigger);
 

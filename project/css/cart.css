@@ -109,7 +109,7 @@ nav #nav-logo {
     align-items: center;
     justify-content: space-between;
     margin: .3em 0;
-    width: 85vw;
+    width: 100%;
     max-width: 47em;
     height: 3em;
     border: .1em solid var(--black);

@@ -64,7 +64,7 @@ function initWrapper() {
                         <h2>Your balance</h2>
                     </div>
                     <div class="monetaryText" id="user-money">
-                        <p>${`${USER.money} €`}</p>
+                        <p>${`${(USER.money).toFixed(2)} €`}</p>
                     </div>
                 </div>
                 <div class="monetaryBoxes">
@@ -176,7 +176,7 @@ function getTotalPrice() {
 }
 
 function initTotalPrice() {
-    document.getElementsByClassName('monetaryText').item(0).innerHTML = `<p>${getTotalPrice() <= 0 || getTotalPrice() == null ? 'Nothing to buy...' : `${getTotalPrice().toFixed(2)} €`}</p>`
+    document.getElementsByClassName('monetaryText').item(0).innerHTML = `<p>${getTotalPrice() <= 0 || getTotalPrice() == null ? 'Nothing to buy...' : `${(getTotalPrice()).toFixed(2)} €`}</p>`
 }
 
 function checkMoney() {
@@ -210,7 +210,7 @@ function addMoney(value) {
     USER.money += value;
     localStorage['acc-money'] = JSON.stringify(USER.money)
 
-    document.getElementById('user-money').innerHTML = `<p>${`${USER.money} €`}</p>`;
+    document.getElementById('user-money').innerHTML = `<p>${`${(USER.money).toFixed(2)} €`}</p>`;
 }
 
 function initDarkModeBtn() {

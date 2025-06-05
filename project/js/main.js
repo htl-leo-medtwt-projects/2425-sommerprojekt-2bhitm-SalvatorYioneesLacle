@@ -36,20 +36,10 @@ let ITEMS = {
 }
 
 // onclick --> add to CART.item, save the date
-let CART = {
-    item: [
-        {
-            onDate: null
-        }
-    ]
-}
+let CART = { item: [{ onDate: null }] }
 
 // onclick --> add to TRANSACTIONS.item, save the date                       ...or copy from CART
-let TRANSACTIONS = {
-    item: [
-        { onDate: null }
-    ]
-}
+let TRANSACTIONS = { item: [{ onDate: null }] }
 
 // onclick --> add to FAVOURITES.item
 let FAVOURITES = { item: [] }
@@ -167,7 +157,7 @@ function removeWarning() {
 
 function darkMode() {
     // To understand
-    // If it was not on, turn it on and apply
+    // If false, dark mode on
     USER.darkMode = !JSON.parse(localStorage['acc-darkMode'])
     localStorage['acc-darkMode'] = JSON.stringify(USER.darkMode)
     console.log(USER.darkMode, localStorage['acc-darkMode']);

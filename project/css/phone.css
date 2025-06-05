@@ -40,7 +40,7 @@
     position: absolute;
     padding: .6em 0;
     bottom: 0;
-    background-image: url(/img/util/trWhTr.png);
+    background-image: url(../img/util/trWhTr.png);
     background-size: 100%;
     width: 100%;
 }
@@ -50,4 +50,17 @@
     display: flex;
     justify-content: center;
     align-items: end;
+}
+
+@media screen and (max-width: 1000px) {
+    #items-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #items-grid {
+        grid-template-columns: 1fr;
+        padding: 2em 4em;
+    }
 }

@@ -128,7 +128,7 @@ nav #nav-logo {
     justify-content: center;
     align-items: center;
     max-lines: 1;
-    min-width: max-content;
+    min-width: fit-content;
 }
 
 .transactionBox div:first-of-type p {

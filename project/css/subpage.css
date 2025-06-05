@@ -668,3 +668,73 @@
     }
 
 }
+
+@media screen and (max-width: 850px) {
+    nav {
+        position: sticky;
+        top: calc(-3em + 3.5px);
+    }
+    
+    /* Header with stripes background */
+    #headerBox {
+        position: relative;
+        height: max-content;
+        overflow: hidden;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1em 0;
+    }
+
+    /* Header text */
+    #headerBox h2 {
+        color: var(--black);
+        font-size: 1.2em;
+        font-family: orbitron-extrabold;
+        padding: 0 .75em;
+    }
+
+    #headerBoxImg img {
+        height: inherit;
+    }
+
+    /* "Content", filter + sold thing */
+    #wrapper {
+        padding: .5em 0;
+    }
+
+    #filterBox {
+        width: 100%;
+        height: min-content;
+        color: var(--black);
+        margin: 0 auto;
+        padding: 1em 1.2em;
+        top: 3.5px;
+        display: flex;
+        justify-content: space-around;
+        align-items: start;
+        flex-wrap: nowrap;
+        box-shadow: 0px 0px 15px 5px var(--lightgray);
+        gap: 1em;
+        background-color: var(--white);
+        z-index: 9;
+    }
+
+    #filterBox>div {
+        margin: 0;
+        gap: 1.4em;
+        width: fit-content;
+    }
+
+    #headerBox {
+        padding: .5em 0;
+    }
+
+    #headerBox h2 {
+        font-size: 1.5em;
+    }
+
+    .itemStats h2 {
+        font-size: .8em;
+    }
+}

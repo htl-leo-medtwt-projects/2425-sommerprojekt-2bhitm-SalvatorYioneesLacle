@@ -234,3 +234,50 @@
         height: 2em;
     }
 }
+
+
+@media screen and (max-width: 850px) {
+    #btnDiv h3 {
+        font-size: .9em;
+    }
+
+    #btnDiv p {
+        font-size: .6em;
+    }
+
+    #slideshowText h2 {
+        font-size: 1.2em;
+    }
+
+    #slideshowText p {
+        font-size: 1em;
+    }
+
+    #slideshowImage {
+        height: 30em;
+    }
+
+    #slideshowBox {
+        padding-bottom: 1.4em;
+    }
+
+    #imageCover img {
+        height: 1.4em;
+    }
+
+    #welcomeBoxText {
+        padding: .5em;
+    }
+
+    #welcomeBoxText>div {
+        padding: .2em;
+    }
+
+    #welcomeBoxText h2 {
+        font-size: 1.6em;
+    }
+
+    #welcomeBoxText p {
+        font-size: 1em;
+    }
+}
