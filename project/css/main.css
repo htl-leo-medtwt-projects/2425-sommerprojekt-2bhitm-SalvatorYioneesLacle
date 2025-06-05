@@ -147,6 +147,11 @@ nav #nav-btns>a {
     padding: 0 .5em;
     width: max-content;
     height: 115%;
+}
+
+nav #nav-btns p,
+nav #nav-account p,
+nav #nav-btns a {
     text-decoration: none;
     color: var(--black);
 }
@@ -154,6 +159,9 @@ nav #nav-btns>a {
 nav #nav-btns>div:hover,
 nav #nav-btns>a:hover {
     background-color: var(--expert);
+}
+
+nav #nav-btns>div:hover p {
     color: var(--white);
 }
 
@@ -394,11 +402,14 @@ darkmode {
 }
 
 #darkMode-btn {
+    width: 3em;
+    height: 3em;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     padding: .4em;
-    
+
     background-color: var(--black);
     border: .1em var(--white) solid;
     box-shadow: var(--accountBoxShadow);

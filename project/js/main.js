@@ -168,7 +168,6 @@ function darkMode() {
     localStorage['acc-darkMode'] = JSON.stringify(USER.darkMode)
     console.log(USER.darkMode, localStorage['acc-darkMode']);
     
-
     checkDarkMode()
     changeNavLogoCart()
 }

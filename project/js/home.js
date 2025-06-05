@@ -11,7 +11,7 @@ initPageIcon();
 function initNavigationbar() {
     let str = `
             <a id="nav-logo" href="./index.html">
-                <img src="./img/logos/logo${USER.darkMode == true ? '_dark' : ''}.png" alt="ExpertShop logo">
+                <img src="./img/logos/logo${JSON.parse(localStorage['acc-darkMode']) == true ? '_dark' : ''}.png" alt="ExpertShop logo">
             </a>
             <div id="nav-btns">
                 
@@ -30,28 +30,12 @@ function initNavigationbar() {
             </div>
             
             <div id="nav-items" onclick="toCartPage()">
-                <img src="./img/icons/shopping-cart${USER.darkMode == true ? '-white' : ''}.png" alt="shopping cart">
+                <img src="./img/icons/shopping-cart${JSON.parse(localStorage['acc-darkMode']) == true ? '-white' : ''}.png" alt="shopping cart">
             </div>
     `;
     document.getElementsByTagName('nav').item(0).innerHTML = str;
 }
 initNavigationbar()
-
-function changeNavLogoCart() {
-    document.getElementById('nav-logo').innerHTML = `<img src="./img/logos/logo${USER.darkMode == true ? '_dark' : ''}.png" alt="ExpertShop logo">`;
-    document.getElementById('nav-items').innerHTML = `<img src="./img/icons/shopping-cart${USER.darkMode == true ? '-white' : ''}.png" alt="shopping cart">`
-}
-
-function initDarkModeBtn() {
-    document.getElementsByTagName('darkmode').item(0).innerHTML = `
-    <div id="darkMode-wrapper">
-        <div id="darkMode-btn" onclick="darkMode()">
-            <img src="./img/icons/darkmode_${USER.darkMode == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">
-        </div>
-    </div>
- `;
-}
-initDarkModeBtn()
 
 function initFooter() {
     let str = `
@@ -90,3 +74,30 @@ function initNavBtnsHome() {
 }
 initNavBtnsHome();
 
+function initDarkModeBtn() {
+    document.getElementsByTagName('darkmode').item(0).innerHTML = `
+    <div id="darkMode-wrapper">
+        <div id="darkMode-btn" onclick="darkMode()">
+            <img src="./img/icons/darkmode_${JSON.parse(localStorage['acc-darkMode']) == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">
+        </div>
+    </div>
+ `;
+
+}
+initDarkModeBtn()
+
+function changeNavLogoCart() {
+    document.getElementById('nav-logo').innerHTML = `<img src="./img/logos/logo${JSON.parse(localStorage['acc-darkMode']) == true ? '_dark' : ''}.png" alt="ExpertShop logo">`;
+    document.getElementById('nav-items').innerHTML = `<img src="./img/icons/shopping-cart${JSON.parse(localStorage['acc-darkMode']) == true ? '-white' : ''}.png" alt="shopping cart">`
+    document.getElementById('darkMode-btn').innerHTML = `<img src="./img/icons/darkmode_${JSON.parse(localStorage['acc-darkMode']) == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">`
+
+    for (let i = 0; i < document.getElementsByClassName('btnDivImg').length; i++) {
+        document.getElementsByClassName('btnDivImg').item(i).style.backgroundImage = `url(./img/util/ShadowMask${JSON.parse(localStorage['acc-darkMode']) == true ? '-white' : ''}.png)`
+    }
+
+    document.getElementById('imageCover').style.backgroundImage = `url(./img/util/ShadowMask${JSON.parse(localStorage['acc-darkMode']) == true ?  '' : '-white'}.png)`
+
+    document.getElementById('footerBorder').innerHTML = `<img src="./img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'blTrBl' : 'whTrWh'}.png" alt="gradient">`
+    document.getElementById('footerBorder').style.backgroundImage = `url(./img/util/Shadow${JSON.parse(localStorage['acc-darkMode']) == true ? 'White' : 'Black'}Tr.png)`
+}
+changeNavLogoCart()

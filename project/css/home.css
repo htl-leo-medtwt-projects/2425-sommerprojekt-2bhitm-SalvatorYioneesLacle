@@ -39,8 +39,8 @@
 }
 
 #slideshowText {
-    background-color: var(--black);
-    border: .1em var(--white) solid;
+    background-color: var(--white);
+    border: .1em var(--black) solid;
     padding: .9em;
     width: 65%;
 }
@@ -50,19 +50,19 @@
 }
 
 #slideshowText div:last-of-type {
-    border-top: var(--white) .1em solid;
+    border-top: var(--black) .1em solid;
 }
 
 #slideshowText h2 {
     font-family: orbitron-extrabold;
     font-size: 2.6em;
-    color: var(--white);
+    color: var(--black);
 }
 
 #slideshowText p {
     font-size: 1.2em;
     letter-spacing: .06em;
-    color: var(--white);
+    color: var(--black);
 }
 
 #content {
@@ -190,11 +190,13 @@
 #welcomeBoxText h2 {
     font-family: orbitron-extrabold;
     font-size: 2.2em;
+    color: var(--black);
 }
 
 #welcomeBoxText p {
     font-size: 1.5em;
     letter-spacing: .03em;
+    color: var(--black);
 }
 
 @media screen and (max-width: 1250px) {
@@ -210,5 +212,25 @@
 
     #btnDiv p {
         font-size: 1em;
+    }
+
+    #slideshowText h2 {
+        font-size: 1.8em;
+    }
+
+    #slideshowText p {
+        font-size: 1.1em;
+    }
+
+    #slideshowImage {
+        height: 36em;
+    }
+
+    #slideshowBox {
+        padding-bottom: 2em;
+    }
+
+    #imageCover img {
+        height: 2em;
     }
 }

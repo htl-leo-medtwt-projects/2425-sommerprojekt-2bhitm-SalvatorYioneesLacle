@@ -20,7 +20,7 @@ initPageIcon();
 function initNavigationbar() {
     document.getElementsByTagName('nav').item(0).innerHTML = `
             <a id="nav-logo" href="../../index.html">
-                <img src="../../img/logos/logo${USER.darkMode == true ? '_dark' : ''}.png" alt="ExpertShop logo">
+                <img src="../../img/logos/logo${JSON.parse(localStorage['acc-darkMode']) == true ? '_dark' : ''}.png" alt="ExpertShop logo">
             </a>`;
 }
 initNavigationbar()
@@ -37,22 +37,26 @@ function initFooter() {
     `;
     document.getElementsByTagName('footer').item(0).innerHTML = str;
 }
-initFooter()
-
-function changeNavLogoCart() {
-    document.getElementById('nav-logo').innerHTML = `<img src="../../img/logos/logo${USER.darkMode == true ? '_dark' : ''}.png" alt="ExpertShop logo">`;
-}
+// initFooter()
 
 function initDarkModeBtn() {
     document.getElementsByTagName('darkmode').item(0).innerHTML = `
     <div id="darkMode-wrapper">
         <div id="darkMode-btn" onclick="darkMode()">
-            <img src="../../img/icons/darkmode_${USER.darkMode == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">
+            <img src="../../img/icons/darkmode_${JSON.parse(localStorage['acc-darkMode']) == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">
         </div>
     </div>
  `;
 }
 initDarkModeBtn()
+
+function changeNavLogoCart() {
+    document.getElementById('nav-logo').innerHTML = `<img src="../../img/logos/logo${JSON.parse(localStorage['acc-darkMode']) == true ? '_dark' : ''}.png" alt="ExpertShop logo">`;
+    document.getElementById('darkMode-btn').innerHTML = `<img src="../../img/icons/darkmode_${JSON.parse(localStorage['acc-darkMode']) == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">`
+    document.getElementById('headerBoxImg').innerHTML = `<img src="../../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'bl' : 'wh'}Tr.png" alt="Transparent Go Around">`;
+    document.getElementById('backBtnBoxCredential').innerHTML = `<a href="../../index.html"><img src="../../img/util/BackBtn${JSON.parse(localStorage['acc-darkMode']) == true ? '-white' : ''}.png" alt="Back button"></a>`
+}
+changeNavLogoCart()
 
 function isEmailValid() {
     return document.getElementById('email').value.includes('@')

@@ -79,6 +79,7 @@
     margin-left: auto;
     margin-bottom: .3em;
     width: fit-content;
+    color: var(--black);
 }
 
 /* transaction box */
@@ -91,6 +92,7 @@
 /* date of transaction box */
 .transactionDateBox {
     text-align: right;
+    color: var(--black);
 }
 
 /* Position the transactions: now float right */
@@ -124,6 +126,7 @@
     align-items: center;
     max-lines: 1;
     min-width: max-content;
+    color: var(--black);
 }
 
 .transactionBox div:first-of-type p {
@@ -245,7 +248,6 @@
 }
 
 #accountBalance {
-    color: var(--green);
     width: fit-content;
     margin: 2em 0;
     margin-left: auto;
@@ -254,6 +256,7 @@
 #accountBalance p {
     font-size: 1.7em;
     font-family: orbitron-semibold;
+    color: var(--green);
 }
 
 #accountDelete {
@@ -308,6 +311,7 @@
 .accountOptionText h1 {
     font-family: Orbitron;
     font-weight: 700;
+    color: var(--black);
 }
 
 .accountOptionText p {
@@ -386,6 +390,7 @@
 #accountCredentialsBox h1 {
     font-family: Orbitron;
     font-weight: 700;
+    color: var(--black);
 }
 
 #accountCredentialsBox p {

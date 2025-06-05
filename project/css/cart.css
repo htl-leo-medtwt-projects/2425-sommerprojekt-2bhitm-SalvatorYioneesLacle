@@ -257,6 +257,7 @@ nav #nav-logo {
     text-align: center;
     width: max-content;
     margin: 0 auto;
+    color: var(--black);
 }
 
 #buy-all-btn {
