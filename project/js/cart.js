@@ -230,6 +230,11 @@ function changeNavLogoCart() {
     document.getElementById('darkMode-btn').innerHTML = `<img src="../img/icons/darkmode_${JSON.parse(localStorage['acc-darkMode']) == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">`
     document.getElementById('headerBoxImg').innerHTML = `<img src="../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'bl' : 'wh'}Tr.png" alt="Transparent Go Around">`
 
+    for (let i = 0; i < document.getElementsByClassName('transactionBoxImg').length; i++) {
+        document.getElementsByClassName('transactionBoxImg').item(i).innerHTML = `<img src="../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'trBlTr70' : 'trWhTr70'}.png" alt="Transparent Go Around">`
+        document.getElementsByClassName('transactionBoxImg').item(i).style.backgroundImage = `url(../img/util/Shadow${JSON.parse(localStorage['acc-darkMode']) == true ? 'White' : 'Black'}Tr.png)`
+    }
+
     document.getElementById('footerBorder').innerHTML = `<img src="../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'blTrBl' : 'whTrWh'}.png" alt="gradient">`
     document.getElementById('footerBorder').style.backgroundImage = `url(../img/util/Shadow${JSON.parse(localStorage['acc-darkMode']) == true ? 'White' : 'Black'}Tr.png)`
 }

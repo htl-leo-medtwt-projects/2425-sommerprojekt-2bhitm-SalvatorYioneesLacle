@@ -31,7 +31,9 @@ function initNavigationbar() {
 initNavigationbar()
 
 function initUsernameInput() {
-    document.getElementById('username').value = USER.username;
+    if (document.getElementById('username') != null) {
+        document.getElementById('username').value = USER.username;
+    }
 }
 initUsernameInput()
 
@@ -76,9 +78,9 @@ function checkInputFields() {
     }
 
     if (canContinue) {
-        for (let i = 0; i < USER.cart.item.length; i++) {
-            USER.transactions.item.push(USER.cart.item[i])
-        }
+        // for (let i = 0; i < USER.cart.item.length; i++) {
+        //     USER.transactions.item.push(USER.cart.item[i])
+        // }
 
         USER.cart.item.splice(0);
         USER.cart = {
@@ -108,6 +110,16 @@ initDarkModeBtn()
 function changeNavLogoCart() {
     document.getElementById('nav-logo').innerHTML = `<img src="../img/logos/logo${JSON.parse(localStorage['acc-darkMode']) == true ? '_dark' : ''}.png" alt="ExpertShop logo">`;
     document.getElementById('nav-items').innerHTML = `<img src="../img/icons/shopping-cart${JSON.parse(localStorage['acc-darkMode']) == true ? '-white' : ''}.png" alt="shopping cart">`
+    document.getElementById('darkMode-btn').innerHTML = `<img src="../img/icons/darkmode_${JSON.parse(localStorage['acc-darkMode']) == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">`
+    if (document.getElementById('headerBoxImg') != null) {
+        document.getElementById('headerBoxImg').innerHTML = `<img src="../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'bl' : 'wh'}Tr.png" alt="Transparent Go Around">`
+    }
+
+
+    document.getElementById('background').innerHTML = `<img src="../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'bl' : 'wh'}Tr50.png" alt="Transparent Go Around">`
+
+    document.getElementById('footerBorder').innerHTML = `<img src="../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'blTrBl' : 'whTrWh'}.png" alt="gradient">`
+    document.getElementById('footerBorder').style.backgroundImage = `url(../img/util/Shadow${JSON.parse(localStorage['acc-darkMode']) == true ? 'White' : 'Black'}Tr.png)`
 }
 changeNavLogoCart()
 
@@ -121,4 +133,12 @@ function toHomepage() {
 
 function toSuccessfullPurchasePage() {
     window.location.href = `./shop-payment-done.html`
+}
+
+function toLogIn() {
+    window.location.href = `./account/account-login.html`;
+}
+
+function toSignUp() {
+    window.location.href = `./account/account-signup.html`;
 }

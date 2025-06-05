@@ -45,7 +45,11 @@ let CART = {
 }
 
 // onclick --> add to TRANSACTIONS.item, save the date                       ...or copy from CART
-let TRANSACTIONS = { item: [] }
+let TRANSACTIONS = {
+    item: [
+        { onDate: null }
+    ]
+}
 
 // onclick --> add to FAVOURITES.item
 let FAVOURITES = { item: [] }
@@ -167,7 +171,7 @@ function darkMode() {
     USER.darkMode = !JSON.parse(localStorage['acc-darkMode'])
     localStorage['acc-darkMode'] = JSON.stringify(USER.darkMode)
     console.log(USER.darkMode, localStorage['acc-darkMode']);
-    
+
     checkDarkMode()
     changeNavLogoCart()
 }

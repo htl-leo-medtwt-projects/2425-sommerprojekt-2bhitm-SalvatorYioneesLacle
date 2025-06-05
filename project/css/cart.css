@@ -95,6 +95,7 @@ nav #nav-logo {
 /* date of transaction box */
 .transactionDateBox {
     text-align: right;
+    color: var(--black);
 }
 
 /* Position the transactions: now float right */
@@ -130,6 +131,7 @@ nav #nav-logo {
     align-items: center;
     max-lines: 1;
     min-width: fit-content;
+    color: var(--black);
 }
 
 .transactionBox div:first-of-type p {

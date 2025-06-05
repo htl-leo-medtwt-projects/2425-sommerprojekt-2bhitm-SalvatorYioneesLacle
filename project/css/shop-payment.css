@@ -311,6 +311,7 @@ nav #nav-logo {
 .accountOptionText h1 {
     font-family: Orbitron;
     font-weight: 700;
+    color: var(--black);
 }
 
 .accountOptionText p {
@@ -393,6 +394,7 @@ nav #nav-logo {
 #accountCredentialsBox h1 {
     font-family: Orbitron;
     font-weight: 700;
+    color: var(--black);
 }
 
 #accountCredentialsBox p {
@@ -421,6 +423,7 @@ nav #nav-logo {
 .accountInputFields input,
 .accountInputFields select {
     outline: none;
+    color: var(--black);
     background-color: var(--gray);
     font-size: 1.2em;
     padding: .4em .55em;

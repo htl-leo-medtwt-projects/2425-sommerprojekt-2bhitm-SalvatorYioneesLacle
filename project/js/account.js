@@ -53,8 +53,15 @@ initDarkModeBtn()
 function changeNavLogoCart() {
     document.getElementById('nav-logo').innerHTML = `<img src="../../img/logos/logo${JSON.parse(localStorage['acc-darkMode']) == true ? '_dark' : ''}.png" alt="ExpertShop logo">`;
     document.getElementById('darkMode-btn').innerHTML = `<img src="../../img/icons/darkmode_${JSON.parse(localStorage['acc-darkMode']) == true ? 'on' : 'off'}.png" alt="Dark Mode Icon">`
-    document.getElementById('headerBoxImg').innerHTML = `<img src="../../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'bl' : 'wh'}Tr.png" alt="Transparent Go Around">`;
-    document.getElementById('backBtnBoxCredential').innerHTML = `<a href="../../index.html"><img src="../../img/util/BackBtn${JSON.parse(localStorage['acc-darkMode']) == true ? '-white' : ''}.png" alt="Back button"></a>`
+    if (document.getElementById('headerBoxImg') != null) {
+        document.getElementById('headerBoxImg').innerHTML = `<img src="../../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'bl' : 'wh'}Tr.png" alt="Transparent Go Around">`;
+    }
+    if (document.getElementById('backBtnBoxCredential') != null) {
+        document.getElementById('backBtnBoxCredential').innerHTML = `<a href="../../index.html"><img src="../../img/util/BackBtn${JSON.parse(localStorage['acc-darkMode']) == true ? '-white' : ''}.png" alt="Back button"></a>`
+    }
+    if (document.getElementById('background') != null) {
+        document.getElementById('background').innerHTML = `<img src="../../img/util/${JSON.parse(localStorage['acc-darkMode']) == true ? 'bl' : 'wh'}Tr50.png" alt="Transparent Go Around">`
+    }
 }
 changeNavLogoCart()
 
